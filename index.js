@@ -6,7 +6,7 @@
 // curl -H "Content-Type: application/json" -X POST "localhost:8000/webhook" -d '{"object": "page", "entry": [{"messaging": [{"message": "TEST_MESSAGE"}]}]}'
 
 // Kill port if already in use
-// kill $(lsof -t -i:8080)
+// kill $(lsof -t -i:8000)
 
 
 // Imports dependencies and set up http server
