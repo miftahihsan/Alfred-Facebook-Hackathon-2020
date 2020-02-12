@@ -16,6 +16,8 @@ const request = require('request');
 const
   express = require('express'),
   bodyParser = require('body-parser'),
+  VERIFY_TOKEN = process.env.VERIFY_TOKEN,
+  PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN,
   app = express().use(bodyParser.json()); // creates express http server
 
 // Sets server port and logs message on success
@@ -60,7 +62,7 @@ app.post('/webhook', (req, res) => {
 app.get('/webhook', (req, res) => {
 
   // Your verify token. Should be a random string.
-  let VERIFY_TOKEN = "miftah"
+  // let VERIFY_TOKEN = "miftah"
     
   // Parse the query params
   let mode = req.query['hub.mode'];
