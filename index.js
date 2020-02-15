@@ -113,8 +113,8 @@ function handleMessage(sender_psid, received_message) {
 
     console.log( received_message.nlp );
     console.log( received_message.nlp.entities );
-    console.log( received_message.nlp.entities[name] );
-    console.log( received_message.nlp.entities[name][0] );
+    console.log( received_message.nlp.entities['greetings'] );
+    console.log( received_message.nlp.entities['greetings'][0] );
     console.log( "-----------------------------------------------------------------------" );
 
     const greetings = nlp.firstEntity( received_message.nlp, 'greetings' );
