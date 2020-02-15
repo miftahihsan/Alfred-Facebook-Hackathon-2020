@@ -104,7 +104,7 @@ app.get('/webhook', (req, res) => {
   // Checks if a token and mode is in the query string of the request
   if (mode && token) {
   
-    // Checks the mode and token sent is correct
+    // Checks the mode and token sent is corrects
     if (mode === 'subscribe' && token === VERIFY_TOKEN) {
       
       // Responds with the challenge token from the request
@@ -138,7 +138,7 @@ function handleMessage(sender_psid, received_message) {
     console.log( "#######################################################################" );
     console.log( 'greetings' in received_message.nlp.entities );
     console.log( "#######################################################################" );
-    // console.log( received_message.nlp.entities['greetings'][0] );
+    console.log( "database = " + dataBase );
     console.log( "-----------------------------------------------------------------------" );
 
     const greetings = nlp.checkGreetings( received_message.nlp, 'greetings' );
@@ -152,7 +152,7 @@ function handleMessage(sender_psid, received_message) {
 
     console.log( count );
 
-    nlp.compile( received_message.nlp.entities, dataBase );
+    nlp.compile( received_message.nlp.entities, dataBase, received_message );
     // Create the payload for a basic text message, which
     // will be added to the body of our request to the Send API
     
