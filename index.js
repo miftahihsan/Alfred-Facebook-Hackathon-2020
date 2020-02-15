@@ -141,7 +141,7 @@ function handleMessage(sender_psid, received_message) {
     // console.log( received_message.nlp.entities['greetings'][0] );
     console.log( "-----------------------------------------------------------------------" );
 
-    const greetings = nlp.firstEntity( received_message.nlp, 'greetings' );
+    const greetings = nlp.checkGreetings( received_message.nlp, 'greetings' );
     
     if( greetings && greetings.confidence > 0.8 && dataBase.isEmpty( userData ) ){
       callSendAPI(sender_psid, { "text": `Hi! Welcome to Smart Trip Advisor!.` } )
@@ -152,6 +152,7 @@ function handleMessage(sender_psid, received_message) {
 
     console.log( count );
 
+    nlp.compile( received_message.nlp.entities, dataBase );
     // Create the payload for a basic text message, which
     // will be added to the body of our request to the Send API
     

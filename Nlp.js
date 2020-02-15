@@ -1,10 +1,15 @@
 class Nlp{
 
-    compiler( nlp ){
-
+    compile( nlp, dataBase ){
+        if( 'location' in nlp ){
+            console.log("Location is = " + nlp['location']);
+        }
+        if( 'datetime' in nlp ){
+            console.log("Time is = " + nlp['datetime']);
+        }
     }
 
-    firstEntity( nlp, name ){
+    checkGreetings( nlp, name ){
         return nlp && nlp.entities && nlp.entities[name] && nlp.entities[name][0];
     }
 
