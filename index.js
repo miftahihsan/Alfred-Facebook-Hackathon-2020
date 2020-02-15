@@ -57,9 +57,17 @@ app.post('/webhook', (req, res) => {
       let sender_psid = webhook_event.sender.id;
       console.log('Sender PSID: ' + sender_psid);
 
+      var userData = new Array(4);
+
       // registering the user into the HashMap
-      if( !( sender_psid in hashMap ) ) hashMap.register( hashMap, sender_psid );
-      else console.log("Welcome Back!!");
+      if( !( sender_psid in hashMap ) ) {
+        hashMap.register( hashMap, sender_psid );
+        console.log("Greeting Summoner!");
+      }
+      else {
+        userData = hashMap[sender_psid];
+        console.log("Welcome Back!! user = " + sender_psid + " your previous data = " + userData);
+      }
     
       // Check if the event is a message or postback and
       // pass the event to the appropriate handler function
