@@ -118,7 +118,7 @@ function handleMessage(sender_psid, received_message) {
     console.log( "#######################################################################" );
     console.log( received_message.nlp.entities );
     console.log( "#######################################################################" );
-    console.log( received_message.nlp.entities[0] );
+    console.log( 'greetings' in received_message.nlp.entities );
     console.log( "#######################################################################" );
     // console.log( received_message.nlp.entities['greetings'][0] );
     console.log( "-----------------------------------------------------------------------" );
