@@ -70,6 +70,8 @@ app.post('/webhook', (req, res) => {
 app.get('/webhook', (req, res) => {
 
   // Your verify token. Should be a random string.
+
+  // Uncomment for testing purpose
   // let VERIFY_TOKEN = "miftah"
     
   // Parse the query params
@@ -95,6 +97,8 @@ app.get('/webhook', (req, res) => {
 });
 
 
+// Check Documentation for sending and detecting attachment
+
 // Handles messages events
 function handleMessage(sender_psid, received_message) {
   let response;
@@ -103,39 +107,11 @@ function handleMessage(sender_psid, received_message) {
   if (received_message.text) {    
     // Create the payload for a basic text message, which
     // will be added to the body of our request to the Send API
+    console.log( received_message );
     response = {
       "text": `You sent the message: "${received_message.text}". Now send me an attachment!`
     }
-  } else if (received_message.attachments) {
-    // Get the URL of the message attachment
-    let attachment_url = received_message.attachments[0].payload.url;
-    response = {
-      "attachment": {
-        "type": "template",
-        "payload": {
-          "template_type": "generic",
-          "elements": [{
-            "title": "Is this the right picture?",
-            "subtitle": "Tap a button to answer.",
-            "image_url": attachment_url,
-            "buttons": [
-              {
-                "type": "postback",
-                "title": "Yes!",
-                "payload": "yes",
-              },
-              {
-                "type": "postback",
-                "title": "No!",
-                "payload": "no",
-              }
-            ],
-          }]
-        }
-      }
-    }
-  } 
-  
+  }  
   // Send the response message
   callSendAPI(sender_psid, response);    
 }
