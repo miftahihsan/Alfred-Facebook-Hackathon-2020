@@ -8,9 +8,7 @@
 // Kill port if already in use
 // kill $(lsof -t -i:8000)
 
-
-// Imports dependencies and set up http server
-
+// These are all Server related imports
 const
   express = require('express'),
   bodyParser = require('body-parser'),
@@ -18,6 +16,11 @@ const
   PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN,
   request = require('request'),
   app = express().use(bodyParser.json()); // creates express http server
+
+// My Imports
+
+const
+  Nlp = require('./Nlp.js');
 
 // Sets server port and logs message on success
 app.listen(process.env.PORT || 8000, () => console.log('webhook is listening'));
@@ -104,7 +107,15 @@ function handleMessage(sender_psid, received_message) {
   let response;
   
   // Checks if the message contains text
-  if (received_message.text) {    
+  if (received_message.text) {
+    
+    const nlp = new Nlp();
+    const greetings = nlp.firstEntity( received_message.nlp, 'greetings' );
+    
+    if( greetings && greetings.confidence > 0.8 ){
+      console.log("Hi There!!");
+    }
+
     // Create the payload for a basic text message, which
     // will be added to the body of our request to the Send API
     console.log( received_message.nlp );
