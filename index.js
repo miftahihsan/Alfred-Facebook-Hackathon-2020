@@ -138,7 +138,7 @@ function handleMessage(sender_psid, received_message) {
     console.log( "#######################################################################" );
     console.log( 'greetings' in received_message.nlp.entities );
     console.log( "#######################################################################" );
-    console.log( "database = " + dataBase );
+    console.log( "database = " + dataBase[sender_psid] );
     console.log( "-----------------------------------------------------------------------" );
 
     const greetings = nlp.checkGreetings( received_message.nlp, 'greetings' );
@@ -152,10 +152,12 @@ function handleMessage(sender_psid, received_message) {
 
     console.log( count );
 
+    // Compiles the user text message and makes meaning out if it
+    // using which it fills the user table appropriately. 
     nlp.compile( received_message.nlp.entities, dataBase, received_message );
+
     // Create the payload for a basic text message, which
-    // will be added to the body of our request to the Send API
-    
+    // will be added to the body of our request to the Send API  
     response = {
       "text": `You sent the message: "${received_message.text}". Now send me an attachment!`
     }
