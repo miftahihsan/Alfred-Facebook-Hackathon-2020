@@ -19,6 +19,8 @@ const
 
 // My Imports
 
+let variable  = null;
+
 const
   Nlp = require('./Nlp.js');
 
@@ -125,7 +127,10 @@ function handleMessage(sender_psid, received_message) {
     
     if( greetings && greetings.confidence > 0.8 ){
       console.log("Hi There!!");
+      variable = "Posstivie";
     }
+
+    console.log( variable );
 
     // Create the payload for a basic text message, which
     // will be added to the body of our request to the Send API
