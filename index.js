@@ -19,7 +19,7 @@ const
 
 // My Imports
 
-let variable  = null;
+let count  = 0;
 
 const
   Nlp = require('./Nlp.js');
@@ -127,7 +127,7 @@ function handleMessage(sender_psid, received_message) {
     
     if( greetings && greetings.confidence > 0.8 ){
       console.log("Hi There!!");
-      variable = "Posstivie";
+      count = count + 1;
     }
 
     console.log( variable );
