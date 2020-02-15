@@ -28,6 +28,8 @@ class Nlp{
         if( 'datetime' in nlp ){
             console.log("Time is = " + nlp['datetime']);
         }
+
+        console.log( userData );
     }
 
     /*
