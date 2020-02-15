@@ -2,7 +2,7 @@ class Nlp{
 
     compile( nlp, dataBase ){
         if( 'location' in nlp ){
-            console.log("Location is = " + nlp['location']);
+            console.log("Location is = " + nlp['location'] + " " + nlp['location'][0] );
         }
         if( 'datetime' in nlp ){
             console.log("Time is = " + nlp['datetime']);
