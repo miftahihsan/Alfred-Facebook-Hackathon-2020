@@ -5,18 +5,18 @@ class Nlp{
         @userData -> The array extracted from HashMap
         @userMsg -> raw text sent by the user to the bot
     */
-    compile( nlp, userData, userMsg ){
+    compile( nlp, userData, userMsg, database ){
         if( 'location' in nlp ){
             console.log( "length = " + nlp['location'].length ); 
             console.log("Location is = " + nlp['location'] + " " + nlp['location'][0]['value'] );
 
             if( nlp['location'].length == 2 ){
-                userData[0] = nlp['location'][0]['value'];
-                userData[1] = nlp['location'][ nlp['location'].length - 1 ]['value'];
+                database.insert( userData, "from", nlp['location'][0]['value'] );
+                database.insert( userData, "to", nlp['location'][ nlp['location'].length - 1 ]['value'] );
             }
             else if( nlp['location'].length == 1 ){
-                if( userMsg.includes('to') ) userData[1] = nlp['location'][ nlp['location'].length - 1 ]['value'];
-                else if ( userMsg.includes('from') ) userData[1] = nlp['location'][ nlp['location'].length - 1 ]['value'];
+                if( userMsg.includes('to') ) database.insert( userData, "to", nlp['location'][ nlp['location'].length - 1 ]['value'] );
+                else if ( userMsg.includes('from') ) database.insert( userData, "from", nlp['location'][0]['value'] );
                 
                 // defaule no relevant information is provided
                 // thus nothing will be registered and the user
@@ -26,11 +26,14 @@ class Nlp{
             }
         }
         if( 'datetime' in nlp ){
+            var dateAndTime = nlp['datetime'][0]['value'].split('T');
+
+            database.insert( userData, "time", dateAndTime[0] );
+            database.insert( userData, "time", dateAndTime[1] );
             console.log("Time is = " + nlp['datetime'][0]['value'] + " " + nlp['datetime'][0]['grain'] );
         }
 
         console.log( userData );
-        return userData;
     }
 
     /*
