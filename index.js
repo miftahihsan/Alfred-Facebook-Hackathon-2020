@@ -30,7 +30,7 @@ const
 
 // Declearing temporary Database 
 // in the form of HashMap
-var hashMap = new DataBase();
+var dataBase = new DataBase();
 
 // Sets server port and logs message on success
 app.listen(process.env.PORT || 8000, () => console.log('webhook is listening'));
@@ -57,16 +57,13 @@ app.post('/webhook', (req, res) => {
       let sender_psid = webhook_event.sender.id;
       console.log('Sender PSID: ' + sender_psid);
 
-      var userData = new Array(4);
-
       // registering the user into the HashMap
-      if( !( sender_psid in hashMap ) ) {
-        hashMap.register( hashMap, sender_psid );
+      if( !( sender_psid in dataBase ) ) {
+        dataBase.register( dataBase, sender_psid );
         console.log("Greeting Summoner!");
       }
       else {
-        userData = hashMap[sender_psid];
-        console.log("Welcome Back!! user = " + sender_psid + " your previous data = " + userData);
+        console.log("Welcome Back!! user = " + sender_psid );
       }
     
       // Check if the event is a message or postback and
@@ -127,7 +124,8 @@ app.get('/webhook', (req, res) => {
 // Handles messages events
 function handleMessage(sender_psid, received_message) {
   let response;
-  
+  var userData = dataBase[sender_psid];
+
   // Checks if the message contains text
   if (received_message.text) {
     
@@ -145,9 +143,11 @@ function handleMessage(sender_psid, received_message) {
 
     const greetings = nlp.firstEntity( received_message.nlp, 'greetings' );
     
-    if( greetings && greetings.confidence > 0.8 ){
-      console.log("Hi There!!");
+    if( greetings && greetings.confidence > 0.8 && dataBase.isEmpty( userData ) ){
+      callSendAPI(sender_psid, { "text": `Hi! Welcome to Smart Trip Advisor!.` } )
+      console.log("Hi! Welcome to Smart Trip Advisor!.");
       count = count + 1;
+      return;
     }
 
     console.log( count );
