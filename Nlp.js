@@ -30,6 +30,7 @@ class Nlp{
         }
 
         console.log( userData );
+        return userData;
     }
 
     /*
