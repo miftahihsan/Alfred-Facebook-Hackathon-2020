@@ -131,23 +131,17 @@ function handleMessage(sender_psid, received_message) {
     
     const nlp = new Nlp();
 
-    console.log( "-----------------------------------------------------------------------" );
-    console.log( received_message.nlp );
-    console.log( "#######################################################################" );
-    console.log( received_message.nlp.entities );
-    console.log( "#######################################################################" );
-    console.log( 'greetings' in received_message.nlp.entities );
-    console.log( "#######################################################################" );
-    console.log( "database = " + dataBase[sender_psid] );
-    console.log( "-----------------------------------------------------------------------" );
-
     const greetings = nlp.checkGreetings( received_message.nlp, 'greetings' );
     
     if( greetings && greetings.confidence > 0.8 && dataBase.isEmpty( userData ) ){
-      callSendAPI(sender_psid, { "text": `Hi! Welcome to Smart Trip Advisor!.` } )
-      console.log("Hi! Welcome to Smart Trip Advisor!.");
-      count = count + 1;
-      return;
+
+      if( dataBase.isEmpty( userData ) ){
+        callSendAPI(sender_psid, { "text": `Hi! Welcome to Smart Trip Advisor!. Lets get Started!` } )
+        console.log("Hi! Welcome to Smart Trip Advisor!.");
+        count = count + 1;
+        return;
+      }
+
     }
 
     console.log( count );
