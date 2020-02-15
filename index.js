@@ -18,11 +18,19 @@ const
   app = express().use(bodyParser.json()); // creates express http server
 
 // My Imports
-
 let count  = 0;
 
+// HashMap Temporary Database
+
+
 const
-  Nlp = require('./Nlp.js');
+  Nlp = require('./Nlp.js'),
+  DataBase = require('./DataBase.js');
+
+
+// Declearing temporary Database 
+// in the form of HashMap
+var hashMap = new DataBase();
 
 // Sets server port and logs message on success
 app.listen(process.env.PORT || 8000, () => console.log('webhook is listening'));
@@ -48,6 +56,10 @@ app.post('/webhook', (req, res) => {
       // Get the sender PSID
       let sender_psid = webhook_event.sender.id;
       console.log('Sender PSID: ' + sender_psid);
+
+      // registering the user into the HashMap
+      if( !( sender_psid in hashMap ) ) hashMap.register( hashMap, sender_psid );
+      else console.log("Welcome Back!!");
     
       // Check if the event is a message or postback and
       // pass the event to the appropriate handler function
