@@ -110,6 +110,13 @@ function handleMessage(sender_psid, received_message) {
   if (received_message.text) {
     
     const nlp = new Nlp();
+
+    console.log( received_message.nlp );
+    console.log( received_message.nlp.entities );
+    console.log( received_message.nlp.entities[name] );
+    console.log( received_message.nlp.entities[name][0] );
+    console.log( "-----------------------------------------------------------------------" );
+
     const greetings = nlp.firstEntity( received_message.nlp, 'greetings' );
     
     if( greetings && greetings.confidence > 0.8 ){
@@ -118,7 +125,7 @@ function handleMessage(sender_psid, received_message) {
 
     // Create the payload for a basic text message, which
     // will be added to the body of our request to the Send API
-    console.log( received_message.nlp );
+    
     response = {
       "text": `You sent the message: "${received_message.text}". Now send me an attachment!`
     }
