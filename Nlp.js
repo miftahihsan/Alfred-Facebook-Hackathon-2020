@@ -28,7 +28,7 @@ class Nlp{
         if( 'datetime' in nlp ){
             var dateAndTime = nlp['datetime'][0]['value'].split('T');
 
-            database.insert( userData, "time", dateAndTime[0] );
+            database.insert( userData, "date", dateAndTime[0] );
             database.insert( userData, "time", dateAndTime[1] );
             console.log("Time is = " + nlp['datetime'][0]['value'] + " " + nlp['datetime'][0]['grain'] );
         }
