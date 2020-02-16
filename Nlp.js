@@ -10,9 +10,35 @@ class Nlp{
             console.log( "length = " + nlp['location'].length ); 
             console.log("Location is = " + nlp['location'] + " " + nlp['location'][0]['value'] );
 
+            var msg = userMsg.toLowerCase();
+
+            var containsFrom = msg.includes('from');
+            var containsTo = msg.includes('to');
+
             if( nlp['location'].length == 2 ){
-                database.insert( userData, "from", nlp['location'][0]['value'] );
-                database.insert( userData, "to", nlp['location'][ nlp['location'].length - 1 ]['value'] );
+
+
+                // Example Sentence
+                // 1) Book Flight from Dhaka to Chittagong
+                // 2) Book Flight to Chittagong From Dhaka
+                if( containsTo && containsFrom ){
+
+                    if( msg.indexOf('to') < msg.indexOf('from') ){
+                        database.insert( userData, "to", nlp['location'][0]['value'] );
+                        database.insert( userData, "from", nlp['location'][ nlp['location'].length - 1 ]['value'] );
+                    }
+                    else{
+                        database.insert( userData, "from", nlp['location'][0]['value'] );
+                        database.insert( userData, "to", nlp['location'][ nlp['location'].length - 1 ]['value'] );
+                    }
+
+                }
+                else{
+
+                    database.insert( userData, "from", nlp['location'][0]['value'] );
+                    database.insert( userData, "to", nlp['location'][ nlp['location'].length - 1 ]['value'] );
+                
+                }
             }
             else if( nlp['location'].length == 1 ){
                 if( userMsg.includes('to') ) database.insert( userData, "to", nlp['location'][ nlp['location'].length - 1 ]['value'] );
@@ -46,7 +72,7 @@ class Nlp{
     }
 
     response( data ){
-
+        
     }
 
 }
