@@ -157,7 +157,7 @@ function handleMessage(sender_psid, received_message) {
 
 
     //  Uncomment later
-    // nlp.compile( received_message.nlp.entities, userData, received_message, dataBase );
+    nlp.compile( received_message.nlp.entities, userData, dataBase );
 
     console.log( "database = " + dataBase );
 
