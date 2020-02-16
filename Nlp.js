@@ -5,7 +5,7 @@ class Nlp{
         @userData -> The array extracted from HashMap
         @userMsg -> raw text sent by the user to the bot
     */
-    compile( nlp, userData, userMsg, database ){
+    compile( nlp, userData, database ){
         if( 'destination' in nlp ){
             console.log("In Destination");
             console.log(nlp['destination'][0]['value']);
