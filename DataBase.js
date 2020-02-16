@@ -16,7 +16,7 @@ class DataBase{
         return {};
     }
 
-    register( hashMap, id ){ hashMap[id] = new Array(4); }
+    register( hashMap, id ){ hashMap[id] = new Array(8); }
 
     isEmpty( array ){
         for( var i = 0; i < array.length; i++ ){
@@ -39,8 +39,20 @@ class DataBase{
         else if( key == "date" ){
             userData[2] = value;
         }
-        else if( key == "time" ){
+        else if ( key == "ifReturn"){
             userData[3] = value;
+        }
+        else if ( key == "returnDate"){
+            userData[4] = value;
+        }
+        else if ( key == "state"){
+            userData[5] = value;
+        }
+        else if (key == "intent"){
+            userData[6] = value;
+        }
+        else if( key == "time" ){
+            userData[7] = value;
         }
     }
 

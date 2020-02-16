@@ -27,6 +27,12 @@ class Nlp{
             database.insert( userData, "time", dateAndTime[1] );
             console.log("Time is = " + nlp['datetime'][0]['value'] + " " + nlp['datetime'][0]['grain'] );
         }
+        if ( 'intent' in nlp){
+            console.log("Intent");
+            console.log(nlp['intent'][0]['value']);      // 0th index has highest confidence
+
+            database.insert( userData, "intent", nlp['intent'][0][value]);
+        }
 
         console.log( userData );
     }

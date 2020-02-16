@@ -60,6 +60,7 @@ app.post('/webhook', (req, res) => {
       // registering the user into the HashMap
       if( !( sender_psid in dataBase ) ) {
         dataBase.register( dataBase, sender_psid );
+        dataBase.insert(dataBase[sender_psid], "state", "initiate" );    // initiate and greet
         console.log("Greeting Summoner!");
       }
       else {
@@ -157,9 +158,71 @@ function handleMessage(sender_psid, received_message) {
 
 
     //  Uncomment later
-    nlp.compile( received_message.nlp.entities, userData, dataBase );
+    nlp.compile( received_message.nlp.entities, userData, dataBase );   // maybe do it only initially
+
+      dataBase.insert(userData, state, ${received_message.text}) // inserts if state in missing data AUTO mAgICSS
 
     console.log( "database = " + dataBase );
+
+    console.log("-------------------------------------------------------------------");
+
+    if (userData[5]=='initiate'){
+      response = {
+        "text": `Hi! I am getSchwifty bot here to solve your travel problems. How may I help????`
+      }
+    }
+
+    if (userData[6] == "flight"){
+      console.log("Context is flight");
+      if (userData[1]==null){
+        dataBase.insert(userData, "state", "destination");
+        response = {
+          "text": `Where ya headed to?`
+        }
+      }
+      else if (userData[2]==null) {
+        dataBase.insert(userData, "state", "date")
+        response = {
+          "text": `When u be heading out?`
+        }
+      }
+      if (userData[1]==null){
+        dataBase.insert(userData, "state", "origin");
+        response = {
+          "text": `Where u at now?`
+        }
+      }
+
+      else if (userData[3]==null) {
+        dataBase.insert(userData, "state", "ifReturn")
+        response = {
+          "text": `Do you want a return ticket?`
+        }
+      }
+      else if (userData[3]==true && userData[4]==null) {
+        dataBase.insert(userData, "state", "returnDate")
+        response = {
+          "text": `When u be coming back?`
+        }
+      }
+      else {
+        dataBase.insert(userData, "state", "confirm")
+        response = {
+          "text": `So you wanna be travelling to ` + userData[1] + ` on the ` + userData[2] + ` from ` + userData[0]  // give a list to change ADD Return later
+        }
+      }
+    }
+
+    if (${received_message.text} == "reset"){
+      for( var i = 0; i < userData.length; i++ ){
+         userData[i] = null ;
+      }
+      response = {
+        "text": `ok byeee` // give a list to change ADD Return later
+      }
+    }
+
+
 
     // Create the payload for a basic text message, which
     // will be added to the body of our request to the Send API  
