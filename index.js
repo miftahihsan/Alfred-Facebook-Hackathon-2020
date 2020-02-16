@@ -148,6 +148,14 @@ function handleMessage(sender_psid, received_message) {
 
     // Compiles the user text message and makes meaning out if it
     // using which it fills the user table appropriately. 
+
+    console.log("-------------------------------------------------------------------");
+
+    console.log(received_message.nlp);
+
+    console.log("-------------------------------------------------------------------");
+
+
     nlp.compile( received_message.nlp.entities, userData, received_message, dataBase );
 
     console.log( "database = " + dataBase );
