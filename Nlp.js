@@ -10,11 +10,13 @@ class Nlp{
             console.log("In Destination");
             console.log(nlp['destination'][0]['value']);
             database.insert( userData, "destination", nlp['destination'][0]['value'] );
+            console.log(userData);
         }
         if( 'origin' in nlp ){
             console.log("In Origin");
             console.log(nlp['origin'][0]['value']);
-            // database( userData, "origin", nlp['origin'][0]['value'] );
+            database.insert( userData, "origin", nlp['origin'][0]['value'] );
+            console.log(userData);
         }
         if( 'datetime' in nlp ){
             console.log("In Date And Time");
