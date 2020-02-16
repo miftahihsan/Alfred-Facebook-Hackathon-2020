@@ -151,7 +151,7 @@ function handleMessage(sender_psid, received_message) {
 
     console.log("-------------------------------------------------------------------");
 
-    console.log(received_message.nlp);
+    console.log(received_message.nlp.entities);
 
     console.log("-------------------------------------------------------------------");
 
