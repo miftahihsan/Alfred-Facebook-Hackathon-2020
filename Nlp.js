@@ -9,7 +9,7 @@ class Nlp{
         if( 'destination' in nlp ){
             console.log("In Destination");
             console.log(nlp['destination'][0]['value']);
-            database( userData, "destination", nlp['destination'][0]['value'] );
+            database.insert( userData, "destination", nlp['destination'][0]['value'] );
         }
         if( 'origin' in nlp ){
             console.log("In Origin");
