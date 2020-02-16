@@ -9,20 +9,20 @@ class Nlp{
         if( 'destination' in nlp ){
             console.log("In Destination");
             console.log(nlp['destination'][0]['value']);
-            // database( userData, "destination", nlp['destination']['value'] );
+            database( userData, "destination", nlp['destination'][0]['value'] );
         }
         if( 'origin' in nlp ){
             console.log("In Origin");
             console.log(nlp['origin'][0]['value']);
-            // database( userData, "origin", nlp['origin'['value']] );
+            database( userData, "origin", nlp['origin'][0]['value'] );
         }
         if( 'datetime' in nlp ){
             console.log("In Date And Time");
             console.log(nlp['datetime'][0]['value']);
-            // var dateAndTime = nlp['datetime'][0]['value'].split('T');
+            var dateAndTime = nlp['datetime'][0]['value'].split('T');
 
-            // database.insert( userData, "date", dateAndTime[0] );
-            // database.insert( userData, "time", dateAndTime[1] );
+            database.insert( userData, "date", dateAndTime[0] );
+            database.insert( userData, "time", dateAndTime[1] );
             // console.log("Time is = " + nlp['datetime'][0]['value'] + " " + nlp['datetime'][0]['grain'] );
         }
 
