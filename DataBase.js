@@ -2,8 +2,8 @@
 /*
     # DataBase Design
     -----------------------
-    @index 0 -> from
-    @index 1 -> to
+    @index 0 -> origin
+    @index 1 -> destination
     @index 2 -> date
     @index 3 -> timestamp
  */
@@ -28,10 +28,12 @@ class DataBase{
 
     insert( userData, key, value ){
         
-        if( key == "from" ){
+        if( key == "origin" ){
             userData[0] = value;
+            console.log("value is = " + value);
+            console.log("userData[0] = " + userData[0]);
         }
-        else if( key == "to" ){
+        else if( key == "destination" ){
             userData[1] = value;
         }
         else if( key == "date" ){
