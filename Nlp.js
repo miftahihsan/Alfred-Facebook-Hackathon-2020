@@ -31,7 +31,7 @@ class Nlp{
             console.log("Intent");
             console.log(nlp['intent'][0]['value']);      // 0th index has highest confidence
 
-            database.insert( userData, "intent", nlp['intent'][0][value]);
+            database.insert( userData, "intent", nlp['intent'][0]['value']);
         }
 
         console.log( userData );
