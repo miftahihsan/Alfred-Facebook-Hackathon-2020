@@ -160,7 +160,7 @@ function handleMessage(sender_psid, received_message) {
     //  Uncomment later
     nlp.compile( received_message.nlp.entities, userData, dataBase );   // maybe do it only initially
 
-      dataBase.insert(userData, state, ${received_message.text}) // inserts if state in missing data AUTO mAgICSS
+      dataBase.insert(userData, state, received_message.text) // inserts if state in missing data AUTO mAgICSS
 
     console.log( "database = " + dataBase );
 
@@ -213,7 +213,7 @@ function handleMessage(sender_psid, received_message) {
       }
     }
 
-    if (${received_message.text} == "reset"){
+    if (received_message.text == "reset"){
       for( var i = 0; i < userData.length; i++ ){
          userData[i] = null ;
       }
