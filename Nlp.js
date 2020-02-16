@@ -7,12 +7,18 @@ class Nlp{
     */
     compile( nlp, userData, userMsg, database ){
         if( 'destination' in nlp ){
+            console.log("In Destination");
+            console.log(nlp['destination']);
             // database( userData, "destination", nlp['destination']['value'] );
         }
         if( 'origin' in nlp ){
+            console.log("In Origin");
+            console.log(nlp['origin']);
             // database( userData, "origin", nlp['origin'['value']] );
         }
         if( 'datetime' in nlp ){
+            console.log("In Date And Time");
+            console.log(nlp['datetime']);
             // var dateAndTime = nlp['datetime']['value'].split('T');
 
             // database.insert( userData, "date", dateAndTime[0] );
