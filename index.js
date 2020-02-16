@@ -186,7 +186,7 @@ function handleMessage(sender_psid, received_message) {
           "text": `When u be heading out?`
         }
       }
-      if (userData[1]==null){
+      else if (userData[0]==null){
         dataBase.insert(userData, "state", "origin");
         response = {
           "text": `Where u at now?`
@@ -226,7 +226,7 @@ function handleMessage(sender_psid, received_message) {
 
     // Create the payload for a basic text message, which
     // will be added to the body of our request to the Send API  
-    
+
   }  
   // Send the response message
   callSendAPI(sender_psid, response);    
