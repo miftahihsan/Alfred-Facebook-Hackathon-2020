@@ -171,18 +171,6 @@ function handleMessage(sender_psid, received_message) {
       }
     }
 
-    if (userData[5]=="panic"){
-      response = {
-        "text": `Omg?! IDK WHAT TO DO NOWWW HALPPP.. I will just reset myself.. sorryyyyy`
-
-
-      }
-
-      dataBase.insert(userData, "state", "initiate")
-      for( var i = 0; i < userData.length; i++ ){
-        userData[i] = null ;
-      }
-    }
 
     console.log( "database = " + dataBase );
 
@@ -239,6 +227,21 @@ function handleMessage(sender_psid, received_message) {
         }
       }
     }
+    else if (userData[5]=="panic" || userData[5]=="hotel"){
+      response = {
+        "text": `Omg?! IDK WHAT TO DO NOWWW HALPPP.. I will just reset myself.. sorryyyyy`
+
+
+      }
+
+      for( var i = 0; i < userData.length; i++ ){
+        userData[i] = null ;
+      }
+      dataBase.insert(userData, "state", "initiate")
+
+    }
+
+
 
 
 
@@ -258,7 +261,12 @@ function handleMessage(sender_psid, received_message) {
     // Create the payload for a basic text message, which
     // will be added to the body of our request to the Send API  
 
-  }  
+  }
+  if (response==null){
+    response = {
+      "text": `sorry i didnt get that`
+    }
+  }
   // Send the response message
   callSendAPI(sender_psid, response);    
 }
