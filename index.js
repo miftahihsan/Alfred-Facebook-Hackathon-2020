@@ -160,7 +160,18 @@ function handleMessage(sender_psid, received_message) {
     //  Uncomment later
     nlp.compile( received_message.nlp.entities, userData, dataBase );   // maybe do it only initially
 
-      dataBase.insert(userData, userData[5], received_message.text) // inserts if state in missing data AUTO mAgICSS
+    dataBase.insert(userData, userData[5], received_message.text) // inserts if state in missing data AUTO mAgICSS
+
+    if (userData[5]=="panic"){
+      response = {
+        "text": `Omg?! IDK WHAT TO DO NOWWW HALPPP.. I will just reset myself.. sorryyyyy`
+
+
+      }
+      for( var i = 0; i < userData.length; i++ ){
+        userData[i] = null ;
+      }
+    }
 
     console.log( "database = " + dataBase );
 
@@ -175,9 +186,9 @@ function handleMessage(sender_psid, received_message) {
     if (userData[6] == "flight"){
       console.log("Context is flight");
       if (userData[1]==null){
-        dataBase.insert(userData, "state", "destination");
+        dataBase.insert(userData, "state", "askall");
         response = {
-          "text": `Where ya headed to?`
+          "text": `Please tell me Where ya headed to, where u at now and date of travel ?`
         }
       }
       else if (userData[2]==null) {
@@ -194,7 +205,8 @@ function handleMessage(sender_psid, received_message) {
       }
 
       else if (userData[3]==null) {
-        dataBase.insert(userData, "state", "ifReturn")
+        //dataBase.insert(userData, "state", "ifReturn")
+        dataBase.insert(userData, "state", "panic")
         response = {
           "text": `Do you want a return ticket?`
         }
@@ -207,18 +219,21 @@ function handleMessage(sender_psid, received_message) {
       }
       else {
         dataBase.insert(userData, "state", "confirm")
+        dataBase.insert(userData, "state", "panic")
         response = {
           "text": `So you wanna be travelling to ` + userData[1] + ` on the ` + userData[2] + ` from ` + userData[0]  // give a list to change ADD Return later
         }
       }
     }
 
+
+
     if (received_message.text == "reset"){
       for( var i = 0; i < userData.length; i++ ){
          userData[i] = null ;
       }
       response = {
-        "text": `ok byeee` // give a list to change ADD Return later
+        "text": `ok byeee`
       }
     }
 
