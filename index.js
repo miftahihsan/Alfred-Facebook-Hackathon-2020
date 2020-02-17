@@ -162,12 +162,23 @@ function handleMessage(sender_psid, received_message) {
 
     dataBase.insert(userData, userData[5], received_message.text) // inserts if state in missing data AUTO mAgICSS
 
+    if (userData[5]=="ifReturn"){ //yes no
+      if( 'origin' in nlp ){
+        if (received_message.nlp.entities['sentiment'][0]['value']== "positive" ){
+          userData[3]=true;
+        }
+        else userData[3]=false;
+      }
+    }
+
     if (userData[5]=="panic"){
       response = {
         "text": `Omg?! IDK WHAT TO DO NOWWW HALPPP.. I will just reset myself.. sorryyyyy`
 
 
       }
+
+      dataBase.insert(userData, "state", "initiate")
       for( var i = 0; i < userData.length; i++ ){
         userData[i] = null ;
       }
@@ -185,10 +196,13 @@ function handleMessage(sender_psid, received_message) {
 
     if (userData[6] == "flight"){
       console.log("Context is flight");
-      if (userData[1]==null){
+      if (userData[1]==null){   //check all
+        var query = "where ya headed to";
+        if (userData[0]==null)query += ", where u at now";
+        if (userData[2]==null)query += ", when u be heading out";
         dataBase.insert(userData, "state", "askall");
         response = {
-          "text": `Please tell me Where ya headed to, where u at now and date of travel ?`
+          "text": `Please tell me `+query+` ?`
         }
       }
       else if (userData[2]==null) {
@@ -205,8 +219,8 @@ function handleMessage(sender_psid, received_message) {
       }
 
       else if (userData[3]==null) {
-        //dataBase.insert(userData, "state", "ifReturn")
-        dataBase.insert(userData, "state", "panic")
+        dataBase.insert(userData, "state", "ifReturn")
+        //dataBase.insert(userData, "state", "panic")
         response = {
           "text": `Do you want a return ticket?`
         }
@@ -235,6 +249,8 @@ function handleMessage(sender_psid, received_message) {
       response = {
         "text": `ok byeee`
       }
+      dataBase.insert(userData, "state", "initiate")
+
     }
 
 
