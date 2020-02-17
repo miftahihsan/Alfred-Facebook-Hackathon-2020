@@ -200,9 +200,19 @@ function handleMessage(sender_psid, received_message) {
       console.log("Context is flight");
       if (userData[1]==null){   //check all
         var query = "where ya headed to";
-        if (userData[0]==null)query += ", where u at now";
-        if (userData[2]==null)query += ", when u be heading out";
-        dataBase.insert(userData, "state", "askall");
+        var q=1;
+        if (userData[0]==null){
+          q=2;  //atleast 2 queries
+          query += ", where u at now";
+        }
+        if (userData[2]==null){
+          q=2;
+          query += ", when u be heading out";
+        }
+        if (q==1)dataBase.insert(userData, "state", "destination");
+
+
+        else dataBase.insert(userData, "state", "askall");
         response = {
           "text": `Please tell me `+query+` ?`
         }
