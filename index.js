@@ -163,7 +163,7 @@ function handleMessage(sender_psid, received_message) {
     dataBase.insert(userData, userData[5], received_message.text) // inserts if state in missing data AUTO mAgICSS
 
     if (userData[5]=="ifReturn"){ //yes no
-      if( 'origin' in nlp ){
+      if( 'sentiment' in nlp ){
         if (received_message.nlp.entities['sentiment'][0]['value']== "positive" ){
           userData[3]=true;
         }
