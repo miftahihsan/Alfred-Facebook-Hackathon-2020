@@ -182,6 +182,20 @@ function handleMessage(sender_psid, received_message) {
       }
     }
 
+    if (userData[5]=="panic" || userData[5]=="hotel"){
+      response = {
+        "text": `Omg?! IDK WHAT TO DO NOWWW HALPPP.. I will just reset myself.. sorryyyyy`
+
+
+      }
+
+      for( var i = 0; i < userData.length; i++ ){
+        userData[i] = null ;
+      }
+      dataBase.insert(userData, "state", "initiate")
+
+    }
+
     if (userData[6] == "flight"){
       console.log("Context is flight");
       if (userData[1]==null){   //check all
@@ -227,19 +241,7 @@ function handleMessage(sender_psid, received_message) {
         }
       }
     }
-    else if (userData[5]=="panic" || userData[5]=="hotel"){
-      response = {
-        "text": `Omg?! IDK WHAT TO DO NOWWW HALPPP.. I will just reset myself.. sorryyyyy`
 
-
-      }
-
-      for( var i = 0; i < userData.length; i++ ){
-        userData[i] = null ;
-      }
-      dataBase.insert(userData, "state", "initiate")
-
-    }
 
 
 
