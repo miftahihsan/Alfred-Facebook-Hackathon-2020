@@ -83,7 +83,11 @@ class Nlp{
                 return this.response( userData['state'], userData );
             }
 
-            if( array[i] == "ifReturn" &&  userData[array[i]] == false ) break;
+            if( array[i] == "ifReturn"){
+               if ( userData[array[i]] == false ) break;
+               else continue;
+            }
+
         }
 
         userData['state'] = 'confirm';
