@@ -7,10 +7,19 @@ class Nlp{
     */
     compile( nlp, userData, database ){
 
-        console.log("HERE");
+        console.log("H");
         
-        console.log(nlp);
         
+        if( 'location' in nlp ){
+            if (nlp['location'][0]['confidence'] > 0.7){
+                if( userData['state'] == 'destination' ){
+                    database.insert( userData, "destination", nlp['location'][0]['value'] );
+                }
+                else if( userData['state'] == 'origin' ){
+                    database.insert( userData, "origin", nlp['location'][0]['value'] );
+                }
+            } 
+        }
 
         if( 'destination' in nlp ){
             console.log("In Destination");
@@ -19,12 +28,14 @@ class Nlp{
             if (nlp['destination'][0]['confidence'] > 0.7) database.insert( userData, "destination", nlp['destination'][0]['value'] );
             console.log(userData);
         }
+
         if( 'origin' in nlp ){
             console.log("In Origin");
             console.log(nlp['origin'][0]['value']);
             if (nlp['origin'][0]['confidence'] > 0.7)database.insert( userData, "origin", nlp['origin'][0]['value'] );
             console.log(userData);
         }
+
         if( 'datetime' in nlp ){
             console.log("In Date And Time");
             console.log(nlp['datetime'][0]['value']);
@@ -37,6 +48,7 @@ class Nlp{
             }
             console.log("Time is = " + nlp['datetime'][0]['value'] + " " + nlp['datetime'][0]['grain'] );
         }
+        
         if ( 'intent' in nlp){
             console.log("Intent");
             console.log(nlp['intent'][0]['value']);      // 0th index has highest confidence
