@@ -147,6 +147,7 @@ function handleMessage(sender_psid, received_message) {
     console.log("-------------------------------------------------------------------");
 
     if( received_message.text == "reset" ){
+      userData = {};
       userData['state'] = 'initiate';
       callSendAPI(sender_psid, {
         'text' : 'CY@ Summoner!'
@@ -161,6 +162,7 @@ function handleMessage(sender_psid, received_message) {
       }
       callSendAPI(sender_psid, response);
       userData['state'] = 'intent';
+      console.log("userData State = " + userData['state']);
       return;
     }
 
