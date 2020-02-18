@@ -151,6 +151,7 @@ function handleMessage(sender_psid, received_message) {
       response = {
         'text' : nlp.response( userData['state'], userData )
       }
+      callSendAPI(sender_psid, response);
       userData['state'] = 'intent';
       return;
     }
