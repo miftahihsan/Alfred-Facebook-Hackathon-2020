@@ -43,16 +43,17 @@ class Nlp{
     findState( userData ){
         var index = {
             "initiate" : 0,
-            "destination" : 1,
-            "date" : 2,
-            "time" : 3,
-            "origin" : 4,
-            "ifReturn" : 5,
-            "returnDate" : 6,
-            "returnTime" : 7
+            "intent" : 1,
+            "destination" : 2,
+            "date" : 3,
+            "time" : 4,
+            "origin" : 5,
+            "ifReturn" : 6,
+            "returnDate" : 7,
+            "returnTime" : 8
         }
 
-        var array = ["initiate", "destination", "date", "time", "origin", "ifReturn", "returnDate", "returnTime", "confirm"];
+        var array = ["initiate", "intent", "destination", "date", "time", "origin", "ifReturn", "returnDate", "returnTime", "confirm"];
 
         for( var i = index[userData['state']]; i < array.length; i++ ){
             if( !( array[i] in userData ) ){
