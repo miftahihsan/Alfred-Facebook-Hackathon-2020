@@ -146,14 +146,12 @@ function handleMessage(sender_psid, received_message) {
 
     console.log("-------------------------------------------------------------------");
 
-    var msg = received_message.text.toLowerCase();
-
-    if( msg.includes("no") && received_message.nlp.entities["sentiment"] == "negative" ){
+    if( received_message.nlp.entities["sentiment"] == "negative" && userData['state'] == 'ifReturn' ){
       console.log("NO");
       userData['ifReturn'] = false;
     }
 
-    if( msg.includes("yes") && received_message.nlp.entities["sentiment"] == "possitive" ){
+    if( received_message.nlp.entities["sentiment"] == "possitive" && userData['state'] == 'ifReturn' ){
       userData['ifReturn'] = true;
     }
 
