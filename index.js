@@ -151,6 +151,8 @@ function handleMessage(sender_psid, received_message) {
       response = {
         'text' : nlp.response( userData['state'], userData )
       }
+      userData[state] = 'intent';
+      return;
     }
 
     console.log("state = " + nlp.findState(userData));
