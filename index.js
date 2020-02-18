@@ -130,6 +130,11 @@ function handleMessage(sender_psid, received_message) {
   let response;
   var userData = dataBase[sender_psid];
 
+  console.log("Current STATE = " + userData['state']);
+  console.log( "current MSG = " + received_message.text );
+  
+  
+
   // Checks if the message contains text
   if (received_message.text) {
     
@@ -145,24 +150,6 @@ function handleMessage(sender_psid, received_message) {
     console.log(received_message.nlp.entities);
 
     console.log("-------------------------------------------------------------------");
-
-    // if( received_message.nlp.entities["sentiment"] == "negative" && userData['state'] == 'ifReturn' ){
-    //   console.log("NO");
-    //   userData['ifReturn'] = false;
-    // }
-
-    // if( received_message.nlp.entities["sentiment"] == "possitive" && userData['state'] == 'ifReturn' ){
-    //   userData['ifReturn'] = true;
-    // }
-
-    // if( received_message.text.includes("reset") ){
-    //   userData = {};
-    //   userData['state'] = 'initiate';
-    //   callSendAPI(sender_psid, {
-    //     'text' : 'CY@ Summoner!'
-    //   });
-    //   return;  
-    // }
 
     console.log("star=te  " + userData['state']);
     if( userData['state'] == 'initiate' ){
