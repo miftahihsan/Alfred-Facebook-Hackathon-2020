@@ -61,7 +61,7 @@ app.post('/webhook', (req, res) => {
       if( !( sender_psid in dataBase ) ) {
         dataBase.register( dataBase, sender_psid );
         dataBase.insert(dataBase[sender_psid], "state", "initiate" );    // initiate and greet
-        callSendAPI(sender_psid, 
+        await callSendAPI(sender_psid, 
           {'text' : 'HEY! I am Get Schwifty Bot, here at your service to book you hotels and flights of your choice! \n\nLets Get Started! 🎉 🎉 🎉'}
         )
         console.log("Greeting Summoner!");
