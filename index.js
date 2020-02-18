@@ -154,13 +154,13 @@ function handleMessage(sender_psid, received_message) {
     //   userData['state'] = 'intent';
     // }
 
-    if( received_message.text == "reset" ){
-      userData['state'] = "initiate";
-      callSendAPI(sender_psid, 
-        {'text' : 'cy@'}
-      )
-      return;
-    }
+    // if( received_message.text == "reset" ){
+    //   userData['state'] = "initiate";
+    //   callSendAPI(sender_psid, 
+    //     {'text' : 'cy@'}
+    //   )
+    //   return;
+    // }
 
     response = {
       'text' : nlp.findState( userData )
