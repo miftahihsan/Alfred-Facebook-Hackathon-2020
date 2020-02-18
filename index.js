@@ -25,7 +25,8 @@ let count  = 0;
 
 const
   Nlp = require('./Nlp.js'),
-  DataBase = require('./DataBase.js');
+  DataBase = require('./DataBase.js'),
+  Response = require("./response.js");
 
 
 // Declearing temporary Database 
@@ -132,56 +133,46 @@ function handleMessage(sender_psid, received_message) {
 
   // Checks if the message contains text
   if (received_message.text) {
-    
-    const nlp = new Nlp();
-
     var msg = received_message.text.toLowerCase();
 
-    if( userData['state'] == 'ifReturn' && !( 'ifReturn' in userData ) ){
-      if( msg.includes('no') ) userData['ifReturn'] = false;
-      else if( msg.includes('yes') ) userData['ifReturn'] = true;
-    }
-
-    console.log( count );
+    const nlp = new Nlp();
+    console.log(count);
 
     // Compiles the user text message and makes meaning out if it
-    // using which it fills the user table appropriately. 
+    // using which it fills the user table appropriately.
 
     console.log("-------------------------------------------------------------------");
-
     console.log(received_message.nlp.entities);
-
     console.log("-------------------------------------------------------------------");
-
     console.log("state " + userData['state']);
 
+
     if( userData['state'] == 'initiate' ){
-      response = {
-        'text' : nlp.response( userData['state'], userData )
-      }
+      response = Response.genTextReply( nlp.response( userData['state'], userData ));
       callSendAPI(sender_psid, response);
       userData['state'] = 'intent';
       console.log("userData State = " + userData['state']);
       return;
-    }    
+    }
 
     nlp.compile( received_message.nlp.entities, userData, dataBase ); // maybe do it only initially
 
-    
-    // get a response for the particular state now
-    response = {
-      'text' : nlp.findState(userData)
-    }
 
-    console.log("state = " + nlp.findState(userData));
-    console.log("current state = " + userData['state']);
-    
-
-    console.log("-------------------------------------------------------------------");
 
   }
+  else if (received_message.quick_reply){       //Button replies
+    this.handleQuickReplies(userData, received_message.quick_reply);
+  }
+    
+    // get a response for the particular state now
+    response = nlp.findState(userData);
 
-  if( response == null ){
+    console.log("state = " + response['text']);
+    console.log("current state = " + userData['state']);
+    console.log("-------------------------------------------------------------------");
+
+
+  if( response['text'] == null ){
     response = {
       "text": `sorry i didnt get that`
     }
@@ -191,6 +182,17 @@ function handleMessage(sender_psid, received_message) {
 
   // Send the response message
   callSendAPI(sender_psid, response);    
+}
+
+function handleQuickReplies(userData, quick_reply) {
+  let payload = quick_reply.payload;
+  if (userData['state'] == 'ifReturn' && !('ifReturn' in userData)) {
+    if (payload.includes('NO')) userData['ifReturn'] = false;
+    else if (payload.includes('YES')) userData['ifReturn'] = true;
+  }
+
+
+
 }
 
 // Handles messaging_postbacks events

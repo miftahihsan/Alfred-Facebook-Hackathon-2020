@@ -1,3 +1,4 @@
+const Response = require('./response');
 class Nlp{
 
     /*
@@ -107,46 +108,65 @@ class Nlp{
 */
     response( key, userData ){
 
-        var res = '';
+        var text,response ;
 
         // state
         if( key == "initiate" ){
-            res = "HEY! I am Get Schwifty Bot, here at your service to book you hotels and flights of your choice! \n\nLets Get Started! 🎉 🎉 🎉\n\nWould you Like to book a flight or a hotel?"
+            text = "HEY! I am Get Schwifty Bot, here at your service to book you hotels and flights of your choice! \n\nLets Get Started! 🎉 🎉 🎉\n\nWould you Like to book a flight or a hotel?"
+            response = Response.genTextReply(text);
         }
         else if( key == "confirm" ){
-            res = 'You are travelling from\n' + userData['origin']  + ' --> ' + userData['origin'] + 
+            text = 'You are travelling from\n' + userData['origin']  + ' --> ' + userData['origin'] +
                     ' \n\nTime of Flight\n' + userData['date'] + ' ' + userData['time'];
             if( userData[4] == true ){
-                res += '\n\nReturn Flight = ' + userData['returnDate'] + ' ' + userData['returnTime'] + '\n\nWould you like to confirm your booking?';
+                text += '\n\nReturn Flight = ' + userData['returnDate'] + ' ' + userData['returnTime'] + '\n\nWould you like to confirm your booking?';
             }
+            response = Response.genTextReply(text);
         }
         // intent -> can be either flight or hotel
         else if( key == 'intent' ){
-            res = "Would you Like to book a flight or a hotel?"
+            text = "Would you Like to book a flight or a hotel?"
+            response = Response.genTextReply(text);
         }
         else if( key == 'origin' ){
-            res = 'What is your current location?'
+            text = 'What is your current location?'
+            response = Response.genTextReply(text);
         }
         else if( key == 'destination' ){
-            res = 'Where are you heading to?'
+            text = 'Where are you heading to?'
+            response = Response.genTextReply(text);
         }
         else if( key == 'date' ){
-            res = 'When will you be heading out?'
+            text = 'When will you be heading out?'
+            response = Response.genTextReply(text);
         }
         else if( key == 'time' ){
-            res = 'What time would you like to book the ticket for?'
+            text = 'What time would you like to book the ticket for?'
+            response = Response.genTextReply(text);
         }
         else if( key == "ifReturn" ){
-            res = 'Would you like a return ticket?'
+            text = 'Would you like a return ticket?'
+            response = Response.genQuickReply(text, [
+                {
+                    title: "Yes",
+                    payload: "YES"
+                },
+                {
+                    title: "No",
+                    payload: "NO"
+                }
+            ]);
         }
         else if( key == 'returnDate' ){
-            res = 'When would you like to come back?'
+            text = 'When would you like to come back?'
+            response = Response.genTextReply(text);
         }
         else if( key == 'returnTime' ){
-            res = 'At what time would you like to book the return ticket?'
+            text = 'At what time would you like to book the return ticket?'
+            response = Response.genTextReply(text);
         }
 
-        return res;
+        return response;
 
     }
 
