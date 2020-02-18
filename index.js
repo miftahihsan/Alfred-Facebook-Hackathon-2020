@@ -133,7 +133,11 @@ function handleMessage(sender_psid, received_message) {
   const nlp = new Nlp();
 
   // Checks if the message contains text
-  if (received_message.text) {
+
+  if (received_message.quick_reply){       //Button replies
+    handleQuickReplies(userData, received_message.quick_reply);
+  }
+  else if (received_message.text) {
     var msg = received_message.text.toLowerCase();
 
     console.log(count);
@@ -147,10 +151,7 @@ function handleMessage(sender_psid, received_message) {
     console.log("state " + userData['state']);
 
 
-    if (received_message.quick_reply){       //Button replies
-      handleQuickReplies(userData, received_message.quick_reply);
-    }
-    else if( userData['state'] == 'initiate' ){
+    if( userData['state'] == 'initiate' ){
       response = Response.genTextReply( nlp.response( userData['state'], userData ));
       callSendAPI(sender_psid, response);
       userData['state'] = 'intent';
