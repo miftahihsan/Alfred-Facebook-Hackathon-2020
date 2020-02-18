@@ -136,13 +136,13 @@ function handleMessage(sender_psid, received_message) {
   console.log("Current STATE = " + userData['state']);
   console.log( "current MSG = " + msg );
   
-  if( msg.includes("no") && userData["state"] == 'ifReturn' ){
-    userData["ifReturn"] = true;
-  }
+  // if( msg.includes("no") && userData["state"] == 'ifReturn' ){
+  //   userData["ifReturn"] = true;
+  // }
 
-  if( msg.includes("yes") && userData["state"] == 'ifReturn' ){
-    userData["ifReturn"] = true;
-  }
+  // if( msg.includes("yes") && userData["state"] == 'ifReturn' ){
+  //   userData["ifReturn"] = true;
+  // }
 
   // Checks if the message contains text
   if (received_message.text) {
