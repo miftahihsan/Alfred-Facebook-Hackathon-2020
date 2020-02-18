@@ -145,7 +145,9 @@ function handleMessage(sender_psid, received_message) {
 
 
     if( userData['state'] == 'initiate' ){
-      response = nlp.response()
+      response = {
+        'text' : nlp.response('initiate', userData)
+      }
     }
 
     //  Uncomment later
@@ -157,11 +159,11 @@ function handleMessage(sender_psid, received_message) {
 
     console.log("-------------------------------------------------------------------");
 
-    if (userData['state']=='initiate'){
-      response = {
-        "text": `Hi! I am getSchwifty bot here to solve your travel problems. How may I help????`
-      }
-    }
+    // if (userData['state']=='initiate'){
+    //   response = {
+    //     "text": `Hi! I am getSchwifty bot here to solve your travel problems. How may I help????`
+    //   }
+    // }
 
 
     // Create the payload for a basic text message, which
@@ -175,6 +177,8 @@ function handleMessage(sender_psid, received_message) {
     }
   }
   
+  console.log(response);
+
   // Send the response message
   callSendAPI(sender_psid, response);    
 }
