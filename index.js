@@ -146,23 +146,23 @@ function handleMessage(sender_psid, received_message) {
 
     console.log("-------------------------------------------------------------------");
 
-    if( received_message.nlp.entities["sentiment"] == "negative" && userData['state'] == 'ifReturn' ){
-      console.log("NO");
-      userData['ifReturn'] = false;
-    }
+    // if( received_message.nlp.entities["sentiment"] == "negative" && userData['state'] == 'ifReturn' ){
+    //   console.log("NO");
+    //   userData['ifReturn'] = false;
+    // }
 
-    if( received_message.nlp.entities["sentiment"] == "possitive" && userData['state'] == 'ifReturn' ){
-      userData['ifReturn'] = true;
-    }
+    // if( received_message.nlp.entities["sentiment"] == "possitive" && userData['state'] == 'ifReturn' ){
+    //   userData['ifReturn'] = true;
+    // }
 
-    if( received_message.text.includes("reset") ){
-      userData = {};
-      userData['state'] = 'initiate';
-      callSendAPI(sender_psid, {
-        'text' : 'CY@ Summoner!'
-      });
-      return;  
-    }
+    // if( received_message.text.includes("reset") ){
+    //   userData = {};
+    //   userData['state'] = 'initiate';
+    //   callSendAPI(sender_psid, {
+    //     'text' : 'CY@ Summoner!'
+    //   });
+    //   return;  
+    // }
 
     console.log("star=te  " + userData['state']);
     if( userData['state'] == 'initiate' ){
