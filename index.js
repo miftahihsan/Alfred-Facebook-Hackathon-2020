@@ -149,6 +149,7 @@ function handleMessage(sender_psid, received_message) {
     var msg = received_message.text.toLowerCase();
 
     if( msg.includes("no") && received_message.nlp.entities["sentiment"] == "negative" ){
+      console.log("NO");
       userData['ifReturn'] = false;
     }
 
