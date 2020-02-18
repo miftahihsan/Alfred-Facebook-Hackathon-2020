@@ -9,6 +9,7 @@ class Nlp{
         if( 'destination' in nlp ){
             console.log("In Destination");
             console.log(nlp['destination'][0]['value']);
+            console.log(nlp['destination'][0]['confidence']);
             if (nlp['destination'][0]['confidence'] > 0.7) database.insert( userData, "destination", nlp['destination'][0]['value'] );
             console.log(userData);
         }
