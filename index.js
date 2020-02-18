@@ -152,7 +152,7 @@ function handleMessage(sender_psid, received_message) {
 
 
     if( userData['state'] == 'initiate' ){
-      response = Response.genTextReply( nlp.response( userData['state'], userData ));
+      response = nlp.response( userData['state'], userData );
       callSendAPI(sender_psid, response);
       userData['state'] = 'intent';
       console.log("userData State = " + userData['state']);
