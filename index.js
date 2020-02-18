@@ -156,6 +156,10 @@ function handleMessage(sender_psid, received_message) {
       return;
     }
 
+    response = {
+      'text' : nlp.findState(userData)
+    }
+
     console.log("state = " + nlp.findState(userData));
 
     // Uncomment later
