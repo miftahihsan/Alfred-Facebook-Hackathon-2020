@@ -158,8 +158,6 @@ function handleMessage(sender_psid, received_message) {
     // Uncomment later
     nlp.compile( received_message.nlp.entities, userData, dataBase ); // maybe do it only initially
 
-    dataBase.insert(userData, 'state', received_message.text); // inserts if state in missing data AUTO mAgICSS
-
     console.log( "database = " + dataBase );
 
     console.log("-------------------------------------------------------------------");
