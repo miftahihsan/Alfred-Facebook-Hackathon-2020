@@ -57,11 +57,11 @@ class Nlp{
 
         for( var i = index[userData['state']]; i < array.length; i++ ){
 
-            console.log("State of this loop = " + array[i] + " " + userData['state']);
+            console.log("State of this loop = " + array[i] + " " + userData['state'] + " i = " + 0);
 
             if( !( array[i] in userData ) ){
                 userData['state'] = array[i];
-                console.log("State of this loop pre breaking = " + array[i] + " " + userData['state']);
+                console.log("State of this loop pre breaking = " + array[i] + " " + userData['state'] + " i = " + 0);
                 return this.response( userData['state'], userData );
             }
 
