@@ -146,7 +146,17 @@ function handleMessage(sender_psid, received_message) {
 
     console.log("-------------------------------------------------------------------");
 
-    if( received_message.text == "reset" ){
+    var msg = received_message.text.toLowerCase();
+
+    if( msg.includes("no") && received_message.nlp.entities["sentiment"] == "negative" ){
+      userData['ifReturn'] = false;
+    }
+
+    if( msg.includes("yes") && received_message.nlp.entities["sentiment"] == "possitive" ){
+      userData['ifReturn'] = true;
+    }
+
+    if( msg.includes("reset") ){
       userData = {};
       userData['state'] = 'initiate';
       callSendAPI(sender_psid, {
