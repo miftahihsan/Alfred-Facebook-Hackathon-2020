@@ -170,9 +170,16 @@ function handleMessage(sender_psid, received_message) {
       console.log("userData State = " + userData['state']);
       return;
     }
-
-    nlp.compile( received_message.nlp.entities, userData, dataBase ); // maybe do it only initially
-
+    
+    
+    if( userData['state'] == 'intent' ){
+      nlp.compile( received_message.nlp.entities, userData, dataBase ); // maybe do it only initially
+    }
+    else if( received_message.nlp.entities[userData['state']][0]['confidence'] > 0.7 ){
+      dataBase.insert( userData, userData['state'], received_message.nlp.entities[userData['state']][0]['value'] );
+    }
+    
+    // get a response for the particular state now
     response = {
       'text' : nlp.findState(userData)
     }
