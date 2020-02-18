@@ -130,8 +130,11 @@ function handleMessage(sender_psid, received_message) {
   let response;
   var userData = dataBase[sender_psid];
 
+
+  var msg = received_message.text.toLowerCase();
+
   console.log("Current STATE = " + userData['state']);
-  console.log( "current MSG = " + received_message.text );
+  console.log( "current MSG = " + msg );
   
   
 
