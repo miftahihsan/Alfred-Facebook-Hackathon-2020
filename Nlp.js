@@ -41,8 +41,15 @@ class Nlp{
 
             if (nlp['datetime'][0]['confidence'] > 0.7)
             {
-                database.insert( userData, "date", dateAndTime[0] );
-                database.insert( userData, "time", dateAndTime[1] );
+                if (userData['state']=="returnDate"){
+                    database.insert( userData, "returnDate", dateAndTime[0] );
+                    database.insert( userData, "returnTime", dateAndTime[1] );
+
+                }else{
+                    database.insert( userData, "date", dateAndTime[0] );
+                    database.insert( userData, "time", dateAndTime[1] );
+                }
+
             }
             console.log("Time is = " + nlp['datetime'][0]['value'] + " " + nlp['datetime'][0]['grain'] );
         }
