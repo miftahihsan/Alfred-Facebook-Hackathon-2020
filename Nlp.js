@@ -114,8 +114,8 @@ class Nlp{
             res = "HEY! I am Get Schwifty Bot, here at your service to book you hotels and flights of your choice! \n\nLets Get Started! 🎉 🎉 🎉\n\nWould you Like to book a flight or a hotel?"
         }
         else if( key == "confirm" ){
-            res = 'You are going to ' + userData['destination']  + ' from ' + userData['origin'] + 
-                    ' \n\nTime of Flight = ' + userData['date'] + ' ' + userData['time'];
+            res = 'You are travelling from\n' + userData['origin']  + ' --> ' + userData['origin'] + 
+                    ' \n\nTime of Flight\n' + userData['date'] + ' ' + userData['time'];
             if( userData[4] == true ){
                 res += '\n\nReturn Flight = ' + userData['returnDate'] + ' ' + userData['returnTime'] + '\n\nWould you like to confirm your booking?';
             }
