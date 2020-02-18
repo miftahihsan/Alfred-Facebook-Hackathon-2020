@@ -114,10 +114,10 @@ class Nlp{
             res = "HEY! I am Get Schwifty Bot, here at your service to book you hotels and flights of your choice! \n\nLets Get Started! 🎉 🎉 🎉\n\nWould you Like to book a flight or a hotel?"
         }
         else if( key == "confirm" ){
-            res = 'So you are heading to ' + userData['destination']  + ' from ' + userData['origin'] + 
-                    ' \n Time of Flight = ' + userData['date'] + ' ' + userData['time'];
+            res = 'You are going to ' + userData['destination']  + ' from ' + userData['origin'] + 
+                    ' \n\nTime of Flight = ' + userData['date'] + ' ' + userData['time'];
             if( userData[4] == true ){
-                res += '\n Return Flight = ' + userData['returnDate'] + ' ' + userData['returnTime'];
+                res += '\n\nReturn Flight = ' + userData['returnDate'] + ' ' + userData['returnTime'] + '\n\nWould you like to confirm your booking?';
             }
         }
         // intent -> can be either flight or hotel
@@ -125,7 +125,7 @@ class Nlp{
             res = "Would you Like to book a flight or a hotel?"
         }
         else if( key == 'origin' ){
-            res = 'Where are you heading off from?'
+            res = 'What is your current location?'
         }
         else if( key == 'destination' ){
             res = 'Where are you heading to?'
@@ -140,7 +140,7 @@ class Nlp{
             res = 'Would you like a return ticket?'
         }
         else if( key == 'returnDate' ){
-            res = 'When will you be heading back?'
+            res = 'When would you like to come back?'
         }
         else if( key == 'returnTime' ){
             res = 'At what time would you like to book the return ticket?'
