@@ -146,7 +146,7 @@ function handleMessage(sender_psid, received_message) {
 
     console.log("-------------------------------------------------------------------");
 
-
+    console.log("star=te  " + userData['state']);
     if( userData['state'] == 'initiate' ){
       response = {
         'text' : nlp.response( userData['state'], userData )
