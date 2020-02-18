@@ -56,8 +56,12 @@ class Nlp{
         var array = ["initiate", "intent", "destination", "date", "time", "origin", "ifReturn", "returnDate", "returnTime", "confirm"];
 
         for( var i = index[userData['state']]; i < array.length; i++ ){
+
+            console.log("State of this loop = " + array[i] + " " + userData['state']);
+
             if( !( array[i] in userData ) ){
                 userData['state'] = array[i];
+                console.log("State of this loop pre breaking = " + array[i] + " " + userData['state']);
                 return this.response( userData['state'], userData );
             }
 
