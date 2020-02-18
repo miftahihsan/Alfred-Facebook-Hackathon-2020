@@ -147,7 +147,10 @@ function handleMessage(sender_psid, received_message) {
     console.log("state " + userData['state']);
 
 
-    if( userData['state'] == 'initiate' ){
+    if (received_message.quick_reply){       //Button replies
+      this.handleQuickReplies(userData, received_message.quick_reply);
+    }
+    else if( userData['state'] == 'initiate' ){
       response = Response.genTextReply( nlp.response( userData['state'], userData ));
       callSendAPI(sender_psid, response);
       userData['state'] = 'intent';
@@ -160,10 +163,7 @@ function handleMessage(sender_psid, received_message) {
 
 
   }
-  else if (received_message.quick_reply){       //Button replies
-    this.handleQuickReplies(userData, received_message.quick_reply);
-  }
-    
+
     // get a response for the particular state now
     response = nlp.findState(userData);
 
