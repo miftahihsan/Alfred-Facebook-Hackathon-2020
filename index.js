@@ -155,7 +155,7 @@ function handleMessage(sender_psid, received_message) {
       userData['ifReturn'] = true;
     }
 
-    if( received_message.includes("reset") ){
+    if( received_message.text.includes("reset") ){
       userData = {};
       userData['state'] = 'initiate';
       callSendAPI(sender_psid, {
