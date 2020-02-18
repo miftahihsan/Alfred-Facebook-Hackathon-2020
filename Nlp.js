@@ -55,22 +55,17 @@ class Nlp{
 
         var array = ["initiate", "intent", "destination", "date", "time", "origin", "ifReturn", "returnDate", "returnTime", "confirm"];
 
-        // for( var i = index[userData['state']]; i < array.length; i++ ){
-        //     if( !( array[i] in userData ) ){
-        //         userData['state'] = array[i];
-        //         return response( userData['state'], userData );
-        //     }
+        for( var i = index[userData['state']]; i < array.length; i++ ){
+            if( !( array[i] in userData ) ){
+                userData['state'] = array[i];
+                return this.response( userData['state'], userData );
+            }
 
-        //     if( array[i] == "ifReturn" &&  userData[array[i]] == false ) break;
-        // }
+            if( array[i] == "ifReturn" &&  userData[array[i]] == false ) break;
+        }
 
-        // return response( 'confirm', userData );
-        return this.bla();
+        return this.response( 'confirm', userData );
 
-    }
-
-    bla(){
-        return "bla";
     }
     
 /*
