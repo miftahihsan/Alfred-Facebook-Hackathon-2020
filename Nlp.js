@@ -65,8 +65,12 @@ class Nlp{
         // }
 
         // return response( 'confirm', userData );
-        return "BLA"
+        return this.bla();
 
+    }
+
+    bla(){
+        return "bla";
     }
     
 /*
