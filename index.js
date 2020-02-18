@@ -132,19 +132,6 @@ function handleMessage(sender_psid, received_message) {
     
     const nlp = new Nlp();
 
-    const greetings = nlp.checkGreetings( received_message.nlp, 'greetings' );
-    
-    if( greetings && greetings.confidence > 0.8 && dataBase.isEmpty( userData ) ){
-
-      if( dataBase.isEmpty( userData ) ){
-        callSendAPI(sender_psid, { "text": `Hi! Welcome to Smart Trip Advisor!. Lets get Started!` } )
-        console.log("Hi! Welcome to Smart Trip Advisor!.");
-        count = count + 1;
-        return;
-      }
-
-    }
-
     console.log( count );
 
     // Compiles the user text message and makes meaning out if it
@@ -157,128 +144,37 @@ function handleMessage(sender_psid, received_message) {
     console.log("-------------------------------------------------------------------");
 
 
+    if( userData['state'] == 'initiate' ){
+      response = nlp.response()
+    }
+
     //  Uncomment later
     nlp.compile( received_message.nlp.entities, userData, dataBase );   // maybe do it only initially
 
-    dataBase.insert(userData, userData[5], received_message.text) // inserts if state in missing data AUTO mAgICSS
-
-    if (userData[5]=="ifReturn"){ //yes no
-      if( 'sentiment' in nlp ){
-        if (received_message.nlp.entities['sentiment'][0]['value']== "positive" ){
-          userData[3]=true;
-        }
-        else userData[3]=false;
-      }
-    }
-
+    dataBase.insert(userData, 'state', received_message.text) // inserts if state in missing data AUTO mAgICSS
 
     console.log( "database = " + dataBase );
 
     console.log("-------------------------------------------------------------------");
 
-    if (userData[5]=='initiate'){
+    if (userData['state']=='initiate'){
       response = {
         "text": `Hi! I am getSchwifty bot here to solve your travel problems. How may I help????`
       }
     }
-
-    if (userData[5]=="panic" || userData[5]=="hotel"){
-      response = {
-        "text": `Omg?! IDK WHAT TO DO NOWWW HALPPP.. I will just reset myself.. sorryyyyy`
-
-
-      }
-
-      for( var i = 0; i < userData.length; i++ ){
-        userData[i] = null ;
-      }
-      dataBase.insert(userData, "state", "initiate")
-
-    }
-
-    if (userData[6] == "flight"){
-      console.log("Context is flight");
-      if (userData[1]==null){   //check all
-        var query = "where ya headed to";
-        var q=1;
-        if (userData[0]==null){
-          q=2;  //atleast 2 queries
-          query += ", where u at now";
-        }
-        if (userData[2]==null){
-          q=2;
-          query += ", when u be heading out";
-        }
-        if (q==1)dataBase.insert(userData, "state", "destination");
-
-
-        else dataBase.insert(userData, "state", "askall");
-        response = {
-          "text": `Please tell me `+query+` ?`
-        }
-      }
-      else if (userData[2]==null) {
-        dataBase.insert(userData, "state", "date")
-        response = {
-          "text": `When u be heading out?`
-        }
-      }
-      else if (userData[0]==null){
-        dataBase.insert(userData, "state", "origin");
-        response = {
-          "text": `Where u at now?`
-        }
-      }
-
-      else if (userData[3]==null) {
-        dataBase.insert(userData, "state", "ifReturn")
-        //dataBase.insert(userData, "state", "panic")
-        response = {
-          "text": `Do you want a return ticket?`
-        }
-      }
-      else if (userData[3]==true && userData[4]==null) {
-        dataBase.insert(userData, "state", "returnDate")
-        response = {
-          "text": `When u be coming back?`
-        }
-      }
-      else {
-        dataBase.insert(userData, "state", "confirm")
-        dataBase.insert(userData, "state", "panic")
-        response = {
-          "text": `So you wanna be travelling to ` + userData[1] + ` on the ` + userData[2] + ` from ` + userData[0]  // give a list to change ADD Return later
-        }
-      }
-    }
-
-
-
-
-
-
-    if (received_message.text == "reset"){
-      for( var i = 0; i < userData.length; i++ ){
-         userData[i] = null ;
-      }
-      response = {
-        "text": `ok byeee`
-      }
-      dataBase.insert(userData, "state", "initiate")
-
-    }
-
 
 
     // Create the payload for a basic text message, which
     // will be added to the body of our request to the Send API  
 
   }
-  if (response==null){
+
+  if( response == null ){
     response = {
       "text": `sorry i didnt get that`
     }
   }
+  
   // Send the response message
   callSendAPI(sender_psid, response);    
 }

@@ -2,10 +2,17 @@
 /*
     # DataBase Design
     -----------------------
-    @index 0 -> origin
-    @index 1 -> destination
-    @index 2 -> date
-    @index 3 -> timestamp
+    user_id : {
+        state,
+        intent,
+        origin,
+        destination,
+        date,
+        time,
+        ifReturn,
+        returnDate,
+        returnTime,
+    }
  */
 
 class DataBase{
@@ -16,7 +23,7 @@ class DataBase{
         return {};
     }
 
-    register( hashMap, id ){ hashMap[id] = new Array(8); }
+    register( DataBase, id ){ DataBase[id] = {}; }
 
     isEmpty( array ){
         for( var i = 0; i < array.length; i++ ){
@@ -28,32 +35,35 @@ class DataBase{
 
     insert( userData, key, value ){
         
-        if( key == "origin" ){
-            userData[0] = value;
-            console.log("value is = " + value);
-            console.log("userData[0] = " + userData[0]);
-        }
-        else if( key == "destination" ){
-            userData[1] = value;
-        }
-        else if( key == "date" ){
-            userData[2] = value;
-        }
-        else if ( key == "ifReturn"){
-            userData[3] = value;
-        }
-        else if ( key == "returnDate"){
-            userData[4] = value;
-        }
-        else if ( key == "state"){
-            userData[5] = value;
-        }
-        else if (key == "intent"){
-            userData[6] = value;
-        }
-        else if( key == "time" ){
-            userData[7] = value;
-        }
+        userData[key] = value;
+
+        // if( key == "origin" ){
+        //     userData[0] = value;
+        // }
+        // else if( key == "destination" ){
+        //     userData[1] = value;
+        // }
+        // else if( key == "date" ){
+        //     userData[2] = value;
+        // }
+        // else if( key == 'time' ){
+        //     userData[3] = value;
+        // }
+        // else if ( key == "ifReturn"){
+        //     userData[4] = value;
+        // }
+        // else if( key == "returnDate" ){
+        //     userData[5] = value;
+        // }
+        // else if( key == "returnTime" ){
+        //     userData[6] = value;
+        // }
+        // else if ( key == "state"){
+        //     userData[7] = value;
+        // }
+        // else if (key == "intent"){
+        //     userData[8] = value;
+        // }
     }
 
 }

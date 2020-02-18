@@ -5,18 +5,17 @@ class Nlp{
         @userData -> The array extracted from HashMap
         @userMsg -> raw text sent by the user to the bot
     */
-   //HELLO
     compile( nlp, userData, database ){
         if( 'destination' in nlp ){
             console.log("In Destination");
             console.log(nlp['destination'][0]['value']);
-            if (nlp['destination'][0]['confidence']>0.7) database.insert( userData, "destination", nlp['destination'][0]['value'] );
+            if (nlp['destination'][0]['confidence'] > 0.7) database.insert( userData, "destination", nlp['destination'][0]['value'] );
             console.log(userData);
         }
         if( 'origin' in nlp ){
             console.log("In Origin");
             console.log(nlp['origin'][0]['value']);
-            if (nlp['origin'][0]['confidence']>0.7)database.insert( userData, "origin", nlp['origin'][0]['value'] );
+            if (nlp['origin'][0]['confidence'] > 0.7)database.insert( userData, "origin", nlp['origin'][0]['value'] );
             console.log(userData);
         }
         if( 'datetime' in nlp ){
@@ -24,7 +23,7 @@ class Nlp{
             console.log(nlp['datetime'][0]['value']);
             var dateAndTime = nlp['datetime'][0]['value'].split('T');
 
-            if (nlp['datetime'][0]['confidence']>0.7)
+            if (nlp['datetime'][0]['confidence'] > 0.7)
             {
                 database.insert( userData, "date", dateAndTime[0] );
                 database.insert( userData, "time", dateAndTime[1] );
@@ -34,23 +33,98 @@ class Nlp{
         if ( 'intent' in nlp){
             console.log("Intent");
             console.log(nlp['intent'][0]['value']);      // 0th index has highest confidence
-            if (nlp['intent'][0]['confidence']>0.7) database.insert( userData, "intent", nlp['intent'][0]['value']);
+            if (nlp['intent'][0]['confidence'] > 0.7) database.insert( userData, "intent", nlp['intent'][0]['value']);
         }
 
         console.log( userData );
     }
 
-    /*
-        @nlp -> nlp object 
-        @name -> name represents tags from the JSON object example : greetings,
-                    location, timestamp etc.
-    */
-    checkGreetings( nlp, name ){
-        return nlp && nlp.entities && nlp.entities[name] && nlp.entities[name][0];
-    }
 
-    response( data ){
-        
+    findState( userData ){
+        var index = {
+            "initiate" : 0,
+            "destination" : 1,
+            "date" : 2,
+            "time" : 3,
+            "origin" : 4,
+            "ifReturn" : 5,
+            "returnDate" : 6,
+            "returnTime" : 7
+        }
+
+        var array = ["initiate", "destination", "date", "time", "origin", "ifReturn", "returnDate", "returnTime", "confirm"];
+
+        for( var i = index[userData['state']]; i < array.length; i++ ){
+            if( !( array[i] in userData ) ){
+                userData['state'] = array[i];
+                return response( userData['state'], userData );
+            }
+
+            if( array[i] == "ifReturn" &&  userData[array[i]] == false ) break;
+        }
+
+        return response( 'confirm', userData );
+
+    }
+    
+/*
+    # DataBase Design
+    -----------------------
+    user_id : {
+        state,
+        intent,
+        origin,
+        destination,
+        date,
+        time,
+        ifReturn,
+        returnDate,
+        returnTime,
+    }
+*/
+    response( key, userData ){
+
+        var res = '';
+
+        // state
+        if( key == "initiate" ){
+            res = "HEY! I am Get Schwifty Bot, here at your service to book you hotels and flights of your choice! \n Lets Get Started! 🎉 🎉 🎉"
+        }
+        else if( key == "confirm" ){
+            res = 'So you are heading to ' + userData['destination']  + ' from ' + userData['origin'] + 
+                    ' \n Time of Flight = ' + userData['date'] + ' ' + userData['time'];
+            if( userData[4] == true ){
+                res += '\n Return Flight = ' + userData['returnDate'] + ' ' + userData['returnTime'];
+            }
+        }
+        // intent -> can be either flight or hotel
+        else if( key == 'intent' ){
+
+        }
+        else if( key == 'origin' ){
+            res = 'Where are you heading off from?'
+        }
+        else if( key == 'destination' ){
+            res = 'Where are you heading to?'
+        }
+        else if( key == 'date' ){
+            res = 'When will you be heading out?'
+        }
+        else if( key == 'time' ){
+            res = 'What time would you like to book the ticket for?'
+        }
+        else if( key == "ifReturn" ){
+            res = 'Would you like a return ticket?'
+        }
+        else if( key == 'returnDate' ){
+            res = 'When will you be heading back?'
+        }
+        else if( key == 'returnTime' ){
+            res = 'At what time would you like to book the return ticket?'
+        }
+
+        return res;
+
     }
 
 }
