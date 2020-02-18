@@ -163,9 +163,7 @@ function handleMessage(sender_psid, received_message) {
       userData['state'] = 'intent';
       console.log("userData State = " + userData['state']);
       return;
-    }
-    
-    
+    }    
 
     nlp.compile( received_message.nlp.entities, userData, dataBase ); // maybe do it only initially
 
@@ -176,6 +174,8 @@ function handleMessage(sender_psid, received_message) {
     }
 
     console.log("state = " + nlp.findState(userData));
+    console.log("current state = " + userData['state']);
+    
 
     console.log("-------------------------------------------------------------------");
 
