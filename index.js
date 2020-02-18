@@ -148,7 +148,7 @@ function handleMessage(sender_psid, received_message) {
 
 
     if (received_message.quick_reply){       //Button replies
-      this.handleQuickReplies(userData, received_message.quick_reply);
+      handleQuickReplies(userData, received_message.quick_reply);
     }
     else if( userData['state'] == 'initiate' ){
       response = Response.genTextReply( nlp.response( userData['state'], userData ));
