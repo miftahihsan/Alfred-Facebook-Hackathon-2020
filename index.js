@@ -61,11 +61,10 @@ app.post('/webhook', (req, res) => {
       if( !( sender_psid in dataBase ) ) {
         dataBase.register( dataBase, sender_psid );
         dataBase.insert(dataBase[sender_psid], "state", "initiate" );    // initiate and greet
-        callSendAPI(sender_psid, 
-          {'text' : 'HEY! I am Get Schwifty Bot, here at your service to book you hotels and flights of your choice! \n\nLets Get Started! 🎉 🎉 🎉'}
-        )
+        // callSendAPI(sender_psid, 
+        //   {'text' : 'HEY! I am Get Schwifty Bot, here at your service to book you hotels and flights of your choice! \n\nLets Get Started! 🎉 🎉 🎉'}
+        // )
         console.log("Greeting Summoner!");
-        return;
       }
       else {
         console.log("Welcome Back!! user = " + sender_psid );
@@ -154,21 +153,16 @@ function handleMessage(sender_psid, received_message) {
       }
     }
 
-    //  Uncomment later
-    nlp.compile( received_message.nlp.entities, userData, dataBase );   // maybe do it only initially
+    console.log(userData);
 
-    dataBase.insert(userData, 'state', received_message.text) // inserts if state in missing data AUTO mAgICSS
+    // Uncomment later
+    nlp.compile( received_message.nlp.entities, userData, dataBase ); // maybe do it only initially
+
+    dataBase.insert(userData, 'state', received_message.text); // inserts if state in missing data AUTO mAgICSS
 
     console.log( "database = " + dataBase );
 
     console.log("-------------------------------------------------------------------");
-
-    // if (userData['state']=='initiate'){
-    //   response = {
-    //     "text": `Hi! I am getSchwifty bot here to solve your travel problems. How may I help????`
-    //   }
-    // }
-
 
     // Create the payload for a basic text message, which
     // will be added to the body of our request to the Send API  

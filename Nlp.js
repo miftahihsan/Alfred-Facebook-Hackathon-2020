@@ -88,7 +88,7 @@ class Nlp{
 
         // state
         if( key == "initiate" ){
-            res = "HEY! I am Get Schwifty Bot, here at your service to book you hotels and flights of your choice! \n\nLets Get Started! 🎉 🎉 🎉"
+            res = "HEY! I am Get Schwifty Bot, here at your service to book you hotels and flights of your choice! \n\nLets Get Started! 🎉 🎉 🎉\n\nWhat may I do for you?"
         }
         else if( key == "confirm" ){
             res = 'So you are heading to ' + userData['destination']  + ' from ' + userData['origin'] + 
