@@ -146,6 +146,14 @@ function handleMessage(sender_psid, received_message) {
 
     console.log("-------------------------------------------------------------------");
 
+    if( received_message.text == "reset" ){
+      userData['state'] = 'initiate';
+      callSendAPI(sender_psid, {
+        'text' : 'CY@ Summoner!'
+      });
+      return;  
+    }
+
     console.log("star=te  " + userData['state']);
     if( userData['state'] == 'initiate' ){
       response = {
@@ -156,14 +164,15 @@ function handleMessage(sender_psid, received_message) {
       return;
     }
 
+    nlp.compile( received_message.nlp.entities, userData, dataBase ); // maybe do it only initially
+
     response = {
       'text' : nlp.findState(userData)
     }
 
     console.log("state = " + nlp.findState(userData));
 
-    // Uncomment later
-    nlp.compile( received_message.nlp.entities, userData, dataBase ); // maybe do it only initially
+    // Uncomment later  
 
     console.log( "database = " + dataBase );
 

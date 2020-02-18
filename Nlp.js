@@ -41,20 +41,20 @@ class Nlp{
 
 
     findState( userData ){
-        var index = {
-            "intent" : 0,
-            "destination" : 1,
-            "date" : 2,
-            "time" : 3,
-            "origin" : 4,
-            "ifReturn" : 5,
-            "returnDate" : 6,
-            "returnTime" : 7
-        }
+        // var index = {
+        //     "intent" : 0,
+        //     "destination" : 1,
+        //     "date" : 2,
+        //     "time" : 3,
+        //     "origin" : 4,
+        //     "ifReturn" : 5,
+        //     "returnDate" : 6,
+        //     "returnTime" : 7
+        // }
 
         var array = ["intent", "destination", "date", "time", "origin", "ifReturn", "returnDate", "returnTime", "confirm"];
 
-        for( var i = index[userData['state']]; i < array.length; i++ ){
+        for( var i = 0; i < array.length; i++ ){
 
             console.log("userData = " + userData);
             console.log("State of this loop = " + array[i] + " " + userData['state'] + " i = " + 0);
@@ -69,6 +69,7 @@ class Nlp{
             if( array[i] == "ifReturn" &&  userData[array[i]] == false ) break;
         }
 
+        userData['state'] = 'confirm';
         return this.response( 'confirm', userData );
 
     }
