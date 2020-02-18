@@ -6,6 +6,12 @@ class Nlp{
         @userMsg -> raw text sent by the user to the bot
     */
     compile( nlp, userData, database ){
+
+        console.log("HERE");
+        
+        console.log(nlp);
+        
+
         if( 'destination' in nlp ){
             console.log("In Destination");
             console.log(nlp['destination'][0]['value']);

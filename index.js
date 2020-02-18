@@ -160,7 +160,7 @@ function handleMessage(sender_psid, received_message) {
 
     console.log("-------------------------------------------------------------------");
 
-    console.log("star=te  " + userData['state']);
+    console.log("state " + userData['state']);
     if( userData['state'] == 'initiate' ){
       response = {
         'text' : nlp.response( userData['state'], userData )
@@ -175,8 +175,8 @@ function handleMessage(sender_psid, received_message) {
     if( userData['state'] == 'intent' ){
       nlp.compile( received_message.nlp.entities, userData, dataBase ); // maybe do it only initially
     }
-    else if( received_message.nlp.entities[userData['state']][0]['confidence'] > 0.7 ){
-      dataBase.insert( userData, userData['state'], received_message.nlp.entities[userData['state']][0]['value'] );
+    else{
+
     }
     
     // get a response for the particular state now
