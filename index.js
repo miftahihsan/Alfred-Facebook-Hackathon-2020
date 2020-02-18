@@ -135,6 +135,13 @@ function handleMessage(sender_psid, received_message) {
     
     const nlp = new Nlp();
 
+    var msg = received_message.text.toLowerCase();
+
+    if( userData['state'] == 'ifReturn' && !( 'ifReturn' in userData ) ){
+      if( msg.includes('no') ) userData['ifReturn'] = false;
+      else if( msg.includes('yes') ) userData['ifReturn'] = true;
+    }
+
     console.log( count );
 
     // Compiles the user text message and makes meaning out if it

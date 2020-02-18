@@ -5,10 +5,7 @@ class Nlp{
         @userData -> The array extracted from HashMap
         @userMsg -> raw text sent by the user to the bot
     */
-    compile( nlp, userData, database ){
-
-        console.log("H");
-        
+    compile( nlp, userData, database ){        
         
         if( 'location' in nlp ){
             if (nlp['location'][0]['confidence'] > 0.7){
@@ -48,7 +45,7 @@ class Nlp{
             }
             console.log("Time is = " + nlp['datetime'][0]['value'] + " " + nlp['datetime'][0]['grain'] );
         }
-        
+
         if ( 'intent' in nlp){
             console.log("Intent");
             console.log(nlp['intent'][0]['value']);      // 0th index has highest confidence
