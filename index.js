@@ -130,20 +130,6 @@ function handleMessage(sender_psid, received_message) {
   let response;
   var userData = dataBase[sender_psid];
 
-
-  var msg = received_message.text.toLowerCase();
-
-  console.log("Current STATE = " + userData['state']);
-  console.log( "current MSG = " + msg );
-  
-  // if( msg.includes("no") && userData["state"] == 'ifReturn' ){
-  //   userData["ifReturn"] = true;
-  // }
-
-  // if( msg.includes("yes") && userData["state"] == 'ifReturn' ){
-  //   userData["ifReturn"] = true;
-  // }
-
   // Checks if the message contains text
   if (received_message.text) {
     
@@ -161,6 +147,7 @@ function handleMessage(sender_psid, received_message) {
     console.log("-------------------------------------------------------------------");
 
     console.log("state " + userData['state']);
+
     if( userData['state'] == 'initiate' ){
       response = {
         'text' : nlp.response( userData['state'], userData )
@@ -172,12 +159,9 @@ function handleMessage(sender_psid, received_message) {
     }
     
     
-    if( userData['state'] == 'intent' ){
-      nlp.compile( received_message.nlp.entities, userData, dataBase ); // maybe do it only initially
-    }
-    else{
 
-    }
+    nlp.compile( received_message.nlp.entities, userData, dataBase ); // maybe do it only initially
+
     
     // get a response for the particular state now
     response = {
@@ -186,14 +170,7 @@ function handleMessage(sender_psid, received_message) {
 
     console.log("state = " + nlp.findState(userData));
 
-    // Uncomment later  
-
-    console.log( "database = " + dataBase );
-
     console.log("-------------------------------------------------------------------");
-
-    // Create the payload for a basic text message, which
-    // will be added to the body of our request to the Send API  
 
   }
 
