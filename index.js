@@ -147,23 +147,10 @@ function handleMessage(sender_psid, received_message) {
     console.log("-------------------------------------------------------------------");
 
 
-    // if( userData['state'] == 'initiate' ){
-    //   response = {
-    //     'text' : nlp.findState( userData )
-    //   }
-    //   userData['state'] = 'intent';
-    // }
-
-    // if( received_message.text == "reset" ){
-    //   userData['state'] = "initiate";
-    //   callSendAPI(sender_psid, 
-    //     {'text' : 'cy@'}
-    //   )
-    //   return;
-    // }
-
-    response = {
-      'text' : nlp.findState( userData )
+    if( userData['state'] == 'initiate' ){
+      response = {
+        'text' : nlp.response( userData['state'], userData )
+      }
     }
 
     console.log(userData);
