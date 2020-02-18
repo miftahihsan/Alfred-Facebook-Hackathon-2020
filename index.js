@@ -130,12 +130,12 @@ app.get('/webhook', (req, res) => {
 function handleMessage(sender_psid, received_message) {
   let response;
   var userData = dataBase[sender_psid];
+  const nlp = new Nlp();
 
   // Checks if the message contains text
   if (received_message.text) {
     var msg = received_message.text.toLowerCase();
 
-    const nlp = new Nlp();
     console.log(count);
 
     // Compiles the user text message and makes meaning out if it
