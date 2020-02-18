@@ -116,7 +116,7 @@ class Nlp{
             response = Response.genTextReply(text);
         }
         else if( key == "confirm" ){
-            res = 'You are travelling from\n' + userData['origin']  + ' to ' + userData['destination'] + 
+            text = 'You are travelling from\n' + userData['origin']  + ' to ' + userData['destination'] +
                     ' \n\nTime of Flight\n' + userData['date'] + ' ' + userData['time'];
             if( userData[4] == true ){
                 text += '\n\nReturn Flight = ' + userData['returnDate'] + ' ' + userData['returnTime'] + '\n\nWould you like to confirm your booking?';
