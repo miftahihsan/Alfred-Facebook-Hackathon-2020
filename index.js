@@ -153,7 +153,7 @@ function handleMessage(sender_psid, received_message) {
       }
     }
 
-    console.log(userData);
+    console.log("state = " + nlp.findState(userData));
 
     // Uncomment later
     nlp.compile( received_message.nlp.entities, userData, dataBase ); // maybe do it only initially
