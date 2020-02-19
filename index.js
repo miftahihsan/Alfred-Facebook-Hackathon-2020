@@ -206,6 +206,9 @@ function handlePostback(sender_psid, received_postback) {
     userData['state'] = 'initiate';
 
     response = nlp.findState(userData);
+
+    console.log( response );
+    
     // Send the message to acknowledge the postback
     callSendAPI(sender_psid, response);
 
