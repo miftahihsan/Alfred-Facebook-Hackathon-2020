@@ -206,12 +206,12 @@ function handlePostback(sender_psid, received_postback) {
   } 
   else if(payload === 'Book Flight'){
     if( userData['state'] == 'pickFlight' ){
-      console.log("HERE I AM");
-      
       dataBase.insert( userData, 'pickFlight', true );
+      response = nlp.findState( userData );
     }
     else{
       dataBase.insert( userData, 'returnFlight', true );
+      response = nlp.findState( userData );
     }
   }
   else if (payload === 'Hotel') {
