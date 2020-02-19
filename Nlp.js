@@ -65,16 +65,6 @@ class Nlp{
 
 
     findState( userData ){
-        // var index = {
-        //     "intent" : 0,
-        //     "destination" : 1,
-        //     "date" : 2,
-        //     "time" : 3,
-        //     "origin" : 4,
-        //     "ifReturn" : 5,
-        //     "returnDate" : 6,
-        //     "returnTime" : 7
-        // }
 
         var array = ["intent", "destination", "date", "time", "origin", "ifReturn", "returnDate", "returnTime", "confirm"];
 

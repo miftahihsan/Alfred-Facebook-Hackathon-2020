@@ -32,6 +32,8 @@ const
 // Declearing temporary Database 
 // in the form of HashMap
 var dataBase = new DataBase();
+var nlp = new Nlp();
+var userData;
 
 // Sets server port and logs message on success
 app.listen(process.env.PORT || 8000, () => console.log('webhook is listening'));
@@ -68,6 +70,8 @@ app.post('/webhook', (req, res) => {
         console.log("Welcome Back!! user = " + sender_psid );
       }
     
+      userData = DataBase[sender_psid];
+
       // Check if the event is a message or postback and
       // pass the event to the appropriate handler function
       if (webhook_event.message) {
@@ -126,8 +130,6 @@ app.get('/webhook', (req, res) => {
 // Handles messages events
 function handleMessage(sender_psid, received_message) {
   let response;
-  var userData = dataBase[sender_psid];
-  const nlp = new Nlp();
 
   // Checks if the message contains text
 
@@ -135,9 +137,6 @@ function handleMessage(sender_psid, received_message) {
     handleQuickReplies(userData, received_message.quick_reply);
   }
   else if (received_message.text) {
-    var msg = received_message.text.toLowerCase();
-
-    console.log(count);
 
     // Compiles the user text message and makes meaning out if it
     // using which it fills the user table appropriately.
@@ -188,39 +187,34 @@ function handleQuickReplies(userData, quick_reply) {
     if (payload.includes('NO')) userData['ifReturn'] = false;
     else if (payload.includes('YES')) userData['ifReturn'] = true;
   }
-
-
-
 }
 
 // Handles messaging_postbacks events
 function handlePostback(sender_psid, received_postback) {
   let response;
-  var userData = dataBase[sender_psid];
-
-  if( !( sender_psid in dataBase ) ) {
-
-    dataBase.register( dataBase, sender_psid );
-    dataBase.insert(dataBase[sender_psid], "state", "initiate" );    // initiate and greet
-    response = nlp.response( userData['state'], userData );
-    callSendAPI(sender_psid, response);
-    userData['state'] = 'intent';
-    return;
-
-  }
-
 
   // Get the payload for the postback
   let payload = received_postback.payload;
 
   // Set the response based on the postback payload
-  if (payload === 'yes') {
-    response = { "text": "Thanks!" }
+  if (payload === 'Get Started') {
+
+    userData = {};
+    userData['state'] = 'initiate';
+
+    response = nlp.findState(userData);
+    // Send the message to acknowledge the postback
+    callSendAPI(sender_psid, response);
+
+    userData['state'] = 'intent';
+
   } else if (payload === 'no') {
     response = { "text": "Oops, try sending another image." }
   }
+
+  // response = nlp.findState(userData);
   // Send the message to acknowledge the postback
-  callSendAPI(sender_psid, response);
+  // callSendAPI(sender_psid, response);
 }
 
 // Sends response messages via the Send API
