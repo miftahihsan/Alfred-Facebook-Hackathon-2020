@@ -200,7 +200,7 @@ function handlePostback(sender_psid, received_postback) {
   console.log( payload );  
 
   // Set the response based on the postback payload
-  if (payload === 'Get Started') {
+  if (payload === 'INITIATE') {
 
     userData = {};
     userData['state'] = 'initiate';
