@@ -24,6 +24,10 @@ class Response{
         return response
     }
 
+    static getFlightDetails( userData ){
+        return Information.flightDetails( userData );
+    }
+
     static getFlightView( to, from, date ){
         console.log('_______________________________________--------------------------___________________________');
         console.log( Information.flightInformation(to, from, date) );

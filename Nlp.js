@@ -1,5 +1,4 @@
 const Response = require('./response');
-const Information = require('./Information');
 class Nlp{
 
     /*
@@ -111,9 +110,9 @@ class Nlp{
                 text += '\n\nReturn Flight = ' + userData['returnDate'] + ' ' + userData['returnTime'] + '\n\nWould you like to confirm your booking?';
             }
 
-            response = Response.genTextReply(text)
+            // response = Response.genTextReply(text)
 
-            // response = Information.flightDetails( userData );
+            response = Response.getFlightDetails( userData );
 
             // response = Response.genWebView(userData['destination'],userData['origin'],userData['date']);
         }
