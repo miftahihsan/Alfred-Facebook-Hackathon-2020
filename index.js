@@ -131,7 +131,7 @@ function handleMessage(sender_psid, received_message) {
   let response;
 
   const nlp = new Nlp();
-  var userData = DataBase[sender_psid];
+  var userData = dataBase[sender_psid];
 
   // Checks if the message contains text
 
@@ -201,7 +201,7 @@ function handlePostback(sender_psid, received_postback) {
 
   // Set the response based on the postback payload
   if (payload === 'INITIATE') {
-    response = { "text": "Oops, try sending another image." }
+    response = { "text": "Initiated." }
   } else if (payload === 'no') {
     response = { "text": "Oops, try sending another image." }
   }
