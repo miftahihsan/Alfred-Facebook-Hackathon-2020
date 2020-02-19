@@ -4,12 +4,12 @@ class  Information{
         
         var flightNumber = ["A4FHTK", "G4RTGH", "Z5HHJH", "L5HYLF"];
 
-        // var oriInit = userData['origin'].charAt(0) + userData['origin'].charAt( ( userData['origin'].length() / 2 ) ) + userData['origin'].charAt(userData['origin'].length() - 1);
-        // var desInit = userData['destination'].charAt(0) + userData['destination'].charAt( ( userData['destination'].length() / 2 ) ) + userData['destination'].charAt(userData['destination'].length() - 1);
+        var oriInit = ( userData['origin'].charAt(0) + "" + userData['origin'].charAt( ( userData['origin'].length / 2 ) ) + "" + userData['origin'].charAt(userData['origin'].length - 1) ).toUpperCase();
+        var desInit = ( userData['destination'].charAt(0) + "" + userData['destination'].charAt( ( userData['destination'].length / 2 ) ) + "" + userData['destination'].charAt(userData['destination'].length - 1) ).toUpperCase();
 
-        console.log( "HERE!!!!!!!!!!!!!!" );
-        console.log( userData['origin'] );
-        console.log( userData['destination'].charAt(0) + "" + userData['destination'].charAt( ( userData['destination'].length / 2 ) ) + "" + userData['destination'].charAt(userData['destination'].length - 1) );
+        // console.log( "HERE!!!!!!!!!!!!!!" );
+        // console.log( userData['origin'] );
+        // console.log( userData['destination'].charAt(0) + "" + userData['destination'].charAt( ( userData['destination'].length / 2 ) ) + "" + userData['destination'].charAt(userData['destination'].length - 1) );
         
         let response;
 
@@ -28,13 +28,13 @@ class  Information{
                             {
                                 flight_number: "f001",
                                 departure_airport: {
-                                    airport_code: "DHK",
+                                    airport_code: oriInit,
                                     city: userData['origin'],
                                     terminal: "T4",
                                     gate: "G8"
                                 },
                                 arrival_airport: {
-                                    airport_code: "CTG",
+                                    airport_code: desInit,
                                     city: userData['destination'],
                                     terminal: "T4",
                                     gate: "G8"
@@ -48,13 +48,13 @@ class  Information{
                             {
                                 flight_number: "f001",
                                 departure_airport: {
-                                    airport_code: "CTG",
+                                    airport_code: desInit,
                                     city: userData['destination'],
                                     terminal: "T4",
                                     gate: "G8"
                                 },
                                 arrival_airport: {
-                                    airport_code: "DHK",
+                                    airport_code: oriInit,
                                     city: userData['origin'],
                                     terminal: "T4",
                                     gate: "G8"
