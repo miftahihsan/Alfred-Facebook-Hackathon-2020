@@ -64,7 +64,7 @@ class Nlp{
 
     findState( userData ){
 
-        var array = ["destination", "date", "origin", "ifReturn", "returnDate", "confirm"];
+        var array = ["destination", "date", "origin", "ifReturn", "returnDate", "pickFlight", "confirm"];
 
         if( !( "intent" in userData ) ){
             userData['state'] = 'intent';
@@ -134,6 +134,11 @@ class Nlp{
         else if( key == 'time' ){
             text = 'What time would you like to book the ticket for?'
             response = Response.genTextReply(text);
+        }
+        else if( key == "pickFlight" ){
+
+            response = Response.getFlightView(userData['destination'],userData['origin'],userData['date']);
+            
         }
         else if( key == "ifReturn" ){
             text = 'Would you like a return ticket?'
