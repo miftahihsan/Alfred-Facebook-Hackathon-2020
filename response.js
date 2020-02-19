@@ -33,7 +33,7 @@ class Response{
                         {
                             "title": from + " to " + to,
                             "subtitle": "Date : " + date + "\nTime : 11:00\nDuration 00:45",
-                            "image_url": "https://www.idealvacations.co.za/wp-content/uploads/2019/09/flight-1.jpg",
+                            "image_url": "flight.jpeg",
                             "buttons": [
                                 {
                                 "type": "postback",
