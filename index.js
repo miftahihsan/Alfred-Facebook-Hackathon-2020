@@ -197,6 +197,9 @@ function handleQuickReplies(userData, quick_reply) {
 function handlePostback(sender_psid, received_postback) {
   let response;
   
+  console.log("HERE!!!!!");
+  
+
   // Get the payload for the postback
   let payload = received_postback.payload;
 
