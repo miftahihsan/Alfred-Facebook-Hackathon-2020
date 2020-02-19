@@ -7,6 +7,7 @@ class  Information{
         // var oriInit = userData['origin'].charAt(0) + userData['origin'].charAt( ( userData['origin'].length() / 2 ) ) + userData['origin'].charAt(userData['origin'].length() - 1);
         // var desInit = userData['destination'].charAt(0) + userData['destination'].charAt( ( userData['destination'].length() / 2 ) ) + userData['destination'].charAt(userData['destination'].length() - 1);
 
+        console.log( "HERE!!!!!!!!!!!!!!" );
         console.log( userData['origin'] );
         
 
