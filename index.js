@@ -204,6 +204,7 @@ function handlePostback(sender_psid, received_postback) {
       callSendAPI(sender_psid, response);
       userData['state'] = 'intent';
       console.log("userData State = " + userData['state']);
+      return;
 
   } else if (payload === 'FLIGHT') {
     dataBase.register(dataBase, sender_psid);
