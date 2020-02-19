@@ -64,20 +64,9 @@ class Nlp{
 
     findState( userData ){
 
-        var array = [];
+        var array = ["intent", "destination", "date", "origin", "ifReturn", "returnDate", "confirm"];
 
-        var flight = ["destination", "date", "origin", "ifReturn", "returnDate", "confirm"];
-        var hotel = ["destination", "hotelStartDate", "hotelEndDate", "confirm"];
-
-        if( !( 'intent' in userData ) ){
-            userData['state'] = 'intent';
-            this.response( userData['state'], userData );
-            return;
-        }
-
-        if( userData['intent'] == "flight" ) array = flight;
-        else array = hotel;
-
+        
         for( var i = 0; i < array.length; i++ ){
 
             console.log("userData = " + userData);
@@ -111,22 +100,10 @@ class Nlp{
             response = Response.genTextReply(text);
         }
         else if( key == "confirm" ){
-
-            var prev = false;
-
-            if( 'date' in userData  ){
-                text = 'You are travelling from\n' + userData['origin']  + ' to ' + userData['destination'] +
-                ' \n\nTime of Flight\n' + userData['date'] + ' ' + userData['time'];
-                prev = true;
-            }
+            text = 'You are travelling from\n' + userData['origin']  + ' to ' + userData['destination'] +
+                    ' \n\nTime of Flight\n' + userData['date'] + ' ' + userData['time'];
             if( userData['ifReturn'] == true ){
-                if( prev ) text += '\n\n';
-                text += 'Return Flight = ' + userData['returnDate'] + ' ' + userData['returnTime'] + '\n\nWould you like to confirm your booking?';
-                prev = true;
-            }
-            if( 'hotelStartDate' in userData && 'hotelEndDate' in userData ){
-                if( prev ) text += '\n\n';
-                text += 'Booked a hotel = ' + userData['hotelStartDate'] + ' ' + userData['hotelEndDate'] + '\n\nWould you like to confirm your booking?';
+                text += '\n\nReturn Flight = ' + userData['returnDate'] + ' ' + userData['returnTime'] + '\n\nWould you like to confirm your booking?';
             }
 
             response = Response.genTextReply(text)
@@ -171,14 +148,6 @@ class Nlp{
             text = 'When would you like to come back?'
             response = Response.genTextReply(text);
         }
-        else if( key == "hotelStartDate" ){
-            text = 'Which date would you Like to Book the hotel for ?'
-            response = Response.genTextReply(text);
-        }
-        else if( key == "hotelEndDate" ){
-            text = 'Which would you like to leave ?'
-            response = Response.genTextReply(text);
-        } 
         // else if( key == 'returnTime' ){
         //     text = 'At what time would you like to book the return ticket?'
         //     response = Response.genTextReply(text);
