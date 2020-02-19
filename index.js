@@ -72,6 +72,9 @@ app.post('/webhook', (req, res) => {
     
       userData = DataBase[sender_psid];
 
+      console.log("USER DATA = " + userData);
+      
+
       // Check if the event is a message or postback and
       // pass the event to the appropriate handler function
       if (webhook_event.message) {
