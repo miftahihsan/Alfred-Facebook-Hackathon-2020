@@ -197,7 +197,7 @@ function handleQuickReplies(userData, quick_reply) {
 function handlePostback(sender_psid, received_postback) {
   let response;
   
-  console.log("HERE!!!!! = " + received_postback.body );
+  console.log("HERE!!!!! = " + received_postback );
   
   if( !( sender_psid in dataBase ) ) {
     dataBase.register( dataBase, sender_psid );
