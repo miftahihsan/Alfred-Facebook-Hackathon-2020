@@ -61,7 +61,8 @@ app.post('/webhook', (req, res) => {
       // registering the user into the HashMap
       if( !( sender_psid in dataBase ) ) {
         dataBase.register( dataBase, sender_psid );
-        dataBase.insert(dataBase[sender_psid], "state", "initiate" );    // initiate and greet
+        // dataBase.insert(dataBase[sender_psid], "state", "initiate" );    // initiate and greet
+        userData['state'] = 'initiate';
         console.log("Greeting Summoner!");
       }
       else {
