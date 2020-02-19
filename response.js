@@ -30,12 +30,12 @@ class Response{
             "type":"template",
                 "payload":{
                 "template_type":"button",
-                    "text":"Book Now!",
+                    "text":"",
                     "buttons":[
                     {
                         "type":"web_url",
                         "url": link,
-                        "title":"URL Button",
+                        "title":"Book Now!",
                         "webview_height_ratio": "full"
                     }
                 ]
