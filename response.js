@@ -32,52 +32,37 @@ class Response{
                     "elements": [
                         {
                             "title": from + " to " + to,
-                            "subtitle": "Flight date " + date,
-                            "image_url": "flight.jpeg",
+                            "subtitle": "Date : " + date + "\nTime : 11:00\nDuration 00:45",
+                            "image_url": "https://www.idealvacations.co.za/wp-content/uploads/2019/09/flight-1.jpg",
                             "buttons": [
                                 {
                                 "type": "postback",
                                 "title": "Yes!",
                                 "payload": "yes",
-                                },
-                                {
-                                "type": "postback",
-                                "title": "No!",
-                                "payload": "no",
                                 }
                             ],
                         },
                         {
                             "title": from + " to " + to,
-                            "subtitle": "Flight date " + date,
+                            "subtitle": "Date : " + date + "\nTime : 11:00\nDuration 00:45",
                             "image_url": "flight.jpeg",
                             "buttons": [
                                 {
                                 "type": "postback",
                                 "title": "Yes!",
                                 "payload": "yes",
-                                },
-                                {
-                                "type": "postback",
-                                "title": "No!",
-                                "payload": "no",
                                 }
                             ],
                         },
                         {
                             "title": from + " to " + to,
-                            "subtitle": "Flight date " + date,
+                            "subtitle": "Date : " + date + "\nTime : 11:00\nDuration 00:45",
                             "image_url": "flight.jpeg",
                             "buttons": [
                                 {
                                 "type": "postback",
                                 "title": "Yes!",
                                 "payload": "yes",
-                                },
-                                {
-                                "type": "postback",
-                                "title": "No!",
-                                "payload": "no",
                                 }
                             ],
                         }
