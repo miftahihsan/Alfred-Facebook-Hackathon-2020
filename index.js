@@ -20,8 +20,7 @@ const
 // My Imports
 let count  = 0;
 
-// HashMap Temporary Database
-
+// HashMap Temporary Databas
 
 const
   Nlp = require('./Nlp.js'),
@@ -98,9 +97,6 @@ app.post('/webhook', (req, res) => {
 app.get('/webhook', (req, res) => {
 
   // Your verify token. Should be a random string.
-
-  // Uncomment for testing purpose
-  // let VERIFY_TOKEN = "miftah"
     
   // Parse the query params
   let mode = req.query['hub.mode'];
