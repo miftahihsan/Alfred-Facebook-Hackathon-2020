@@ -203,9 +203,8 @@ function handlePostback(sender_psid, received_postback) {
   if (payload === 'INITIATE') {
 
     userData = {};
-    userData['state'] = 'initiate';
 
-    response = nlp.response(userData['state'], userData);
+    response = nlp.response('initiate', userData);
 
     console.log("HERE AGAIN  = " + payload);    
 
