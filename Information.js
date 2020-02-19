@@ -91,7 +91,7 @@ class  Information{
             {
                 title: origin + " to " + destination,
                 subtitle: "Date : " + date + "\nTime : 20:00\nDuration 00:45\nPrice : 99.99$",
-                image_url: "https://s3-us-west-2.amazonaws.com/www.whitewall.site/flight.jpeg,
+                image_url: "https://s3-us-west-2.amazonaws.com/www.whitewall.site/flight.jpeg",
                 buttons: [
                     {
                         type: "postback",
