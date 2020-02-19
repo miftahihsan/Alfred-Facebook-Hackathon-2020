@@ -41,13 +41,11 @@ class Nlp{
 
             if (nlp['datetime'][0]['confidence'] > 0.7)
             {
-                if (userData['state']=="returnDate"){
+                if ( userData['state'] == "returnDate" ){
                     database.insert( userData, "returnDate", dateAndTime[0] );
-                    database.insert( userData, "returnTime", dateAndTime[1] );
 
                 }else{
                     database.insert( userData, "date", dateAndTime[0] );
-                    database.insert( userData, "time", dateAndTime[1] );
                 }
 
             }
@@ -82,7 +80,7 @@ class Nlp{
 
             if( array[i] == "ifReturn"){
                if ( userData[array[i]] == false ) break;
-               else continue;
+            //    else continue;
             }
 
         }
@@ -92,21 +90,6 @@ class Nlp{
 
     }
     
-/*
-    # DataBase Design
-    -----------------------
-    user_id : {
-        state,
-        intent,
-        origin,
-        destination,
-        date,
-        time,
-        ifReturn,
-        returnDate,
-        returnTime,
-    }
-*/
     response( key, userData ){
 
         var text,response ;
@@ -162,10 +145,10 @@ class Nlp{
             text = 'When would you like to come back?'
             response = Response.genTextReply(text);
         }
-        else if( key == 'returnTime' ){
-            text = 'At what time would you like to book the return ticket?'
-            response = Response.genTextReply(text);
-        }
+        // else if( key == 'returnTime' ){
+        //     text = 'At what time would you like to book the return ticket?'
+        //     response = Response.genTextReply(text);
+        // }
 
         return response;
 
