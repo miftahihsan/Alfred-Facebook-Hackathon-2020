@@ -30,7 +30,7 @@ class Response{
             "type":"template",
                 "payload":{
                 "template_type":"button",
-                    "text":"",
+                    "text":"Book Now!",
                     "buttons":[
                     {
                         "type":"web_url",
