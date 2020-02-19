@@ -196,17 +196,19 @@ function handleQuickReplies(userData, quick_reply) {
 // Handles messaging_postbacks events
 function handlePostback(sender_psid, received_postback) {
   let response;
-  
-  console.log("HERE!!!!! = " + received_postback );
-  
+  var userData = dataBase[sender_psid];
+
   if( !( sender_psid in dataBase ) ) {
+
     dataBase.register( dataBase, sender_psid );
     dataBase.insert(dataBase[sender_psid], "state", "initiate" );    // initiate and greet
-    console.log("Greeting Summoner!");
+    response = nlp.response( userData['state'], userData );
+    callSendAPI(sender_psid, response);
+    userData['state'] = 'intent';
+    return;
+
   }
-  else {
-    console.log("Welcome Back!! user = " + sender_psid );
-  }
+
 
   // Get the payload for the postback
   let payload = received_postback.payload;
