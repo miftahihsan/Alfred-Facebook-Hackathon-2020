@@ -6,8 +6,8 @@ class  Information{
         let response = [
             {
                 title: origin + " to " + destination,
+                image_url: "https://petersfancybrownhats.com/company_image.png",
                 subtitle: "Date : " + date + "\nTime : 06:00\nDuration 00:45\nPrice : 89.99$",
-                image_url: "flight.jpeg",
                 buttons: [
                     {
                         type: "postback",
