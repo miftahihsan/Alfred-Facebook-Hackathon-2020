@@ -202,11 +202,13 @@ function handlePostback(sender_psid, received_postback) {
       console.log("userData State = " + userData['state']);
 
   } else if (payload === 'FLIGHT') {
+    dataBase.register(dataBase, sender_psid);
     userData['intent']="flight";
     userData['state']='intent';
     response = nlp.findState(userData);
 
   } else if (payload === 'Hotel') {
+    dataBase.register(dataBase, sender_psid);
     userData['intent']="hotel";
     response = { "text": "SORRYYYY CANT HANDLE THIS NOWW" }
   } else{
@@ -279,6 +281,9 @@ curl -X POST -H "Content-Type: application/json" -d '{
       "locale":"en_US",
       "text":"Hi {{user_first_name}}! Book a hotel or a flight!"
     }
+  ],
+   "whitelisted_domains":[
+    "https://booking.kayak.com/"
   ]
 }' "https://graph.facebook.com/v6.0/me/messenger_profile?access_token=EAAkdTVETz5UBABiMRU4LChbImzlhRbIZBL76hdxdTZBQCrR8gm3iUlo2MKsdbzQJgYYX6cvdL5KaMrtJueuOwl6pPHZBrZCV3nzdGPL92wFLWnF6GDqISffJMj0SBZAfv07hwo2fqZBdsjw9rwlLkApvuWDWRrZA26K9tNVdsN6hwjZBoBZCFd4GBsb7Px8W5RB4ZD"
  */

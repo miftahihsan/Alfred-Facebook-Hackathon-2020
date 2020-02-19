@@ -23,6 +23,28 @@ class Response{
         return response
     }
 
+    static genWebView(to, from, date){
+        var link = "https://booking.kayak.com/flights/"+ from + "-" + to+"/"+date;
+        let response = {
+            "attachment":{
+            "type":"template",
+                "payload":{
+                "template_type":"button",
+                    "text":"Book Now!",
+                    "buttons":[
+                    {
+                        "type":"web_url",
+                        "url": link,
+                        "title":"URL Button",
+                        "webview_height_ratio": "full"
+                    }
+                ]
+            }
+        }
+        }
+        return response;
+    }
+
 }
 
 module.exports =  Response;
