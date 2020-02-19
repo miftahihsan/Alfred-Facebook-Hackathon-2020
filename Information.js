@@ -12,7 +12,7 @@ class  Information{
         
 
         let response = {
-            message: {
+            // message: {
                 attachment: {
                   type: "template",
                   payload: {
@@ -45,7 +45,7 @@ class  Information{
                     ]
                   }
                 }
-            }   
+            // }   
         }
 
         return response;
