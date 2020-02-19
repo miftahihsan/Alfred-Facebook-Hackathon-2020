@@ -191,10 +191,7 @@ function handleQuickReplies(userData, quick_reply) {
 // Handles messaging_postbacks events
 function handlePostback(sender_psid, received_postback) {
   let response;
-
-  const nlp = new Nlp();
-  var userData = DataBase[sender_psid];
-
+  
   // Get the payload for the postback
   let payload = received_postback.payload;
 
