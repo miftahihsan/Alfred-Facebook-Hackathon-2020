@@ -139,7 +139,7 @@ class Nlp{
 
             response = Response.getFlightView( userData['destination'], userData['origin'], userData['date']);
 
-            console.log("HELLO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+            console.log("HELLO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! in pickFlight");
             
             console.log( response );
             
@@ -147,6 +147,7 @@ class Nlp{
         }
         else if( key == "returnFlight" ){
             response = Response.getFlightView( userData['origin'], userData['destination'], userData['returnDate']);
+            console.log("HELLO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! in returnFlight");
         }
         else if( key == "ifReturn" ){
             text = 'Would you like a return ticket?'
