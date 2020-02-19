@@ -196,7 +196,7 @@ function handlePostback(sender_psid, received_postback) {
   // Get the payload for the postback
   let payload = received_postback.payload;
 
-  console.log("HERE!!!");
+  console.log("HERE!!! ");
   console.log( payload );  
 
   // Set the response based on the postback payload
@@ -206,6 +206,9 @@ function handlePostback(sender_psid, received_postback) {
     userData['state'] = 'initiate';
 
     response = nlp.findState(userData);
+
+    console.log("HERE AGAIN " + payload);
+    
 
     console.log( response );
     
