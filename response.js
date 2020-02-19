@@ -26,11 +26,11 @@ class Response{
 
     static getFlightView( to, from, date ){
         let response = {
-            "attachment": {             
-                "type": "template",
-                "payload": {
-                    "template_type": "generic",
-                    "elements": Information.flightInformation(to, from)
+            attachment: {             
+                type: "template",
+                payload: {
+                    template_type: "generic",
+                    elements: Information.flightInformation(to, from)
                 }
             }
         }
