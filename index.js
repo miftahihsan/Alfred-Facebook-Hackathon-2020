@@ -32,8 +32,6 @@ const
 // Declearing temporary Database 
 // in the form of HashMap
 var dataBase = new DataBase();
-var nlp = new Nlp();
-var userData;
 
 // Sets server port and logs message on success
 app.listen(process.env.PORT || 8000, () => console.log('webhook is listening'));
@@ -70,8 +68,6 @@ app.post('/webhook', (req, res) => {
         console.log("Welcome Back!! user = " + sender_psid );
       }
     
-      userData = DataBase[sender_psid];
-
       console.log("USER DATA = " + userData);
       
 
@@ -134,6 +130,9 @@ app.get('/webhook', (req, res) => {
 function handleMessage(sender_psid, received_message) {
   let response;
 
+  const nlp = new Nlp();
+  var userData = DataBase[sender_psid];
+
   // Checks if the message contains text
 
   if (received_message.quick_reply){       //Button replies
@@ -195,6 +194,9 @@ function handleQuickReplies(userData, quick_reply) {
 // Handles messaging_postbacks events
 function handlePostback(sender_psid, received_postback) {
   let response;
+
+  const nlp = new Nlp();
+  var userData = DataBase[sender_psid];
 
   // Get the payload for the postback
   let payload = received_postback.payload;
