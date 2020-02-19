@@ -145,8 +145,12 @@ function handleMessage(sender_psid, received_message) {
     console.log("-------------------------------------------------------------------");
     console.log(received_message.nlp.entities);
     console.log("-------------------------------------------------------------------");
-
-
+    if (userData['state']=="initiate") {
+      response = nlp.response(userData['state'], userData);
+      callSendAPI(sender_psid, response);
+      userData['state'] = 'intent';
+      console.log("userData State = " + userData['state']);
+    }
 
     nlp.compile( received_message.nlp.entities, userData, dataBase ); // maybe do it only initially
 
@@ -161,12 +165,12 @@ function handleMessage(sender_psid, received_message) {
     console.log("current state = " + userData['state']);
     console.log("-------------------------------------------------------------------");
 
-
+/*
   if( response['text'] == null ){
     response = {
       "text": `sorry i didnt get that`
     }
-  }
+  }*/
   
   console.log(response);
 
