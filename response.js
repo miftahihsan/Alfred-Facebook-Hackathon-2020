@@ -24,7 +24,7 @@ class Response{
     }
 
     static genWebView(to, from, date){
-        var link = "https://booking.kayak.com/flights/"+ from + "-" + to+"/"+date;
+        var link = "https://www.kiwi.com/us/search/results/"+ from +"/"+to+"/"+date;
         let response = {
             "attachment":{
             "type":"template",

@@ -287,7 +287,7 @@ curl -X POST -H "Content-Type: application/json" -d '{
     }
   ],
    "whitelisted_domains":[
-    "https://booking.kayak.com/"
+    "https://kiwi.com/"
   ]
 }' "https://graph.facebook.com/v6.0/me/messenger_profile?access_token=EAAkdTVETz5UBABiMRU4LChbImzlhRbIZBL76hdxdTZBQCrR8gm3iUlo2MKsdbzQJgYYX6cvdL5KaMrtJueuOwl6pPHZBrZCV3nzdGPL92wFLWnF6GDqISffJMj0SBZAfv07hwo2fqZBdsjw9rwlLkApvuWDWRrZA26K9tNVdsN6hwjZBoBZCFd4GBsb7Px8W5RB4ZD"
  */
