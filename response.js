@@ -33,7 +33,7 @@ class Response{
                         {
                             "title": from + " to " + to,
                             "subtitle": "Flight date " + date,
-                            "image_url": "https://petersfancybrownhats.com/company_image.png",
+                            "image_url": "flight.jpeg",
                             "buttons": [
                                 {
                                 "type": "postback",
@@ -50,7 +50,7 @@ class Response{
                         {
                             "title": from + " to " + to,
                             "subtitle": "Flight date " + date,
-                            "image_url": "https://petersfancybrownhats.com/company_image.png",
+                            "image_url": "flight.jpeg",
                             "buttons": [
                                 {
                                 "type": "postback",
@@ -67,75 +67,7 @@ class Response{
                         {
                             "title": from + " to " + to,
                             "subtitle": "Flight date " + date,
-                            "image_url": "https://petersfancybrownhats.com/company_image.png",
-                            "buttons": [
-                                {
-                                "type": "postback",
-                                "title": "Yes!",
-                                "payload": "yes",
-                                },
-                                {
-                                "type": "postback",
-                                "title": "No!",
-                                "payload": "no",
-                                }
-                            ],
-                        },
-                        {
-                            "title": from + " to " + to,
-                            "subtitle": "Flight date " + date,
-                            "image_url": "https://petersfancybrownhats.com/company_image.png",
-                            "buttons": [
-                                {
-                                "type": "postback",
-                                "title": "Yes!",
-                                "payload": "yes",
-                                },
-                                {
-                                "type": "postback",
-                                "title": "No!",
-                                "payload": "no",
-                                }
-                            ],
-                        },
-                        {
-                            "title": from + " to " + to,
-                            "subtitle": "Flight date " + date,
-                            "image_url": "https://petersfancybrownhats.com/company_image.png",
-                            "buttons": [
-                                {
-                                "type": "postback",
-                                "title": "Yes!",
-                                "payload": "yes",
-                                },
-                                {
-                                "type": "postback",
-                                "title": "No!",
-                                "payload": "no",
-                                }
-                            ],
-                        },
-                        {
-                            "title": from + " to " + to,
-                            "subtitle": "Flight date " + date,
-                            "image_url": "https://petersfancybrownhats.com/company_image.png",
-                            "buttons": [
-                                {
-                                "type": "postback",
-                                "title": "Yes!",
-                                "payload": "yes",
-                                },
-                                {
-                                "type": "postback",
-                                "title": "No!",
-                                "payload": "no",
-                                }
-                            ],
-                        },
-                        {
-                            "title": from + " to " + to,
-                            "subtitle": "Flight date " + date,
-                            "image_url": "https://petersfancybrownhats.com/company_image.png",
+                            "image_url": "flight.jpeg",
                             "buttons": [
                                 {
                                 "type": "postback",
