@@ -32,6 +32,7 @@ const
 // Declearing temporary Database 
 // in the form of HashMap
 var dataBase = new DataBase();
+const nlp = new Nlp();
 
 // Sets server port and logs message on success
 app.listen(process.env.PORT || 8000, () => console.log('webhook is listening'));
@@ -129,8 +130,6 @@ app.get('/webhook', (req, res) => {
 // Handles messages events
 function handleMessage(sender_psid, received_message) {
   let response;
-
-  const nlp = new Nlp();
   var userData = dataBase[sender_psid];
 
   // Checks if the message contains text
