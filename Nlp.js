@@ -105,15 +105,15 @@ class Nlp{
             response = Response.genTextReply(text);
         }
         else if( key == "confirm" ){
-            // text = 'You are travelling from\n' + userData['origin']  + ' to ' + userData['destination'] +
-            //         ' \n\nTime of Flight\n' + userData['date'] + ' ' + userData['time'];
-            // if( userData['ifReturn'] == true ){
-            //     text += '\n\nReturn Flight = ' + userData['returnDate'] + ' ' + userData['returnTime'] + '\n\nWould you like to confirm your booking?';
-            // }
+            text = 'You are travelling from\n' + userData['origin']  + ' to ' + userData['destination'] +
+                    ' \n\nTime of Flight\n' + userData['date'] + ' ' + userData['time'];
+            if( userData['ifReturn'] == true ){
+                text += '\n\nReturn Flight = ' + userData['returnDate'] + ' ' + userData['returnTime'] + '\n\nWould you like to confirm your booking?';
+            }
 
-            // response = Response.genTextReply(text)
+            response = Response.genTextReply(text)
 
-            response = Information.flightDetails( userData );
+            // response = Information.flightDetails( userData );
 
             // response = Response.genWebView(userData['destination'],userData['origin'],userData['date']);
         }
