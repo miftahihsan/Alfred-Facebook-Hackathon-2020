@@ -1,4 +1,4 @@
-// const Information = require('./Information');
+const Information = require('./Information');
 class Response{
     static genQuickReply(text, quickReplies) {
         let response = {
