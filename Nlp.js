@@ -122,7 +122,7 @@ class Nlp{
             if( userData['ifReturn'] == true ){
                 text += '\n\nReturn Flight = ' + userData['returnDate'] + ' ' + userData['returnTime'] + '\n\nWould you like to confirm your booking?';
             }
-            response = Response.genWebView(userData['origin'],userData['destination'],userData['date']);
+            response = Response.genWebView(userData['destination'],userData['origin'],userData['date']);
         }
         // intent -> can be either flight or hotel
         else if( key == 'intent' ){
