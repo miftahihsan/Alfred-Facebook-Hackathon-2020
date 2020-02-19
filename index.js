@@ -148,8 +148,6 @@ function handleMessage(sender_psid, received_message) {
 
     if( userData['state'] == 'initiate' ){
       response = nlp.response( userData['state'], userData );
-      console.log("INITIATE");
-      console.log(response);
       callSendAPI(sender_psid, response);
       userData['state'] = 'intent';
       console.log("userData State = " + userData['state']);
@@ -157,6 +155,8 @@ function handleMessage(sender_psid, received_message) {
     }
 
     nlp.compile( received_message.nlp.entities, userData, dataBase ); // maybe do it only initially
+
+
 
   }
 
