@@ -10,63 +10,106 @@ class  Information{
         console.log( "HERE!!!!!!!!!!!!!!" );
         console.log( userData['origin'] );
         
+        let response;
 
-        let response = {
-            // message: {
+        if( 'ifReturn' in userData && userData['ifReturn'] == true ){
+            response = {
+                
                 attachment: {
-                  type: "template",
-                  payload: {
-                    template_type: "airline_checkin",
-                    intro_message: "Check-in is available now.",
-                    locale: "en_US",        
-                    pnr_number: "ABCDEF",
-                    checkin_url: "www.google.com",  
-                    flight_info: [
-                      {
-                        flight_number: "f001",
-                        departure_airport: {
-                          airport_code: "DHK",
-                          city: userData['origin'],
-                          terminal: "T4",
-                          gate: "G8"
-                        },
-                        arrival_airport: {
-                          airport_code: "CTG",
-                          city: userData['destination'],
-                          terminal: "T4",
-                          gate: "G8"
-                        },
-                        flight_schedule: {
-                          boarding_time: "2016-01-05T15:05",
-                          departure_time: "2016-01-05T15:45",
-                          arrival_time: "2016-01-05T17:30"
-                        }
-                      },
-                      {
-                        flight_number: "f001",
-                        departure_airport: {
-                          airport_code: "CTG",
-                          city: userData['destination'],
-                          terminal: "T4",
-                          gate: "G8"
-                        },
-                        arrival_airport: {
-                          airport_code: "DHK",
-                          city: userData['origin'],
-                          terminal: "T4",
-                          gate: "G8"
-                        },
-                        flight_schedule: {
-                          boarding_time: "2016-01-05T15:05",
-                          departure_time: "2016-01-05T15:45",
-                          arrival_time: "2016-01-05T17:30"
-                        }
-                      }
-                    ]
-                  }
+                    type: "template",
+                    payload: {
+                        template_type: "airline_checkin",
+                        intro_message: "Check-in is available now.",
+                        locale: "en_US",        
+                        pnr_number: "ABCDEF",
+                        checkin_url: "www.google.com",  
+                        flight_info: [
+                            {
+                                flight_number: "f001",
+                                departure_airport: {
+                                    airport_code: "DHK",
+                                    city: userData['origin'],
+                                    terminal: "T4",
+                                    gate: "G8"
+                                },
+                                arrival_airport: {
+                                    airport_code: "CTG",
+                                    city: userData['destination'],
+                                    terminal: "T4",
+                                    gate: "G8"
+                                },
+                                flight_schedule: {
+                                    boarding_time: "2016-01-05T15:05",
+                                    departure_time: "2016-01-05T15:45",
+                                    arrival_time: "2016-01-05T17:30"
+                                }
+                            },
+                            {
+                                flight_number: "f001",
+                                departure_airport: {
+                                    airport_code: "CTG",
+                                    city: userData['destination'],
+                                    terminal: "T4",
+                                    gate: "G8"
+                                },
+                                arrival_airport: {
+                                    airport_code: "DHK",
+                                    city: userData['origin'],
+                                    terminal: "T4",
+                                    gate: "G8"
+                                },
+                                flight_schedule: {
+                                    boarding_time: "2016-01-05T15:05",
+                                    departure_time: "2016-01-05T15:45",
+                                    arrival_time: "2016-01-05T17:30"
+                                }
+                            }
+                        ]
+                    }
                 }
-            // }   
+                   
+            }
         }
+        else{
+            response = {
+                
+                attachment: {
+                    type: "template",
+                    payload: {
+                        template_type: "airline_checkin",
+                        intro_message: "Check-in is available now.",
+                        locale: "en_US",        
+                        pnr_number: "ABCDEF",
+                        checkin_url: "www.google.com",  
+                        flight_info: [
+                            {
+                                flight_number: "f001",
+                                departure_airport: {
+                                    airport_code: "DHK",
+                                    city: userData['origin'],
+                                    terminal: "T4",
+                                    gate: "G8"
+                                },
+                                arrival_airport: {
+                                    airport_code: "CTG",
+                                    city: userData['destination'],
+                                    terminal: "T4",
+                                    gate: "G8"
+                                },
+                                flight_schedule: {
+                                    boarding_time: "2016-01-05T15:05",
+                                    departure_time: "2016-01-05T15:45",
+                                    arrival_time: "2016-01-05T17:30"
+                                }
+                            },
+                        ]
+                    }
+                }
+                   
+            }
+        }
+
+
 
         return response;
 
