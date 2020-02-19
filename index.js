@@ -207,8 +207,7 @@ function handlePostback(sender_psid, received_postback) {
 
     response = nlp.findState(userData);
 
-    console.log("HERE AGAIN " + payload);
-    
+    console.log("HERE AGAIN  = " + payload);    
 
     console.log( response );
     
