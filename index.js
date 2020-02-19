@@ -147,13 +147,7 @@ function handleMessage(sender_psid, received_message) {
     console.log(received_message.nlp.entities);
     console.log("-------------------------------------------------------------------");
 
-    if( userData['state'] == 'initiate' ){
-      response = nlp.response( userData['state'], userData );
-      callSendAPI(sender_psid, response);
-      userData['state'] = 'intent';
-      console.log("userData State = " + userData['state']);
-      return;
-    }
+
 
     nlp.compile( received_message.nlp.entities, userData, dataBase ); // maybe do it only initially
 
@@ -192,6 +186,7 @@ function handleQuickReplies(userData, quick_reply) {
 // Handles messaging_postbacks events
 function handlePostback(sender_psid, received_postback) {
   let response;
+  var userData = dataBase[sender_psid];
   
   // Get the payload for the postback
   let payload = received_postback.payload;
@@ -201,9 +196,22 @@ function handlePostback(sender_psid, received_postback) {
 
   // Set the response based on the postback payload
   if (payload === 'INITIATE') {
-    response = { "text": "Initiated." }
-  } else if (payload === 'no') {
-    response = { "text": "Oops, try sending another image." }
+      userData['state']="initiate";
+      response = nlp.response( userData['state'], userData );
+      callSendAPI(sender_psid, response);
+      userData['state'] = 'intent';
+      console.log("userData State = " + userData['state']);
+
+  } else if (payload === 'FLIGHT') {
+    userData['intent']="flight";
+    userData['state']='intent';
+    response = nlp.findState(userData);
+
+  } else if (payload === 'Hotel') {
+    userData['intent']="hotel";
+    response = { "text": "SORRYYYY CANT HANDLE THIS NOWW" }
+  } else{
+    response = { "text": "HAHA, would u like to book a flight?" }
   }
 
   // response = nlp.findState(userData);
