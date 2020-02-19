@@ -9,7 +9,7 @@ class  Information{
 
         console.log( "HERE!!!!!!!!!!!!!!" );
         console.log( userData['origin'] );
-        console.log( userData['origin'].length );
+        console.log( userData['destination'].charAt(0) + "" + userData['destination'].charAt( ( userData['destination'].length / 2 ) ) + "" + userData['destination'].charAt(userData['destination'].length - 1) );
         
         let response;
 
