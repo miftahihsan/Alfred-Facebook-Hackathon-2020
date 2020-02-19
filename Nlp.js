@@ -67,7 +67,7 @@ class Nlp{
         var array = [];
 
         var flight = ["destination", "date", "origin", "ifReturn", "returnDate", "confirm"];
-        var hotel = ["destination", "hotelStartDate", "hotelEndDate"];
+        var hotel = ["destination", "hotelStartDate", "hotelEndDate", "confirm"];
 
         if( !( 'intent' in userData ) ){
             userData['state'] = 'intent';
