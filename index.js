@@ -154,8 +154,6 @@ function handleMessage(sender_psid, received_message) {
 
     nlp.compile( received_message.nlp.entities, userData, dataBase ); // maybe do it only initially
 
-
-
   }
 
     // get a response for the particular state now
@@ -164,13 +162,6 @@ function handleMessage(sender_psid, received_message) {
     console.log("state = " + response['text']);
     console.log("current state = " + userData['state']);
     console.log("-------------------------------------------------------------------");
-
-/*
-  if( response['text'] == null ){
-    response = {
-      "text": `sorry i didnt get that`
-    }
-  }*/
   
   console.log(response);
 
@@ -212,7 +203,16 @@ function handlePostback(sender_psid, received_postback) {
     userData['state']='intent';
     response = nlp.findState(userData);
 
-  } else if (payload === 'Hotel') {
+  } 
+  else if(payload === 'Book Flight'){
+    if( userData['state'] == 'pickFlight' ){
+      dataBase.insert( userData, 'pickFlight', true );
+    }
+    else{
+      dataBase.insert( userData, 'returnFlight', true );
+    }
+  }
+  else if (payload === 'Hotel') {
     dataBase.register(dataBase, sender_psid);
     userData['intent']="hotel";
     response = { "text": "SORRYYYY CANT HANDLE THIS NOWW" }

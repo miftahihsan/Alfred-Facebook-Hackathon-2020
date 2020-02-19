@@ -64,7 +64,7 @@ class Nlp{
 
     findState( userData ){
 
-        var array = ["destination", "date", "origin", "pickFlight", "ifReturn", "returnDate", "confirm"];
+        var array = ["destination", "date", "origin", "pickFlight", "ifReturn", "returnDate", "returnFlight", "confirm"];
 
         if( !( "intent" in userData ) ){
             userData['state'] = 'intent';

@@ -32,37 +32,37 @@ class Response{
                     "elements": [
                         {
                             "title": from + " to " + to,
-                            "subtitle": "Date : " + date + "\nTime : 11:00\nDuration 00:45",
+                            "subtitle": "Date : " + date + "\nTime : 11:00\nDuration 00:45\nPrice : 40$",
                             "image_url": "flight.jpeg",
                             "buttons": [
                                 {
                                 "type": "postback",
-                                "title": "Yes!",
-                                "payload": "yes",
+                                "title": "Book Flight!",
+                                "payload": "Book Flight",
                                 }
                             ],
                         },
                         {
                             "title": from + " to " + to,
-                            "subtitle": "Date : " + date + "\nTime : 11:00\nDuration 00:45",
+                            "subtitle": "Date : " + date + "\nTime : 11:00\nDuration 00:45\nPrice : 40$",
                             "image_url": "flight.jpeg",
                             "buttons": [
                                 {
                                 "type": "postback",
-                                "title": "Yes!",
-                                "payload": "yes",
+                                "title": "Book Flight!",
+                                "payload": "Book Flight",
                                 }
                             ],
                         },
                         {
                             "title": from + " to " + to,
-                            "subtitle": "Date : " + date + "\nTime : 11:00\nDuration 00:45",
+                            "subtitle": "Date : " + date + "\nTime : 11:00\nDuration 00:45\nPrice : 40$",
                             "image_url": "flight.jpeg",
                             "buttons": [
                                 {
                                 "type": "postback",
-                                "title": "Yes!",
-                                "payload": "yes",
+                                "title": "Book Flight!",
+                                "payload": "Book Flight",
                                 }
                             ],
                         }
