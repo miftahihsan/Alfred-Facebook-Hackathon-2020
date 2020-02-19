@@ -65,10 +65,8 @@ app.post('/webhook', (req, res) => {
         console.log("Greeting Summoner!");
       }
       else {
-        console.log("Welcome Back!! user = " + sender_psid );
+        console.log("HELLO Welcome Back!! user = " + sender_psid );
       }
-    
-      console.log("USER DATA = " + userData);
       
 
       // Check if the event is a message or postback and
