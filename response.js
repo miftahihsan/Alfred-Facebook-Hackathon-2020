@@ -30,7 +30,7 @@ class Response{
                 "type": "template",
                 "payload": {
                     "template_type": "generic",
-                    "elements": Information.flightInformation()
+                    "elements": Information.flightInformation(to, from)
                 }
             }
         }
