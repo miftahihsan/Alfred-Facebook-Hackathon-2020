@@ -135,7 +135,7 @@ class Nlp{
             text = 'What time would you like to book the ticket for?'
             response = Response.genTextReply(text);
         }
-        else if( key == "pickFlight" ){
+        else if( key == "pickFlight" || key == "returnFlight" ){
 
             response = Response.getFlightView(userData['destination'],userData['origin'],userData['date']);
 
