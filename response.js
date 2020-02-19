@@ -26,14 +26,14 @@ class Response{
 
     static getFlightView( to, from, date ){
         console.log('_______________________________________--------------------------___________________________');
-        console.log( Information.flightInformation(to, from) );
+        console.log( Information.flightInformation(to, from, date) );
         
         let response = {
             "attachment": {             
                 "type": "template",
                 "payload": {
                     "template_type": "generic",
-                    "elements": Information.flightInformation(to, from)
+                    "elements": Information.flightInformation(to, from, date)
                 }
             }
         }

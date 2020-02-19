@@ -1,6 +1,6 @@
 class  Information{
 
-    static flightInformation(origin, destination){
+    static flightInformation(origin, destination, date){
 
 
         let response = [
