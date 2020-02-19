@@ -61,13 +61,15 @@ app.post('/webhook', (req, res) => {
       // registering the user into the HashMap
       if( !( sender_psid in dataBase ) ) {
         dataBase.register( dataBase, sender_psid );
-        dataBase.insert(dataBase[sender_psid], "state", "initiate" );    // initiate and greet
+        // dataBase.insert(dataBase[sender_psid], "state", "initiate" );    // initiate and greet
+        userData['state'] = 'initiate';
         console.log("Greeting Summoner!");
       }
       else {
-        console.log("Welcome Back!! user = " + sender_psid );
+        console.log("HELLO Welcome Back!! user = " + sender_psid );
       }
-    
+      
+
       // Check if the event is a message or postback and
       // pass the event to the appropriate handler function
       if (webhook_event.message) {
@@ -126,8 +128,9 @@ app.get('/webhook', (req, res) => {
 // Handles messages events
 function handleMessage(sender_psid, received_message) {
   let response;
-  var userData = dataBase[sender_psid];
+
   const nlp = new Nlp();
+  var userData = DataBase[sender_psid];
 
   // Checks if the message contains text
 
@@ -135,9 +138,6 @@ function handleMessage(sender_psid, received_message) {
     handleQuickReplies(userData, received_message.quick_reply);
   }
   else if (received_message.text) {
-    var msg = received_message.text.toLowerCase();
-
-    console.log(count);
 
     // Compiles the user text message and makes meaning out if it
     // using which it fills the user table appropriately.
@@ -145,8 +145,6 @@ function handleMessage(sender_psid, received_message) {
     console.log("-------------------------------------------------------------------");
     console.log(received_message.nlp.entities);
     console.log("-------------------------------------------------------------------");
-    console.log("state " + userData['state']);
-
 
     if( userData['state'] == 'initiate' ){
       response = nlp.response( userData['state'], userData );
@@ -188,24 +186,29 @@ function handleQuickReplies(userData, quick_reply) {
     if (payload.includes('NO')) userData['ifReturn'] = false;
     else if (payload.includes('YES')) userData['ifReturn'] = true;
   }
-
-
-
 }
 
 // Handles messaging_postbacks events
 function handlePostback(sender_psid, received_postback) {
   let response;
-  
+
+  const nlp = new Nlp();
+  var userData = DataBase[sender_psid];
+
   // Get the payload for the postback
   let payload = received_postback.payload;
 
+  console.log("HERE!!! ");
+  console.log( payload );  
+
   // Set the response based on the postback payload
-  if (payload === 'yes') {
-    response = { "text": "Thanks!" }
+  if (payload === 'INITIATE') {
+    response = { "text": "Oops, try sending another image." }
   } else if (payload === 'no') {
     response = { "text": "Oops, try sending another image." }
   }
+
+  // response = nlp.findState(userData);
   // Send the message to acknowledge the postback
   callSendAPI(sender_psid, response);
 }
