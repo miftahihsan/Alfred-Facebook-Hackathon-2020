@@ -41,6 +41,26 @@ class  Information{
                           departure_time: "2016-01-05T15:45",
                           arrival_time: "2016-01-05T17:30"
                         }
+                      },
+                      {
+                        flight_number: "f001",
+                        departure_airport: {
+                          airport_code: "CTG",
+                          city: userData['destination'],
+                          terminal: "T4",
+                          gate: "G8"
+                        },
+                        arrival_airport: {
+                          airport_code: "DHK",
+                          city: userData['origin'],
+                          terminal: "T4",
+                          gate: "G8"
+                        },
+                        flight_schedule: {
+                          boarding_time: "2016-01-05T15:05",
+                          departure_time: "2016-01-05T15:45",
+                          arrival_time: "2016-01-05T17:30"
+                        }
                       }
                     ]
                   }
