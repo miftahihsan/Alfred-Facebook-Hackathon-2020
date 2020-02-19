@@ -1,5 +1,53 @@
 class  Information{
 
+    static flightDetails( userData ){
+        
+        var flightNumber = ["A4FHTK", "G4RTGH", "Z5HHJH", "L5HYLF"];
+
+        var oriInit = userData['origin'].charAt(0) + userData['origin'].charAt( ( userData['origin'].length() / 2 ) ) + userData['origin'].charAt(userData['origin'].length() - 1);
+        var desInit = userData['destination'].charAt(0) + userData['destination'].charAt( ( userData['destination'].length() / 2 ) ) + userData['destination'].charAt(userData['destination'].length() - 1);
+
+        let response = {
+            message: {
+                attachment: {
+                  type: "template",
+                  payload: {
+                    template_type: "airline_checkin",
+                    intro_message: "Check-in is available now.",
+                    locale: "en_US",        
+                    pnr_number: "ABCDEF",
+                    checkin_url: "www.google.com",  
+                    flight_info: [
+                      {
+                        flight_number: "f001",
+                        departure_airport: {
+                          airport_code: oriInit,
+                          city: userData['origin'],
+                          terminal: "T4",
+                          gate: "G8"
+                        },
+                        arrival_airport: {
+                          airport_code: desInit,
+                          city: userData['destination'],
+                          terminal: "T4",
+                          gate: "G8"
+                        },
+                        flight_schedule: {
+                          boarding_time: "2016-01-05T15:05",
+                          departure_time: "2016-01-05T15:45",
+                          arrival_time: "2016-01-05T17:30"
+                        }
+                      }
+                    ]
+                  }
+                }
+            }   
+        }
+
+        return response;
+
+    }
+
     static flightInformation(origin, destination, date){
 
 
