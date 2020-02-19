@@ -135,15 +135,18 @@ class Nlp{
             text = 'What time would you like to book the ticket for?'
             response = Response.genTextReply(text);
         }
-        else if( key == "pickFlight" || key == "returnFlight" ){
+        else if( key == "pickFlight" ){
 
-            response = Response.getFlightView(userData['destination'],userData['origin'],userData['date']);
+            response = Response.getFlightView( userData['destination'], userData['origin'], userData['date']);
 
             console.log("HELLO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
             
             console.log( response );
             
 
+        }
+        else if( key == "returnFlight" ){
+            response = Response.getFlightView( userData['origin'], userData['destination'], userData['returnDate']);
         }
         else if( key == "ifReturn" ){
             text = 'Would you like a return ticket?'
