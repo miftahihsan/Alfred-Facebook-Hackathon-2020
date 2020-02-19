@@ -205,16 +205,16 @@ function handlePostback(sender_psid, received_postback) {
   // Set the response based on the postback payload
   if (payload === 'INITIATE') {
 
-    response = nlp.response('initiate', userData);
+    // response = nlp.response('initiate', userData);
 
-    console.log("HERE AGAIN  = " + payload);    
+    // console.log("HERE AGAIN  = " + payload);    
 
-    console.log( response );
+    // console.log( response );
     
-    // Send the message to acknowledge the postback
-    callSendAPI(sender_psid, response);
+    // // Send the message to acknowledge the postback
+    // callSendAPI(sender_psid, response);
 
-    userData['state'] = 'intent';
+    // userData['state'] = 'intent';
 
   } else if (payload === 'no') {
     response = { "text": "Oops, try sending another image." }
