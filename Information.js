@@ -9,6 +9,7 @@ class  Information{
 
         console.log( "HERE!!!!!!!!!!!!!!" );
         console.log( userData['origin'] );
+        console.log( userData['origin'].length() );
         
         let response;
 
