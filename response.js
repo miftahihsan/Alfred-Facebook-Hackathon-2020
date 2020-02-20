@@ -19,6 +19,7 @@ class Response{
 
     static genTextReply(text){
         let response = {
+            sender_action : "typing_on",
             text: text
         };
         return response
