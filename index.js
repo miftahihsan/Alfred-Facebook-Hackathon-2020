@@ -230,7 +230,7 @@ function handlePostback(sender_psid, received_postback) {
   sendMessages(sender_psid, response);
 }
 
-function sendMessages(sender_psid, response) {
+function sendMessages(sender_psid, responses) {
   if (Array.isArray(responses)){
     let delay = 0;
     for (let response of responses) {
@@ -238,7 +238,7 @@ function sendMessages(sender_psid, response) {
       delay++;
     }
   } else {
-    callSendAPI(sender_psid, response);
+    callSendAPI(sender_psid, responses);
   }
 
 }
