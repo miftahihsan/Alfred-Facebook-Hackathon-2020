@@ -236,11 +236,11 @@ function sendMessage(sender_psid, responses) {
     for (let response of responses) {
       setTimeout(()=>callSendAPI(sender_psid,response), delay * 2000);
       setTimeout( ()=>callSendAPI(sender_psid, {
-        sender_action : "typing_on"
+        'text' : "typing_on"
       }),
         delay * 1000
       );
-      
+
       delay++;
     }
   } else {
