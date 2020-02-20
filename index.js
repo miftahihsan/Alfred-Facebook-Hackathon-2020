@@ -191,6 +191,8 @@ function handlePostback(sender_psid, received_postback) {
 
   // Set the response based on the postback payload
   if (payload === 'INITIATE') {
+      dataBase.register(dataBase, sender_psid);
+      userData = dataBase[sender_psid];
       userData['state']="initiate";
       response = nlp.response( userData['state'], userData );
       sendMessage(sender_psid, response);
@@ -234,7 +236,7 @@ function sendMessage(sender_psid, responses) {
 
 
   if (Array.isArray(responses)) {
-    callSendAPI( sender_psid, Response.getAnimation("on") );
+    senderAction( sender_psid, Response.getAnimation("on") );
 
     let delay = 0;
     for (let response of responses) {
@@ -242,7 +244,7 @@ function sendMessage(sender_psid, responses) {
       setTimeout(()=>callSendAPI(sender_psid,response), delay * 2000);
 
       delay++;
-      //callSendAPI( sender_psid, Response.getAnimation("off") );
+      senderAction( sender_psid, Response.getAnimation("off") );
 
     }
   } else {
@@ -260,6 +262,30 @@ function callSendAPI(sender_psid, response) {
       "id": sender_psid
     },
     "message": response
+  }
+
+  // Send the HTTP request to the Messenger Platform
+  request({
+    "uri": "https://graph.facebook.com/v2.6/me/messages",
+    "qs": { "access_token": process.env.PAGE_ACCESS_TOKEN },
+    "method": "POST",
+    "json": request_body
+  }, (err, res, body) => {
+    if (!err) {
+      console.log('message sent!')
+    } else {
+      console.error("Unable to send message:" + err);
+    }
+  });
+}
+
+function senderAction(sender_psid, response) {
+  // Construct the message body
+  let request_body = {
+    "recipient": {
+      "id": sender_psid
+    },
+    "sender_action" : response['sender_action']
   }
 
   // Send the HTTP request to the Messenger Platform
