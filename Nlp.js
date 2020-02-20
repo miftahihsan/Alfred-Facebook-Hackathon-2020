@@ -104,8 +104,8 @@ class Nlp{
             var text2 = "Lets Get Started! 🎉 🎉 🎉";
             var text3 = "Would you Like to book a flight or a hotel?";
             response = [
-                        Response.genTextReply(text1), Response.getAnimation(), 
-                        Response.genTextReply(text2), Response.getAnimation(),
+                        Response.genTextReply(text1), Response.getAnimation("on"), Response.getAnimation("off"), 
+                        Response.genTextReply(text2), Response.getAnimation("on"), Response.getAnimation("off"),
                         Response.genTextReply(text3)
             ];
         }

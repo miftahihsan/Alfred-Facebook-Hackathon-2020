@@ -24,10 +24,21 @@ class Response{
         return response
     }
 
-    static getAnimation(){
-        let response = {
-            sender_action : "typing_on"
+    static getAnimation( state ){
+        let response;
+
+        if( state == "on" ){
+            response = {
+                sender_action : "typing_on"
+            }
         }
+
+        else{
+            response = {
+                sender_action : "typing_off"
+            }   
+        }
+
         return response;
     }
 
