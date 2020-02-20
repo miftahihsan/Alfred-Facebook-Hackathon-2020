@@ -232,21 +232,23 @@ function handlePostback(sender_psid, received_postback) {
 
 function sendMessage(sender_psid, responses) {
 
-  callSendAPI( sender_psid, Response.getAnimation("on") );
 
   if (Array.isArray(responses)) {
+    callSendAPI( sender_psid, Response.getAnimation("on") );
+
     let delay = 0;
     for (let response of responses) {
 
       setTimeout(()=>callSendAPI(sender_psid,response), delay * 2000);
 
       delay++;
+      //callSendAPI( sender_psid, Response.getAnimation("off") );
+
     }
   } else {
     callSendAPI(sender_psid, responses);
   }
 
-  callSendAPI( sender_psid, Response.getAnimation("off") );
 
 }
 
