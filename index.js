@@ -240,16 +240,17 @@ function sendMessage(sender_psid, responses) {
 
     let delay = 0;
     for (let response of responses) {
-
+      //senderAction( sender_psid, Response.getAnimation("on") );
       setTimeout(()=>callSendAPI(sender_psid,response), delay * 2000);
 
       delay++;
-      senderAction( sender_psid, Response.getAnimation("off") );
 
     }
   } else {
     callSendAPI(sender_psid, responses);
   }
+  senderAction( sender_psid, Response.getAnimation("off") );
+
 
 
 }
