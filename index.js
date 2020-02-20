@@ -235,8 +235,6 @@ function sendMessage(sender_psid, responses) {
     let delay = 0;
     for (let response of responses) {
 
-      setTimeout(()=>callSendAPI(sender_psid,{"sender_action":"typing_on"}), delay * 2000);
-
       setTimeout(()=>callSendAPI(sender_psid,response), delay * 2000);
 
       delay++;
