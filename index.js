@@ -246,10 +246,12 @@ function sendMessage(sender_psid, responses) {
       delay++;
 
     }
+    setTimeout(()=> senderAction(sender_psid, Response.getAnimation("off")),delay*2000);
+
   } else {
     callSendAPI(sender_psid, responses);
   }
-  senderAction( sender_psid, Response.getAnimation("off") );
+
 
 
 
