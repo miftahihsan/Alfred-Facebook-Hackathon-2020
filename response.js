@@ -36,7 +36,8 @@ class Response{
         else{
             response = {
                 sender_action : "typing_off"
-            }   
+            }
+
         }
 
         return response;

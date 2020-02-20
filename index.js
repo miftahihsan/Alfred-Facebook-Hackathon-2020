@@ -236,18 +236,18 @@ function sendMessage(sender_psid, responses) {
 
 
   if (Array.isArray(responses)) {
-
+    senderAction( sender_psid, Response.getAnimation("on") );
     let delay = 1;
     for (let response of responses) {
-      senderAction( sender_psid, Response.getAnimation("on") );
+
 
       //senderAction( sender_psid, Response.getAnimation("on") );
-      setTimeout(()=>callSendAPI(sender_psid,response), delay * 2000);
+      setTimeout(()=>callSendAPI(sender_psid,response), delay * 10000);
 
       delay++;
 
     }
-    //setTimeout(()=> senderAction(sender_psid, Response.getAnimation("off")),delay*2000);
+    setTimeout(()=> senderAction(sender_psid, Response.getAnimation("off")),delay*20000);
 
   } else {
     callSendAPI(sender_psid, responses);
@@ -359,4 +359,13 @@ curl -X POST -H "Content-Type: application/json" -d '{
   "sender_action":"typing_on"
 }' "https://graph.facebook.com/v2.6/me/messages?access_token=EAAkdTVETz5UBADPOy5ilvETlWxWS1ohXxXL51SPt0FiIZADGJQZAaCuNYeddPNccUu2meywF9SmC7ZBAot0bqEgDYHHi9z8AD691ecETBQFoFsb8iMoTOzZAIjSV7dScpZCyGWAPeGZCCW0xpdfALy4pggyxUgdZBGxxaJqRfpT2bjn2Co31Sg9"
 
+2751654314911195
+
+curl -X POST -H "Content-Type: application/json" -d '{
+  "recipient":{
+    "id":"2751654314911195
+"
+  },
+  "sender_action":"typing_on"
+}' "https://graph.facebook.com/v2.6/me/messages?access_token=EAAkdTVETz5UBADPOy5ilvETlWxWS1ohXxXL51SPt0FiIZADGJQZAaCuNYeddPNccUu2meywF9SmC7ZBAot0bqEgDYHHi9z8AD691ecETBQFoFsb8iMoTOzZAIjSV7dScpZCyGWAPeGZCCW0xpdfALy4pggyxUgdZBGxxaJqRfpT2bjn2Co31Sg9"
  */
