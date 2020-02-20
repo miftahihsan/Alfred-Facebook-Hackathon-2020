@@ -148,7 +148,7 @@ function handleMessage(sender_psid, received_message) {
     console.log("-------------------------------------------------------------------");
     if (userData['state']=="initiate") {
       response = nlp.response(userData['state'], userData);
-      callSendAPI(sender_psid, response);
+      sendMessage(sender_psid, response);
       userData['state'] = 'intent';
       console.log("userData State = " + userData['state']); //return here???
     }
@@ -167,7 +167,7 @@ function handleMessage(sender_psid, received_message) {
   console.log(response);
 
   // Send the response message
-  callSendAPI(sender_psid, response);
+  sendMessage(sender_psid, response);
 }
 
 function handleQuickReplies(userData, quick_reply) {
@@ -193,7 +193,7 @@ function handlePostback(sender_psid, received_postback) {
   if (payload === 'INITIATE') {
       userData['state']="initiate";
       response = nlp.response( userData['state'], userData );
-      callSendAPI(sender_psid, response);
+      sendMessage(sender_psid, response);
       userData['state'] = 'intent';
       console.log("userData State = " + userData['state']);
       return;
@@ -226,7 +226,20 @@ function handlePostback(sender_psid, received_postback) {
 
   // response = nlp.findState(userData);
   // Send the message to acknowledge the postback
-  callSendAPI(sender_psid, response);
+  sendMessage(sender_psid, response);
+
+}
+
+function sendMessage(sender_psid, responses) {
+  if (Array.isArray(responses)) {
+    let delay = 0;
+    for (let response of responses) {
+      setTimeout(()=>callSendAPI(sender_psid,response), delay * 2000);
+      delay++;
+    }
+  } else {
+    callSendAPI(sender_psid, responses);
+  }
 
 }
 
