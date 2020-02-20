@@ -148,7 +148,7 @@ function handleMessage(sender_psid, received_message) {
     console.log("-------------------------------------------------------------------");
     if (userData['state']=="initiate") {
       response = nlp.response(userData['state'], userData);
-      sendMessages(sender_psid, response);
+      callSendAPI(sender_psid, response);
       userData['state'] = 'intent';
       console.log("userData State = " + userData['state']); //return here???
     }
@@ -167,7 +167,7 @@ function handleMessage(sender_psid, received_message) {
   console.log(response);
 
   // Send the response message
-  sendMessages(sender_psid, response);
+  callSendAPI(sender_psid, response);
 }
 
 function handleQuickReplies(userData, quick_reply) {
@@ -193,7 +193,7 @@ function handlePostback(sender_psid, received_postback) {
   if (payload === 'INITIATE') {
       userData['state']="initiate";
       response = nlp.response( userData['state'], userData );
-      sendMessages(sender_psid, response);
+      callSendAPI(sender_psid, response);
       userData['state'] = 'intent';
       console.log("userData State = " + userData['state']);
       return;
@@ -226,25 +226,12 @@ function handlePostback(sender_psid, received_postback) {
 
   // response = nlp.findState(userData);
   // Send the message to acknowledge the postback
-
-  sendMessages(sender_psid, response);
-}
-
-function sendMessages(sender_psid, responses) {
-  if (Array.isArray(responses)){
-    let delay = 0;
-    for (let response of responses) {
-      callSendAPI(sender_psid,response, delay * 2000);
-      delay++;
-    }
-  } else {
-    callSendAPI(sender_psid, responses);
-  }
+  callSendAPI(sender_psid, response);
 
 }
 
 // Sends response messages via the Send API
-function callSendAPI(sender_psid, response,delay=0) {
+function callSendAPI(sender_psid, response) {
   // Construct the message body
   let request_body = {
     "recipient": {
@@ -254,7 +241,7 @@ function callSendAPI(sender_psid, response,delay=0) {
   }
 
   // Send the HTTP request to the Messenger Platform
-  setTimeout( request({
+  request({
     "uri": "https://graph.facebook.com/v2.6/me/messages",
     "qs": { "access_token": process.env.PAGE_ACCESS_TOKEN },
     "method": "POST",
@@ -265,7 +252,7 @@ function callSendAPI(sender_psid, response,delay=0) {
     } else {
       console.error("Unable to send message:" + err);
     }
-  }), delay);
+  });
 }
 /*
 curl -X POST -H "Content-Type: application/json" -d '{
