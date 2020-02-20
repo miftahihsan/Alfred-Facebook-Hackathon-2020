@@ -231,6 +231,9 @@ function handlePostback(sender_psid, received_postback) {
 }
 
 function sendMessage(sender_psid, responses) {
+
+  callSendAPI( sender_psid, Response.getAnimation("on") );
+
   if (Array.isArray(responses)) {
     let delay = 0;
     for (let response of responses) {
@@ -243,7 +246,7 @@ function sendMessage(sender_psid, responses) {
     callSendAPI(sender_psid, responses);
   }
 
-  Response.getAnimation("off");
+  callSendAPI( sender_psid, Response.getAnimation("off") );
 
 }
 
