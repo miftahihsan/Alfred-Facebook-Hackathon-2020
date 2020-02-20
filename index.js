@@ -236,17 +236,18 @@ function sendMessage(sender_psid, responses) {
 
 
   if (Array.isArray(responses)) {
-    senderAction( sender_psid, Response.getAnimation("on") );
 
-    let delay = 0;
+    let delay = 1;
     for (let response of responses) {
+      senderAction( sender_psid, Response.getAnimation("on") );
+
       //senderAction( sender_psid, Response.getAnimation("on") );
       setTimeout(()=>callSendAPI(sender_psid,response), delay * 2000);
 
       delay++;
 
     }
-    setTimeout(()=> senderAction(sender_psid, Response.getAnimation("off")),delay*2000);
+    //setTimeout(()=> senderAction(sender_psid, Response.getAnimation("off")),delay*2000);
 
   } else {
     callSendAPI(sender_psid, responses);
