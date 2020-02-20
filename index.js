@@ -243,6 +243,8 @@ function sendMessage(sender_psid, responses) {
     callSendAPI(sender_psid, responses);
   }
 
+  Response.getAnimation("off");
+
 }
 
 // Sends response messages via the Send API
