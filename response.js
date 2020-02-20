@@ -24,6 +24,13 @@ class Response{
         return response
     }
 
+    static getAnimation(){
+        let response = {
+            sender_action : "typing_on"
+        }
+        return response;
+    }
+
     static getFlightDetails( userData ){
         return Information.flightDetails( userData );
     }
