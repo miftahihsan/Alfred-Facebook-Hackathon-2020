@@ -100,8 +100,10 @@ class Nlp{
 
         // state
         if( key == "initiate" ){
-            text = "HEY! I am Get Schwifty Bot, here at your service to book you hotels and flights of your choice! \n\nLets Get Started! 🎉 🎉 🎉\n\nWould you Like to book a flight or a hotel?"
-            response = Response.genTextReply(text);
+            var text1 = "HEY! I am Get Schwifty Bot, here at your service to book you hotels and flights of your choice!";
+            var text2 = "Lets Get Started! 🎉 🎉 🎉";
+            var text3 = 'Would you Like to book a flight or a hotel?";
+            response = [Response.genTextReply(text1), Response.genTextReply(text2), Response.genTextReply(text3)];
         }
         else if( key == "confirm" ){
             text = 'You are travelling from\n' + userData['origin']  + ' to ' + userData['destination'] +
