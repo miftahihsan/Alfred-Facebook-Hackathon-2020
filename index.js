@@ -235,6 +235,9 @@ function sendMessage(sender_psid, responses) {
     let delay = 0;
     for (let response of responses) {
       setTimeout(()=>callSendAPI(sender_psid,response), delay * 2000);
+      callSendAPI(sender_psid, {
+        sender_action : "typing_on"
+      });
       delay++;
     }
   } else {
@@ -309,4 +312,15 @@ curl -X POST -H "Content-Type: application/json" -d '{
     "https://kiwi.com/"
   ]
 }' "https://graph.facebook.com/v6.0/me/messenger_profile?access_token=EAAkdTVETz5UBABiMRU4LChbImzlhRbIZBL76hdxdTZBQCrR8gm3iUlo2MKsdbzQJgYYX6cvdL5KaMrtJueuOwl6pPHZBrZCV3nzdGPL92wFLWnF6GDqISffJMj0SBZAfv07hwo2fqZBdsjw9rwlLkApvuWDWRrZA26K9tNVdsN6hwjZBoBZCFd4GBsb7Px8W5RB4ZD"
+ */
+
+ /*
+
+ curl -X POST -H "Content-Type: application/json" -d '{
+  "recipient":{
+    "id":"<PSID>"
+  },
+  "sender_action":"typing_on"
+}' "https://graph.facebook.com/v2.6/me/messages?access_token=EAAkdTVETz5UBADPOy5ilvETlWxWS1ohXxXL51SPt0FiIZADGJQZAaCuNYeddPNccUu2meywF9SmC7ZBAot0bqEgDYHHi9z8AD691ecETBQFoFsb8iMoTOzZAIjSV7dScpZCyGWAPeGZCCW0xpdfALy4pggyxUgdZBGxxaJqRfpT2bjn2Co31Sg9"
+
  */
