@@ -148,7 +148,7 @@ function handleMessage(sender_psid, received_message) {
     console.log("-------------------------------------------------------------------");
     if (userData['state']=="initiate") {
       response = nlp.response(userData['state'], userData);
-      callSendAPI(sender_psid, response);
+      sendMessages(sender_psid, response);
       userData['state'] = 'intent';
       console.log("userData State = " + userData['state']); //return here???
     }
@@ -167,7 +167,7 @@ function handleMessage(sender_psid, received_message) {
   console.log(response);
 
   // Send the response message
-  callSendAPI(sender_psid, response);    
+  sendMessages(sender_psid, response);
 }
 
 function handleQuickReplies(userData, quick_reply) {
@@ -182,18 +182,18 @@ function handleQuickReplies(userData, quick_reply) {
 function handlePostback(sender_psid, received_postback) {
   let response;
   var userData = dataBase[sender_psid];
-  
+
   // Get the payload for the postback
   let payload = received_postback.payload;
 
   console.log("HERE!!! ");
-  console.log( payload );  
+  console.log( payload );
 
   // Set the response based on the postback payload
   if (payload === 'INITIATE') {
       userData['state']="initiate";
       response = nlp.response( userData['state'], userData );
-      callSendAPI(sender_psid, response);
+      sendMessages(sender_psid, response);
       userData['state'] = 'intent';
       console.log("userData State = " + userData['state']);
       return;
@@ -205,7 +205,7 @@ function handlePostback(sender_psid, received_postback) {
     userData['state']='intent';
     response = nlp.findState(userData);
 
-  } 
+  }
   else if(payload === 'Book Flight'){
     if( userData['state'] == 'pickFlight' ){
       dataBase.insert( userData, 'pickFlight', true );
@@ -226,11 +226,25 @@ function handlePostback(sender_psid, received_postback) {
 
   // response = nlp.findState(userData);
   // Send the message to acknowledge the postback
-  callSendAPI(sender_psid, response);
+
+  sendMessages(sender_psid, response);
+}
+
+function sendMessages(sender_psid, response) {
+  if (Array.isArray(responses)){
+    let delay = 0;
+    for (let response of responses) {
+      callSendAPI(sender_psid,response, delay * 2000);
+      delay++;
+    }
+  } else {
+    callSendAPI(sender_psid, response);
+  }
+
 }
 
 // Sends response messages via the Send API
-function callSendAPI(sender_psid, response) {
+function callSendAPI(sender_psid, response,delay=0) {
   // Construct the message body
   let request_body = {
     "recipient": {
@@ -240,7 +254,7 @@ function callSendAPI(sender_psid, response) {
   }
 
   // Send the HTTP request to the Messenger Platform
-  request({
+  setTimeout( request({
     "uri": "https://graph.facebook.com/v2.6/me/messages",
     "qs": { "access_token": process.env.PAGE_ACCESS_TOKEN },
     "method": "POST",
@@ -251,7 +265,7 @@ function callSendAPI(sender_psid, response) {
     } else {
       console.error("Unable to send message:" + err);
     }
-  }); 
+  }), delay);
 }
 /*
 curl -X POST -H "Content-Type: application/json" -d '{
