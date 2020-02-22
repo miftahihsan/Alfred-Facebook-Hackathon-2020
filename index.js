@@ -237,11 +237,11 @@ function sendMessage(sender_psid, responses) {
 
 
   if (Array.isArray(responses)) {
-    let delay = 1;
+    let delay = 0;
     for (let response of responses) {
 
-      setTimeout(()=>callSendAPI(sender_psid,response), delay * 3000 + 500 );
-      senderAction( sender_psid, Response.getAnimation("on"), (delay)*3000 );
+      setTimeout(()=>callSendAPI(sender_psid,response), (delay+1) * 3000 - 1000 );   // 2000  5000  8000
+      senderAction( sender_psid, Response.getAnimation("on"), (delay)*3000 );                 // 0    3000   6000
 
 
       delay++;
