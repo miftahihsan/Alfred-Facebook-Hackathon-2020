@@ -151,6 +151,7 @@ function handleMessage(sender_psid, received_message) {
       sendMessage(sender_psid, response);
       userData['state'] = 'intent';
       console.log("userData State = " + userData['state']); //return here???
+      return;
     }
 
     nlp.compile( received_message.nlp.entities, userData, dataBase ); // maybe do it only initially
@@ -239,8 +240,8 @@ function sendMessage(sender_psid, responses) {
     let delay = 1;
     for (let response of responses) {
 
-      setTimeout(()=>callSendAPI(sender_psid,response), delay * 4000);
-      senderAction( sender_psid, Response.getAnimation("on"), (delay-1)*4000+2000 );
+      setTimeout(()=>callSendAPI(sender_psid,response), delay * 3000 + 500 );
+      senderAction( sender_psid, Response.getAnimation("on"), (delay)*3000 );
 
 
       delay++;
