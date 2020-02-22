@@ -52,7 +52,7 @@ app.post('/webhook', (req, res) => {
       // Gets the body of the webhook event
       let webhook_event = entry.messaging[0];
       console.log(webhook_event);
-    
+
     
       // Get the sender PSID
       let sender_psid = webhook_event.sender.id;
@@ -239,8 +239,8 @@ function sendMessage(sender_psid, responses) {
     let delay = 1;
     for (let response of responses) {
 
-      setTimeout(()=>callSendAPI(sender_psid,response), delay * 3000);
-      senderAction( sender_psid, Response.getAnimation("on"), (delay-1)*3000+1000 );
+      setTimeout(()=>callSendAPI(sender_psid,response), delay * 4000);
+      senderAction( sender_psid, Response.getAnimation("on"), (delay-1)*4000+2000 );
 
 
       delay++;

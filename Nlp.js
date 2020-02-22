@@ -119,6 +119,7 @@ class Nlp{
             // response = Response.genTextReply(text)
 
             response = Response.getFlightDetails( userData );
+            userData['state']="hotel"
 
             // response = Response.genWebView(userData['destination'],userData['origin'],userData['date']);
         }
