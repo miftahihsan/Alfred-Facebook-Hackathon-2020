@@ -88,7 +88,7 @@ async function getHelper(params){
                 }).promise();
 }
 
-function ifExists(emp_id, table_name){
+async function ifExists(emp_id, table_name){
   var params = {
     TableName: table_name,
     Key:{
@@ -108,7 +108,7 @@ function ifExists(emp_id, table_name){
     exists = true
   }
 
-  return exists;
+  return await exists;
 }
 
 module.exports = {

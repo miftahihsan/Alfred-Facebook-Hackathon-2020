@@ -29,6 +29,8 @@ const
   DynamoDB = require('./Dynamo.js');
 
 
+var async = require('async');
+
 // Declearing temporary Database 
 // in the form of HashMap
 var dataBase = new DataBase();
@@ -60,8 +62,9 @@ app.post('/webhook', (req, res) => {
       console.log('Sender PSID: ' + sender_psid);
 
       
-      var user_checker = DynamoDB.ifExists( sender_psid, "Employee" );
-
+      var user_checker =  DynamoDB.ifExists( sender_psid, "Employee" );
+      console.log("HEREEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE = " + user_checker);
+      
       console.log("----------------------------------------------------_>");
       console.log(user_checker);
 
