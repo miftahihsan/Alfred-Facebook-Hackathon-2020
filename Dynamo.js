@@ -78,7 +78,7 @@ async function getHelper(params){
                     } else {
                         console.log("GetItem succeeded:", JSON.stringify(data, null, 2));
                     }
-                }).promise();
+                });
 }
 
 function ifExists(emp_id, table_name){
