@@ -93,7 +93,6 @@ app.post('/webhook', (req, res) => {
           }
 
       );
-      console.log(user_checker);
 
       /*
       // registering the user into the HashMap

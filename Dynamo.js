@@ -25,7 +25,7 @@ var docClient = new AWS.DynamoDB.DocumentClient();
 
 const employee = "Employee";
 const outsider = "outsider";
-
+/*
 var params = {
   TableName : "Employee",
   KeySchema: [
@@ -53,7 +53,7 @@ dynamodb.createTable(params, function(err, data) {
   } else {
     console.log("Created table. Table description JSON:", JSON.stringify(data, null, 2));
   }
-});
+});*/
 
 
 function get(emp_id, table_name, id){
@@ -83,9 +83,9 @@ async function getHelper(params){
     docClient.get(params, function(err, data) {
       if (err) {
           console.error("Unable to read item. Error JSON:", JSON.stringify(err, null, 2));
-          res({ statusCode: 200 });
-      } else {
           rej({ statusCode: 400 });
+      } else {
+          res(data);    //returns data
           console.log("GetItem succeeded:", JSON.stringify(data, null, 2));
       }
     });
