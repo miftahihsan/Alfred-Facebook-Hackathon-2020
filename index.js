@@ -60,10 +60,10 @@ app.post('/webhook', (req, res) => {
       console.log('Sender PSID: ' + sender_psid);
 
       
-      var user_info = DynamoDB.get( sender_psid, DynamoDB.employee );
+      var user_checker = DynamoDB.ifExists( sender_psid, DynamoDB.employee );
 
       console.log("----------------------------------------------------_>");
-      console.log(user_info);
+      console.log(user_checker);
 
       // registering the user into the HashMap
       if( !( sender_psid in dataBase ) ) {

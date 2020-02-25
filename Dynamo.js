@@ -56,7 +56,7 @@ dynamodb.createTable(params, function(err, data) {
 });
 
 
-async function exists(emp_id, table_name, id){
+function get(emp_id, table_name, id){
   // const param = {
   //   TableName: table_name,
   //   Key:{
@@ -66,30 +66,43 @@ async function exists(emp_id, table_name, id){
   // };
 }
 
-async function insert(){
+function insert(){
 
 }
 
-function get(emp_id, table_name){
+
+async function getHelper(params){
+  return  await docClient.get(params, function(err, data) {
+                    if (err) {
+                        console.error("Unable to read item. Error JSON:", JSON.stringify(err, null, 2));
+                    } else {
+                        console.log("GetItem succeeded:", JSON.stringify(data, null, 2));
+                    }
+                }).promise();
+}
+
+function ifExists(emp_id, table_name){
   var params = {
     TableName: table_name,
     Key:{
         "emp_id": emp_id,
     }
+
   };
 
-  return docClient.get(params, function(err, data) {
-      if (err) {
-          console.error("Unable to read item. Error JSON:", JSON.stringify(err, null, 2));
-      } else {
-          console.log("GetItem succeeded:", JSON.stringify(data, null, 2));
-      }
-  });
+  var result = getHelper(params);
 
+  var exists = false;
+
+  if (result.Item !== undefined && result.Item !== null) {
+    exists = true
+  }
+
+  return exists;
 }
 
 module.exports = {
-  exists,
+  ifExists,
   insert,
   get
 }
