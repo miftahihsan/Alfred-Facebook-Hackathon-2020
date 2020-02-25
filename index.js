@@ -62,10 +62,10 @@ app.post('/webhook', (req, res) => {
       console.log('Sender PSID: ' + sender_psid);
 
       
-      // var user_checker =  DynamoDB.ifExists( sender_psid, "Employee" );
+      var user_checker =  false;
 
-      setTimeout( function(){
-        var user_checker = DynamoDB.ifExists( sender_psid, "Employee" );
+      setTimeout( async function(){
+          user_checker = await DynamoDB.ifExists( sender_psid, "Employee" );
       }, 1000 );
 
 
