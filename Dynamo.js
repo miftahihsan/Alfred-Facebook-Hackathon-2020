@@ -61,20 +61,24 @@ function get(emp_id, table_name, id){
 }
 
 function insert(emp_id, table_name){
-  var params = {
-    TableName: table_name,
-    Item:{
-        "emp_id": emp_id,
-    }
-  };
 
+  
+  var params = {
+    TableName:table_name,
+    Item:{
+          "emp_id": emp_id,
+        }
+    };
+
+  console.log("Adding a new item...");
   docClient.put(params, function(err, data) {
-    if (err) {
-        console.error("Unable to add item. Error JSON:", JSON.stringify(err, null, 2));
-    } else {
-        console.log("Added item:", JSON.stringify(data, null, 2));
-    }
+      if (err) {
+          console.error("Unable to add item. Error JSON:", JSON.stringify(err, null, 2));
+      } else {
+          console.log("Added item:", JSON.stringify(data, null, 2));
+      }
   });
+
 
 }
 
