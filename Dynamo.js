@@ -85,7 +85,7 @@ async function getHelper(params){
                     } else {
                         console.log("GetItem succeeded:", JSON.stringify(data, null, 2));
                     }
-                }).promise();
+                });
 }
 
 async function ifExists(emp_id, table_name){
@@ -97,7 +97,7 @@ async function ifExists(emp_id, table_name){
 
   };
 
-  var result = await Promise.all( awaitgetHelper(params) );
+  var result = await getHelper(params);
 
   console.log("This is Get Helper");
   console.log(result);
