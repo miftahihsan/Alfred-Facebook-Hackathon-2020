@@ -78,7 +78,7 @@ app.post('/webhook', (req, res) => {
       }
 
       if( !user_checker ){
-          DynamoDB.put( sender_psid, DynamoDB.employee );
+          DynamoDB.insert( sender_psid, DynamoDB.employee );
           console.log("Done putting the user into the DataBase check for more info, User is an Outsider");
       }      
       else{

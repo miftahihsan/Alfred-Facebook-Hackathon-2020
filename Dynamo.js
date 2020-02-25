@@ -57,16 +57,24 @@ dynamodb.createTable(params, function(err, data) {
 
 
 function get(emp_id, table_name, id){
-  // const param = {
-  //   TableName: table_name,
-  //   Key:{
-  //     "emp_id" :  id
-  //   }
-  //   ConditionalExpression : 'attribute_not_exists(id)',
-  // };
+
 }
 
-function insert(){
+function insert(emp_id, table_name){
+  var params = {
+    TableName: table_name,
+    Key:{
+        "emp_id": emp_id,
+    }
+  };
+
+  docClient.put(params, function(err, data) {
+    if (err) {
+        console.error("Unable to add item. Error JSON:", JSON.stringify(err, null, 2));
+    } else {
+        console.log("Added item:", JSON.stringify(data, null, 2));
+    }
+  });
 
 }
 
