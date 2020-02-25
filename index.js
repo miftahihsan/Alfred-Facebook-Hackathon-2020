@@ -61,24 +61,33 @@ app.post('/webhook', (req, res) => {
       let sender_psid = webhook_event.sender.id;
       console.log('Sender PSID: ' + sender_psid);
 
+      var userData;
+      userData['psid'] = sender_psid;
+
       
-      var user_checker =  DynamoDB.ifExists( sender_psid, "Employee" );
+      var user_checker =  DynamoDB.getUserInfo( sender_psid, "Employee" );
 
 
       user_checker.then(
           result => {
             var text;
-            if( !result ){
+            if( !(result.Item !== undefined && result.Item !== null) ){
               DynamoDB.insert( sender_psid, "Employee" );
+              userData['state'] = "INITIATE"
               console.log("Done putting the user into the DataBase check for more info, User is an Outsider");
               text = "Done putting the user into the DataBase check for more info, User is an Outsider";
+
             }
             else{
               console.log("User already Exists inside the employee table for now");
-              text =" User already exists inside table now";
+              text =" User already exists inside table now. UserId is " + result.Item["emp_id"];
+
+
+
+
+
             }
 
-            sendMessage(sender_psid, Response.genTextReply(text));
 
             if (webhook_event.message) {
               //handleMessage(sender_psid, webhook_event.message);

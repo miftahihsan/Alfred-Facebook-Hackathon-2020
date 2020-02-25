@@ -34,7 +34,7 @@ var params = {
   ],
   AttributeDefinitions: [
     { AttributeName: "emp_id", AttributeType: "S" },
-    // { AttributeName: "topic", AttributeType: "S" },
+    // { AttributeName: "state", AttributeType: "S" },
     // { AttributeName: "todo", AttributeType: "S" },
     // { AttributeName: "schedule", AttributeType: "S" },
     // { AttributeName: "hours_worked", AttributeType: "N" },
@@ -66,7 +66,7 @@ function insert(emp_id, table_name){
   var params = {
     TableName: table_name,
     Item: {
-     "emp_id": emp_id
+        "emp_id": emp_id
     }
    };
    docClient.put(params, function(err, data) {
@@ -92,7 +92,7 @@ async function getHelper(params){
   });
 }
 
-async function ifExists(emp_id, table_name){
+async function getUserInfo(emp_id, table_name){
   var params = {
     TableName: table_name,
     Key:{
@@ -112,11 +112,11 @@ async function ifExists(emp_id, table_name){
     exists = true
   }
 
-  return  exists;
+  return  result;
 }
 
 module.exports = {
-  ifExists,
+  getUserInfo,
   insert,
   get
 }
