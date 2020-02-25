@@ -71,12 +71,12 @@ async function insert(){
 async function get(emp_id, table_name){
   const params = {
     TableName : table_name,
-    Key : {
+    Key = {
       "emp_id" : emp_id
     }
   };
 
-  await dynamodb.getItem(params, function(err, data) {
+  return await dynamodb.getItem(params, function(err, data) {
     if (err) {
       console.log("Error", err);
     } else {
