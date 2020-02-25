@@ -62,6 +62,7 @@ app.post('/webhook', (req, res) => {
       
       var user_info = DynamoDB.get( sender_psid, DynamoDB.employee );
 
+      console.log("----------------------------------------------------_>");
       console.log(user_info);
 
       // registering the user into the HashMap

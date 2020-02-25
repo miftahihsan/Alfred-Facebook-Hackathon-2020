@@ -13,6 +13,7 @@
  * specific language governing permissions and limitations under the License.
  */
 var AWS = require("aws-sdk");
+var async = require('async');
 
 AWS.config.update({
   region: "us-west-2",
