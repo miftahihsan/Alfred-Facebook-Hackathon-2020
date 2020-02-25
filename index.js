@@ -72,7 +72,9 @@ app.post('/webhook', (req, res) => {
         await Promise.all(user_checker);
         
         console.log('after start');
-      })();
+      }).catch(e => {
+        console.log("went Wrong");
+      });
 
       console.log("HEREEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE = " + user_checker);
       
