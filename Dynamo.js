@@ -63,7 +63,7 @@ function get(emp_id, table_name, id){
 function insert(emp_id, table_name){
   var params = {
     TableName: table_name,
-    Key:{
+    Item:{
         "emp_id": emp_id,
     }
   };
