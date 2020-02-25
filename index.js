@@ -75,7 +75,7 @@ app.post('/webhook', (req, res) => {
             }
             else{
               console.log("User already Exists inside the employee table for now");
-              text =" Done putting the user into the DataBase check for more info, User is an Outsider";
+              text =" User already exists inside table now";
             }
 
             sendMessage(sender_psid, Response.genTextReply(text));
