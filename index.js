@@ -87,7 +87,7 @@ app.post('/webhook', (req, res) => {
             }
 
 
-          }
+          },
           error =>{
             console.log("Promise Failed because of " + error);
           }
