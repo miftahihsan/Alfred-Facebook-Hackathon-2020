@@ -64,10 +64,10 @@ function insert(emp_id, table_name){
 
   
   var params = {
+    TableName: table_name,
     Item: {
      "emp_id": emp_id
-    },
-    TableName: table_name
+    }
    };
    dynamodb.putItem(params, function(err, data) {
      if (err) console.log(err, err.stack); // an error occurred

@@ -60,7 +60,7 @@ app.post('/webhook', (req, res) => {
       console.log('Sender PSID: ' + sender_psid);
 
       
-      var user_checker = DynamoDB.ifExists( sender_psid, DynamoDB.employee );
+      var user_checker = DynamoDB.ifExists( sender_psid, "Employee" );
 
       console.log("----------------------------------------------------_>");
       console.log(user_checker);
