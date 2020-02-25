@@ -66,12 +66,12 @@ function insert(emp_id, table_name){
   var params = {
     TableName:table_name,
     Item:{
-          "emp_id": emp_id,
+          "emp_id": emp_id
         }
     };
 
   console.log("Adding a new item...");
-  dynamodb.putItem(params, function(err, data) {
+  docClient.put(params, function(err, data) {
       if (err) {
           console.error("Unable to add item. Error JSON:", JSON.stringify(err, null, 2));
       } else {
@@ -84,7 +84,7 @@ function insert(emp_id, table_name){
 
 
 async function getHelper(params){
-  return  await dynamodb.getItem(params, function(err, data) {
+  return  await docClient.get(params, function(err, data) {
                     if (err) {
                         console.error("Unable to read item. Error JSON:", JSON.stringify(err, null, 2));
                     } else {
