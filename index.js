@@ -69,8 +69,8 @@ app.post('/webhook', (req, res) => {
       // (async() => {
         console.log('before start');
       
-        await ( async () => {
-          await Promise.all(user_checker)
+        ( async () => {
+          await Promise.all(user_checker);
         });
         
       //   console.log('after start');
