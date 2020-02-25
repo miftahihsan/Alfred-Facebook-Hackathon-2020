@@ -66,15 +66,19 @@ app.post('/webhook', (req, res) => {
 
       console.log(user_checker);
 
-      var checker = async function(user_checker){
-          return await user_checker;
-      };
+      (async() => {
+        console.log('before start');
+      
+        await Promise.all(user_checker);
+        
+        console.log('after start');
+      })();
 
       console.log("HEREEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE = " + user_checker);
       
       console.log("----------------------------------------------------_>");
       console.log(user_checker);
-      console.log(checker);
+      // console.log(checker);
 
       // registering the user into the HashMap
       if( !( sender_psid in dataBase ) ) {
@@ -88,7 +92,7 @@ app.post('/webhook', (req, res) => {
         console.log("HELLO Welcome Back!! user = " + sender_psid );
       }
 
-      if( !checker ){
+      if( !user_checker ){
           DynamoDB.insert( sender_psid, "Employee" );
           console.log("Done putting the user into the DataBase check for more info, User is an Outsider");
       }      
