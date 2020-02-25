@@ -76,7 +76,14 @@ app.post('/webhook', (req, res) => {
       else {
         console.log("HELLO Welcome Back!! user = " + sender_psid );
       }
-      
+
+      if( !user_checker ){
+          DynamoDB.put( sender_psid, DynamoDB.employee );
+          console.log("Done putting the user into the DataBase check for more info, User is an Outsider");
+      }      
+      else{
+          console.log("User already Exists inside the employee table for now");
+      }
 
       // Check if the event is a message or postback and
       // pass the event to the appropriate handler function
