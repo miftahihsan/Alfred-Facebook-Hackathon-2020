@@ -21,6 +21,9 @@ AWS.config.update({
 
 var dynamodb = new AWS.DynamoDB();
 
+const employee = "Employee";
+const outsider = "outsider";
+
 var params = {
   TableName : "Employee",
   KeySchema: [
@@ -49,3 +52,42 @@ dynamodb.createTable(params, function(err, data) {
     console.log("Created table. Table description JSON:", JSON.stringify(data, null, 2));
   }
 });
+
+
+async function exists(emp_id, table_name, id){
+  // const param = {
+  //   TableName: table_name,
+  //   Key:{
+  //     "emp_id" :  id
+  //   }
+  //   ConditionalExpression : 'attribute_not_exists(id)',
+  // };
+}
+
+async function insert(){
+
+}
+
+async function get(emp_id, table_name){
+  const params = {
+    TableName : table_name,
+    Key : {
+      "emp_id" : emp_id
+    }
+  };
+
+  await dynamodb.getItem(params, function(err, data) {
+    if (err) {
+      console.log("Error", err);
+    } else {
+      console.log("Success", data.Item);
+    }
+  });
+
+}
+
+module.exports = {
+  exists,
+  insert,
+  get
+}

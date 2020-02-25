@@ -25,7 +25,8 @@ let count  = 0;
 const
   Nlp = require('./Nlp.js'),
   DataBase = require('./DataBase.js'),
-  Response = require("./response.js");
+  Response = require("./response.js"),
+  DynamoDB = require('./Dynamo.js');
 
 
 // Declearing temporary Database 
@@ -35,59 +36,6 @@ const nlp = new Nlp();
 
 // Sets server port and logs message on success
 app.listen(process.env.PORT || 8000, () => console.log('webhook is listening'));
-
-
-
-
-
-
-
-// AWS DYNAMO DB HERE
-
-var dynamodb = require('./Dynamo.js');
-
-// var AWS = require("aws-sdk");
-
-// AWS.config.update({
-//   region: "us-west-2",
-//   endpoint: "https://dynamodb.us-west-2.amazonaws.com"
-// });
-
-// var dynamodb = new AWS.DynamoDB();
-
-// var params = {
-//   TableName : "Employee",
-//   KeySchema: [
-//     { AttributeName: "emp_id", KeyType: "HASH"},  //Partition key
-//     // { AttributeName: "emp_name", KeyType: "HASH"}
-//     // { AttributeName: "title", KeyType: "RANGE" }  //Sort key
-//   ],
-//   AttributeDefinitions: [
-//     { AttributeName: "emp_id", AttributeType: "S" },
-//     // { AttributeName: "emp_name", AttributeType: "S" },
-//     // { AttributeName: "topic", AttributeType: "S" },
-//     // { AttributeName: "todo", AttributeType: "S" },
-//     // { AttributeName: "schedule", AttributeType: "S" },
-//     // { AttributeName: "hours_worked", AttributeType: "N" },
-//     // { AttributeName: "sentiment_score", AttributeType: "N" }
-//     // { AttributeName: "title", AttributeType: "S" }
-//   ],
-//   ProvisionedThroughput: {
-//     ReadCapacityUnits: 10,
-//     WriteCapacityUnits: 10
-//   }
-// };
-
-// dynamodb.createTable(params, function(err, data) {
-//   if (err) {
-//     console.error("Unable to create table. Error JSON:", JSON.stringify(err, null, 2));
-//   } else {
-//     console.log("Created table. Table description JSON:", JSON.stringify(data, null, 2));
-//   }
-// });
-
-
-// AWS DYNAMO DB END
 
 
 // Creates the endpoint for our webhook 
@@ -110,6 +58,11 @@ app.post('/webhook', (req, res) => {
       // Get the sender PSID
       let sender_psid = webhook_event.sender.id;
       console.log('Sender PSID: ' + sender_psid);
+
+      
+      var user_info = DynamoDB.get( sender_psid );
+
+      console.log(user_info);
 
       // registering the user into the HashMap
       if( !( sender_psid in dataBase ) ) {
