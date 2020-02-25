@@ -88,6 +88,8 @@ app.post('/webhook', (req, res) => {
 
             }
 
+            handleMessage(text);
+
 
             if (webhook_event.message) {
               //handleMessage(sender_psid, webhook_event.message);
