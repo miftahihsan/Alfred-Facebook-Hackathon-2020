@@ -65,7 +65,7 @@ function insert(emp_id, table_name){
   
   var params = {
     Item: {
-     "emp_id": {emp_id}
+     "emp_id": emp_id
     },
     TableName: table_name
    };
