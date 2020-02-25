@@ -69,19 +69,19 @@ async function insert(){
 }
 
 async function get(emp_id, table_name){
-  const params = {
-    TableName : table_name,
-    Key = {
-      "emp_id" : emp_id
+  var params = {
+    TableName: table_name,
+    Key:{
+        "emp_id": emp_id,
     }
   };
 
-  return await dynamodb.getItem(params, function(err, data) {
-    if (err) {
-      console.log("Error", err);
-    } else {
-      console.log("Success", data.Item);
-    }
+  return await dynamodb.get(params, function(err, data) {
+      if (err) {
+          console.error("Unable to read item. Error JSON:", JSON.stringify(err, null, 2));
+      } else {
+          console.log("GetItem succeeded:", JSON.stringify(data, null, 2));
+      }
   });
 
 }
