@@ -20,6 +20,7 @@ AWS.config.update({
 });
 
 var dynamodb = new AWS.DynamoDB();
+var docClient = new AWS.DynamoDB.DocumentClient();
 
 const employee = "Employee";
 const outsider = "outsider";
@@ -76,7 +77,7 @@ async function get(emp_id, table_name){
     }
   };
 
-  dynamodb.get(params, function(err, data) {
+  return await docClient.get(params, function(err, data) {
       if (err) {
           console.error("Unable to read item. Error JSON:", JSON.stringify(err, null, 2));
       } else {
