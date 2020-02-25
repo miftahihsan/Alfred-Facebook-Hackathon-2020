@@ -69,7 +69,7 @@ function insert(emp_id, table_name){
      "emp_id": emp_id
     }
    };
-   dynamodb.putItem(params, function(err, data) {
+   docClient.put(params, function(err, data) {
      if (err) console.log(err, err.stack); // an error occurred
      else console.log(data);           // successful response
      /*
