@@ -44,7 +44,7 @@ app.listen(process.env.PORT || 8000, () => console.log('webhook is listening'));
 
 // AWS DYNAMO DB HERE
 
-// var dynamodb = require('./Dynamo.js');
+var dynamodb = require('./Dynamo.js');
 
 // var AWS = require("aws-sdk");
 
