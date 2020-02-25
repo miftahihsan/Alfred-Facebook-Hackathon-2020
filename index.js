@@ -62,28 +62,40 @@ app.post('/webhook', (req, res) => {
       console.log('Sender PSID: ' + sender_psid);
 
       
-      var user_checker =  DynamoDB.ifExists( sender_psid, "Employee" );
+      var user_checker =  DynamoDB.ifExists( sender_psid, "Employee" ).promise();
 
+
+      user_checker.then(
+          result => {
+            var text;
+            if( !result ){
+              DynamoDB.insert( sender_psid, "Employee" );
+              console.log("Done putting the user into the DataBase check for more info, User is an Outsider");
+              text = "Done putting the user into the DataBase check for more info, User is an Outsider";
+            }
+            else{
+              console.log("User already Exists inside the employee table for now");
+              text =" Done putting the user into the DataBase check for more info, User is an Outsider";
+            }
+
+            sendMessage(sender_psid, Response.genTextReply(text));
+
+            if (webhook_event.message) {
+              //handleMessage(sender_psid, webhook_event.message);
+            } else if (webhook_event.postback) {
+              //handlePostback(sender_psid, webhook_event.postback);
+            }
+
+
+          }
+          error =>{
+            console.log("Promise Failed because of " + error);
+          }
+
+      );
       console.log(user_checker);
 
-      // (async() => {
-        console.log('before start');
-      
-        ( async () => {
-          await Promise.all(user_checker);
-        });
-        
-      //   console.log('after start');
-      // }).catch(e => {
-      //   console.log("went Wrong");
-      // });
-
-      console.log("HEREEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE = " + user_checker);
-      
-      console.log("----------------------------------------------------_>");
-      console.log(user_checker);
-      // console.log(checker);
-
+      /*
       // registering the user into the HashMap
       if( !( sender_psid in dataBase ) ) {
         dataBase.register( dataBase, sender_psid );
@@ -95,22 +107,12 @@ app.post('/webhook', (req, res) => {
       else {
         console.log("HELLO Welcome Back!! user = " + sender_psid );
       }
+*/
 
-      if( !user_checker ){
-          DynamoDB.insert( sender_psid, "Employee" );
-          console.log("Done putting the user into the DataBase check for more info, User is an Outsider");
-      }      
-      else{
-          console.log("User already Exists inside the employee table for now");
-      }
 
       // Check if the event is a message or postback and
       // pass the event to the appropriate handler function
-      if (webhook_event.message) {
-        handleMessage(sender_psid, webhook_event.message);        
-      } else if (webhook_event.postback) {
-        handlePostback(sender_psid, webhook_event.postback);
-      }
+
       
     });
 
