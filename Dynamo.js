@@ -101,7 +101,7 @@ async function ifExists(emp_id, table_name){
 
   };
 
-  var result = await getHelper(params).promise();
+  var result = await getHelper(params);
 
   console.log("This is Get Helper");
   console.log(result);
