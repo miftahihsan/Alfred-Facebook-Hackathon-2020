@@ -64,11 +64,11 @@ var params = {
   AttributeDefinitions: [
     { AttributeName: "emp_id", AttributeType: "S" },
     { AttributeName: "emp_name", AttributeType: "S" },
-    { AttributeName: "topic", AttributeType: "S" },
-    { AttributeName: "todo", AttributeType: "S" },
-    { AttributeName: "schedule", AttributeType: "S" },
-    { AttributeName: "hours_worked", AttributeType: "N" },
-    { AttributeName: "sentiment_score", AttributeType: "N" }
+    // { AttributeName: "topic", AttributeType: "S" },
+    // { AttributeName: "todo", AttributeType: "S" },
+    // { AttributeName: "schedule", AttributeType: "S" },
+    // { AttributeName: "hours_worked", AttributeType: "N" },
+    // { AttributeName: "sentiment_score", AttributeType: "N" }
     // { AttributeName: "title", AttributeType: "S" }
   ],
   ProvisionedThroughput: {
