@@ -69,7 +69,7 @@ async function insert(){
 
 }
 
-async function get(emp_id, table_name){
+function get(emp_id, table_name){
   var params = {
     TableName: table_name,
     Key:{
@@ -77,7 +77,7 @@ async function get(emp_id, table_name){
     }
   };
 
-  return await docClient.get(params, function(err, data) {
+  return docClient.get(params, function(err, data) {
       if (err) {
           console.error("Unable to read item. Error JSON:", JSON.stringify(err, null, 2));
       } else {

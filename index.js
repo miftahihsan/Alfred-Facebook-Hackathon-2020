@@ -60,7 +60,7 @@ app.post('/webhook', (req, res) => {
       console.log('Sender PSID: ' + sender_psid);
 
       
-      var user_info = DynamoDB.get( sender_psid, DynamoDB.employee );
+      var user_info = async DynamoDB.get( sender_psid, DynamoDB.employee );
 
       console.log(user_info);
 
