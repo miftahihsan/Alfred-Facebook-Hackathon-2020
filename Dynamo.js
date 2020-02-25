@@ -97,7 +97,7 @@ async function ifExists(emp_id, table_name){
 
   };
 
-  var result = getHelper(params);
+  var result = await Promise.all( awaitgetHelper(params) );
 
   console.log("This is Get Helper");
   console.log(result);
@@ -108,7 +108,7 @@ async function ifExists(emp_id, table_name){
     exists = true
   }
 
-  return await exists;
+  return  exists;
 }
 
 module.exports = {
