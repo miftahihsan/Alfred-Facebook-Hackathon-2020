@@ -22,14 +22,19 @@ AWS.config.update({
 var dynamodb = new AWS.DynamoDB();
 
 var params = {
-  TableName : "Movies",
+  TableName : "Employee",
   KeySchema: [
-    { AttributeName: "year", KeyType: "HASH"},  //Partition key
-    { AttributeName: "title", KeyType: "RANGE" }  //Sort key
+    { AttributeName: "emp_id", KeyType: "HASH"},  //Partition key
+    // { AttributeName: "title", KeyType: "RANGE" }  //Sort key
   ],
   AttributeDefinitions: [
-    { AttributeName: "year", AttributeType: "N" },
-    { AttributeName: "title", AttributeType: "S" }
+    { AttributeName: "emp_id", AttributeType: "S" },
+    { AttributeName: "topic", AttributeType: "S" },
+    { AttributeName: "todo", AttributeType: "S" },
+    { AttributeName: "schedule", AttributeType: "S" },
+    { AttributeName: "hours_worked", AttributeType: "N" },
+    { AttributeName: "sentiment_score", AttributeType: "N" }
+    // { AttributeName: "title", AttributeType: "S" }
   ],
   ProvisionedThroughput: {
     ReadCapacityUnits: 10,
