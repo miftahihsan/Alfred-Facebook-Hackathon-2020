@@ -58,12 +58,12 @@ var params = {
   TableName : "Employee",
   KeySchema: [
     { AttributeName: "emp_id", KeyType: "HASH"},  //Partition key
-    { AttributeName: "emp_name", KeyType: "HASH"}
+    // { AttributeName: "emp_name", KeyType: "HASH"}
     // { AttributeName: "title", KeyType: "RANGE" }  //Sort key
   ],
   AttributeDefinitions: [
     { AttributeName: "emp_id", AttributeType: "S" },
-    { AttributeName: "emp_name", AttributeType: "S" },
+    // { AttributeName: "emp_name", AttributeType: "S" },
     // { AttributeName: "topic", AttributeType: "S" },
     // { AttributeName: "todo", AttributeType: "S" },
     // { AttributeName: "schedule", AttributeType: "S" },
