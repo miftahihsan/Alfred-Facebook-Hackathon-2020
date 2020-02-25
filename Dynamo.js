@@ -79,13 +79,17 @@ function insert(emp_id, table_name){
 
 
 async function getHelper(params){
-  return  await docClient.get(params, function(err, data) {
-                    if (err) {
-                        console.error("Unable to read item. Error JSON:", JSON.stringify(err, null, 2));
-                    } else {
-                        console.log("GetItem succeeded:", JSON.stringify(data, null, 2));
-                    }
-                });
+  return await new Promise( (res, rej) => {
+    docClient.get(params, function(err, data) {
+      if (err) {
+          console.error("Unable to read item. Error JSON:", JSON.stringify(err, null, 2));
+          res({ statusCode: 200 });
+      } else {
+          rej({ statusCode: 400 });
+          console.log("GetItem succeeded:", JSON.stringify(data, null, 2));
+      }
+    });
+  });
 }
 
 async function ifExists(emp_id, table_name){
@@ -97,7 +101,7 @@ async function ifExists(emp_id, table_name){
 
   };
 
-  var result = await getHelper(params);
+  var result = await getHelper(params).promise();
 
   console.log("This is Get Helper");
   console.log(result);
