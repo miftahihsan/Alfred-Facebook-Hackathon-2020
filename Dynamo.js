@@ -71,15 +71,7 @@ function insert(emp_id, table_name){
    };
    docClient.put(params, function(err, data) {
      if (err) console.log(err, err.stack); // an error occurred
-     else console.log(data);           // successful response
-     /*
-     data = {
-      ConsumedCapacity: {
-       CapacityUnits: 1, 
-       TableName: "Music"
-      }
-     }
-     */
+     else console.log(data); // successful response
    });
 
 
@@ -106,6 +98,9 @@ function ifExists(emp_id, table_name){
   };
 
   var result = getHelper(params);
+
+  console.log("This is Get Helper");
+  console.log(result);
 
   var exists = false;
 
