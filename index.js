@@ -61,7 +61,7 @@ app.post('/webhook', (req, res) => {
       let sender_psid = webhook_event.sender.id;
       console.log('Sender PSID: ' + sender_psid);
 
-      var userData;
+      var userData = {};
       userData['psid'] = sender_psid;
 
       
