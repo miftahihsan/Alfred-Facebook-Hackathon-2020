@@ -66,7 +66,8 @@ function insert(emp_id, table_name){
   var params = {
     TableName: table_name,
     Item: {
-        "emp_id": emp_id
+        "emp_id": emp_id,
+        "state" : "initiate"
     }
    };
    docClient.put(params, function(err, data) {

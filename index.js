@@ -30,6 +30,7 @@ const
 
 
 var async = require('async');
+var userData = {};
 
 // Declearing temporary Database 
 // in the form of HashMap
@@ -61,7 +62,7 @@ app.post('/webhook', (req, res) => {
       let sender_psid = webhook_event.sender.id;
       console.log('Sender PSID: ' + sender_psid);
 
-      var userData = {};
+
       userData['psid'] = sender_psid;
 
       
@@ -73,7 +74,7 @@ app.post('/webhook', (req, res) => {
             var text;
             if( !(result.Item !== undefined && result.Item !== null) ){
               DynamoDB.insert( sender_psid, "Employee" );
-              userData['state'] = "INITIATE"
+              userData['state'] = "initiate"
               console.log("Done putting the user into the DataBase check for more info, User is an Outsider");
               text = "Done putting the user into the DataBase check for more info, User is an Outsider";
 
@@ -81,6 +82,7 @@ app.post('/webhook', (req, res) => {
             else{
               console.log("User already Exists inside the employee table for now");
               text =" User already exists inside table now. UserId is " + result.Item["emp_id"];
+              userData['state']= result['state'];
 
 
 
@@ -92,9 +94,9 @@ app.post('/webhook', (req, res) => {
 
 
             if (webhook_event.message) {
-              //handleMessage(sender_psid, webhook_event.message);
+              handleMessage(sender_psid, webhook_event.message);
             } else if (webhook_event.postback) {
-              //handlePostback(sender_psid, webhook_event.postback);
+              handlePostback(sender_psid, webhook_event.postback);
             }
 
 
@@ -171,7 +173,6 @@ app.get('/webhook', (req, res) => {
 // Handles messages events
 function handleMessage(sender_psid, received_message) {
   let response;
-  var userData = dataBase[sender_psid];
 
   // Checks if the message contains text
 
@@ -180,7 +181,7 @@ function handleMessage(sender_psid, received_message) {
   }
   else if (received_message.text) {
 
-    if (userData['state'] == 'ifReturn' && !('ifReturn' in userData)) {
+    if ('state' in userData && userData['state'] === 'ifReturn' && !('ifReturn' in userData)) {
       if (received_message.text.toLowerCase().includes('no')) userData['ifReturn'] = false;
       else if (received_message.text.toLowerCase().includes('yes')) userData['ifReturn'] = true;
     }
@@ -191,7 +192,7 @@ function handleMessage(sender_psid, received_message) {
     console.log("-------------------------------------------------------------------");
     console.log(received_message.nlp.entities);
     console.log("-------------------------------------------------------------------");
-    if (userData['state']=="initiate") {
+    if (userData['state']==="initiate") {
       response = nlp.response(userData['state'], userData);
       sendMessage(sender_psid, response);
       userData['state'] = 'intent';
@@ -218,7 +219,7 @@ function handleMessage(sender_psid, received_message) {
 
 function handleQuickReplies(userData, quick_reply) {
   let payload = quick_reply.payload;
-  if (userData['state'] == 'ifReturn' && !('ifReturn' in userData)) {
+  if (userData['state'] === 'ifReturn' && !('ifReturn' in userData)) {
     if (payload.includes('NO')) userData['ifReturn'] = false;
     else if (payload.includes('YES')) userData['ifReturn'] = true;
   }
@@ -227,8 +228,6 @@ function handleQuickReplies(userData, quick_reply) {
 // Handles messaging_postbacks events
 function handlePostback(sender_psid, received_postback) {
   let response;
-  var userData = dataBase[sender_psid];
-
   // Get the payload for the postback
   let payload = received_postback.payload;
 
@@ -238,7 +237,6 @@ function handlePostback(sender_psid, received_postback) {
   // Set the response based on the postback payload
   if (payload === 'INITIATE') {
       dataBase.register(dataBase, sender_psid);
-      userData = dataBase[sender_psid];
       userData['state']="initiate";
       response = nlp.response( userData['state'], userData );
       sendMessage(sender_psid, response);
@@ -255,7 +253,7 @@ function handlePostback(sender_psid, received_postback) {
 
   }
   else if(payload === 'Book Flight'){
-    if( userData['state'] == 'pickFlight' ){
+    if( userData['state'] === 'pickFlight' ){
       dataBase.insert( userData, 'pickFlight', true );
       response = nlp.findState( userData );
     }
