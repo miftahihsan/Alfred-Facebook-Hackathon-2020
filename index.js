@@ -82,7 +82,7 @@ app.post('/webhook', (req, res) => {
             else{
               console.log("User already Exists inside the employee table for now");
               text =" User already exists inside table now. UserId is " + result.Item["emp_id"];
-              userData['state']= result['state'];
+              userData['state']= result['context'];
 
 
 
@@ -106,6 +106,8 @@ app.post('/webhook', (req, res) => {
           }
 
       );
+      DynamoDB.updateUserState(userData['psid'],"Employee",userData['state']);
+
 
       /*
       // registering the user into the HashMap
@@ -128,7 +130,6 @@ app.post('/webhook', (req, res) => {
       
     });
 
-    DynamoDB.updateUserState(userData['psid'],"Employee",userData['state']);
     // Return a '200 OK' response to all events
     res.status(200).send('EVENT_RECEIVED');
 

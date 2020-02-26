@@ -67,7 +67,8 @@ function insert(emp_id, table_name){
     TableName: table_name,
     Item: {
         "emp_id": emp_id,
-        "state" : "initiate"
+        "context" : "initiate",
+
     }
    };
    docClient.put(params, function(err, data) {
@@ -122,7 +123,7 @@ function updateUserState(user_id, table_name,state){
         Key:{
             "emp_id" : user_id
         },
-        UpdateExpression: "set state =:s",
+        UpdateExpression: "set context =:s",
         ExpressionAttributeValues:{
             ":s": state
 
