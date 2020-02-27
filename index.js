@@ -101,7 +101,7 @@ app.post('/webhook', (req, res) => {
             else{
               userData['type'] = "Employee";
               console.log("User already Exists inside the employee table for now");
-              
+
               // just for now
               userData['state'] = publicUser['context'];
 
@@ -191,7 +191,7 @@ function handleMessage(sender_psid, received_message) {
     console.log("-------------------------------------------------------------------");
 
 
-    nlp.compile( received_message.nlp.entities, userData, dataBase ); // maybe do it only initially
+    nlp.compile( received_message.nlp.entities, userData ); // maybe do it only initially
 
   }
 
