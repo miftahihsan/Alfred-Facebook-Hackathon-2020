@@ -17,7 +17,7 @@ const replies = {
           payload : "HR"
         },
         {
-          title : "Schedules 🗓",
+          title : "Schedules 📅",
           payload : "schedules"
         },
         {
