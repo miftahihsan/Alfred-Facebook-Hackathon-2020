@@ -1,4 +1,5 @@
 const Response = require('./response');
+const Replies = require('./replies.js');
 class Nlp{
 
     /*
@@ -64,33 +65,8 @@ class Nlp{
 
     findState( userData ){
 
-        var array = ["destination", "date", "origin", "pickFlight", "ifReturn", "returnDate", "returnFlight", "confirm"];
-
-        if( !( "intent" in userData ) ){
-            userData['state'] = 'intent';
-            return this.response( userData['state'], userData );
-        }
-        
-        for( var i = 0; i < array.length; i++ ){
-
-            console.log("userData = " + userData);
-            console.log("State of this loop = " + array[i] + " " + userData['state'] + " i = " + i);
-            console.log("in userData = " + ( array[i] in userData ) )
-
-            if( !( array[i] in userData ) ){
-                userData['state'] = array[i];
-                console.log("State of this loop pre breaking = " + array[i] + " " + userData['state'] + " i = " + 0);
-                return this.response( userData['state'], userData );
-            }
-
-            if( array[i] == "ifReturn"){
-               if ( userData[array[i]] == false ) break;
-            }
-
-        }
-
-        userData['state'] = 'confirm';
-        return this.response( 'confirm', userData );
+        userData['state'] = "MENU";
+        return Replies.replies[userData['state']];
 
     }
     

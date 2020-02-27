@@ -29,7 +29,24 @@ const replies = {
           payload : "REPORT_STATS"
         }
       ]
-    )
+    ),
+    "HR" : Responses.genQuickReply("IDK WHAT NOW",
+        [{
+        title: "MENU",
+        payload: "MENU"}]),
+    "SCHEDULES" : Responses.genQuickReply("IDK WHAT NOW",
+        [{
+        title: "MENU",
+        payload: "MENU"}]),
+    "FAQ" : Responses.genQuickReply("IDK WHAT NOW",
+        [{
+        title: "MENU",
+        payload: "MENU"}]),
+    "REPORT_STATS" : Responses.genQuickReply("IDK WHAT NOW",
+        [{
+        title: "MENU",
+        payload: "MENU"}]),
+
 };
 
 module.exports = {

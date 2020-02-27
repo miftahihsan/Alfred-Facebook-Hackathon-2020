@@ -17,10 +17,7 @@ const
   request = require('request'),
   app = express().use(bodyParser.json()); // creates express http server
 
-// My Imports
-let count  = 0;
 
-// HashMap Temporary Databas
 
 const
   Nlp = require('./Nlp.js'),
@@ -33,9 +30,6 @@ const Replies = require("./replies.js");
 var async = require('async');
 var userData = {};
 
-// Declearing temporary Database 
-// in the form of HashMap
-var dataBase = new DataBase();
 const nlp = new Nlp();
 
 // Sets server port and logs message on success
@@ -80,8 +74,6 @@ app.post('/webhook', (req, res) => {
       var publicUser_checker =  DynamoDB.getUserInfo( sender_psid, "PublicUser" );
 
 
-
-
       Promise.all([employee_checker, publicUser_checker]).then(
           results => {
             let employee = results[0];
@@ -94,7 +86,7 @@ app.post('/webhook', (req, res) => {
 
               if ( !(publicUser.Item !== undefined && publicUser.Item !== null) ){
                 DynamoDB.insert( sender_psid, "PublicUser" );
-                userData['state'] = "initiate";
+                userData['state'] = "INITIATE";
                 console.log("Done putting the user into the DataBase check for more info, User is an Outsider");
                 text = "Done putting the user into the DataBase check for more info, User is an Outsider";
               }
@@ -112,7 +104,7 @@ app.post('/webhook', (req, res) => {
               text =" User already exists inside table now. UserId is " + result.Item["uid"];
 
               // just for now
-              userData['state'] = "menu";
+              userData['state'] = publicUser['context'];
 
               text = Replies.replies[userData['state']];
             }
@@ -120,8 +112,7 @@ app.post('/webhook', (req, res) => {
             console.log("-------------------------------------------------------------------------");
             console.log(text);
             
-            sendMessage(sender_psid, text);
-
+            //sendMessage(sender_psid, text);
 
             if (webhook_event.message) {
               handleMessage(sender_psid, webhook_event.message);
@@ -137,30 +128,9 @@ app.post('/webhook', (req, res) => {
 
       );
 
+      DynamoDB.updateUserState(userData['uid'], userData['type'], userData['state']);
 
-
-      /*
-      // registering the user into the HashMap
-      if( !( sender_psid in dataBase ) ) {
-        dataBase.register( dataBase, sender_psid );
-        var userData =  dataBase[sender_psid];
-        // dataBase.insert(dataBase[sender_psid], "state", "initiate" );    // initiate and greet
-        userData['state'] = 'initiate';
-        console.log("Greeting Summoner!");
-      }
-      else {
-        console.log("HELLO Welcome Back!! user = " + sender_psid );
-      }
-*/
-
-
-      // Check if the event is a message or postback and
-      // pass the event to the appropriate handler function
-
-      
     });
-    DynamoDB.updateUserState(userData['uid'], userData['type'], userData['state']);
-
     // Return a '200 OK' response to all events
     res.status(200).send('EVENT_RECEIVED');
 
@@ -210,7 +180,7 @@ function handleMessage(sender_psid, received_message) {
   // Checks if the message contains text
 
   if (received_message.quick_reply){       //Button replies
-    handleQuickReplies(userData, received_message.quick_reply);
+    handleQuickReplies(sender_psid, received_message.quick_reply);
   }
   else if (received_message.text) {
 
@@ -236,64 +206,23 @@ function handleMessage(sender_psid, received_message) {
   console.log(response);
 
   // Send the response message
-  // sendMessage(sender_psid, response);
+   sendMessage(sender_psid, response);
 }
 
-function handleQuickReplies(userData, quick_reply) {
+function handleQuickReplies(sender_psid, quick_reply) {
   let payload = quick_reply.payload;
-  if (userData['state'] === 'ifReturn' && !('ifReturn' in userData)) {
-    if (payload.includes('NO')) userData['ifReturn'] = false;
-    else if (payload.includes('YES')) userData['ifReturn'] = true;
-  }
+  userData['state'] = payload;
+  let response = Replies.replies[userData['state']];
+  sendMessage(sender_psid, response);
+
 }
 
 // Handles messaging_postbacks events
 function handlePostback(sender_psid, received_postback) {
-  let response;
   // Get the payload for the postback
   let payload = received_postback.payload;
-
-  console.log("HERE!!! ");
-  console.log( payload );
-
-  // Set the response based on the postback payload
-  if (payload === 'INITIATE') {
-      dataBase.register(dataBase, sender_psid);
-      userData['state']="initiate";
-      response = nlp.response( userData['state'], userData );
-      sendMessage(sender_psid, response);
-      userData['state'] = 'intent';
-      console.log("userData State = " + userData['state']);
-      return;
-
-  } else if (payload === 'FLIGHT') {
-    dataBase.register(dataBase, sender_psid);
-    userData = dataBase[sender_psid];
-    userData['intent']="flight";
-    userData['state']='intent';
-    response = nlp.findState(userData);
-
-  }
-  else if(payload === 'Book Flight'){
-    if( userData['state'] === 'pickFlight' ){
-      dataBase.insert( userData, 'pickFlight', true );
-      response = nlp.findState( userData );
-    }
-    else{
-      dataBase.insert( userData, 'returnFlight', true );
-      response = nlp.findState( userData );
-    }
-  }
-  else if (payload === 'HOTEL') {
-    dataBase.register(dataBase, sender_psid);
-    userData['intent']="hotel";
-    response = { "text": "SORRYYYY CANT HANDLE THIS NOWW" }
-  } else{
-    response = { "text": "HAHA, would u like to book a flight?" }
-  }
-
-  // response = nlp.findState(userData);
-  // Send the message to acknowledge the postback
+  userData['state'] = payload;
+  let response = Replies.replies[userData['state']];
   sendMessage(sender_psid, response);
 
 }
@@ -305,15 +234,13 @@ function sendMessage(sender_psid, responses) {
     let delay = 0;
     for (let response of responses) {
 
-      setTimeout(()=>callSendAPI(sender_psid,response), (delay+1) * 3000 - 1000 );   // 2000  5000  8000
-      setTimeout(()=> senderAction( sender_psid, Response.getAnimation("on")), (delay)*3000 );                 // 0    3000   6000
+      setTimeout(()=>callSendAPI(sender_psid,response), (delay+1) * 2000 - 500 );   // 1500  3500  5500
+      setTimeout(()=> senderAction( sender_psid, Response.getAnimation("on")), (delay)*2000 );                 // 0    2000   3000
 
 
       delay++;
 
     }
-    //setTimeout(()=> senderAction(sender_psid, Response.getAnimation("off")),delay*20000);
-   // senderAction( sender_psid, Response.getAnimation("on"), (delay+2)*3000 );                 // 0    3000   6000
 
   } else {
     callSendAPI(sender_psid, responses);
@@ -414,18 +341,13 @@ curl -X POST -H "Content-Type: application/json" -d '{
             "call_to_actions": [
                 {
                     "type": "postback",
-                    "title": "Book a Flight",
-                    "payload": "FLIGHT"
+                    "title": "Menu",
+                    "payload": "MENU"
                 },
                 {
                     "type": "postback",
-                    "title": "Book a Hotel",
-                    "payload": "HOTEL"
-                },
-                {
-                    "type": "postback",
-                    "title": "Talk to an agent",
-                    "payload": "CARE_HELP"
+                    "title": "Initiate",
+                    "payload": "INITIATE"
                 }
 
             ]
@@ -434,15 +356,13 @@ curl -X POST -H "Content-Type: application/json" -d '{
     "greeting": [
     {
       "locale":"default",
-      "text":"Hello {{user_first_name}}! Book a hotel or a flight!"
+      "text":"Hello {{user_first_name}}! I am BizBot!"
     }, {
       "locale":"en_US",
-      "text":"Hi {{user_first_name}}! Book a hotel or a flight!"
+      "text":"Hi {{user_first_name}}! I am BizBot!"
     }
   ],
-   "whitelisted_domains":[
-    "https://kiwi.com/"
-  ]
+
 }' "https://graph.facebook.com/v6.0/me/messenger_profile?access_token=EAAkdTVETz5UBABiMRU4LChbImzlhRbIZBL76hdxdTZBQCrR8gm3iUlo2MKsdbzQJgYYX6cvdL5KaMrtJueuOwl6pPHZBrZCV3nzdGPL92wFLWnF6GDqISffJMj0SBZAfv07hwo2fqZBdsjw9rwlLkApvuWDWRrZA26K9tNVdsN6hwjZBoBZCFd4GBsb7Px8W5RB4ZD"
  */
 
