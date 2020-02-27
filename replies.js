@@ -30,10 +30,24 @@ const replies = {
         }
       ]
     ),
-    "HR" : Responses.genQuickReply("OHNO ABRO HASNT WRITTEN YET",
-        [{
-        title: "MENU",
-        payload: "MENU"}]),
+    "HR" : Responses.genQuickReply("Ok! What do you want to know about: \n" +
+        "- HR company policy\n" +
+        "- Bonus and payments\n" +
+        "- Your performance stats\n" +
+        "- Sick days/holidays\n",
+        [
+          {
+            title: "HR policies 🤔",
+            payload: "HR_POLICIES"
+          },
+          {
+            title: "Performance Stats 🔖",
+            payload: "PERFORMANCE_STATS"
+          },
+          {
+            title: "Upcoming Holidays 🎄",
+            payload: "HOLIDAYS"
+          }]),
     "SCHEDULES" : Responses.genQuickReply("Would you like to work with your lists, make a new list, view/manage your calendar or view/manage your work trips?",
         [
           {
