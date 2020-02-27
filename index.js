@@ -26,7 +26,7 @@ const
   Nlp = require('./Nlp.js'),
   DataBase = require('./DataBase.js'),
   Response = require("./response.js"),
-  Replies = request("./replies.js"),
+  Replies = request('./replies.js'),
   DynamoDB = require('./Dynamo.js');
 
 
