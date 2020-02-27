@@ -79,7 +79,7 @@ app.post('/webhook', (req, res) => {
             }
             else{
               console.log("User already Exists inside the employee table for now");
-              text =" User already exists inside table now. UserId is " + result.Item["emp_id"];
+              text =" User already exists inside table now. UserId is " + result.Item["uid"];
             }
 
             sendMessage(sender_psid, Response.genTextReply(text));
