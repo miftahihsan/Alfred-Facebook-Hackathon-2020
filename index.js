@@ -40,6 +40,14 @@ const nlp = new Nlp();
 // Sets server port and logs message on success
 app.listen(process.env.PORT || 8000, () => console.log('webhook is listening'));
 
+app.post('/sendMessageToUser' , (req, res) => {
+  let body = req.body;
+  let uid = body.uid;
+  sendMessage(uid, Response.genTextReply("This is a reminder every hour"));
+  console.log("BROADCAST REQUESTED");
+  res.status(200).send('EVENT_RECEIVED');
+});
+
 
 // Creates the endpoint for our webhook 
 app.post('/webhook', (req, res) => {  
@@ -99,7 +107,7 @@ app.post('/webhook', (req, res) => {
             else{
               userData['type'] = "employee";
               console.log("User already Exists inside the employee table for now");
-              text =" User already exists inside table now";
+              text =" User already exists inside employee table now";
               userData['state']= employee['context'];
 
 
