@@ -75,13 +75,15 @@ app.post('/webhook', (req, res) => {
             var text;
             if( !(result.Item !== undefined && result.Item !== null) ){
               DynamoDB.insert( sender_psid, "Employee" );
-              userData['state'] = "INITIATE"
+              userData['state'] = "initiate";
+              text = Replies.replies[userData['state']];
               console.log("Done putting the user into the DataBase check for more info, User is an Outsider");
               text = "Done putting the user into the DataBase check for more info, User is an Outsider";
             }
             else{
               console.log("User already Exists inside the employee table for now");
               text =" User already exists inside table now. UserId is " + result.Item["uid"];
+              text = Replies.replies[userData['state']];
             }
 
             sendMessage(sender_psid, Response.genTextReply(text));
