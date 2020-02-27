@@ -65,7 +65,7 @@ function insert(emp_id, table_name){
   var params = {
     TableName: table_name,
     Item: {
-        "emp_id": emp_id,
+        "uid": emp_id,
         "context" : "initiate",
 
     }
@@ -97,7 +97,7 @@ async function getUserInfo(emp_id, table_name){
   var params = {
     TableName: table_name,
     Key:{
-        "emp_id": emp_id,
+        "uid": emp_id,
     }
 
   };
@@ -120,7 +120,7 @@ function updateUserState(user_id, table_name,state){
     var params = {
         TableName:table_name,
         Key:{
-            "emp_id" : user_id
+            "uid" : user_id
         },
         UpdateExpression: "set context =:s",
         ExpressionAttributeValues:{
