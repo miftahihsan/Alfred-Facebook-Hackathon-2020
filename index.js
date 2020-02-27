@@ -43,8 +43,9 @@ app.listen(process.env.PORT || 8000, () => console.log('webhook is listening'));
 app.post('/sendMessageToUser' , (req, res) => {
   let body = req.body;
   let uid = body.uid;
-  sendReminders(uid, Response.genTextReply("This is a reminder every hour"));
   console.log("BROADCAST REQUESTED");
+  sendReminders(uid, Response.genTextReply("This is a reminder every hour"));
+
   res.status(200).send('EVENT_RECEIVED');
 });
 
