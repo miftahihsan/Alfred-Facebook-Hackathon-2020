@@ -13,7 +13,7 @@ const replies = {
       "- report stats/info to manager\n",
       [
         {
-          title : "HR question",
+          title : "HR question 🙋",
           payload : "HR"
         },
         {
