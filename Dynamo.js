@@ -24,17 +24,16 @@ var dynamodb = new AWS.DynamoDB();
 var docClient = new AWS.DynamoDB.DocumentClient();
 
 const employee = "Employee";
-const outsider = "outsider";
+const outsider = "PublicUser";
 /*
 var params = {
-  TableName : "Employee",
+  TableName : "PublicUser",
   KeySchema: [
-    { AttributeName: "emp_id", KeyType: "HASH"},  //Partition key
+    { AttributeName: "uid", KeyType: "HASH"},  //Partition key
     // { AttributeName: "title", KeyType: "RANGE" }  //Sort key
   ],
   AttributeDefinitions: [
-    { AttributeName: "emp_id", AttributeType: "S" },
-    // { AttributeName: "state", AttributeType: "S" },
+    { AttributeName: "uid", AttributeType: "S" }
     // { AttributeName: "todo", AttributeType: "S" },
     // { AttributeName: "schedule", AttributeType: "S" },
     // { AttributeName: "hours_worked", AttributeType: "N" },
@@ -42,8 +41,8 @@ var params = {
     // { AttributeName: "title", AttributeType: "S" }
   ],
   ProvisionedThroughput: {
-    ReadCapacityUnits: 10,
-    WriteCapacityUnits: 10
+    ReadCapacityUnits: 5,
+    WriteCapacityUnits: 5
   }
 };
 
@@ -53,8 +52,8 @@ dynamodb.createTable(params, function(err, data) {
   } else {
     console.log("Created table. Table description JSON:", JSON.stringify(data, null, 2));
   }
-});*/
-
+});
+*/
 
 function get(emp_id, table_name, id){
 

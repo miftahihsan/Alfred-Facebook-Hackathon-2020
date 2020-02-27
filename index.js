@@ -63,26 +63,44 @@ app.post('/webhook', (req, res) => {
       console.log('Sender PSID: ' + sender_psid);
 
 
-      userData['psid'] = sender_psid;
+      userData['uid'] = sender_psid;
 
       
-      var user_checker =  DynamoDB.getUserInfo( sender_psid, "Employee" );
+      var employee_checker =  DynamoDB.getUserInfo( sender_psid, "Employee" );
+      var publicUser_checker =  DynamoDB.getUserInfo( sender_psid, "PublicUser" );
 
 
-      user_checker.then(
-          result => {
+
+
+      Promise.all([employee_checker, publicUser_checker]).then(
+          results => {
+            let employee = results[0];
+            let publicUser = results[1];
+
             var text;
-            if( !(result.Item !== undefined && result.Item !== null) ){
-              DynamoDB.insert( sender_psid, "Employee" );
-              userData['state'] = "initiate"
-              console.log("Done putting the user into the DataBase check for more info, User is an Outsider");
-              text = "Done putting the user into the DataBase check for more info, User is an Outsider";
+            if( !(employee.Item !== undefined && employee.Item !== null) ){
+              // NOT in employee check if in public user
+              userData['type'] = "publicUser";
+
+              if ( !(publicUser.Item !== undefined && publicUser.Item !== null) ){
+                DynamoDB.insert( sender_psid, "PublicUser" );
+                userData['state'] = "initiate";
+                console.log("Done putting the user into the DataBase check for more info, User is an Outsider");
+                text = "Done putting the user into the DataBase check for more info, User is an Outsider";
+              }
+              else{
+                //User already in publicUser
+                userData['state'] = publicUser['context'];
+                text = "User already in public User table";
+              }
+
 
             }
             else{
+              userData['type'] = "employee";
               console.log("User already Exists inside the employee table for now");
-              text =" User already exists inside table now. UserId is " + result.Item["emp_id"];
-              userData['state']= result['context'];
+              text =" User already exists inside table now";
+              userData['state']= employee['context'];
 
 
 
@@ -106,7 +124,7 @@ app.post('/webhook', (req, res) => {
           }
 
       );
-      DynamoDB.updateUserState(userData['psid'],"Employee",userData['state']);
+      DynamoDB.updateUserState(userData['uid'],"Employee",userData['state']);
 
 
       /*
