@@ -44,7 +44,7 @@ app.post('/sendMessageToUser' , (req, res) => {
   let body = req.body;
   let uid = body.uid;
   console.log("BROADCAST REQUESTED");
-  sendMessage(uid, Response.genTextReply("This is a reminder every hour"));
+  sendReminders(uid, Response.genTextReply("This is a reminder every hour"));
 
   res.status(200).send('EVENT_RECEIVED');
 });
