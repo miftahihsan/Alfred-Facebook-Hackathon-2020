@@ -124,7 +124,9 @@ app.post('/webhook', (req, res) => {
           }
 
       );
-      DynamoDB.updateUserState(userData['uid'],"Employee",userData['state']);
+      let tableName = "Employee";
+      if (userData['type']!== "employee") tableName = "PublicUser";
+        DynamoDB.updateUserState(userData['uid'], tableName, userData['state']);
 
 
       /*
