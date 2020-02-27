@@ -17,15 +17,15 @@ const replies = {
           payload : "HR"
         },
         {
-          title : "Schedules",
+          title : "Schedules 🗓",
           payload : "schedules"
         },
         {
-          title : "FAQ",
+          title : "FAQ 📚",
           payload : "FAQ"
         },
         {
-          title : "Report stats",
+          title : "Report stats/info 👩‍💻",
           payload : "Report_stats"
         }
       ]
