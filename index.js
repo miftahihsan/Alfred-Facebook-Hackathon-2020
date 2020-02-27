@@ -103,7 +103,6 @@ app.post('/webhook', (req, res) => {
 
               // just for now
               userData['state'] = publicUser['context'];
-
               text = Replies.replies[userData['state']];
             }
 

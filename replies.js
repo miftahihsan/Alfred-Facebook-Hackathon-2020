@@ -30,22 +30,42 @@ const replies = {
         }
       ]
     ),
-    "HR" : Responses.genQuickReply("IDK WHAT NOW",
+    "HR" : Responses.genQuickReply("OHNO ABRO HASNT WRITTEN YET",
         [{
         title: "MENU",
         payload: "MENU"}]),
-    "SCHEDULES" : Responses.genQuickReply("IDK WHAT NOW",
+    "SCHEDULES" : Responses.genQuickReply("Would you like to work with your lists, make a new list, view/manage your calendar or view/manage your work trips?",
+        [
+          {
+            title: "View Reminders 📝",
+            payload: "VIEW_REMINDERS"
+          },
+          {
+            title: "Make a new Reminder 🗒",
+            payload: "NEW_REMINDER"
+          },
+          {
+            title: "View Scheduele 📆",
+            payload: "VIEW_SCHEDULE"
+          },
+          {
+            title: "View Trips ✈",
+            payload: "VIEW_TRIPS"
+          }
+          ]),
+    "FAQ" : Responses.genQuickReply("OHNO ABRO HASNT WRITTEN YET",
         [{
         title: "MENU",
         payload: "MENU"}]),
-    "FAQ" : Responses.genQuickReply("IDK WHAT NOW",
+    "REPORT_STATS" : Responses.genQuickReply("OHNO ABRO HASNT WRITTEN YET",
         [{
         title: "MENU",
         payload: "MENU"}]),
-    "REPORT_STATS" : Responses.genQuickReply("IDK WHAT NOW",
-        [{
-        title: "MENU",
-        payload: "MENU"}]),
+    "VIEW_REMINDERS" : Responses.genTextReply("YOU HAVE NO REMINDERS"),
+    "NEW_REMINDER" : Responses.genTextReply("Ok, what's the title of the list? "),
+    "VIEW_SCHEDULE" : Responses.genTextReply("Ok, Here's your schedule"),
+    "VIEW_TRIPS" : Responses.genTextReply("OHNO ABRAR HASNT WRITTEN YET.")
+
 
 };
 
