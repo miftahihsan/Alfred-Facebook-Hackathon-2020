@@ -1,0 +1,4 @@
+{
+  "initiate" : "menu",
+  "menu" : ["hrQuestion", "schedule", "faq", "reportStatus"]
+}
