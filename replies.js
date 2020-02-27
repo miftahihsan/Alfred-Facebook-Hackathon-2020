@@ -10,14 +10,25 @@ const replies = {
   "menu" : Responses.genQuickReply(
       "What do you want to do next? \n" +
       "- Ask an HR question\n- modify your calendar, make a list etc..\n- Know something from a specific company department, like finance, tech support, law etc..\n" +
-      "- report stats/info to manager\n", [{
-        title : "HR question",
-        payload : "HR"
-      },{
-        title : "Schedules",
-        payload : "schedules"
-      }]
-      )
+      "- report stats/info to manager\n",
+       [{
+          title : "HR question",
+          payload : "HR"
+        },
+        {
+          title : "Schedules 🗓",
+          payload : "schedules"
+        },
+        {
+          title : "FAQ 📚",
+          payload : "FAQ"
+        },
+        {
+          title : "Report stats/info 👩‍💻",
+          payload : "Report_stats"
+        }
+      ]
+    )
 };
 
 module.exports = {

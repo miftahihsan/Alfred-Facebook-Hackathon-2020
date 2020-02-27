@@ -85,7 +85,7 @@ app.post('/webhook', (req, res) => {
               text =" User already exists inside table now. UserId is " + result.Item["uid"];
 
               // just for now
-              userData['state'] = "initiate";
+              userData['state'] = "menu";
 
               text = Replies.replies[userData['state']];
             }
