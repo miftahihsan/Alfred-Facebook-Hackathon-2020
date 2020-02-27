@@ -369,7 +369,7 @@ function sendReminders(sender_psid, response) {
     },
     "message": response,
     "messaging_type": "MESSAGE_TAG",
-    "tag": "NON_PROMOTIONAL_SUBSCRIPTION"
+    "tag": "CONFIRMED_EVENT_UPDATE"
   }
 
   // Send the HTTP request to the Messenger Platform
