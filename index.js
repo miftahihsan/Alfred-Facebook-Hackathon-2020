@@ -166,7 +166,7 @@ function handleMessage(sender_psid, received_message) {
   response = Response.genTextReply("Hello");
 
   // Send the response message
-  sendMessage(sender_psid, response);
+  // sendMessage(sender_psid, response);
 }
 
 function handleQuickReplies(userData, quick_reply) {
