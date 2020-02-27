@@ -189,7 +189,7 @@ function handleMessage(sender_psid, received_message) {
     console.log("-------------------------------------------------------------------");
 
     nlp.compile( received_message.nlp.entities, userData ); // maybe do it only initially
-    response = nlp.findState(userData);
+    response = nlp.findState(userData, received_message.text);
     sendMessage(sender_psid, response);
 
   }

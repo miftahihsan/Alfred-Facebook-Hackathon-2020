@@ -1,5 +1,6 @@
 const Response = require('./response');
 const Replies = require('./replies.js');
+const Dynamo = require('./Dynamo');
 class Nlp{
 
     /*
@@ -13,7 +14,15 @@ class Nlp{
     }
 
 
-    findState( userData ){
+    findState( userData, message ){
+        // HAVE A LIST OF CONTEXTS TO PROCESS SEPARATELY INSTEAD OF NLP
+        // NEW_REMINDER
+        if (userData['state']==="NEW_REMINDER"){
+
+
+
+        }
+
 
         userData['state'] = "MENU";
         return Replies.replies[userData['state']];
