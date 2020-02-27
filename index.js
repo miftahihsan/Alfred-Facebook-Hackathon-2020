@@ -197,7 +197,6 @@ function handleMessage(sender_psid, received_message) {
     // get a response for the particular state now
 
 
-    console.log("state = " + response['text']);
     console.log("current state = " + userData['state']);
     console.log("-------------------------------------------------------------------");
   
