@@ -68,7 +68,6 @@ app.post('/webhook', (req, res) => {
 
 
       userData['uid'] = sender_psid;
-
       
       var employee_checker =  DynamoDB.getUserInfo( sender_psid, "Employee" );
       var publicUser_checker =  DynamoDB.getUserInfo( sender_psid, "PublicUser" );
@@ -190,13 +189,14 @@ function handleMessage(sender_psid, received_message) {
     console.log(received_message.nlp.entities);
     console.log("-------------------------------------------------------------------");
 
-
     nlp.compile( received_message.nlp.entities, userData ); // maybe do it only initially
+    response = nlp.findState(userData);
+    sendMessage(sender_psid, response);
 
   }
 
     // get a response for the particular state now
-    response = nlp.findState(userData);
+
 
     console.log("state = " + response['text']);
     console.log("current state = " + userData['state']);
@@ -205,7 +205,6 @@ function handleMessage(sender_psid, received_message) {
   console.log(response);
 
   // Send the response message
-   sendMessage(sender_psid, response);
 }
 
 function handleQuickReplies(sender_psid, quick_reply) {
