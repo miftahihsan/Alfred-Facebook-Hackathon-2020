@@ -68,7 +68,7 @@ app.post('/webhook', (req, res) => {
       
       var user_checker =  DynamoDB.getUserInfo( sender_psid, "Employee" );
 
-      console.log(Replies.replies);
+      // console.log(Replies.replies);
 
       user_checker.then(
           result => {
@@ -90,7 +90,10 @@ app.post('/webhook', (req, res) => {
               text = Replies.replies[userData['state']];
             }
 
-            sendMessage(sender_psid, Response.genTextReply(text));
+            console.log("-------------------------------------------------------------------------");
+            console.log(text);
+            
+            sendMessage(sender_psid, text);
 
 
             if (webhook_event.message) {
