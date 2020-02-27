@@ -29,7 +29,6 @@ const
   DynamoDB = require('./Dynamo.js');
 
 
-let Replies = request('./replies.js');  
 var async = require('async');
 
 // Declearing temporary Database 
