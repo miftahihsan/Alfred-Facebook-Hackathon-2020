@@ -28,6 +28,7 @@ const
   Response = require("./response.js"),
   DynamoDB = require('./Dynamo.js');
 
+const Replies = require("./replies.js");
 
 var async = require('async');
 
