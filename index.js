@@ -211,24 +211,13 @@ function handleMessage(sender_psid, received_message) {
   }
   else if (received_message.text) {
 
-    if ('state' in userData && userData['state'] === 'ifReturn' && !('ifReturn' in userData)) {
-      if (received_message.text.toLowerCase().includes('no')) userData['ifReturn'] = false;
-      else if (received_message.text.toLowerCase().includes('yes')) userData['ifReturn'] = true;
-    }
-
     // Compiles the user text message and makes meaning out if it
     // using which it fills the user table appropriately.
 
     console.log("-------------------------------------------------------------------");
     console.log(received_message.nlp.entities);
     console.log("-------------------------------------------------------------------");
-    if (userData['state']==="initiate") {
-      response = nlp.response(userData['state'], userData);
-      sendMessage(sender_psid, response);
-      userData['state'] = 'intent';
-      console.log("userData State = " + userData['state']); //return here???
-      return;
-    }
+
 
     nlp.compile( received_message.nlp.entities, userData, dataBase ); // maybe do it only initially
 
