@@ -26,6 +26,7 @@ const
   Nlp = require('./Nlp.js'),
   DataBase = require('./DataBase.js'),
   Response = require("./response.js"),
+  Replies = request("./replies.js"),
   DynamoDB = require('./Dynamo.js');
 
 
@@ -67,6 +68,7 @@ app.post('/webhook', (req, res) => {
       
       var user_checker =  DynamoDB.getUserInfo( sender_psid, "Employee" );
 
+      console.log(Replies.replies);
 
       user_checker.then(
           result => {
