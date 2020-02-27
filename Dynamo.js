@@ -66,7 +66,7 @@ function insert(emp_id, table_name){
     TableName: table_name,
     Item: {
         "uid": emp_id,
-        "context" : "initiate",
+        "context" : "INITIATE",
 
     }
    };
