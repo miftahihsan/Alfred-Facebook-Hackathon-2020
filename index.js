@@ -88,7 +88,7 @@ app.post('/webhook', (req, res) => {
             var text;
             if( !(employee.Item !== undefined && employee.Item !== null) ){
               // NOT in employee check if in public user
-              userData['type'] = "publicUser";
+              userData['type'] = "PublicUser";
 
               if ( !(publicUser.Item !== undefined && publicUser.Item !== null) ){
                 DynamoDB.insert( sender_psid, "PublicUser" );
@@ -105,7 +105,7 @@ app.post('/webhook', (req, res) => {
 
             }
             else{
-              userData['type'] = "employee";
+              userData['type'] = "Employee";
               console.log("User already Exists inside the employee table for now");
               text =" User already exists inside employee table now";
               userData['state']= employee['context'];
@@ -132,9 +132,7 @@ app.post('/webhook', (req, res) => {
           }
 
       );
-      let tableName = "Employee";
-      if (userData['type']!== "employee") tableName = "PublicUser";
-        DynamoDB.updateUserState(userData['uid'], tableName, userData['state']);
+
 
 
       /*
@@ -157,6 +155,7 @@ app.post('/webhook', (req, res) => {
 
       
     });
+    DynamoDB.updateUserState(userData['uid'], userData['type'], userData['state']);
 
     // Return a '200 OK' response to all events
     res.status(200).send('EVENT_RECEIVED');
