@@ -11,20 +11,21 @@ const replies = {
       "What do you want to do next? \n" +
       "- Ask an HR question\n- modify your calendar, make a list etc..\n- Know something from a specific company department, like finance, tech support, law etc..\n" +
       "- report stats/info to manager\n",
-       [{
+      [
+        {
           title : "HR question",
           payload : "HR"
         },
         {
-          title : "Schedules 🗓",
+          title : "Schedules",
           payload : "schedules"
         },
         {
-          title : "FAQ 📚",
+          title : "FAQ",
           payload : "FAQ"
         },
         {
-          title : "Report stats/info 👩‍💻",
+          title : "Report stats",
           payload : "Report_stats"
         }
       ]
