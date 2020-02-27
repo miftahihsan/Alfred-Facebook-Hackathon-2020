@@ -1,4 +1,8 @@
 {
-  "initiate" : ["menu"],
-  "menu" : ["hrQuestion", "schedule", "faq", "reportStatus"]
+  "INITIATE" : ["MENU"],
+  "MENU" : ["HR", "SCHEDULES", "FAQ", "REPORT_STATS"],
+  "SCHEDULES" : ["NEW_LIST", "VIEW_LIST", "NEW_REMINDERS", "VIEW_REMINDERS", "NEW_SCHEDULE", "VIEW_SCHEDULE", "NEW_TRIPS", "VIEW_TRIPS" ],
+  "HR" : ["COMPANY_POLICY", "BONUS_PAYMENTS", "PERFORMANCE_STATS", "HOLIDAYS", "COMPLAINT" ],
+  "COMPLAINT" : ["COMPLAINT_EMPLOYEE", "COMPLAINT_DEPARTMENT"],
+  "FAQ" : ["FINANCE", "IT_TECH", "COMPANY_LAW"]
 }
