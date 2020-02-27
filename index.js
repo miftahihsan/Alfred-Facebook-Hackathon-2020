@@ -101,8 +101,7 @@ app.post('/webhook', (req, res) => {
             else{
               userData['type'] = "Employee";
               console.log("User already Exists inside the employee table for now");
-              text =" User already exists inside table now. UserId is " + result.Item["uid"];
-
+              
               // just for now
               userData['state'] = publicUser['context'];
 
