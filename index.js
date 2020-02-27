@@ -30,7 +30,6 @@ const
 
 
 var async = require('async');
-var userData = {};
 
 // Declearing temporary Database 
 // in the form of HashMap
@@ -39,15 +38,6 @@ const nlp = new Nlp();
 
 // Sets server port and logs message on success
 app.listen(process.env.PORT || 8000, () => console.log('webhook is listening'));
-
-app.post('/sendMessageToUser' , (req, res) => {
-  let body = req.body;
-  let uid = body.uid;
-  console.log("BROADCAST REQUESTED");
-  sendReminders(uid, Response.genTextReply("This is a reminder every hour"));
-
-  res.status(200).send('EVENT_RECEIVED');
-});
 
 
 // Creates the endpoint for our webhook 
@@ -71,50 +61,25 @@ app.post('/webhook', (req, res) => {
       let sender_psid = webhook_event.sender.id;
       console.log('Sender PSID: ' + sender_psid);
 
-
-      userData['uid'] = sender_psid;
+      var userData = {};
+      userData['psid'] = sender_psid;
 
       
-      var employee_checker =  DynamoDB.getUserInfo( sender_psid, "Employee" );
-      var publicUser_checker =  DynamoDB.getUserInfo( sender_psid, "PublicUser" );
+      var user_checker =  DynamoDB.getUserInfo( sender_psid, "Employee" );
 
 
-
-
-      Promise.all([employee_checker, publicUser_checker]).then(
-          results => {
-            let employee = results[0];
-            let publicUser = results[1];
-
+      user_checker.then(
+          result => {
             var text;
-            if( !(employee.Item !== undefined && employee.Item !== null) ){
-              // NOT in employee check if in public user
-              userData['type'] = "PublicUser";
-
-              if ( !(publicUser.Item !== undefined && publicUser.Item !== null) ){
-                DynamoDB.insert( sender_psid, "PublicUser" );
-                userData['state'] = "initiate";
-                console.log("Done putting the user into the DataBase check for more info, User is an Outsider");
-                text = "Done putting the user into the DataBase check for more info, User is an Outsider";
-              }
-              else{
-                //User already in publicUser
-                userData['state'] = publicUser['context'];
-                text = "User already in public User table";
-              }
-
-
+            if( !(result.Item !== undefined && result.Item !== null) ){
+              DynamoDB.insert( sender_psid, "Employee" );
+              userData['state'] = "INITIATE"
+              console.log("Done putting the user into the DataBase check for more info, User is an Outsider");
+              text = "Done putting the user into the DataBase check for more info, User is an Outsider";
             }
             else{
-              userData['type'] = "Employee";
               console.log("User already Exists inside the employee table for now");
-              text =" User already exists inside employee table now";
-              userData['state']= employee['context'];
-
-
-
-
-
+              text =" User already exists inside table now. UserId is " + result.Item["emp_id"];
             }
 
             sendMessage(sender_psid, Response.genTextReply(text));
@@ -134,29 +99,11 @@ app.post('/webhook', (req, res) => {
 
       );
 
-
-
-      /*
-      // registering the user into the HashMap
-      if( !( sender_psid in dataBase ) ) {
-        dataBase.register( dataBase, sender_psid );
-        var userData =  dataBase[sender_psid];
-        // dataBase.insert(dataBase[sender_psid], "state", "initiate" );    // initiate and greet
-        userData['state'] = 'initiate';
-        console.log("Greeting Summoner!");
-      }
-      else {
-        console.log("HELLO Welcome Back!! user = " + sender_psid );
-      }
-*/
-
-
       // Check if the event is a message or postback and
       // pass the event to the appropriate handler function
 
       
     });
-    DynamoDB.updateUserState(userData['uid'], userData['type'], userData['state']);
 
     // Return a '200 OK' response to all events
     res.status(200).send('EVENT_RECEIVED');
@@ -203,34 +150,9 @@ app.get('/webhook', (req, res) => {
 // Handles messages events
 function handleMessage(sender_psid, received_message) {
   let response;
-
-  // Checks if the message contains text
-
-  if (received_message.quick_reply){       //Button replies
-    handleQuickReplies(userData, received_message.quick_reply);
-  }
-  else if (received_message.text) {
-
-    // Compiles the user text message and makes meaning out if it
-    // using which it fills the user table appropriately.
-
-    console.log("-------------------------------------------------------------------");
-    console.log(received_message.nlp.entities);
-    console.log("-------------------------------------------------------------------");
-
-
-    nlp.compile( received_message.nlp.entities, userData, dataBase ); // maybe do it only initially
-
-  }
-
-    // get a response for the particular state now
-    response = nlp.findState(userData);
-
-    console.log("state = " + response['text']);
-    console.log("current state = " + userData['state']);
-    console.log("-------------------------------------------------------------------");
+  var userData = dataBase[sender_psid];
   
-  console.log(response);
+  response = Response.genTextReply("Hello");
 
   // Send the response message
   sendMessage(sender_psid, response);
@@ -238,7 +160,7 @@ function handleMessage(sender_psid, received_message) {
 
 function handleQuickReplies(userData, quick_reply) {
   let payload = quick_reply.payload;
-  if (userData['state'] === 'ifReturn' && !('ifReturn' in userData)) {
+  if (userData['state'] == 'ifReturn' && !('ifReturn' in userData)) {
     if (payload.includes('NO')) userData['ifReturn'] = false;
     else if (payload.includes('YES')) userData['ifReturn'] = true;
   }
@@ -247,6 +169,8 @@ function handleQuickReplies(userData, quick_reply) {
 // Handles messaging_postbacks events
 function handlePostback(sender_psid, received_postback) {
   let response;
+  var userData = dataBase[sender_psid];
+
   // Get the payload for the postback
   let payload = received_postback.payload;
 
@@ -256,6 +180,7 @@ function handlePostback(sender_psid, received_postback) {
   // Set the response based on the postback payload
   if (payload === 'INITIATE') {
       dataBase.register(dataBase, sender_psid);
+      userData = dataBase[sender_psid];
       userData['state']="initiate";
       response = nlp.response( userData['state'], userData );
       sendMessage(sender_psid, response);
@@ -272,7 +197,7 @@ function handlePostback(sender_psid, received_postback) {
 
   }
   else if(payload === 'Book Flight'){
-    if( userData['state'] === 'pickFlight' ){
+    if( userData['state'] == 'pickFlight' ){
       dataBase.insert( userData, 'pickFlight', true );
       response = nlp.findState( userData );
     }
@@ -321,9 +246,6 @@ function sendMessage(sender_psid, responses) {
 
 }
 
-
-
-
 // Sends response messages via the Send API
 function callSendAPI(sender_psid, response) {
   // Construct the message body
@@ -332,33 +254,6 @@ function callSendAPI(sender_psid, response) {
       "id": sender_psid
     },
     "message": response
-  }
-
-  // Send the HTTP request to the Messenger Platform
-  request({
-    "uri": "https://graph.facebook.com/v2.6/me/messages",
-    "qs": { "access_token": process.env.PAGE_ACCESS_TOKEN },
-    "method": "POST",
-    "json": request_body
-  }, (err, res, body) => {
-    if (!err) {
-      console.log('message sent!')
-    } else {
-      console.error("Unable to send message:" + err);
-    }
-  });
-}
-
-// Sends response messages via the Send API
-function sendReminders(sender_psid, response) {
-  // Construct the message body
-  let request_body = {
-    "recipient": {
-      "id": sender_psid
-    },
-    "message": response,
-    "messaging_type": "MESSAGE_TAG",
-    "tag": "CONFIRMED_EVENT_UPDATE"
   }
 
   // Send the HTTP request to the Messenger Platform
