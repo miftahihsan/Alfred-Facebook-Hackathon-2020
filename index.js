@@ -65,7 +65,7 @@ app.post('/webhook', (req, res) => {
       // Get the sender PSID
       let sender_psid = webhook_event.sender.id;
       console.log('Sender PSID: ' + sender_psid);
-      //senderAction(sender_psid, Response.getAnimation("on"));
+      senderAction(sender_psid, Response.getAnimation("on"));
 
 
 
@@ -112,7 +112,7 @@ app.post('/webhook', (req, res) => {
             console.log("-------------------------------------------------------------------------");
             console.log(text);
             //sendMessage(sender_psid, text);
-            //senderAction(sender_psid, Response.getAnimation("off"));
+            senderAction(sender_psid, Response.getAnimation("off"));
 
             userData['uid'] = sender_psid;
             if (webhook_event.message) {

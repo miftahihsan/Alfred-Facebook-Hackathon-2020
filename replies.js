@@ -48,7 +48,10 @@ const replies = {
             title: "Upcoming Holidays 🎄",
             payload: "HOLIDAYS"
           }]),
-    "SCHEDULES" : Responses.genQuickReply("Would you like to work with your lists, make a new list, view/manage your calendar or view/manage your work trips?",
+    "SCHEDULES" : Responses.genQuickReply(
+      "Would you like to work with your lists, \n" +
+      "make a new list, view/manage your calendar \n" +
+      "or view/manage your work trips?",
         [
           {
             title: "View Reminders 📝",
@@ -59,7 +62,7 @@ const replies = {
             payload: "NEW_REMINDER"
           },
           {
-            title: "View Scheduele 📆",
+            title: "View Schedule 📆",
             payload: "VIEW_SCHEDULE"
           },
           {
@@ -86,93 +89,97 @@ const replies = {
             payload: "TRAINING"
           },
         ]),
-    "IT_TECH" : Responses.genQuickReply("Here are some common IT concerns you can ask about:\n" +
-                                        "- What's my username and password?\n" +
-                                        "- I can't login to my account\n" +
-                                        "- My office equipment isn’t working\n" +
-                                        "- My office equipment doesn't have network connectivity\n",
-                                        [
-                                          {
-                                            title: "Username and password?",
-                                            payload: "USER_NAME_PASSWORD"
-                                          },
-                                          {
-                                            title: "Can't login",
-                                            payload: "CANT_LOGIN"
-                                          },
-                                          {
-                                            title: "Equipment not working!",
-                                            payload: "EQUIPMENT_NOT_WORKING"
-                                          },
-                                          {
-                                            title: "No Network!",
-                                            payload: "NO_NETWORK"
-                                          },
-                                        ]),
-    "FINANCE"  : Responses.genQuickReply("Here are some common Finances questions you can ask:\n" +
-                                          "- What are the current health insurance policies?\n" +
-                                          "- When will I get a bonus?\n" +
-                                          "- What are the rules for fines?\n" +
-                                          "- When will I get an increment?\n",
-                                          [
-                                            {
-                                              title: "Current health insurance policies?",
-                                              payload: "HEALTH_INSURANCE"
-                                            },
-                                            {
-                                              title: "Bonus",
-                                              payload: "BONUS"
-                                            },
-                                            {
-                                              title: "Rules for fines",
-                                              payload: "FINE_RULES"
-                                            },
-                                            {
-                                              title: "Increment",
-                                              payload: "INCREMENT"
-                                            },
-                                          ]),
-    "CORPORATE_LAW"  : Responses.genQuickReply("Here are some common Corporate Law questions you can ask:\n" +
-                                          "- What are the new law changes introduced in the company\n?" +
-                                          "- What are my rights as an employee in the company?\n" +
-                                          "- What are the laws regarding issues with co workers?\n" +
-                                          "- Can I buy shares for Dunder Mifflin as an employee?\n",
-                                          [
-                                            {
-                                              title: "New Laws",
-                                              payload: "NEW_LAWS"
-                                            },
-                                            {
-                                              title: "Employee Rights",
-                                              payload: "EMPLOYEE_RIGHTS"
-                                            },
-                                            {
-                                              title: "Laws",
-                                              payload: "LAWS_CO_WORKERS"
-                                            },
-                                            {
-                                              title: "Buy Shares",
-                                              payload: "BUY_SHARES"
-                                            },
-                                          ]),
-      "TRAINING"  : Responses.genQuickReply("Here are some common Training and Self Improvement questions you can ask:\n" +
-                                          "- What are the current training courses available for me?\n" +
-                                          "- What training courses do I require to complete my current tasks?\n" +
-                                          "- What self improvement courses do I need to take to improve my performance?\n",
-                                          [
-                                            {
-                                              title: "Courses available",
-                                              payload: "COURSES_AVAILABLE"
-                                            },
-                                            {
-                                              title: "Prerequisite Training",
-                                              payload: "PREREQUISITE_TRAINING"
-                                            },
-                                            {
-                                              title: "Self Improvement Courses",
-                                              payload: "SELF_IMPROVEMENT_COURSES"
-                                            }
-                                          ]),
+    "IT_TECH" : [Responses.genTextReply("Here are some common IT concerns you can ask about:"),
+      Responses.genQuickReply(
+      "- What's my username and password?\n" +
+      "- I can't login to my account\n" +
+      "- My office equipment isn’t working\n" +
+      "- My office equipment doesn't have network connectivity\n",
+      [
+        {
+          title: "Username and password?",
+          payload: "USER_NAME_PASSWORD"
+        },
+        {
+          title: "Can't login",
+          payload: "CANT_LOGIN"
+        },
+        {
+          title: "Equipment not working!",
+          payload: "EQUIPMENT_NOT_WORKING"
+        },
+        {
+          title: "No Network!",
+          payload: "NO_NETWORK"
+        },
+      ])],
+    "FINANCE"  : [Responses.genTextReply("Here are some common Finances questions you can ask:"),
+      Responses.genQuickReply(
+        "- What are the current health insurance policies?\n" +
+        "- When will I get a bonus?\n" +
+        "- What are the rules for fines?\n" +
+        "- When will I get an increment?\n",
+        [
+          {
+            title: "Current health insurance policies?",
+            payload: "HEALTH_INSURANCE"
+          },
+          {
+            title: "Bonus",
+            payload: "BONUS"
+          },
+          {
+            title: "Rules for fines",
+            payload: "FINE_RULES"
+          },
+          {
+            title: "Increment",
+            payload: "INCREMENT"
+          },
+        ])],
+    "CORPORATE_LAW"  : [Responses.genTextReply("Here are some common Corporate Law questions you can ask:"),
+      Responses.genQuickReply(
+        "- What are the new law changes introduced in the company\n?" +
+        "- What are my rights as an employee in the company?\n" +
+        "- What are the laws regarding issues with co workers?\n" +
+        "- Can I buy shares for Dunder Mifflin as an employee?\n",
+        [
+          {
+            title: "New Laws",
+            payload: "NEW_LAWS"
+          },
+          {
+            title: "Employee Rights",
+            payload: "EMPLOYEE_RIGHTS"
+          },
+          {
+            title: "Laws",
+            payload: "LAWS_CO_WORKERS"
+          },
+          {
+            title: "Buy Shares",
+            payload: "BUY_SHARES"
+          },
+        ])],
+      "TRAINING"  : [Responses.genTextReply("Here are some common Training and Self Improvement questions you can ask:"),
+        Responses.genQuickReply(
+          "- What are the current training courses available for me?\n" +
+          "- What training courses do I require to complete my current tasks?\n" +
+          "- What self improvement courses do I need to take to improve my performance?\n",
+          [
+            {
+              title: "Courses available",
+              payload: "COURSES_AVAILABLE"
+            },
+            {
+              title: "Prerequisite Training",
+              payload: "PREREQUISITE_TRAINING"
+            },
+            {
+              title: "Self Improvement Courses",
+              payload: "SELF_IMPROVEMENT_COURSES"
+            }
+          ])],
     "REPORT_STATS" : [ Responses.genTextReply("Please Upload the sales records that you would like to send"),
         Responses.genQuickReply("The document will be transferred to the manager, David Wallace",
         [
