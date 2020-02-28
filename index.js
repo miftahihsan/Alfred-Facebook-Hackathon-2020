@@ -65,9 +65,11 @@ app.post('/webhook', (req, res) => {
       // Get the sender PSID
       let sender_psid = webhook_event.sender.id;
       console.log('Sender PSID: ' + sender_psid);
+      senderAction(sender_psid, Response.getAnimation("on"));
 
 
-      
+
+
       var employee_checker =  DynamoDB.getUserInfo( sender_psid, "Employee" );
       var publicUser_checker =  DynamoDB.getUserInfo( sender_psid, "PublicUser" );
 
@@ -107,8 +109,8 @@ app.post('/webhook', (req, res) => {
 
             console.log("-------------------------------------------------------------------------");
             console.log(text);
-            senderAction(sender_psid, Response.getAnimation("on"));
             //sendMessage(sender_psid, text);
+            senderAction(sender_psid, Response.getAnimation("off"));
 
             userData['uid'] = sender_psid;
             if (webhook_event.message) {
@@ -194,7 +196,7 @@ function handleMessage(sender_psid, received_message) {
 
   }
   else if (received_message.attachments){
-    if (userData['state']==="REPORT_STATS"){
+    if (userData['context']==="REPORT_STATS"){
       console.log("FILE RECEIVED");
       sendMessage(sender_psid, [
         Response.genAttachmentReply(),
@@ -204,6 +206,7 @@ function handleMessage(sender_psid, received_message) {
     }
     else {
       //REPLY WITH GIF
+      sendMessage(sender_psid, Response.genAttachmentReply());
     }
   }
 
