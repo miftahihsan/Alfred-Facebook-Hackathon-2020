@@ -37,9 +37,8 @@ app.listen(process.env.PORT || 8000, () => console.log('webhook is listening'));
 
 app.post('/userList', (req, res) => {
   let body = req.body;
-  log("here!-----------------------------------------------------------");
+  console.log("here!-----------------------------------------------------------");
   console.log( body );
-  console.log( body.title );
   res.status(200).send('EVENT_RECEIVED');
 });
 
