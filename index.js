@@ -93,6 +93,7 @@ app.post('/webhook', (req, res) => {
               else{
                 //User already in publicUser
                 userData = publicUser;
+                userData['state'] = userData.Item.context;
                 text = "User already in public User table";
               }
 
@@ -104,7 +105,8 @@ app.post('/webhook', (req, res) => {
               // just for now
               userData = employee;
               userData['type'] = "Employee";
-              text = Replies.replies[userData['context']];
+              userData['state'] = userData.Item.context;
+              text = Replies.replies[userData.Item.context];
             }
 
             console.log("-------------------------------------------------------------------------");
