@@ -86,7 +86,7 @@ const replies = {
             payload: "TRAINING"
           },
         ]),
-    "IT_TECH" : Response.genQuickReply("Here are some common IT concerns you can ask about:" +
+    "IT_TECH" : Responses.genQuickReply("Here are some common IT concerns you can ask about:" +
                                         "- What's my username and password?" +
                                         "- I can't login to my account" +
                                         "- My office equipment isn’t working" + 
@@ -109,7 +109,7 @@ const replies = {
                                             payload: "NO_NETWORK"
                                           },
                                         ]),
-    "FINANCE"  : Response.genQuickReply("Here are some common Finances questions you can ask:" +
+    "FINANCE"  : Responses.genQuickReply("Here are some common Finances questions you can ask:" +
                                           "- What are the current health insurance policies?" +
                                           "- When will I get a bonus?" +
                                           "- What are the rules for fines?" +
@@ -132,7 +132,7 @@ const replies = {
                                               payload: "INCREMENT"
                                             },
                                           ]),
-    "CORPORATE_LAW"  : Response.genQuickReply("Here are some common Corporate Law questions you can ask:" +
+    "CORPORATE_LAW"  : Responses.genQuickReply("Here are some common Corporate Law questions you can ask:" +
                                           "- What are the new law changes introduced in the company?" +
                                           "- What are my rights as an employee in the company?" +
                                           "- What are the laws regarding issues with co workers?" +
@@ -155,7 +155,7 @@ const replies = {
                                               payload: "BUY_SHARES"
                                             },
                                           ]),
-      "TRAINING"  : Response.genQuickReply("Here are some common Training and Self Improvement questions you can ask:" +
+      "TRAINING"  : Responses.genQuickReply("Here are some common Training and Self Improvement questions you can ask:" +
                                           "- What are the current training courses available for me?" +
                                           "- What training courses do I require to complete my current tasks?" +
                                           "- What self improvement courses do I need to take to improve my performance?",
