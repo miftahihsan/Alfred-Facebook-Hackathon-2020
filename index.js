@@ -195,6 +195,7 @@ function handleMessage(sender_psid, received_message) {
   }
   else if (received_message.attachments){
     if (userData['state']==="REPORT_STATS"){
+      console.log("FILE RECEIVED");
       sendMessage(sender_psid, [
         Response.genAttachmentReply(),
         Response.genTextReply("Document successfully transferred to your manager!")
