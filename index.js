@@ -107,7 +107,7 @@ app.post('/webhook', (req, res) => {
 
             console.log("-------------------------------------------------------------------------");
             console.log(text);
-            
+            senderAction(sender_psid, Response.getAnimation("on"));
             //sendMessage(sender_psid, text);
 
             userData['uid'] = sender_psid;
