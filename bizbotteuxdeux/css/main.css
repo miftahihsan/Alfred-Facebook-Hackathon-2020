@@ -1,7 +1,28 @@
-.btn {
+/* .btn {
     background-color: #0078FF;
-}
+} */
 
-.btn:hover{
+/* .btn:hover{
     background-color: #0078FF;
+} */
+.header{
+    text-align: center;
+}
+.remove{
+    background-color: transparent;
+    border: none;
+    color: #990000;
+    float: right;
+    padding: 0;
+    font-size: 7mm;
+    outline: none;
+
+    transition: 0.5s;
+}
+.remove:hover{
+    color : #cc0000;
+    transform: scale(1.1);
+}
+#Hello{
+    margin-bottom: 20px;
 }

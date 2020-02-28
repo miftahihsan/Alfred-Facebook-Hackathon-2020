@@ -15,29 +15,42 @@
 
 <body >
     <div class="row">
+
+        <div class="header"><h3>Sticky Notes</h3></div>
+
         <form class="col s12">
             <div class="row" id="inputList">
                 <div class="input-field col s12">
                     <input placeholder="Title" id="title" type="text" >
                     <label for="title"></label>
                 </div>
-                <div class="input-field col s12">
-                    <input id="item1" type="text" placeholder="Add an Item">
-                    <label for="item1"></label>
+                
+
+                <div class="dynamic-field" id="dynamic" >
+                    <!-- <div class="input-field col s12" id = "dynamicBox" >
+                        <button class = "remove" type="button" onclick="removeThings(this)" > <i class="fa fa-window-close" aria-hidden="true"></i> </button>
+                        <input id="item1" type="text" placeholder="Add an Item">
+                        <label for="item1"></label>
+                    </div> -->
                 </div>
 
             </div>
 
         </form>
-        <div class="col s12">
-            <button id="post-btn" class="col s12 btn waves-effect waves-light " >Submit
-                <i class="material-icons right">send</i>
-            </button>
-        </div>
+
+        <button id="add" type="button" id="Hello" class="col s12 btn waves-effect waves-light " onclick="addThings(this)" >Add
+            <i class="material-icons right">send</i>
+        </button>
+
+        <button id="post-btn" class="col s12 btn waves-effect waves-light " >Submit
+            <i class="material-icons right">send</i>
+        </button>
     </div>
 
-        <script type="text/javascript" src="js/materialize.min.js"></script>
-        <script type="text/javascript" src="js/submit.js"></script>
+
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script type="text/javascript" src="js/submit.js"></script>
+    <script src = "addFields.js" ></script>
 </body>
 </html>
         
