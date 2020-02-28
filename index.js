@@ -102,7 +102,7 @@ app.post('/webhook', (req, res) => {
               console.log("User already Exists inside the employee table for now");
 
               // just for now
-              userData = publicUser;
+              userData = employee;
               userData['type'] = "Employee";
               text = Replies.replies[userData['state']];
             }
