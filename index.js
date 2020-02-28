@@ -35,10 +35,18 @@ const nlp = new Nlp();
 // Sets server port and logs message on success
 app.listen(process.env.PORT || 8000, () => console.log('webhook is listening'));
 
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 app.post('/userList', (req, res) => {
   let body = req.body;
   console.log("here!-----------------------------------------------------------");
   console.log( body );
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   res.status(200).send('EVENT_RECEIVED');
 });
 
