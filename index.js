@@ -67,7 +67,6 @@ app.post('/webhook', (req, res) => {
       console.log('Sender PSID: ' + sender_psid);
 
 
-      userData['uid'] = sender_psid;
       
       var employee_checker =  DynamoDB.getUserInfo( sender_psid, "Employee" );
       var publicUser_checker =  DynamoDB.getUserInfo( sender_psid, "PublicUser" );
@@ -91,18 +90,18 @@ app.post('/webhook', (req, res) => {
               }
               else{
                 //User already in publicUser
-                userData['state'] = publicUser['context'];
+                userData = publicUser;
                 text = "User already in public User table";
               }
 
 
             }
             else{
-              userData['type'] = "Employee";
               console.log("User already Exists inside the employee table for now");
 
               // just for now
-              userData['state'] = publicUser['context'];
+              userData = publicUser;
+              userData['type'] = "Employee";
               text = Replies.replies[userData['state']];
             }
 
@@ -111,6 +110,7 @@ app.post('/webhook', (req, res) => {
             
             //sendMessage(sender_psid, text);
 
+            userData['uid'] = sender_psid;
             if (webhook_event.message) {
               handleMessage(sender_psid, webhook_event.message);
             } else if (webhook_event.postback) {

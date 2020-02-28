@@ -17,11 +17,7 @@ class Nlp{
     findState( userData, message ){
         // HAVE A LIST OF CONTEXTS TO PROCESS SEPARATELY INSTEAD OF NLP
         // NEW_REMINDER
-        if (userData['state']==="NEW_REMINDER"){
 
-
-
-        }
 
 
         userData['state'] = "MENU";

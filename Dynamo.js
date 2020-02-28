@@ -141,10 +141,36 @@ function updateUserState(user_id, table_name,state){
 
 }
 
+function updateDatabaseFields(user_id, table_name, field, data){
+    var params = {
+        TableName:table_name,
+        Key:{
+            "uid" : user_id
+        },
+        UpdateExpression: "set "+field + " =:s",
+        ExpressionAttributeValues:{
+            ":s": data
+
+        },
+        ReturnValues:"UPDATED_NEW"
+    };
+
+    console.log("Updating the item...");
+    docClient.update(params, function(err, data) {
+        if (err) {
+            console.error("Unable to update item. Error JSON:", JSON.stringify(err, null, 2));
+        } else {
+            console.log("UpdateItem succeeded:", JSON.stringify(data, null, 2));
+        }
+    });
+
+}
+
 
 module.exports = {
   getUserInfo,
   insert,
   get,
-    updateUserState
+  updateUserState,
+  updateDatabaseFields
 }
