@@ -206,16 +206,22 @@ function handleMessage(sender_psid, received_message) {
       sendMessage(sender_psid, [
         Response.genAttachmentReply(),
         Response.genTextReply("Document successfully transferred to your manager!"),
+      ].concat(
         Replies.replies["MENU"]
-      ]);
+      ));
       userData['state']="MENU";
     }
     else {
       //REPLY WITH GIF
-      sendMessage(sender_psid, [
-        Response.genAttachmentReply(),
-        Replies.replies[userData['state']]
-       ]);
+      let responses = [Response.genAttachmentReply()];
+      let reply = Replies.replies[userData['state']];
+      if (Array.isArray(reply)){
+        responses = responses.concat(reply);
+      }
+      else{
+        responses = responses.push(reply);
+      }
+      sendMessage(sender_psid, responses);
     }
   }
 
@@ -256,7 +262,7 @@ function sendMessage(sender_psid, responses) {
     for (let response of responses) {
 
       setTimeout(()=>callSendAPI(sender_psid,response), (delay+1) * 2000 - 500 );   // 1500  3500  5500
-      setTimeout(()=> senderAction( sender_psid, Response.getAnimation("on")), (delay)*2000 );                 // 0    2000   3000
+      setTimeout(()=> senderAction( sender_psid, Response.getAnimation("on")), (delay)*2000 );                 // 0    2000   4000
 
 
       delay++;
