@@ -16,9 +16,9 @@ button.addEventListener('click', async _ => {
         'Content-Type': 'application/json'
       },
       body:  JSON.stringify({
-        "title" : document.getElementById('title'),
+        "title" : document.getElementById('title').value,
         "items": {
-          "item1" : document.getElementById('item1')
+          "item1" : document.getElementById('item1').value
         }
       })
       }
