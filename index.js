@@ -261,8 +261,8 @@ function sendMessage(sender_psid, responses) {
     let delay = 0;
     for (let response of responses) {
 
-      setTimeout(()=>callSendAPI(sender_psid,response), (delay+1) * 2000 - 500 );   // 1500  3500  5500
-      setTimeout(()=> senderAction( sender_psid, Response.getAnimation("on")), (delay)*2000 );                 // 0    2000   4000
+      setTimeout(()=>callSendAPI(sender_psid,response), (delay) * 1000 );   // 0 1000  2000  3000
+      setTimeout(()=> senderAction( sender_psid, Response.getAnimation("on")), (delay)*1000 + 300 );   // 300  1300  2300  3300
 
 
       delay++;

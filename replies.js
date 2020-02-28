@@ -8,9 +8,11 @@ const replies = {
     Responses.genTextReply("Lets get started! \uD83D\uDE04\n")
     ],
   "MENU" : [Responses.genTextReply("What do you want to do next?"),
-      Responses.genQuickReply(
-      "- Ask an HR question\n- modify your calendar, make a list etc..\n- Know something from a specific company department, like finance, tech support, law etc..\n" +
-      "- report stats/info to manager\n",
+      Responses.genTextReply(
+      "- Ask an HR question\n- Modify your calendar, make a list etc.."),
+        Responses.genTextReply("- Know something from a specific company department, like finance, tech support, law etc..\n"),
+    Responses.genQuickReply(
+      "- Report stats/info to manager\n",
       [
         {
           title : "HR question 🙋",
