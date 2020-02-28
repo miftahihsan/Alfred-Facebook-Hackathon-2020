@@ -195,7 +195,10 @@ function handleMessage(sender_psid, received_message) {
   }
   else if (received_message.attachments){
     if (userData['state']==="REPORT_STATS"){
-      sendMessage(sender_psid, [Response.genAttachmentReply(),Response.genTextReply("Document successfully transferred to your manager!")]);
+      sendMessage(sender_psid, [
+        Response.genAttachmentReply(),
+        Response.genTextReply("Document successfully transferred to your manager!")
+      ]);
       userData['state']="MENU";
     }
     else {
