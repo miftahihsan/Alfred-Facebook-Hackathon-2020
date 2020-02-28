@@ -7,8 +7,8 @@ const replies = {
     Responses.genTextReply("In order to best serve your needs, I’ve already gathered some basic info about you from the Dunder Mifflin employee records"),
     Responses.genTextReply("Lets get started! \uD83D\uDE04\n")
     ],
-  "MENU" : Responses.genQuickReply(
-      "What do you want to do next? \n" +
+  "MENU" : [Responses.genTextReply("What do you want to do next?"),
+      Responses.genQuickReply(
       "- Ask an HR question\n- modify your calendar, make a list etc..\n- Know something from a specific company department, like finance, tech support, law etc..\n" +
       "- report stats/info to manager\n",
       [
@@ -29,7 +29,7 @@ const replies = {
           payload : "REPORT_STATS"
         }
       ]
-    ),
+    )],
     "HR" : Responses.genQuickReply("Ok! What do you want to know about: \n" +
         "- HR company policy\n" +
         "- Bonus and payments\n" +
@@ -86,11 +86,11 @@ const replies = {
             payload: "TRAINING"
           },
         ]),
-    "IT_TECH" : Responses.genQuickReply("Here are some common IT concerns you can ask about:" +
-                                        "- What's my username and password?" +
-                                        "- I can't login to my account" +
-                                        "- My office equipment isn’t working" + 
-                                        "- My office equipment doesn't have network connectivity",
+    "IT_TECH" : Responses.genQuickReply("Here are some common IT concerns you can ask about:\n" +
+                                        "- What's my username and password?\n" +
+                                        "- I can't login to my account\n" +
+                                        "- My office equipment isn’t working\n" +
+                                        "- My office equipment doesn't have network connectivity\n",
                                         [
                                           {
                                             title: "Username and password?",
@@ -109,11 +109,11 @@ const replies = {
                                             payload: "NO_NETWORK"
                                           },
                                         ]),
-    "FINANCE"  : Responses.genQuickReply("Here are some common Finances questions you can ask:" +
-                                          "- What are the current health insurance policies?" +
-                                          "- When will I get a bonus?" +
-                                          "- What are the rules for fines?" +
-                                          "- When will I get an increment?",
+    "FINANCE"  : Responses.genQuickReply("Here are some common Finances questions you can ask:\n" +
+                                          "- What are the current health insurance policies?\n" +
+                                          "- When will I get a bonus?\n" +
+                                          "- What are the rules for fines?\n" +
+                                          "- When will I get an increment?\n",
                                           [
                                             {
                                               title: "Current health insurance policies?",
@@ -132,11 +132,11 @@ const replies = {
                                               payload: "INCREMENT"
                                             },
                                           ]),
-    "CORPORATE_LAW"  : Responses.genQuickReply("Here are some common Corporate Law questions you can ask:" +
-                                          "- What are the new law changes introduced in the company?" +
-                                          "- What are my rights as an employee in the company?" +
-                                          "- What are the laws regarding issues with co workers?" +
-                                          "- Can I buy shares for Dunder Mifflin as an employee?",
+    "CORPORATE_LAW"  : Responses.genQuickReply("Here are some common Corporate Law questions you can ask:\n" +
+                                          "- What are the new law changes introduced in the company\n?" +
+                                          "- What are my rights as an employee in the company?\n" +
+                                          "- What are the laws regarding issues with co workers?\n" +
+                                          "- Can I buy shares for Dunder Mifflin as an employee?\n",
                                           [
                                             {
                                               title: "New Laws",
@@ -155,10 +155,10 @@ const replies = {
                                               payload: "BUY_SHARES"
                                             },
                                           ]),
-      "TRAINING"  : Responses.genQuickReply("Here are some common Training and Self Improvement questions you can ask:" +
-                                          "- What are the current training courses available for me?" +
-                                          "- What training courses do I require to complete my current tasks?" +
-                                          "- What self improvement courses do I need to take to improve my performance?",
+      "TRAINING"  : Responses.genQuickReply("Here are some common Training and Self Improvement questions you can ask:\n" +
+                                          "- What are the current training courses available for me?\n" +
+                                          "- What training courses do I require to complete my current tasks?\n" +
+                                          "- What self improvement courses do I need to take to improve my performance?\n",
                                           [
                                             {
                                               title: "Courses available",
