@@ -35,6 +35,11 @@ const nlp = new Nlp();
 // Sets server port and logs message on success
 app.listen(process.env.PORT || 8000, () => console.log('webhook is listening'));
 
+app.post('/userList', (req, res) => {
+  let body = req.body();
+  console.log( body );
+});
+
 app.post('/sendMessageToUser' , (req, res) => {
   let body = req.body;
   let uid = body.uid;
