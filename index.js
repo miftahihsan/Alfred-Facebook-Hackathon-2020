@@ -65,7 +65,7 @@ app.post('/webhook', (req, res) => {
       // Get the sender PSID
       let sender_psid = webhook_event.sender.id;
       console.log('Sender PSID: ' + sender_psid);
-      senderAction(sender_psid, Response.getAnimation("on"));
+      //senderAction(sender_psid, Response.getAnimation("on"));
 
 
 
@@ -104,13 +104,13 @@ app.post('/webhook', (req, res) => {
               // just for now
               userData = employee;
               userData['type'] = "Employee";
-              text = Replies.replies[userData['state']];
+              text = Replies.replies[userData['context']];
             }
 
             console.log("-------------------------------------------------------------------------");
             console.log(text);
             //sendMessage(sender_psid, text);
-            senderAction(sender_psid, Response.getAnimation("off"));
+            //senderAction(sender_psid, Response.getAnimation("off"));
 
             userData['uid'] = sender_psid;
             if (webhook_event.message) {
@@ -189,8 +189,6 @@ function handleMessage(sender_psid, received_message) {
     console.log("-------------------------------------------------------------------");
     console.log(received_message.nlp.entities);
     console.log("-------------------------------------------------------------------");
-    console.log(userData);
-    console.log("-------------------------------------------------------------------");
 
     nlp.compile( received_message.nlp.entities, userData ); // maybe do it only initially
     response = nlp.findState(userData, received_message.text);
@@ -198,6 +196,10 @@ function handleMessage(sender_psid, received_message) {
 
   }
   else if (received_message.attachments){
+    console.log("-------------------------------------------------------------------");
+    console.log(userData);
+    console.log("-------------------------------------------------------------------");
+
     if (userData['context']==="REPORT_STATS"){
       sendMessage(sender_psid, [
         Response.genAttachmentReply(),

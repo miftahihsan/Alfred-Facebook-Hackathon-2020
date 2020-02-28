@@ -39,7 +39,7 @@ class Response{
     static getAnimation( state ){
         let response;
 
-        if( state == "on" ){
+        if( state === "on" ){
             response = {
                 sender_action : "typing_on"
             }
