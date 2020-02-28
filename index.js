@@ -202,7 +202,7 @@ function handleMessage(sender_psid, received_message) {
     console.log(userData);
     console.log("-------------------------------------------------------------------");
 
-    if (userData['context']==="REPORT_STATS"){
+    if (userData['state']==="REPORT_STATS"){
       sendMessage(sender_psid, [
         Response.genAttachmentReply(),
         Response.genTextReply("Document successfully transferred to your manager!"),
@@ -214,7 +214,7 @@ function handleMessage(sender_psid, received_message) {
       //REPLY WITH GIF
       sendMessage(sender_psid, [
         Response.genAttachmentReply(),
-        Replies.replies[userData['context']]
+        Replies.replies[userData['state']]
        ]);
     }
   }
