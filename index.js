@@ -193,6 +193,15 @@ function handleMessage(sender_psid, received_message) {
     sendMessage(sender_psid, response);
 
   }
+  else if (received_message.attachments){
+    if (userData['state']==="REPORT_STATS"){
+      sendMessage(sender_psid, [Response.genAttachmentReply(),Response.genTextReply("Document successfully transferred to your manager!")]);
+      userData['state']="MENU";
+    }
+    else {
+      //REPLY WITH GIF
+    }
+  }
 
     // get a response for the particular state now
 
@@ -274,6 +283,8 @@ function callSendAPI(sender_psid, response) {
     }
   });
 }
+
+
 
 // Sends response messages via the Send API
 function sendReminders(sender_psid, response) {
@@ -364,20 +375,10 @@ curl -X POST -H "Content-Type: application/json" -d '{
 
  /*
 
- curl -X POST -H "Content-Type: application/json" -d '{
-  "recipient":{
-    "id":"<PSID>"
-  },
-  "sender_action":"typing_on"
-}' "https://graph.facebook.com/v2.6/me/messages?access_token=EAAkdTVETz5UBADPOy5ilvETlWxWS1ohXxXL51SPt0FiIZADGJQZAaCuNYeddPNccUu2meywF9SmC7ZBAot0bqEgDYHHi9z8AD691ecETBQFoFsb8iMoTOzZAIjSV7dScpZCyGWAPeGZCCW0xpdfALy4pggyxUgdZBGxxaJqRfpT2bjn2Co31Sg9"
+ curl  \
+  -F 'message={"attachment":{"type":"image", "payload":{"is_reusable":true}}}' \
+  -F 'filedata=@./steve.gif;type=image/gif' \
+  "https://graph.facebook.com/v6.0/me/message_attachments?access_token=EAAkdTVETz5UBABiMRU4LChbImzlhRbIZBL76hdxdTZBQCrR8gm3iUlo2MKsdbzQJgYYX6cvdL5KaMrtJueuOwl6pPHZBrZCV3nzdGPL92wFLWnF6GDqISffJMj0SBZAfv07hwo2fqZBdsjw9rwlLkApvuWDWRrZA26K9tNVdsN6hwjZBoBZCFd4GBsb7Px8W5RB4ZD"
 
-2751654314911195
 
-curl -X POST -H "Content-Type: application/json" -d '{
-  "recipient":{
-    "id":"2751654314911195
-"
-  },
-  "sender_action":"typing_on"
-}' "https://graph.facebook.com/v2.6/me/messages?access_token=EAAkdTVETz5UBADPOy5ilvETlWxWS1ohXxXL51SPt0FiIZADGJQZAaCuNYeddPNccUu2meywF9SmC7ZBAot0bqEgDYHHi9z8AD691ecETBQFoFsb8iMoTOzZAIjSV7dScpZCyGWAPeGZCCW0xpdfALy4pggyxUgdZBGxxaJqRfpT2bjn2Co31Sg9"
  */

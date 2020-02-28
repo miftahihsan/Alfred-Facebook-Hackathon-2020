@@ -173,13 +173,14 @@ const replies = {
                                               payload: "SELF_IMPROVEMENT_COURSES"
                                             }
                                           ]),
-    "REPORT_STATS" : Responses.genQuickReply("Please Upload the attachment that you would like to send",
+    "REPORT_STATS" : [ Responses.genTextReply("Please Upload the sales records that you would like to send"),
+        Responses.genQuickReply("The document will be transferred to the manager, David Wallace",
         [
           {
             title: "MENU",
             payload: "MENU"
           }
-        ]),
+        ])],
     "VIEW_REMINDERS" : Responses.genTextReply("YOU HAVE NO REMINDERS"),
     "NEW_REMINDER" : Responses.genTextReply("Ok, what's the title of the list? "),
     "VIEW_SCHEDULE" : Responses.genTextReply("Ok, Here's your schedule"),

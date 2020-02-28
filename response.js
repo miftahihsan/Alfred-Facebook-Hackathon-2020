@@ -24,6 +24,18 @@ class Response{
         return response
     }
 
+    static genAttachmentReply(){
+        let response = {
+            "attachment":{
+                "type":"image",
+                "payload":{
+                    "attachment_id": "235306070839999"
+                }
+            }
+        };
+        return response
+    }
+
     static getAnimation( state ){
         let response;
 
