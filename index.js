@@ -189,6 +189,8 @@ function handleMessage(sender_psid, received_message) {
     console.log("-------------------------------------------------------------------");
     console.log(received_message.nlp.entities);
     console.log("-------------------------------------------------------------------");
+    console.log(userData);
+    console.log("-------------------------------------------------------------------");
 
     nlp.compile( received_message.nlp.entities, userData ); // maybe do it only initially
     response = nlp.findState(userData, received_message.text);
@@ -197,16 +199,19 @@ function handleMessage(sender_psid, received_message) {
   }
   else if (received_message.attachments){
     if (userData['context']==="REPORT_STATS"){
-      console.log("FILE RECEIVED");
       sendMessage(sender_psid, [
         Response.genAttachmentReply(),
-        Response.genTextReply("Document successfully transferred to your manager!")
+        Response.genTextReply("Document successfully transferred to your manager!"),
+        Replies.replies["MENU"]
       ]);
       userData['state']="MENU";
     }
     else {
       //REPLY WITH GIF
-      sendMessage(sender_psid, Response.genAttachmentReply());
+      sendMessage(sender_psid, [
+        Response.genAttachmentReply(),
+        Replies.replies[userData['context']]
+       ]);
     }
   }
 
