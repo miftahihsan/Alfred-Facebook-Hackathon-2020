@@ -40,6 +40,7 @@ app.post('/userList', (req, res) => {
   log("here!-----------------------------------------------------------");
   console.log( body );
   console.log( body.title );
+  res.status(200).send('EVENT_RECEIVED');
 });
 
 app.post('/sendMessageToUser' , (req, res) => {
@@ -271,18 +272,12 @@ function sendMessage(sender_psid, responses) {
       setTimeout(()=>callSendAPI(sender_psid,response), (delay) * 1000 );   // 0 1000  2000  3000
       setTimeout(()=> senderAction( sender_psid, Response.getAnimation("on")), (delay)*1000 + 300 );   // 300  1300  2300  3300
 
-
       delay++;
-
     }
 
   } else {
     callSendAPI(sender_psid, responses);
   }
-
-
-
-
 }
 
 
