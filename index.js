@@ -10,6 +10,7 @@
 
 // These are all Server related imports
 const
+  fetch = require('node-fetch'),
   express = require('express'),
   bodyParser = require('body-parser'),
   VERIFY_TOKEN = process.env.VERIFY_TOKEN,
@@ -79,20 +80,31 @@ app.post('/webhook', (req, res) => {
     
       // Get the sender PSID
       let sender_psid = webhook_event.sender.id;
+
+      //  new line
+
+      console.log("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
+      console.log('webhookEvent: ' + webhook_event);
       console.log('Sender PSID: ' + sender_psid);
+      console.log('Sender NAME: {{user_first_name}}');
+      
       senderAction(sender_psid, Response.getAnimation("on"));
 
 
 
-
+      var user_info = getUserName(sender_psid);
       var employee_checker =  DynamoDB.getUserInfo( sender_psid, "Employee" );
       var publicUser_checker =  DynamoDB.getUserInfo( sender_psid, "PublicUser" );
 
 
-      Promise.all([employee_checker, publicUser_checker]).then(
+      Promise.all([employee_checker, publicUser_checker, user_info]).then(
           results => {
             let employee = results[0];
             let publicUser = results[1];
+            let user_name = results[2];
+
+            console.log("HELLO I AM HERE MAN");
+            console.log(user_info);
 
             var text;
             if( !(employee.Item !== undefined && employee.Item !== null) ){
@@ -269,6 +281,19 @@ function handlePostback(sender_psid, received_postback) {
 
 }
 
+// new function
+async function getUserName( sender_psid ){
+  await fetch('https://graph.facebook.com/'+sender_psid+'?fields=name,first_name,last_name,profile_pic&access_token='+process.env.PAGE_ACCESS_TOKEN+'')
+  .then(res => {
+    return res;
+  })
+  .catch(err => {
+    return err;
+    // log("could not get nake");
+  })
+}
+
+
 function sendMessage(sender_psid, responses) {
 
 
@@ -314,7 +339,6 @@ function callSendAPI(sender_psid, response) {
     }
   });
 }
-
 
 
 // Sends response messages via the Send API
