@@ -3,7 +3,7 @@ const Responses = require('./response');
 class Replies {
 
   static  userData = {};
-  static uid;
+  static uid= 0;
 
   static setUID(uid){
     this.replies["NEW_REMINDER"]= Responses.genWebView(uid);

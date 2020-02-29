@@ -73,7 +73,7 @@ button.addEventListener('click', async _ => {
       }
     );
     console.log('Completed!', response);
-    location.href = "https://www.messenger.com/closeWindow/display_text=<Reminder Saved!>";
+    location.href = "https://www.messenger.com/closeWindow/display_text=remindersaved";
     MessengerExtensions.requestCloseBrowser(function success() {
       // webview closed
     }, function error(err) {
