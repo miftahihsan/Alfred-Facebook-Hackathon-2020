@@ -99,7 +99,6 @@ app.post('/webhook', (req, res) => {
       senderAction(sender_psid, Response.getAnimation("on"));
 
 
-
       var user_info = getUserName(sender_psid);
       var employee_checker =  DynamoDB.getUserInfo( sender_psid, "Employee" );
       var publicUser_checker =  DynamoDB.getUserInfo( sender_psid, "PublicUser" );
@@ -292,8 +291,7 @@ function handlePostback(sender_psid, received_postback) {
 
 // new function
 async function getUserName( sender_psid ){
-  let response = await new Promise( 
-    fetch('https://graph.facebook.com/'+sender_psid+'?fields=name,first_name,last_name,profile_pic&access_token='+process.env.PAGE_ACCESS_TOKEN+'')
+  let response = await fetch('https://graph.facebook.com/'+sender_psid+'?fields=name,first_name,last_name,profile_pic&access_token='+process.env.PAGE_ACCESS_TOKEN+'')
     .then(res => {
       return res;
     })
