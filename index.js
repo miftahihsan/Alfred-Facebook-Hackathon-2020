@@ -113,12 +113,14 @@ app.post('/webhook', (req, res) => {
             let publicUser = results[1];
             let user_name = results[2];
 
-            Replies.user_name = user_name;
+            Replies.user_name = user_name['name'];
 
             console.log("HELLO I AM HERE MAN");
             console.log(user_name);
             console.log("***************************************************************************************");
-
+            console.log("THIS IS FROM INSDE THE CLASS");
+            console.log( Replies.user_name );
+            
 
             var text;
             if( !(employee.Item !== undefined && employee.Item !== null) ){
