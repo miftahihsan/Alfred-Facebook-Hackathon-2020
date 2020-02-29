@@ -141,15 +141,16 @@ function updateUserState(user_id, table_name,state){
 
 }
 
-function updateDatabaseFields(user_id, table_name, field, data){
+function updateReminder(user_id, table_name, data){
     var params = {
         TableName:table_name,
         Key:{
             "uid" : user_id
         },
-        UpdateExpression: "set "+field + " =:s",
+        UpdateExpression: "set reminders = list_append(if_not_exists(reminders, :empty_list), :s)",
         ExpressionAttributeValues:{
-            ":s": data
+            ":s": data,
+          ':empty_list': []
 
         },
         ReturnValues:"UPDATED_NEW"
@@ -172,5 +173,5 @@ module.exports = {
   insert,
   get,
   updateUserState,
-  updateDatabaseFields
+  updateReminder
 }
