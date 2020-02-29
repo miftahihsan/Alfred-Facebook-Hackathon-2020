@@ -149,7 +149,7 @@ function updateReminder(user_id, table_name, data){
         },
         UpdateExpression: "set reminders = list_append(if_not_exists(reminders, :empty_list), :s)",
         ExpressionAttributeValues:{
-            ":s": data,
+            ":s": [data],
           ':empty_list': []
 
         },
