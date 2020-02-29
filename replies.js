@@ -16,6 +16,13 @@ class Replies {
     if ('reminders' in userData.Item){
        this.replies["VIEW_REMINDERS"] = Responses.genReminders(this.uid, userData.Item['reminders']);
     }
+    
+    this.replies['HR_POLICIES'] = [
+      Responses.genTextReply("You can say something like"),
+      Responses.genTextReply("\“I’d like to read the sexual harassment guidelines\”"),
+      Responses.genTextReply("and I’ll search the HR handbook and get the relevant information to you!")
+    ]
+
     this.replies["INITIATE"] = [Responses.genTextReply("Hi "+userData['name']+" ! "),
       Responses.genTextReply("I am an advanced bot designed to be your personal assistant here in the offices of Dunder Mifflin."),
       Responses.genTextReply("I'm also designed to be your very own HR manager. That means you can ask me things you'd normally have to ask your HR department. If the question is too difficult for me I can redirect you to an HR representative for further help."),
