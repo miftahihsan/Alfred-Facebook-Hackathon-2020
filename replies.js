@@ -45,6 +45,14 @@ class Replies {
                               this.userData.Item['bonus']+"!!"),
       Responses.genTextReply("Great job!! 👏👏")
     ];
+
+    this.replies["COMPLAINT"] = [
+      Responses.genTextReply("Remember, your complaints/reports are completely anonymous." + 
+      "Only I’ll know that you’ve submitted this complaint and no one else, not even your superiors! 😎"),
+      Responses.genTextReply("Please tell us about your experience in details or upload a Complaint file as an attachment" + 
+      "so that we can perform proper investigation and take necessary actions as soon as possible"),
+      Responses.genTextReply("Press the button when you are done"),
+    ];
   }
 
 
@@ -105,8 +113,24 @@ class Replies {
         {
           title : "Bonus & Payments 💵" ,
           payload: "BONUS_PAYMENTS"
+        },
+        {
+          title : "Submit a complaint 😕" ,
+          payload: "COMPLAINT"
         }
       ]),
+    // "COMPLAINT" : Responses.genQuickReply("Remember, your complaints/reports are completely anonymous." + 
+    // "Only I’ll know that you’ve submitted this complaint and no one else, not even your superiors! 😎",
+    // [
+    //   {
+    //     title: "HR policies 🤔",
+    //     payload: "HR_POLICIES"
+    //   },
+    //   {
+    //     title: "Performance Stats 🔖",
+    //     payload: "PERFORMANCE_STATS"
+    //   }
+    // ]),
     "HOLIDAYS" : [
       Responses.genTextReply("You have " + this.userData['sick_leave'] + " sick days and " + this.userData['holiday_left'] +
                                           " leave days remaining for this year" ),
