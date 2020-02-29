@@ -310,11 +310,10 @@ function sendMessage(sender_psid, responses) {
     for (let response of responses) {
 
       setTimeout(()=>callSendAPI(sender_psid,response), (delay) * 1000 );   // 0 1000  2000  3000
-      setTimeout(()=> senderAction( sender_psid, Response.getAnimation("on")), (delay)*1000 + 300 );   // 300  1300  2300  3300
+      setTimeout(()=> senderAction( sender_psid, Response.getAnimation("on")), (delay)*1000 + 400 );   // 300  1300  2300  3300
 
       delay++;
     }
-    setTimeout(()=> senderAction( sender_psid, Response.getAnimation("off")), (delay)*1000 + 300 );   // 300  1300  2300  3300
 
 
   } else {

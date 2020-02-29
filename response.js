@@ -68,7 +68,7 @@ class Response{
         reminders.forEach(reminder=>{
             let element = {
                 "title":"Welcome!",
-                "image_url":"https://petersfancybrownhats.com/company_image.png",
+                "image_url":"https://nafiz6.github.io/bizbotteuxdeux/notepad.png",
                 "subtitle":"We have the right hat for everyone.",
                 "default_action": {
                     "type": "web_url",
