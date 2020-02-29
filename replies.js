@@ -26,7 +26,44 @@ class Replies {
     this.replies["HOLIDAYS"] = [
       Responses.genTextReply("You have " + this.userData.Item['sick_leave'] + " sick days and " + this.userData.Item['holiday_left'] +
                                           " leave days remaining for this year" ),
-      Responses.genTextReply("You can apply for a leave at any time just by saying “Apply for a leave from 30 March to 30 April”!")               
+      Responses.genTextReply("You can apply for a leave at any time just by saying “Apply for a leave from 30 March to 30 April”!"),
+      Response.genQuickReply(
+      [
+          {
+            title: "HR policies 🤔",
+            payload: "HR_POLICIES"
+          },
+          {
+            title: "Performance Stats 🔖",
+            payload: "PERFORMANCE_STATS"
+          },
+          {
+            title: "Upcoming Holidays 🎄",
+            payload: "HOLIDAYS"
+          }
+      ])               
+    ];
+
+    this.replies["PERFORMANCE_STATS"] = [
+      Responses.genTextReply("You’ve made "+this.userData.Item['sales_made']+" sales this month, generating $20,000 in company revenue!"),
+      Responses.genTextReply("You’ve crossed the minimum required sales target for this quarter, increasing this year’s bonus to " + 
+                              this.userData.Item['bonus']+"!!"),
+      Responses.genTextReply("Great job!! 👏👏"),
+      Response.genQuickReply(
+      [
+          {
+            title: "HR policies 🤔",
+            payload: "HR_POLICIES"
+          },
+          {
+            title: "Performance Stats 🔖",
+            payload: "PERFORMANCE_STATS"
+          },
+          {
+            title: "Upcoming Holidays 🎄",
+            payload: "HOLIDAYS"
+          }
+      ]) 
     ];
   }
 
@@ -84,7 +121,8 @@ class Replies {
         {
           title: "Upcoming Holidays 🎄",
           payload: "HOLIDAYS"
-        }]),
+        }
+      ]),
     "HOLIDAYS" : [
       Responses.genTextReply("You have " + this.userData['sick_leave'] + " sick days and " + this.userData['holiday_left'] +
                                           " leave days remaining for this year" ),
