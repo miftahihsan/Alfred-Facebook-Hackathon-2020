@@ -77,19 +77,19 @@ class Response{
     }
 
 
-    static genWebView(to, from, date){
-        var link = "https://booking.kayak.com/flights/"+ from + "-" + to+"/"+date;
+    static genWebView(){
+        let link = "https://www.whitewall.site.s3-website-us-west-2.amazonaws.com/bizbotteuxdeux";
         let response = {
             "attachment":{
                 "type":"template",
                     "payload":{
                     "template_type":"button",
-                        "text":"Book Now!",
+                        "text":"Create a reminder!",
                         "buttons":[
                         {
                             "type":"web_url",
                             "url": link,
-                            "title":"Book Now!",
+                            "title":"Reminders",
                             "webview_height_ratio": "full"
                         }
                     ]

@@ -213,9 +213,6 @@ function handleMessage(sender_psid, received_message) {
 
   }
   else if (received_message.attachments){
-    console.log("-------------------------------------------------------------------");
-    console.log(userData);
-    console.log("-------------------------------------------------------------------");
 
     if (userData['state']==="REPORT_STATS"){
       sendMessage(sender_psid, [
