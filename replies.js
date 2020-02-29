@@ -1,9 +1,16 @@
 const Responses = require('./response');
 
-var userData = {};
-var uid;
+class Replies {
 
-let replies = {
+  static  userData = {};
+  static uid;
+
+  static setUID(uid){
+    this.replies["NEW_REMINDER"]= Responses.genWebView(uid);
+  }
+
+
+  static replies = {
     "INITIATE": [Responses.genTextReply("Hi {{user_first_name}} ! "),
       Responses.genTextReply("I am an advanced bot designed to be your personal assistant here in the offices of Dunder Mifflin."),
       Responses.genTextReply("I'm also designed to be your very own HR manager. That means you can ask me things you'd normally have to ask your HR department. If the question is too difficult for me I can redirect you to an HR representative for further help."),
@@ -204,13 +211,10 @@ let replies = {
     "VIEW_TRIPS": Responses.genTextReply("OHNO ABRAR HASNT WRITTEN YET.")
 
 
-};
-
-
-
-module.exports = {
-  replies,
-  userData,
-  uid
+  };
 }
+
+
+
+module.exports = Replies
 
