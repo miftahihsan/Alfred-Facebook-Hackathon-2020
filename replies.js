@@ -22,6 +22,12 @@ class Replies {
       Responses.genTextReply("In order to best serve your needs, I’ve already gathered some basic info about you from the Dunder Mifflin employee records"),
       Responses.genTextReply("Lets get started! \uD83D\uDE04\n")
     ];
+
+    this.replies["HOLIDAYS"] = [
+      Response.genQuickReply("You have " + this.userData['sick_leave'] + " sick days and " + this.userData['holiday_left'] +
+                                          " leave days remaining for this year" ),
+      Response.genQuickReply("You can apply for a leave at any time just by saying “Apply for a leave from 30 March to 30 April”!")               
+    ];
   }
 
 
@@ -79,6 +85,11 @@ class Replies {
           title: "Upcoming Holidays 🎄",
           payload: "HOLIDAYS"
         }]),
+    "HOLIDAYS" : [
+      Response.genQuickReply("You have " + this.userData['sick_leave'] + " sick days and " + this.userData['holiday_left'] +
+                                          " leave days remaining for this year" ),
+      Response.genQuickReply("You can apply for a leave at any time just by saying “Apply for a leave from 30 March to 30 April”!")               
+    ],
     "SCHEDULES": Responses.genQuickReply(
       "Would you like to work with your lists, \n" +
       "make a new list, view/manage your calendar \n" +

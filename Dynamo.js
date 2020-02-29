@@ -66,8 +66,15 @@ function insert(emp_id, table_name){
     TableName: table_name,
     Item: {
         "uid": emp_id,
+        "position" : "salesman",
         "context" : "INITIATE",
-
+        "hours_worked" : "120T45",
+        "holiday_left" : "30",
+        "sick_leave" : "10",
+        "bonus" : "$50,000,000",
+        "sales_made" : "30",
+        "holiday_bonus" : "$100,000",
+        "due_salary" : "2"                
     }
    };
    docClient.put(params, function(err, data) {
