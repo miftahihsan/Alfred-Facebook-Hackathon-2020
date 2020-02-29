@@ -147,10 +147,13 @@ function updateReminder(user_id, table_name, data){
         Key:{
             "uid" : user_id
         },
-        UpdateExpression: "set reminders = list_append(if_not_exists(reminders, :empty_list), :s)",
+        UpdateExpression: "set #rem.#title = :s",
+        ExpressionAttributeNames: {
+          '#rem': 'reminders',
+          '#title': data['title']
+        },
         ExpressionAttributeValues:{
-            ":s": [data],
-          ':empty_list': []
+            ":s": data['items']
 
         },
         ReturnValues:"UPDATED_NEW"
