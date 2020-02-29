@@ -24,7 +24,7 @@ class Replies {
     ];
 
     this.replies["HOLIDAYS"] = [
-      Response.genQuickReply("You have " + this.userData['sick_leave'] + " sick days and " + this.userData['holiday_left'] +
+      Response.genQuickReply("You have " + this.userData.Item['sick_leave'] + " sick days and " + this.userData.Item['holiday_left'] +
                                           " leave days remaining for this year" ),
       Response.genQuickReply("You can apply for a leave at any time just by saying “Apply for a leave from 30 March to 30 April”!")               
     ];
