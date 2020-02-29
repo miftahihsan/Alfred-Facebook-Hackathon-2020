@@ -13,7 +13,7 @@ class Replies {
   static setUserData(userData){
     this.userData = userData;
     if ('reminders' in userData.Item){
-       this.replies["VIEW_REMINDERS"] = Responses.genReminders(this.uid, userData['reminders']);
+       this.replies["VIEW_REMINDERS"] = Responses.genReminders(this.uid, userData.Item['reminders']);
     }
   }
 
