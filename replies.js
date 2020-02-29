@@ -211,7 +211,6 @@ let replies = {
 module.exports = {
   replies,
   userData,
-  uid,
-  generateReplies
+  uid
 }
 
