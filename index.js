@@ -105,7 +105,7 @@ app.post('/webhook', (req, res) => {
 
       console.log(user_info);
       console.log("***************************************************************************************");
-      console.log(user_info['headers']);
+   
 
       Promise.all([employee_checker, publicUser_checker, user_info]).then(
           results => {
@@ -115,6 +115,8 @@ app.post('/webhook', (req, res) => {
 
             console.log("HELLO I AM HERE MAN");
             console.log(user_name);
+            console.log("***************************************************************************************");
+            console.log(user_name['hearder']);
 
             var text;
             if( !(employee.Item !== undefined && employee.Item !== null) ){
