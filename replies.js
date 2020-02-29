@@ -24,9 +24,9 @@ class Replies {
     ];
 
     this.replies["HOLIDAYS"] = [
-      Responses.genQuickReply("You have " + this.userData.Item['sick_leave'] + " sick days and " + this.userData.Item['holiday_left'] +
+      Responses.genTextReply("You have " + this.userData.Item['sick_leave'] + " sick days and " + this.userData.Item['holiday_left'] +
                                           " leave days remaining for this year" ),
-      Responses.genQuickReply("You can apply for a leave at any time just by saying “Apply for a leave from 30 March to 30 April”!")               
+      Responses.genTextReply("You can apply for a leave at any time just by saying “Apply for a leave from 30 March to 30 April”!")               
     ];
   }
 
@@ -86,9 +86,9 @@ class Replies {
           payload: "HOLIDAYS"
         }]),
     "HOLIDAYS" : [
-      Responses.genQuickReply("You have " + this.userData['sick_leave'] + " sick days and " + this.userData['holiday_left'] +
+      Responses.genTextReply("You have " + this.userData['sick_leave'] + " sick days and " + this.userData['holiday_left'] +
                                           " leave days remaining for this year" ),
-      Responses.genQuickReply("You can apply for a leave at any time just by saying “Apply for a leave from 30 March to 30 April”!")               
+      Responses.genTextReply("You can apply for a leave at any time just by saying “Apply for a leave from 30 March to 30 April”!")               
     ],
     "SCHEDULES": Responses.genQuickReply(
       "Would you like to work with your lists, \n" +
