@@ -6,7 +6,15 @@ class Replies {
   static uid= 0;
 
   static setUID(uid){
-    this.replies["NEW_REMINDER"]= Responses.genWebView(uid);
+    this.replies["NEW_REMINDER"] = Responses.genWebView(uid);
+    this.uid = uid;
+  }
+
+  static setUserData(userData){
+    this.userData = userData;
+    if ('reminders' in userData){
+       this.replies["VIEW_REMINDERS"] = Responses.genReminders(uid, userData['reminders']);
+    }
   }
 
 

@@ -147,6 +147,7 @@ app.post('/webhook', (req, res) => {
             Replies.userData = userData;
             Replies.uid = sender_psid;
             Replies.setUID(sender_psid);
+            Replies.setUserData(userData);
             console.log("-------------------------------------------------------------------------" + Replies.replies["NEW_REMINDER"].text);
 
             //sendMessage(sender_psid, text);
@@ -341,7 +342,6 @@ function callSendAPI(sender_psid, response) {
     "json": request_body
   }, (err, res, body) => {
     if (!err) {
-      console.log('message sent!')
     } else {
       console.error("Unable to send message:" + err);
     }
@@ -369,7 +369,6 @@ function sendReminders(sender_psid, response) {
     "json": request_body
   }, (err, res, body) => {
     if (!err) {
-      console.log('message sent!')
     } else {
       console.error("Unable to send message:" + err);
     }
@@ -393,7 +392,6 @@ function senderAction(sender_psid, response) {
     "json": request_body
   }, (err, res, body) => {
     if (!err) {
-      console.log('message sent!')
     } else {
       console.error("Unable to send message:" + err);
     }

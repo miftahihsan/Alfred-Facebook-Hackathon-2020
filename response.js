@@ -59,7 +59,37 @@ class Response{
         return Information.flightDetails( userData );
     }
 
-    static getFlightView( to, from, date ){
+    static genReminders(uid, reminders ){
+        console.log(uid);
+        console.log(reminders);
+        let elements = [
+
+        ];
+        reminders.forEach(reminder=>{
+            let element = {
+                "title":"Welcome!",
+                "image_url":"https://petersfancybrownhats.com/company_image.png",
+                "subtitle":"We have the right hat for everyone.",
+                "default_action": {
+                    "type": "web_url",
+                    "url": "https://nafiz6.github.io/bizbotteuxdeux/index.html?uid=" + uid,
+                    "webview_height_ratio": "tall",
+                },
+                "buttons":[
+                    {
+                        "type":"web_url",
+                        "url":"https://nafiz6.github.io/bizbotteuxdeux/index.html?uid=" + uid,
+                        "title":"View Details"
+                    }
+                ]
+            };
+            element['title'] = reminder['title'];
+            element['subtitle'] = reminder['items']['item1'];
+            elements.push(element);
+        });
+
+
+
         console.log('_______________________________________--------------------------___________________________');
         console.log( Information.flightInformation(to, from, date) );
         
@@ -68,7 +98,7 @@ class Response{
                 "type": "template",
                 "payload": {
                     "template_type": "generic",
-                    "elements": Information.flightInformation(to, from, date)
+                    "elements": elements
                 }
             }
         }
