@@ -112,7 +112,7 @@ app.post('/webhook', (req, res) => {
             let user_name = results[2];
 
             console.log("HELLO I AM HERE MAN");
-            console.log(user_info);
+            console.log(user_name);
 
             var text;
             if( !(employee.Item !== undefined && employee.Item !== null) ){
@@ -291,14 +291,18 @@ function handlePostback(sender_psid, received_postback) {
 
 // new function
 async function getUserName( sender_psid ){
-  await fetch('https://graph.facebook.com/'+sender_psid+'?fields=name,first_name,last_name,profile_pic&access_token='+process.env.PAGE_ACCESS_TOKEN+'')
-  .then(res => {
-    return res;
-  })
-  .catch(err => {
-    return err;
-    // log("could not get nake");
-  })
+  let response = await new Promise( 
+    fetch('https://graph.facebook.com/'+sender_psid+'?fields=name,first_name,last_name,profile_pic&access_token='+process.env.PAGE_ACCESS_TOKEN+'')
+    .then(res => {
+      return res;
+    })
+    .catch(err => {
+      return err;
+      // log("could not get nake");
+    })
+  );
+
+  return await response;
 }
 
 
