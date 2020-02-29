@@ -147,10 +147,7 @@ function updateReminder(user_id, table_name, data){
         Key:{
             "uid" : user_id
         },
-        UpdateExpression: "add #rem = :s",
-        ExpressionAttributeNames: {
-          '#rem': 'reminders'
-        },
+        UpdateExpression: "add reminders :s",
         ExpressionAttributeValues:{
             ":s": data
 
