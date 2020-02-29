@@ -90,7 +90,7 @@ class Response{
                             "type":"web_url",
                             "url": link,
                             "title":"Reminders",
-                            "webview_height_ratio": "full"
+                            "webview_height_ratio": "tall"
                         }
                     ]
                 }
