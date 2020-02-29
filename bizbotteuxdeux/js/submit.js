@@ -25,12 +25,12 @@ window.extAsyncInit = function() {
 };
 
 function init() {
-  addThings();
   var url_string = decodeURIComponent(window.location.href);
 
   let arr = url_string.split("=");
 
   if( arr.length === 2 ){
+    addThings();
     return;
   }
 

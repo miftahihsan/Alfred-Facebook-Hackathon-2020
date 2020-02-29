@@ -314,10 +314,13 @@ function sendMessage(sender_psid, responses) {
 
       delay++;
     }
+    setTimeout(()=> senderAction( sender_psid, Response.getAnimation("off")), (delay)*1000 + 300 );   // 300  1300  2300  3300
+
 
   } else {
     callSendAPI(sender_psid, responses);
   }
+
 }
 
 
