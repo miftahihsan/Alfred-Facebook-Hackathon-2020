@@ -103,7 +103,7 @@ app.post('/webhook', (req, res) => {
             let publicUser = results[1];
             let user_name = results[2];
 
-            console.log("userNAME _____________________________________________ " + user_name );
+            console.log("HELLO I AM HERE MAN");
 
             var text;
             if( !(employee.Item !== undefined && employee.Item !== null) ){
@@ -284,7 +284,7 @@ function handlePostback(sender_psid, received_postback) {
 async function getUserName( sender_psid ){
   await fetch('https://graph.facebook.com/'+sender_psid+'?fields=name,first_name,last_name,profile_pic&access_token='+process.env.PAGE_ACCESS_TOKEN+'')
   .then(res => {
-    return res["name"];
+    return res;
   })
   .catch(err => {
     return err;
