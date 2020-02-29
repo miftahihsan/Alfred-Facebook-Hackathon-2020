@@ -1,5 +1,8 @@
 const Responses = require('./response');
 
+var userData = [];
+var user_ID;
+
 const replies = {
   "INITIATE" : [Responses.genTextReply("Hi {{user_first_name}} ! "),
     Responses.genTextReply("I am an advanced bot designed to be your personal assistant here in the offices of Dunder Mifflin."),
@@ -194,6 +197,7 @@ const replies = {
             payload: "MENU"
           }
         ])],
+    // "TO_DO_LIST" : Responses.genTextReply
     "VIEW_REMINDERS" : Responses.genTextReply("YOU HAVE NO REMINDERS"),
     "NEW_REMINDER" : Responses.genTextReply("Ok, what's the title of the list? "),
     "VIEW_SCHEDULE" : Responses.genTextReply("Ok, Here's your schedule"),
@@ -203,6 +207,8 @@ const replies = {
 };
 
 module.exports = {
-  replies
+  replies,
+  userData,
+  user_ID
 }
 
