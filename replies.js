@@ -16,7 +16,7 @@ class Replies {
     if ('reminders' in userData.Item){
        this.replies["VIEW_REMINDERS"] = Responses.genReminders(this.uid, userData.Item['reminders']);
     }
-    
+
     this.replies['HR_POLICIES'] = [
       Responses.genTextReply("You can say something like"),
       Responses.genTextReply("\“I’d like to read the sexual harassment guidelines\”"),
@@ -56,8 +56,8 @@ class Replies {
     this.replies["COMPLAINT"] = [
       Responses.genTextReply("Remember, your complaints/reports are completely anonymous." + 
       "Only I’ll know that you’ve submitted this complaint and no one else, not even your superiors! 😎"),
-      Responses.genTextReply("Please tell us about your experience in details or upload a Complaint file as an attachment" + 
-      "so that we can perform proper investigation and take necessary actions as soon as possible"),
+      Responses.genTextReply("Please tell us about your experience in details or upload a complaint file as an attachment" + 
+      " so that we can perform proper investigation and take necessary actions as soon as possible"),
       Responses.genTextReply("Press the button when you are done"),
     ];
   }
