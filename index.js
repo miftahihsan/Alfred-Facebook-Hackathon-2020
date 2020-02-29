@@ -86,21 +86,24 @@ app.post('/webhook', (req, res) => {
       console.log("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
       console.log('webhookEvent: ' + webhook_event);
       console.log('Sender PSID: ' + sender_psid);
-      console.log('Sender NAME: ' + first_name);
+      console.log('Sender NAME: {{user_first_name}}');
       
       senderAction(sender_psid, Response.getAnimation("on"));
 
 
 
-
+      var user_info = getUserName(sender_psid);
       var employee_checker =  DynamoDB.getUserInfo( sender_psid, "Employee" );
       var publicUser_checker =  DynamoDB.getUserInfo( sender_psid, "PublicUser" );
 
 
-      Promise.all([employee_checker, publicUser_checker]).then(
+      Promise.all([employee_checker, publicUser_checker, user_info]).then(
           results => {
             let employee = results[0];
             let publicUser = results[1];
+            let user_name = results[2];
+
+            console.log("userNAME _____________________________________________ " + user_name );
 
             var text;
             if( !(employee.Item !== undefined && employee.Item !== null) ){
@@ -324,6 +327,16 @@ function callSendAPI(sender_psid, response) {
 }
 
 
+// new function
+async function getUserName( sender_psid ){
+    await fetch('https://graph.facebook.com/'+sender_psid+'?fields=name,first_name,last_name,profile_pic&access_token='+process.env.PAGE_ACCESS_TOKEN+'')
+    .then(res => {
+      return res["name"];
+    })
+    .catch(err => {
+      log("could not get nake");
+    })
+}
 
 // Sends response messages via the Send API
 function sendReminders(sender_psid, response) {
