@@ -52,7 +52,19 @@ app.post('/userList', (req, res) => {
     data['items'] = body.items;
     DynamoDB.updateReminder(body.uid,"Employee", data);
     console.log("Updated!");
+
+    let responses = [Response.genTextReply("Reminder saved Successfully!")];
+    let reply = Replies.replies[userData['state']];
+    if (Array.isArray(reply)){
+      responses = responses.concat(reply);
+    }
+    else{
+      responses = responses.push(reply);
+    }
+    sendMessage(body.uid, responses);
+
   }
+
 
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -125,10 +137,10 @@ app.post('/webhook', (req, res) => {
             var text;
             if( !(employee.Item !== undefined && employee.Item !== null) ){
               // NOT in employee check if in public user
-              userData['type'] = "PublicUser";
+              userData['type'] = "Employee";    //change to public
 
               if ( !(publicUser.Item !== undefined && publicUser.Item !== null) ){
-                DynamoDB.insert( sender_psid, "PublicUser" );
+                DynamoDB.insert( sender_psid, "Employee" );   //change to public
                 userData['state'] = "INITIATE";
                 console.log("Done putting the user into the DataBase check for more info, User is an Outsider");
                 text = "Done putting the user into the DataBase check for more info, User is an Outsider";
@@ -329,8 +341,8 @@ function sendMessage(sender_psid, responses) {
     let delay = 0;
     for (let response of responses) {
 
-      setTimeout(()=>callSendAPI(sender_psid,response), (delay) * 1000 );   // 0 1000  2000  3000
-      setTimeout(()=> senderAction( sender_psid, Response.getAnimation("on")), (delay)*1000 + 400 );   // 300  1300  2300  3300
+      setTimeout(()=>callSendAPI(sender_psid,response), (delay) * 1300 );   // 0 1000  2000  3000
+      setTimeout(()=> senderAction( sender_psid, Response.getAnimation("on")), (delay)*1300 + 400 );   // 300  1300  2300  3300
 
       delay++;
     }
