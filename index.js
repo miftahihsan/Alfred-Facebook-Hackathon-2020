@@ -60,7 +60,7 @@ app.post('/userList', (req, res) => {
     else{
       responses = responses.push(reply);
     }
-    sendMessage(sender_psid, responses);
+    sendMessage(body.uid, responses);
 
     console.log("Updated!");
   }
