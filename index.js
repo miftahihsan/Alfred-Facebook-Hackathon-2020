@@ -51,6 +51,17 @@ app.post('/userList', (req, res) => {
     data['title'] = body.title;
     data['items'] = body.items;
     DynamoDB.updateReminder(body.uid,"Employee", data);
+
+    let responses = [Response.genTextReply("Your reminders have been added successfully! ^_^ ")];
+    let reply = Replies.replies["SCHEDULES"];
+    if (Array.isArray(reply)){
+      responses = responses.concat(reply);
+    }
+    else{
+      responses = responses.push(reply);
+    }
+    sendMessage(sender_psid, responses);
+
     console.log("Updated!");
   }
 
