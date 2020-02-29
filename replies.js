@@ -2,7 +2,8 @@ const Responses = require('./response');
 
 class Replies {
 
-  static  userData = {};
+  static userData = {};
+  static user_name = "";
   static uid= 0;
 
   static setUID(uid){
@@ -19,7 +20,7 @@ class Replies {
 
 
   static replies = {
-    "INITIATE": [Responses.genTextReply("Hi {{user_first_name}} ! "),
+    "INITIATE": [Responses.genTextReply("Hi "+this.userData['name']+" ! "),
       Responses.genTextReply("I am an advanced bot designed to be your personal assistant here in the offices of Dunder Mifflin."),
       Responses.genTextReply("I'm also designed to be your very own HR manager. That means you can ask me things you'd normally have to ask your HR department. If the question is too difficult for me I can redirect you to an HR representative for further help."),
       Responses.genTextReply("In order to best serve your needs, I’ve already gathered some basic info about you from the Dunder Mifflin employee records"),

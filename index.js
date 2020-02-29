@@ -99,11 +99,13 @@ app.post('/webhook', (req, res) => {
       senderAction(sender_psid, Response.getAnimation("on"));
 
 
-
       var user_info = getUserName(sender_psid);
       var employee_checker =  DynamoDB.getUserInfo( sender_psid, "Employee" );
       var publicUser_checker =  DynamoDB.getUserInfo( sender_psid, "PublicUser" );
 
+      console.log(user_info);
+      console.log("***************************************************************************************");
+   
 
       Promise.all([employee_checker, publicUser_checker, user_info]).then(
           results => {
@@ -111,8 +113,15 @@ app.post('/webhook', (req, res) => {
             let publicUser = results[1];
             let user_name = results[2];
 
+            // Replies.user_name = user_name['name'];
+            userData['name'] = user_name;
+
             console.log("HELLO I AM HERE MAN");
-            console.log(user_info);
+            console.log(user_name);
+            console.log("***************************************************************************************");
+            console.log("THIS IS FROM INSDE THE CLASS");
+            console.log( Replies.user_name );
+            
 
             var text;
             if( !(employee.Item !== undefined && employee.Item !== null) ){
@@ -291,14 +300,25 @@ function handlePostback(sender_psid, received_postback) {
 
 // new function
 async function getUserName( sender_psid ){
-  await fetch('https://graph.facebook.com/'+sender_psid+'?fields=name,first_name,last_name,profile_pic&access_token='+process.env.PAGE_ACCESS_TOKEN+'')
-  .then(res => {
-    return res;
-  })
-  .catch(err => {
-    return err;
-    // log("could not get nake");
-  })
+  let response = await fetch('https://graph.facebook.com/'+sender_psid+'?fields=name,first_name,last_name,profile_pic&access_token='+process.env.PAGE_ACCESS_TOKEN+'')
+    .then(res => {
+      
+      console.log(res);
+      console.log();
+      return res;
+    })
+    .catch(err => {
+      return err;
+      // log("could not get nake");
+    })
+
+  console.log("INSIDE FTECHEQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ");
+
+  let json = await response.json();
+
+  console.log(json);
+  
+  return json;
 }
 
 
@@ -444,3 +464,5 @@ curl -X POST -H "Content-Type: application/json" -d '{
 
 
  */
+
+// curl -X GET "https://graph.facebook.com/2751654314911195?fields=first_name,last_name,profile_pic&access_token=EAAkdTVETz5UBABiMRU4LChbImzlhRbIZBL76hdxdTZBQCrR8gm3iUlo2MKsdbzQJgYYX6cvdL5KaMrtJueuOwl6pPHZBrZCV3nzdGPL92wFLWnF6GDqISffJMj0SBZAfv07hwo2fqZBdsjw9rwlLkApvuWDWRrZA26K9tNVdsN6hwjZBoBZCFd4GBsb7Px8W5RB4ZD"
