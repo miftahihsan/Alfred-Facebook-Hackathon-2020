@@ -23,15 +23,11 @@ class Replies {
       Responses.genTextReply("Lets get started! \uD83D\uDE04\n")
     ];
 
-<<<<<<< HEAD
     this.replies["HOLIDAYS"] = [
       Response.genQuickReply("You have " + this.userData['sick_leave'] + " sick days and " + this.userData['holiday_left'] +
                                           " leave days remaining for this year" ),
       Response.genQuickReply("You can apply for a leave at any time just by saying “Apply for a leave from 30 March to 30 April”!")               
     ];
-=======
-
->>>>>>> 9a8d50d3beb530aef6009d81ec9f49b8035858be
   }
 
 
