@@ -150,13 +150,13 @@ app.post('/webhook', (req, res) => {
               userData = employee;
               userData['type'] = "Employee";
               userData['state'] = userData.Item.context;
-
+              Replies.setUserData(userData);
             }
 
             Replies.userData = userData;
             Replies.uid = sender_psid;
             Replies.setUID(sender_psid);
-            Replies.setUserData(userData);
+            // Replies.setUserData(userData);
 
             //sendMessage(sender_psid, text);
             senderAction(sender_psid, Response.getAnimation("off"));
