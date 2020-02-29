@@ -297,6 +297,8 @@ function handlePostback(sender_psid, received_postback) {
 async function getUserName( sender_psid ){
   let response = await fetch('https://graph.facebook.com/'+sender_psid+'?fields=name,first_name,last_name,profile_pic&access_token='+process.env.PAGE_ACCESS_TOKEN+'')
     .then(res => {
+      console.log("INSIDE FTECH!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+      console.log(res);
       return res;
     })
     .catch(err => {
@@ -451,3 +453,5 @@ curl -X POST -H "Content-Type: application/json" -d '{
 
 
  */
+
+// curl -X GET "https://graph.facebook.com/2751654314911195?fields=first_name,last_name,profile_pic&access_token=EAAkdTVETz5UBABiMRU4LChbImzlhRbIZBL76hdxdTZBQCrR8gm3iUlo2MKsdbzQJgYYX6cvdL5KaMrtJueuOwl6pPHZBrZCV3nzdGPL92wFLWnF6GDqISffJMj0SBZAfv07hwo2fqZBdsjw9rwlLkApvuWDWRrZA26K9tNVdsN6hwjZBoBZCFd4GBsb7Px8W5RB4ZD"
