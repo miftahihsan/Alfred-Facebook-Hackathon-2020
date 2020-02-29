@@ -284,11 +284,11 @@ function handlePostback(sender_psid, received_postback) {
 async function getUserName( sender_psid ){
   await fetch('https://graph.facebook.com/'+sender_psid+'?fields=name,first_name,last_name,profile_pic&access_token='+process.env.PAGE_ACCESS_TOKEN+'')
   .then(res => {
-    return new Promise(res["name"]);
+    return res["name"];
   })
   .catch(err => {
-    return new Promise(err);
-    log("could not get nake");
+    return err;
+    // log("could not get nake");
   })
 }
 
