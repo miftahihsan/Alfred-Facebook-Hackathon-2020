@@ -29,6 +29,10 @@ const replies = {
         {
           title : "Report stats/info 👩‍💻",
           payload : "REPORT_STATS"
+        },
+        {
+          title : "To do list 📝",
+          payload : "TO_DO_LIST"
         }
       ]
     )],
