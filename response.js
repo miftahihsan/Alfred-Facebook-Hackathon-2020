@@ -91,8 +91,7 @@ class Response{
 
 
         console.log('_______________________________________--------------------------___________________________');
-        console.log( Information.flightInformation(to, from, date) );
-        
+
         let response = {
             "attachment": {             
                 "type": "template",
