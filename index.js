@@ -299,7 +299,6 @@ async function getUserName( sender_psid ){
       return err;
       // log("could not get nake");
     })
-  );
 
   return response;
 }
