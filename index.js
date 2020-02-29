@@ -114,7 +114,6 @@ app.post('/webhook', (req, res) => {
             let user_name = results[2];
 
             // Replies.user_name = user_name['name'];
-            userData['name'] = user_name['name'];
 
             console.log("HELLO I AM HERE MAN");
             console.log(user_name);
@@ -153,6 +152,7 @@ app.post('/webhook', (req, res) => {
 
             }
 
+            userData['name'] = user_name['name'];
             Replies.userData = userData;
             Replies.uid = sender_psid;
             Replies.setUID(sender_psid);
