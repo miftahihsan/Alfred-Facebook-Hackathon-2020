@@ -140,7 +140,7 @@ app.post('/webhook', (req, res) => {
             Replies.uid = sender_psid;
             Replies.generateReplies();
 
-            console.log("-------------------------------------------------------------------------" + Replies.replies["MENU"]);
+            console.log("-------------------------------------------------------------------------" + Replies.replies["NEW_REMINDER"]);
 
             //sendMessage(sender_psid, text);
             senderAction(sender_psid, Response.getAnimation("off"));
