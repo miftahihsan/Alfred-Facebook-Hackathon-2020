@@ -9,6 +9,7 @@ function init() {
 const button = document.getElementById('post-btn');
 
 button.addEventListener('click', async _ => {
+
   try {
     const response = await fetch('https://getschwifty.herokuapp.com/userList', {
       method: 'post',
@@ -17,9 +18,7 @@ button.addEventListener('click', async _ => {
       },
       body:  JSON.stringify({
         "title" : document.getElementById('title').value,
-        "items": {
-          "item1" : document.getElementById('item1').value
-        }
+        "items": getItem()
       })
       }
     );
@@ -28,3 +27,6 @@ button.addEventListener('click', async _ => {
     console.error(`Error: ${err}`);
   }
 });
+
+
+
