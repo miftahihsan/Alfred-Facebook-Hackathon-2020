@@ -137,10 +137,11 @@ app.post('/webhook', (req, res) => {
             }
 
             Replies.userData = userData;
+            Replies.uid = sender_psid;
             Replies.generateReplies();
 
-            console.log("-------------------------------------------------------------------------" + Replies.user_ID);
-            console.log(text);
+            console.log("-------------------------------------------------------------------------" + Replies.replies["MENU"]);
+
             //sendMessage(sender_psid, text);
             senderAction(sender_psid, Response.getAnimation("off"));
 

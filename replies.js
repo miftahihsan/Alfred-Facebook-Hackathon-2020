@@ -1,9 +1,9 @@
 const Responses = require('./response');
 
 var userData = {};
-var user_ID;
+var uid;
 
-let replies;
+let replies={};
 
 function generateReplies() {
 
@@ -203,7 +203,7 @@ function generateReplies() {
         ])],
     // "TO_DO_LIST" : Responses.genTextReply
     "VIEW_REMINDERS": Responses.genTextReply("YOU HAVE NO REMINDERS"),
-    "NEW_REMINDER": Responses.genWebView(userData['uid']),
+    "NEW_REMINDER": Responses.genWebView(uid),
     "VIEW_SCHEDULE": Responses.genTextReply("Ok, Here's your schedule"),
     "VIEW_TRIPS": Responses.genTextReply("OHNO ABRAR HASNT WRITTEN YET.")
 
@@ -215,7 +215,7 @@ function generateReplies() {
 module.exports = {
   replies,
   userData,
-  user_ID,
+  uid,
   generateReplies
 }
 
