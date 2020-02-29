@@ -126,18 +126,6 @@ class Replies {
           payload: "COMPLAINT"
         }
       ]),
-    // "COMPLAINT" : Responses.genQuickReply("Remember, your complaints/reports are completely anonymous." + 
-    // "Only I’ll know that you’ve submitted this complaint and no one else, not even your superiors! 😎",
-    // [
-    //   {
-    //     title: "HR policies 🤔",
-    //     payload: "HR_POLICIES"
-    //   },
-    //   {
-    //     title: "Performance Stats 🔖",
-    //     payload: "PERFORMANCE_STATS"
-    //   }
-    // ]),
     "HOLIDAYS" : [
       Responses.genTextReply("You have " + this.userData['sick_leave'] + " sick days and " + this.userData['holiday_left'] +
                                           " leave days remaining for this year" ),
@@ -288,8 +276,6 @@ class Replies {
     "NEW_REMINDER": Responses.genWebView(this.uid),
     "VIEW_SCHEDULE": Responses.genTextReply("Ok, Here's your schedule"),
     "VIEW_TRIPS": Responses.genTextReply("OHNO ABRAR HASNT WRITTEN YET.")
-
-
   };
 }
 
