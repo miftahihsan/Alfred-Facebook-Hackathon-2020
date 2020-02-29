@@ -302,7 +302,7 @@ async function getUserName( sender_psid ){
     })
   );
 
-  return await response;
+  return response;
 }
 
 
