@@ -138,8 +138,7 @@ app.post('/webhook', (req, res) => {
 
             Replies.userData = userData;
             Replies.uid = sender_psid;
-            Replies.generateReplies();
-
+          
             console.log("-------------------------------------------------------------------------" + Replies.replies["NEW_REMINDER"]);
 
             //sendMessage(sender_psid, text);
