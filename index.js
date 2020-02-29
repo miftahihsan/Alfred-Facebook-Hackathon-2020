@@ -127,7 +127,7 @@ app.post('/webhook', (req, res) => {
             Replies.userData = userData;
             Replies.user_ID = sender_psid;
 
-            console.log("-------------------------------------------------------------------------" + Replies.userData);
+            console.log("-------------------------------------------------------------------------" + Replies.user_ID);
             console.log(text);
             //sendMessage(sender_psid, text);
             senderAction(sender_psid, Response.getAnimation("off"));
