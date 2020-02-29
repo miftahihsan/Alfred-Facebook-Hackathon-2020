@@ -25,15 +25,16 @@ window.extAsyncInit = function() {
 };
 
 function init() {
+  addThings();
   var url_string = decodeURIComponent(window.location.href);
 
   let arr = url_string.split("=");
 
-  if( arr.length === 1 ){
+  if( arr.length === 2 ){
     return;
   }
 
-  url_string = decodeURIComponent(arr[1]);
+  url_string = decodeURIComponent(arr[2]);
 
   var response = JSON.parse(url_string);
 

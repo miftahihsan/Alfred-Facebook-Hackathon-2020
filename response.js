@@ -72,13 +72,13 @@ class Response{
                 "subtitle":"We have the right hat for everyone.",
                 "default_action": {
                     "type": "web_url",
-                    "url": "https://nafiz6.github.io/bizbotteuxdeux/index.html?uid=" + uid,
+                    "url": "https://nafiz6.github.io/bizbotteuxdeux/index.html?uid=" + uid+ "&path=" + JSON.stringify(reminder),
                     "webview_height_ratio": "tall",
                 },
                 "buttons":[
                     {
                         "type":"web_url",
-                        "url":"https://nafiz6.github.io/bizbotteuxdeux/index.html?uid=" + uid,
+                        "url":"https://nafiz6.github.io/bizbotteuxdeux/index.html?uid=" + uid + "&path=" + JSON.stringify(reminder),
                         "title":"View Details"
                     }
                 ]
