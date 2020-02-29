@@ -77,8 +77,8 @@ class Response{
     }
 
 
-    static genWebView(){
-        let link = "https://nafiz6.github.io/bizbotteuxdeux/";
+    static genWebView(uid){
+        let link = "https://nafiz6.github.io/bizbotteuxdeux/index.html?uid=" + uid;
         let response = {
             "attachment":{
                 "type":"template",

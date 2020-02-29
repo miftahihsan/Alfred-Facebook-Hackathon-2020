@@ -125,7 +125,7 @@ app.post('/webhook', (req, res) => {
             }
 
             Replies.userData = userData;
-            Replies.user_ID = sender_psid;
+            Replies.generateReplies();
 
             console.log("-------------------------------------------------------------------------" + Replies.user_ID);
             console.log(text);
