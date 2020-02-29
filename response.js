@@ -79,7 +79,7 @@ class Response{
                     {
                         "type":"web_url",
                         "url":"https://nafiz6.github.io/bizbotteuxdeux/index.html?uid=" + uid + "&path=" + JSON.stringify(reminder),
-                        "title":"View Details"
+                        "title":"View Details",
                         "webview_height_ratio": "tall"
                     }
                 ]
