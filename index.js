@@ -133,7 +133,7 @@ app.post('/webhook', (req, res) => {
               userData = employee;
               userData['type'] = "Employee";
               userData['state'] = userData.Item.context;
-              text = Replies.replies[userData.Item.context];
+
             }
 
             Replies.userData = userData;
