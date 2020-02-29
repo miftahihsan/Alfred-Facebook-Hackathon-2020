@@ -148,7 +148,6 @@ app.post('/webhook', (req, res) => {
             Replies.uid = sender_psid;
             Replies.setUID(sender_psid);
             Replies.setUserData(userData);
-            console.log("-------------------------------------------------------------------------" + Replies.replies["NEW_REMINDER"].text);
 
             //sendMessage(sender_psid, text);
             senderAction(sender_psid, Response.getAnimation("off"));
