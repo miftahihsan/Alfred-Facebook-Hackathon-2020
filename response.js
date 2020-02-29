@@ -78,7 +78,7 @@ class Response{
 
 
     static genWebView(){
-        let link = "https://www.whitewall.site.s3-website-us-west-2.amazonaws.com/bizbotteuxdeux";
+        let link = "https://nafiz6.github.io/bizbotteuxdeux/";
         let response = {
             "attachment":{
                 "type":"template",
