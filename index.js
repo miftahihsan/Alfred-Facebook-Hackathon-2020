@@ -46,6 +46,14 @@ app.post('/userList', (req, res) => {
   let body = req.body;
   console.log("here!-----------------------------------------------------------");
   console.log( body );
+  if (body.uid!==null && body.title!=='') {
+    let data ={};
+    data['title'] = body.title;
+    data['items'] = body.items;
+    DynamoDB.updateDatabaseFields(body.uid,"Employee", "reminders", data);
+    console.log("Updated!");
+  }
+
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   res.status(200).send('EVENT_RECEIVED');

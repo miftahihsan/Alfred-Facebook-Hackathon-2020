@@ -2,8 +2,17 @@ let uid;
 
 window.onload = init;
 
+(function(d, s, id){
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.com/en_US/messenger.Extensions.js";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, "script", "Messenger"));
+
+
+
 window.extAsyncInit = function() {
-  let title = document.getElementById("title");
 
   MessengerExtensions.getContext('2565492700336021',
     function success(thread_context){
@@ -73,10 +82,12 @@ button.addEventListener('click', async _ => {
       }
     );
     console.log('Completed!', response);
-    location.href = "https://www.messenger.com/closeWindow/display_text=remindersaved";
+    //success page
     MessengerExtensions.requestCloseBrowser(function success() {
+      location.href = "https://www.messenger.com/closeWindow/?image_url=%3C%3E&display_text=%3CREMINDER_SAVED%3E";
       // webview closed
     }, function error(err) {
+      location.href = "https://www.messenger.com/closeWindow/?image_url=%3C%3E&display_text=%3CREMINDER_SAVED%3E";
       // an error occurred
     });
   } catch(err) {
