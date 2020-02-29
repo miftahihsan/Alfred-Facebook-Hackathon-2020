@@ -48,8 +48,7 @@ app.post('/userList', (req, res) => {
   console.log( body );
   if (body.uid!==null && body.title!=='') {
     let data ={};
-    data['title'] = body.title;
-    data['items'] = body.items;
+    data[body.title] = body.items;
     DynamoDB.updateReminder(body.uid,"Employee", data);
     console.log("Updated!");
   }
