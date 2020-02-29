@@ -97,7 +97,7 @@ app.post('/webhook', (req, res) => {
       var publicUser_checker =  DynamoDB.getUserInfo( sender_psid, "PublicUser" );
 
 
-      Promise.all([employee_checker, publicUser_checker, user_info]).then(
+      Promise.all([employee_checker, publicUser_checker]).then(
           results => {
             let employee = results[0];
             let publicUser = results[1];
