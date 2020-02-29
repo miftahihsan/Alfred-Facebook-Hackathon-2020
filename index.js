@@ -52,7 +52,19 @@ app.post('/userList', (req, res) => {
     data['items'] = body.items;
     DynamoDB.updateReminder(body.uid,"Employee", data);
     console.log("Updated!");
+
+    let responses = [Response.genTextReply("Reminder saved Successfully!")];
+    let reply = Replies.replies[userData['state']];
+    if (Array.isArray(reply)){
+      responses = responses.concat(reply);
+    }
+    else{
+      responses = responses.push(reply);
+    }
+    sendMessage(body.uid, responses);
+
   }
+
 
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -329,8 +341,8 @@ function sendMessage(sender_psid, responses) {
     let delay = 0;
     for (let response of responses) {
 
-      setTimeout(()=>callSendAPI(sender_psid,response), (delay) * 1000 );   // 0 1000  2000  3000
-      setTimeout(()=> senderAction( sender_psid, Response.getAnimation("on")), (delay)*1000 + 400 );   // 300  1300  2300  3300
+      setTimeout(()=>callSendAPI(sender_psid,response), (delay) * 1300 );   // 0 1000  2000  3000
+      setTimeout(()=> senderAction( sender_psid, Response.getAnimation("on")), (delay)*1300 + 400 );   // 300  1300  2300  3300
 
       delay++;
     }
