@@ -104,6 +104,7 @@ app.post('/webhook', (req, res) => {
             let user_name = results[2];
 
             console.log("HELLO I AM HERE MAN");
+            console.log(user_info);
 
             var text;
             if( !(employee.Item !== undefined && employee.Item !== null) ){
