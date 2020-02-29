@@ -27,43 +27,23 @@ class Replies {
       Responses.genTextReply("You have " + this.userData.Item['sick_leave'] + " sick days and " + this.userData.Item['holiday_left'] +
                                           " leave days remaining for this year" ),
       Responses.genTextReply("You can apply for a leave at any time just by saying “Apply for a leave from 30 March to 30 April”!"),
-      // Responses.genQuickReply(
-      // [
-      //     {
-      //       title: "HR policies 🤔",
-      //       payload: "HR_POLICIES"
-      //     },
-      //     {
-      //       title: "Performance Stats 🔖",
-      //       payload: "PERFORMANCE_STATS"
-      //     },
-      //     {
-      //       title: "Upcoming Holidays 🎄",
-      //       payload: "HOLIDAYS"
-      //     }
-      // ])               
+              
+    ];
+
+    this.replies['BONUS_PAYMENTS'] = [
+      Responses.genTextReply("I’ll list your remaining bonuses for this year below. Have a look! "),
+      Responses.genTextReply("- Christmas: "+this.userData.Item["holiday_bonus"]+"" +
+                             "- Sales Bonus: "+this.userData.Item['bonus']+""),
+      Responses.genTextReply("You have "+this.userData.Item['due_salary']+" monthly salary payments left this year."),
+      Responses.genTextReply("You can directly ask about payments and bonuses simply by asking" + 
+                              "\“How much bonuses am i entitled to this year?\” or \"How much do I get this year in salaries?\"")
     ];
 
     this.replies["PERFORMANCE_STATS"] = [
       Responses.genTextReply("You’ve made "+this.userData.Item['sales_made']+" sales this month, generating $20,000 in company revenue!"),
       Responses.genTextReply("You’ve crossed the minimum required sales target for this quarter, increasing this year’s bonus to " + 
                               this.userData.Item['bonus']+"!!"),
-      Responses.genTextReply("Great job!! 👏👏"),
-      // Responses.genQuickReply(
-      // [
-      //     {
-      //       title: "HR policies 🤔",
-      //       payload: "HR_POLICIES"
-      //     },
-      //     {
-      //       title: "Performance Stats 🔖",
-      //       payload: "PERFORMANCE_STATS"
-      //     },
-      //     {
-      //       title: "Upcoming Holidays 🎄",
-      //       payload: "HOLIDAYS"
-      //     }
-      // ]) 
+      Responses.genTextReply("Great job!! 👏👏")
     ];
   }
 
@@ -121,6 +101,10 @@ class Replies {
         {
           title: "Upcoming Holidays 🎄",
           payload: "HOLIDAYS"
+        },
+        {
+          title : "Bonus & Payments 💵" ,
+          payload: "BONUS_PAYMENTS"
         }
       ]),
     "HOLIDAYS" : [
