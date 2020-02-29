@@ -60,7 +60,7 @@ app.post('/userList', (req, res) => {
     else{
       responses = responses.push(reply);
     }
-    sendMessage(body.uid, responses);
+    sendReminders(body.uid, responses);
 
     console.log("Updated!");
   }
