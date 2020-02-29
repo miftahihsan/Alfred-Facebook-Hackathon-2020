@@ -27,21 +27,21 @@ class Replies {
       Responses.genTextReply("You have " + this.userData.Item['sick_leave'] + " sick days and " + this.userData.Item['holiday_left'] +
                                           " leave days remaining for this year" ),
       Responses.genTextReply("You can apply for a leave at any time just by saying “Apply for a leave from 30 March to 30 April”!"),
-      Responses.genQuickReply(
-      [
-          {
-            title: "HR policies 🤔",
-            payload: "HR_POLICIES"
-          },
-          {
-            title: "Performance Stats 🔖",
-            payload: "PERFORMANCE_STATS"
-          },
-          {
-            title: "Upcoming Holidays 🎄",
-            payload: "HOLIDAYS"
-          }
-      ])               
+      // Responses.genQuickReply(
+      // [
+      //     {
+      //       title: "HR policies 🤔",
+      //       payload: "HR_POLICIES"
+      //     },
+      //     {
+      //       title: "Performance Stats 🔖",
+      //       payload: "PERFORMANCE_STATS"
+      //     },
+      //     {
+      //       title: "Upcoming Holidays 🎄",
+      //       payload: "HOLIDAYS"
+      //     }
+      // ])               
     ];
 
     this.replies["PERFORMANCE_STATS"] = [
@@ -49,21 +49,21 @@ class Replies {
       Responses.genTextReply("You’ve crossed the minimum required sales target for this quarter, increasing this year’s bonus to " + 
                               this.userData.Item['bonus']+"!!"),
       Responses.genTextReply("Great job!! 👏👏"),
-      Responses.genQuickReply(
-      [
-          {
-            title: "HR policies 🤔",
-            payload: "HR_POLICIES"
-          },
-          {
-            title: "Performance Stats 🔖",
-            payload: "PERFORMANCE_STATS"
-          },
-          {
-            title: "Upcoming Holidays 🎄",
-            payload: "HOLIDAYS"
-          }
-      ]) 
+      // Responses.genQuickReply(
+      // [
+      //     {
+      //       title: "HR policies 🤔",
+      //       payload: "HR_POLICIES"
+      //     },
+      //     {
+      //       title: "Performance Stats 🔖",
+      //       payload: "PERFORMANCE_STATS"
+      //     },
+      //     {
+      //       title: "Upcoming Holidays 🎄",
+      //       payload: "HOLIDAYS"
+      //     }
+      // ]) 
     ];
   }
 
