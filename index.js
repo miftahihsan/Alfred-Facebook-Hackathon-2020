@@ -102,10 +102,7 @@ app.post('/webhook', (req, res) => {
 
       //  new line
 
-      console.log("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
-      console.log('webhookEvent: ' + webhook_event);
       console.log('Sender PSID: ' + sender_psid);
-      console.log('Sender NAME: {{user_first_name}}');
       
       senderAction(sender_psid, Response.getAnimation("on"));
 
@@ -113,9 +110,6 @@ app.post('/webhook', (req, res) => {
       var user_info = getUserName(sender_psid);
       var employee_checker =  DynamoDB.getUserInfo( sender_psid, "Employee" );
       var publicUser_checker =  DynamoDB.getUserInfo( sender_psid, "PublicUser" );
-
-      console.log(user_info);
-      console.log("***************************************************************************************");
    
 
       Promise.all([employee_checker, publicUser_checker, user_info]).then(
@@ -126,12 +120,6 @@ app.post('/webhook', (req, res) => {
 
             // Replies.user_name = user_name['name'];
             userData['name'] = user_name['name'];
-
-            console.log("HELLO I AM HERE MAN");
-            console.log(user_name);
-            console.log("***************************************************************************************");
-            console.log("THIS IS FROM INSDE THE CLASS");
-            console.log( Replies.user_name );
             
 
             var text;
@@ -298,6 +286,9 @@ function handleQuickReplies(sender_psid, quick_reply) {
   let payload = quick_reply.payload;
   userData['state'] = payload;
   let response = Replies.replies[userData['state']];
+
+  console.log("");
+
   if( userData['state'] == 'LIVE' ){
 
     console.log('HEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEERRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRREEEEEEEEEEEEEEEEEEEEEE');

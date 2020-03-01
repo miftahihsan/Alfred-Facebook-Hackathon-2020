@@ -100,7 +100,7 @@ class Replies {
           },
           {
             title: "Live Chat",
-            payload: "LIVE_CHAT"
+            payload: "LIVE"
           }
         ]
       )],
