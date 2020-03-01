@@ -104,7 +104,6 @@ app.post('/webhook', (req, res) => {
 
       console.log('Sender PSID: ' + sender_psid);
       console.log('event: ' + entry.messaging[0]);
-      console.log('event: ' + entry.standby);
       console.log('event: ' + entry.messaging);
       
       senderAction(sender_psid, Response.getAnimation("on"));
@@ -293,7 +292,7 @@ function handleQuickReplies(sender_psid, quick_reply) {
   console.log("");
 
   if( userData['state'] == 'LIVE' ){
-
+    userData['state'] = "INITIATE";
     console.log('HEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEERRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRREEEEEEEEEEEEEEEEEEEEEE');
     sendMessage(sender_psid, response );
     giveAdminAccess( sender_psid ); 
