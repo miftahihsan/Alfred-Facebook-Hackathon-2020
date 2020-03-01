@@ -60,11 +60,33 @@ class Replies {
 
     this.replies['BONUS_PAYMENTS'] = [
       Responses.genTextReply("I’ll list your remaining bonuses for this year below. Have a look! "),
-      Responses.genTextReply("- Christmas: "+this.userData.Item["holiday_bonus"]+"" +
+      Responses.genTextReply("- Christmas: "+this.userData.Item["holiday_bonus"]+"\n" +
                              "- Sales Bonus: "+this.userData.Item['bonus']+""),
       Responses.genTextReply("You have "+this.userData.Item['due_salary']+" monthly salary payments left this year."),
-      Responses.genTextReply("You can directly ask about payments and bonuses simply by asking" + 
-                              "\“How much bonuses am i entitled to this year?\” or \"How much do I get this year in salaries?\"")
+      Responses.genQuickReply("You can directly ask about payments and bonuses simply by asking" + 
+                              "\“How much bonuses am i entitled to this year?\” or \"How much do I get this year in salaries?\"",
+        [
+          {
+            title: "HR policies 🤔",
+            payload: "HR_POLICIES"
+          },
+          {
+            title: "Performance Stats 🔖",
+            payload: "PERFORMANCE_STATS"
+          },
+          {
+            title: "Upcoming Holidays 🎄",
+            payload: "HOLIDAYS"
+          },
+          {
+            title : "Bonus & Payments 💵" ,
+            payload: "BONUS_PAYMENTS"
+          },
+          {
+            title : "Submit a complaint 😕" ,
+            payload: "COMPLAINT"
+          }
+        ])
     ];
 
     this.replies["PERFORMANCE_STATS"] = [
