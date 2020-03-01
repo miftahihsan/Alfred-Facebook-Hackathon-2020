@@ -359,17 +359,12 @@ function handlePostback(sender_psid, received_postback) {
 async function getUserName( sender_psid ){
   let response = await fetch('https://graph.facebook.com/'+sender_psid+'?fields=name,first_name,last_name,profile_pic&access_token='+process.env.PAGE_ACCESS_TOKEN+'')
     .then(res => {
-      
-      console.log(res);
-      console.log();
       return res;
     })
     .catch(err => {
       return err;
       // log("could not get nake");
     })
-
-  console.log("INSIDE FTECHEQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ");
 
   let json = await response.json();
 
