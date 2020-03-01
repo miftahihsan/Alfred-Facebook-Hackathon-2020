@@ -297,19 +297,25 @@ function handleMessage(sender_psid, received_message) {
 function handleQuickReplies(sender_psid, quick_reply) {
   let payload = quick_reply.payload;
   userData['state'] = payload;
-
+  let response = Replies.replies[userData['state']];
   if( userData['state'] == 'LIVE' ){
-    sendMessage(sender_psid, Replies.replies[userData['state']] );
+
+    console.log('HEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEERRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRREEEEEEEEEEEEEEEEEEEEEE');
+    sendMessage(sender_psid, response );
     giveAdminAccess( sender_psid ); 
   }
   else{
-    let response = Replies.replies[userData['state']];
+    // let response = Replies.replies[userData['state']];
     sendMessage(sender_psid, response);
   }
 }
 
 
 function giveAdminAccess( sender_psid ){
+
+
+  console.log('INSIDE ADMIN ACCESS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
+
   // Construct the message body
   let request_body = {
     "recipient": {
