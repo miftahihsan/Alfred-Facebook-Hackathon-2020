@@ -175,9 +175,13 @@ app.post('/webhook', (req, res) => {
 
             userData['uid'] = sender_psid;
             if (webhook_event.message) {
+              console.log("INSIDE messeging HERE --------------------------+++++++++++++++++++++++++++++++++++++++-----------------------------------------------");
               handleMessage(sender_psid, webhook_event.message);
             } else if (webhook_event.postback) {
+              console.log("INSIDE event.postbacl HERE --------------------------+++++++++++++++++++++++++++++++++++++++-----------------------------------------------");
               handlePostback(sender_psid, webhook_event.postback);
+            }else{
+              console.log("INSIDE else HERE --------------------------+++++++++++++++++++++++++++++++++++++++-----------------------------------------------");
             }
 
 
