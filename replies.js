@@ -33,8 +33,29 @@ class Replies {
     this.replies["HOLIDAYS"] = [
       Responses.genTextReply("You have " + this.userData.Item['sick_leave'] + " sick days and " + this.userData.Item['holiday_left'] +
                                           " leave days remaining for this year" ),
-      Responses.genTextReply("You can apply for a leave at any time just by saying “Apply for a leave from 30 March to 30 April”!"),
-              
+      Responses.genQuickReply("You can apply for a leave at any time just by saying “Apply for a leave from 30 March to 30 April”!",
+        [
+          {
+            title: "HR policies 🤔",
+            payload: "HR_POLICIES"
+          },
+          {
+            title: "Performance Stats 🔖",
+            payload: "PERFORMANCE_STATS"
+          },
+          {
+            title: "Upcoming Holidays 🎄",
+            payload: "HOLIDAYS"
+          },
+          {
+            title : "Bonus & Payments 💵" ,
+            payload: "BONUS_PAYMENTS"
+          },
+          {
+            title : "Submit a complaint 😕" ,
+            payload: "COMPLAINT"
+          }
+        ])
     ];
 
     this.replies['BONUS_PAYMENTS'] = [
