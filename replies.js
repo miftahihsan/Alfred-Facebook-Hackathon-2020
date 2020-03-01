@@ -28,8 +28,7 @@ class Replies {
       Responses.genTextReply("I'm also designed to be your very own HR manager. That means you can ask me things you'd normally have to ask your HR department. If the question is too difficult for me I can redirect you to an HR representative for further help."),
       Responses.genTextReply("In order to best serve your needs, I’ve already gathered some basic info about you from the Dunder Mifflin employee records"),
       Responses.genTextReply("Lets get started! \uD83D\uDE04\n"),
-      Responses.genTextReply(
-        "- Ask an HR question\n- Modify your calendar, make a list etc.."),
+      Responses.genTextReply("- Ask an HR question\n\n- Modify your calendar, make a list etc.."),
       Responses.genTextReply("- Know something from a specific company department, like finance, tech support, law etc..\n"),
       Responses.genQuickReply(
         "- Report stats/info to manager\n",
