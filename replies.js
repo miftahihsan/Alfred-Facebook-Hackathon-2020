@@ -174,7 +174,7 @@ class Replies {
     ],
     "MENU": [Responses.genTextReply("What do you want to do next?"),
       Responses.genTextReply(
-        "- Ask an HR question\n- Modify your calendar, make a list etc.."),
+        "- Ask an HR question\n\n- Modify your calendar, make a list etc.."),
       Responses.genTextReply("- Know something from a specific company department, like finance, tech support, law etc..\n"),
       Responses.genQuickReply(
         "- Report stats/info to manager\n",
