@@ -147,9 +147,11 @@ app.post('/webhook', (req, res) => {
               }
               else{
                 //User already in publicUser
-                userData = publicUser;
+                userData["Item"] = publicUser.Item;
                 userData['state'] = userData.Item.context;
                 text = "User already in public User table";
+                userData['name'] = user_name['name'];
+                Replies.setUserData(userData);
               }
 
 
@@ -158,9 +160,10 @@ app.post('/webhook', (req, res) => {
               console.log("User already Exists inside the employee table for now");
 
               // just for now
-              userData = employee;
+              userData["Item"] = employee.Item;
               userData['type'] = "Employee";
               userData['state'] = userData.Item.context;
+              userData['name'] = user_name['name'];
               Replies.setUserData(userData);
             }
 
