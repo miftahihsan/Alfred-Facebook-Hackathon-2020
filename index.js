@@ -294,10 +294,42 @@ function handleMessage(sender_psid, received_message) {
 function handleQuickReplies(sender_psid, quick_reply) {
   let payload = quick_reply.payload;
   userData['state'] = payload;
-  let response = Replies.replies[userData['state']];
-  sendMessage(sender_psid, response);
 
+  if( userData['state'] == 'LIVE' ){
+    sendMessage(sender_psid, Replies.replies[userData['state']] );
+    giveAdminAccess( sender_psid ); 
+  }
+  else{
+    let response = Replies.replies[userData['state']];
+    sendMessage(sender_psid, response);
+  }
 }
+
+
+function giveAdminAccess( sender_psid ){
+  // Construct the message body
+  let request_body = {
+    "recipient": {
+      "id": sender_psid
+    },
+    "target_app_id" : 263902037430900,
+    "metadata":"Please attend as soon as possible to the user"
+  }
+
+  // Send the HTTP request to the Messenger Platform
+  request({
+    "uri": "https://graph.facebook.com/v2.6/me/pass_thread_control",
+    "qs": { "access_token": process.env.PAGE_ACCESS_TOKEN },
+    "method": "POST",
+    "json": request_body
+  }, (err, res, body) => {
+    if (!err) {
+    } else {
+      console.error("Unable to connect to live admin:" + err);
+    }
+  });
+}
+
 
 // Handles messaging_postbacks events
 function handlePostback(sender_psid, received_postback) {

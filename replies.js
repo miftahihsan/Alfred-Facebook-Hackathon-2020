@@ -60,6 +60,11 @@ class Replies {
       " so that we can perform proper investigation and take necessary actions as soon as possible"),
       Responses.genTextReply("Press the button when you are done"),
     ];
+
+    this.replies["LIVE"] = [
+      Responses.genTextReply("Your Chat has been connected to the Page Admin"),
+      Responses.genTextReply("Please wait for his reply"),
+    ]
   }
 
 
@@ -94,8 +99,8 @@ class Replies {
             payload: "REPORT_STATS"
           },
           {
-            title: "To do list 📝",
-            payload: "TO_DO_LIST"
+            title: "Live Chat",
+            payload: "LIVE_CHAT"
           }
         ]
       )],
