@@ -208,7 +208,7 @@ class Replies {
       "- Submit a complaint\n",
       [
         {
-          title: "HR policies 📜",
+          title: "HR policies 📚",
           payload: "HR_POLICIES"
         },
         {
