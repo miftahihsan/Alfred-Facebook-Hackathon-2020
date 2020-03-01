@@ -92,6 +92,11 @@ app.post('/webhook', (req, res) => {
     // Iterate over each entry - there may be multiple if batched
     body.entry.forEach(function(entry) {
 
+      if( 'standby' in entry ){
+        console.log("standy by in entry");
+        return;
+      }
+
       // Gets the body of the webhook event
       let webhook_event = entry.messaging[0];
       console.log(webhook_event);
@@ -104,9 +109,7 @@ app.post('/webhook', (req, res) => {
 
       console.log('Sender PSID: ' + sender_psid);
       // console.log('event: ' + entry.messaging[0]);
-      if( 'standby' in entry ){
-        console.log("standy by in entry");
-      }
+
       if( 'messaging' in entry ){
         console.log("messeging in entry");
       }
