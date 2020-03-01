@@ -103,7 +103,8 @@ app.post('/webhook', (req, res) => {
       //  new line
 
       console.log('Sender PSID: ' + sender_psid);
-      console.log('event: ' + webhook_event);
+      console.log('event: ' + webhook_event.entry.message[0]);
+      console.log('event: ' + webhook_event.entry.message[1]);
       
       senderAction(sender_psid, Response.getAnimation("on"));
 
