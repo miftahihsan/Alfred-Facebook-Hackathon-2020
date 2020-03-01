@@ -173,8 +173,7 @@ class Replies {
       Responses.genTextReply("Lets get started! \uD83D\uDE04\n")
     ],
     "MENU": [Responses.genTextReply("What do you want to do next?"),
-      Responses.genTextReply(
-        "- Ask an HR question\n\n- Modify your calendar, make a list etc.."),
+      Responses.genTextReply("- Ask an HR question\n\n- Modify your calendar, make a list etc.."),
       Responses.genTextReply("- Know something from a specific company department, like finance, tech support, law etc..\n"),
       Responses.genQuickReply(
         "- Report stats/info to manager\n",
@@ -203,9 +202,10 @@ class Replies {
       )],
     "HR": Responses.genQuickReply("Ok! What do you want to know about: \n" +
       "- HR company policy\n" +
-      "- Bonus and payments\n" +
       "- Your performance stats\n" +
-      "- Sick days/holidays\n",
+      "- Sick days/holidays\n" +
+      "- Bonus and payments\n" +
+      "- Submit a complaint\n",
       [
         {
           title: "HR policies 🤔",
