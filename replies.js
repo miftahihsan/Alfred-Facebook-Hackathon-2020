@@ -69,6 +69,10 @@ class Replies {
 
 
   static replies = {
+    "WELCOME_BACK" : [
+      Responses.genTextReply("Welcome Back!"),
+      Responses.genTextReply("Hope your Issue was solved")
+    ],
     "INITIATE": [Responses.genTextReply("Hi "+this.userData['name']+" ! "),
       Responses.genTextReply("I am an advanced bot designed to be your personal assistant here in the offices of Dunder Mifflin."),
       Responses.genTextReply("I'm also designed to be your very own HR manager. That means you can ask me things you'd normally have to ask your HR department. If the question is too difficult for me I can redirect you to an HR representative for further help."),

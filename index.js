@@ -181,7 +181,7 @@ app.post('/webhook', (req, res) => {
               console.log("INSIDE event.postbacl HERE --------------------------+++++++++++++++++++++++++++++++++++++++-----------------------------------------------");
               handlePostback(sender_psid, webhook_event.postback);
             }else{
-              console.log("INSIDE else HERE --------------------------+++++++++++++++++++++++++++++++++++++++-----------------------------------------------");
+              sendMessage(sender_psid, Replies.replies["WELCOME_BACK"] );
             }
 
 
