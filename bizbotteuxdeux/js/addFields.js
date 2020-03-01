@@ -8,27 +8,29 @@ function addThings(){
         elem.setAttribute('id', 'dynamicBox'+i);
 
         const cross = document.createElement('button');
-        cross.setAttribute('class', 'remove');
+        cross.setAttribute('class', 'col s2 remove');
         cross.setAttribute('type', 'button');
         cross.setAttribute('id', i);
         cross.setAttribute('onclick', 'removeThings('+i+')')
 
         const icon = document.createElement('i');
-        icon.setAttribute('class', 'fa fa-window-close');
-        icon.setAttribute('aria-hidden', 'true');
-
+        icon.setAttribute('class', 'small material-icons');
+        icon.append("clear");
         cross.appendChild(icon);
 
         const box = document.createElement('input');
         box.setAttribute('placeholder', 'Add an Item');
         box.setAttribute('id', 'item'+i);
         box.setAttribute('type', 'text');
+        box.setAttribute('class', 'col s10');
 
-        
-        elem.appendChild(cross);
         elem.appendChild(box);
+        elem.appendChild(cross);
+
 
         document.getElementById('dynamic').append(elem);
+        box.focus();
+        box.select();
 
         i++;
         getItem();
@@ -47,14 +49,15 @@ function addOnPost(value, index){
         elem.setAttribute('id', 'dynamicBox'+index);
 
         const cross = document.createElement('button');
-        cross.setAttribute('class', 'remove');
+        cross.setAttribute('class', 'col s2 remove');
         cross.setAttribute('type', 'button');
         cross.setAttribute('id', index);
         cross.setAttribute('onclick', 'removeThings('+index+')')
 
         const icon = document.createElement('i');
-        icon.setAttribute('class', 'fa fa-window-close');
-        icon.setAttribute('aria-hidden', 'true');
+        icon.setAttribute('class', 'small material-icons');
+        //icon.setAttribute('aria-hidden', 'true');
+        //<i class="large material-icons">insert_chart</i>
 
         cross.appendChild(icon);
 
@@ -62,11 +65,13 @@ function addOnPost(value, index){
         box.setAttribute('placeholder', 'Add an Item');
         box.setAttribute('id', 'item'+index);
         box.setAttribute('type', 'text');
+        box.setAttribute('class', 'col s10');
+
         box.value = value;
 
-        
-        elem.appendChild(cross);
+
         elem.appendChild(box);
+        elem.appendChild(cross);
 
         document.getElementById('dynamic').append(elem);
 }
@@ -79,6 +84,7 @@ function getItem(){
                 arr.push(this.id);
         });
 
+
         let temp = [];
 
         for( var i = 0; i < arr.length; i++ ){
@@ -86,11 +92,12 @@ function getItem(){
                         temp.push(this.id); 
                 }); 
         }
- 
+
+        console.log(temp);
         let response = {};
 
         for( var i = 0; i < temp.length; i++ ){
-                if( i % 2 != 0 ) {
+                if( i % 2 == 0 ) {
                         response[temp[i]] = document.getElementById(temp[i]).value;
                 }
         }

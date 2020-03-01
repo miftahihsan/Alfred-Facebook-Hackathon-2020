@@ -29,7 +29,7 @@ function init() {
 
   let arr = url_string.split("=");
 
-  if( arr.length === 2 ){
+  if( arr.length <= 2 ){
     addThings();
     return;
   }

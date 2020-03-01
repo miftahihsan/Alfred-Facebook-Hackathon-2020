@@ -25,7 +25,6 @@
 </script>
     <div class="row">
 
-        <div class="header"> <h3>BizBot Sticky Notes</h3> <br> <img src="bot.png" width="20%" alt=""> </div>
 
         <form class="col s12">
             <div class="row" id="inputList">
@@ -55,10 +54,16 @@
             <i class="material-icons right">send</i>
         </button> -->
 
-        <button id="add" type="button" class = "form-buttons" id="Hello" onclick="addThings()" >Add
-        </button>
+        <!-- <button id="add" type="button" class = "form-buttons" id="Hello" onclick="addThings()" >Add
+        </button> -->
 
-        <button id="post-btn" class = "form-buttons" >Submit
+        <div class="col s12" id="Hello" onclick="addThings()">
+            <i class="col s2small material-icons">add</i>
+            <div class="col s10 add-things">Add an Item
+            </div>
+        </div>
+
+        <button id="post-btn" class = "form-buttons submit" >Submit
         </button>
     </div>
 
