@@ -94,7 +94,29 @@ class Replies {
       Responses.genTextReply("You’ve made "+this.userData.Item['sales_made']+" sales this month, generating $20,000 in company revenue!"),
       Responses.genTextReply("You’ve crossed the minimum required sales target for this quarter, increasing this year’s bonus to " + 
                               this.userData.Item['bonus']+"!!"),
-      Responses.genTextReply("Great job!! 👏👏")
+      Responses.genQuickReply("Great job!! 👏👏",
+      [
+        {
+          title: "HR policies 🤔",
+          payload: "HR_POLICIES"
+        },
+        {
+          title: "Performance Stats 🔖",
+          payload: "PERFORMANCE_STATS"
+        },
+        {
+          title: "Upcoming Holidays 🎄",
+          payload: "HOLIDAYS"
+        },
+        {
+          title : "Bonus & Payments 💵" ,
+          payload: "BONUS_PAYMENTS"
+        },
+        {
+          title : "Submit a complaint 😕" ,
+          payload: "COMPLAINT"
+        }
+      ])
     ];
 
     this.replies["COMPLAINT"] = [
