@@ -98,8 +98,8 @@ class Replies {
       Responses.genPictureReply( this.getRandId(this.replies['RAND_HAPPY_PICTURES']) ),
       Responses.genTextReply("Also, here’s something to get you going back up again!!"),
       Responses.genPictureReply( this.getRandId(this.replies['RAND_FUNNY_GIFS']) ),
-      Responses.genTextReply("Studies suggest that the simple act of walking around in the office"),
-      Responses.genTextReply("and talking to other employees you might be close with can drastically improve moods and increase productivity! "),
+      Responses.genTextReply("Studies suggest that the simple act of walking around in the office" + 
+                              "and talking to other employees you might be close with can drastically improve moods and increase productivity!"),
       Responses.genPictureReply( this.getRandId(this.replies['RAND_SUCCESS_QUOTES']) ),
     ];
 
