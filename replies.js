@@ -21,7 +21,30 @@ class Replies {
   static setUserData(userData){
     this.userData = userData;
     if ('reminders' in userData.Item){
-       this.replies["VIEW_REMINDERS"] = Responses.genReminders(this.uid, userData.Item['reminders']);
+       this.replies["VIEW_REMINDERS"] = [
+         Responses.genReminders(this.uid, userData.Item['reminders']),
+         Responses.genQuickReply(
+           "Or change previous reminders",
+           [
+             {
+               title: "View Reminders 📝",
+               payload: "VIEW_REMINDERS"
+             },
+             {
+               title: "Make a new Reminder 🗒",
+               payload: "NEW_REMINDER"
+             },
+             {
+               title: "View Schedule 📆",
+               payload: "VIEW_SCHEDULE"
+             },
+             {
+               title: "View Trips ✈",
+               payload: "VIEW_TRIPS"
+             }
+           ])
+
+       ];
     }
 
     this.replies['HR_POLICIES'] = [
@@ -424,7 +447,22 @@ class Replies {
           }
         ])],
     // "TO_DO_LIST" : Responses.genTextReply
-    "VIEW_REMINDERS": Responses.genTextReply("YOU HAVE NO REMINDERS"),
+    "VIEW_REMINDERS": Responses.genQuickReply(
+      "Looks like your schedule is free! You have no reminders.",
+      [
+        {
+          title: "Make a new Reminder 🗒",
+          payload: "NEW_REMINDER"
+        },
+        {
+          title: "View Schedule 📆",
+          payload: "VIEW_SCHEDULE"
+        },
+        {
+          title: "View Trips ✈",
+          payload: "VIEW_TRIPS"
+        }
+      ]),
     "NEW_REMINDER": Responses.genWebView(this.uid),
     "VIEW_SCHEDULE": Responses.genTextReply("Ok, Here's your schedule"),
     "VIEW_TRIPS": Responses.genTextReply("OHNO ABRAR HASNT WRITTEN YET.")
