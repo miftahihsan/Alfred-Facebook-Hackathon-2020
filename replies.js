@@ -12,7 +12,7 @@ class Replies {
   }
 
   static getRandId(list){
-    var id = Math.floor( Math.random() * this.replies['RAND_QUOTES'].length );
+    var id = Math.floor( Math.random() * list.length );
     console.log("id============================================= " + id);
     console.log("id============================================= " + list[id]);
     return list[id];
@@ -97,10 +97,10 @@ class Replies {
     this.replies["BORED"] = [
       Responses.genPictureReply( this.getRandId(this.replies['RAND_HAPPY_PICTURES']) ),
       Responses.genTextReply("Also, here’s something to get you going back up again!!"),
-      // Responses.genPictureReply( this.getRandId(this.replies['RAND_FUNNY_GIFS']) ),
+      Responses.genPictureReply( this.getRandId(this.replies['RAND_FUNNY_GIFS']) ),
       Responses.genTextReply("Studies suggest that the simple act of walking around in the office"),
       Responses.genTextReply("and talking to other employees you might be close with can drastically improve moods and increase productivity! "),
-      // Responses.genPictureReply( this.getRandId(this.replies['RAND_SUCCESS_QUOTES']) ),
+      Responses.genPictureReply( this.getRandId(this.replies['RAND_SUCCESS_QUOTES']) ),
     ];
 
     this.replies["HOLIDAYS"] = [
