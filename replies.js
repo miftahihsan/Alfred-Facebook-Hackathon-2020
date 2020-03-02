@@ -220,6 +220,10 @@ class Replies {
           {
             title: "Live Chat",
             payload: "LIVE"
+          },
+          {
+            title: "I'm bored! 🙍‍♂️",
+            payload: "BORED"
           }
         ]
       )],
