@@ -11,6 +11,13 @@ class Replies {
     this.uid = uid;
   }
 
+  static getRandId(list){
+    var id = Math.floor( Math.random() * this.replies['RAND_QUOTES'].length );
+    console.log("id============================================= " + id);
+    console.log("id============================================= " + list[id]);
+    return list[id];
+  }
+
   static setUserData(userData){
     this.userData = userData;
     if ('reminders' in userData.Item){
@@ -77,7 +84,7 @@ class Replies {
 
     this.replies["BORED"] = [
       Responses.genTextReply("I’ve found something to cheer you up! 😄"),
-      Responses.genPictureReply( Math.floor( Math.random() * this.replies['RAND_QUOTES'].length ) )
+      Responses.genPictureReply( this.replies['RAND_QUOTES'] )
     ];
 
     this.replies["HOLIDAYS"] = [
