@@ -68,23 +68,20 @@ class Replies {
       )
     ];
 
-    // https://www.success.com/wp-content/uploads/legacy/sites/default/files/14_14.jpg
-    // https://steemitimages.com/DQmPxe2AtmcDXZZPKapjoFAUUG44DEHQSNtgG8Vfx8KtRgA/8_16.jpg
-    // https://www.millionfeed.com/wp-content/uploads/2017/09/motivational-quotes-about-strength-success-15051191064k8ng-700x700.jpg
-    // https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQcajSOcWDQRDPqH4mtRLgi0bdImtoAN1HT8APzFcscrmohX64r
-    // https://steemitimages.com/DQmV5e5LjNsVpoovUPfB5QaN66WbMLZkJ1H8bpqpz62XB2C/Success%20quotes%20images%20ideas%20best%20pics%20%20(18)%20(1).jpg
-
-    this.replies["RAND_QUOTES"] = [ 
-      "https://www.success.com/wp-content/uploads/legacy/sites/default/files/14_14.jpg",
-      "https://steemitimages.com/DQmPxe2AtmcDXZZPKapjoFAUUG44DEHQSNtgG8Vfx8KtRgA/8_16.jpg",
-      "https://www.millionfeed.com/wp-content/uploads/2017/09/motivational-quotes-about-strength-success-15051191064k8ng-700x700.jpg",
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQcajSOcWDQRDPqH4mtRLgi0bdImtoAN1HT8APzFcscrmohX64r",
-      "https://steemitimages.com/DQmV5e5LjNsVpoovUPfB5QaN66WbMLZkJ1H8bpqpz62XB2C/Success%20quotes%20images%20ideas%20best%20pics%20%20(18)%20(1).jpg"
+    this.replies["RAND_SUCCESS_QUOTES"] = [ 
+      "https://ih1.redbubble.net/image.177668254.3654/flat,750x1000,075,f.u2.jpg",
+      "https://cdn4.vectorstock.com/i/1000x1000/36/58/stay-positive-work-hard-motivational-quote-for-vector-23593658.jpg",
+      "https://i.pinimg.com/736x/c9/98/ea/c998ea1d120959472a3a28cf8d821fec.jpg",
+      "https://www.success.com/wp-content/uploads/legacy/sites/default/files/new3.jpg",
+      "https://blog.zoominfo.com/wp-content/uploads/2018/02/quote-1.png",
+      "https://cdn2.vectorstock.com/i/1000x1000/91/91/work-hard-stay-positive-motivational-quotes-vector-21679191.jpg",
+      "https://i.pinimg.com/originals/0b/60/fa/0b60fa088d19f0d825a22677585bc637.jpg"
     ]
 
     this.replies["BORED"] = [
-      Responses.genTextReply("I’ve found something to cheer you up! 😄"),
-      Responses.genPictureReply( this.getRandId(this.replies['RAND_QUOTES']) )
+      Responses.genTextReply("Also, here’s something to get you going back up again!!"),
+      // Responses.genPictureReply( this.getRandId(this.replies['RAND_SUCCESS_QUOTES']) )
+      Responses.genPictureReply( "https://media.giphy.com/media/xUPGcxtF0XweuykLVS/giphy.gif" )
     ];
 
     this.replies["HOLIDAYS"] = [
