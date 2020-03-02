@@ -17,7 +17,7 @@ class Replies {
        this.replies["VIEW_REMINDERS"] = Responses.genReminders(this.uid, userData.Item['reminders']);
     }
 
-    this.replies['button'] = [
+    this.replies['MENU_BUTTON'] = [
       {
         title: "HR question 🙋",
         payload: "HR"
@@ -56,7 +56,7 @@ class Replies {
       Responses.genQuickReply(
         "- Report stats/info to manager\n",
         // [
-          this.replies['button']
+          this.replies['MENU_BUTTON']
           // {
           //   title: "HR question 🙋",
           //   payload: "HR"
@@ -201,28 +201,29 @@ class Replies {
       Responses.genTextReply("- Know something from a specific company department, like finance, tech support, law etc..\n"),
       Responses.genQuickReply(
         "- Report stats/info to manager\n",
-        [
-          {
-            title: "HR question 🙋",
-            payload: "HR"
-          },
-          {
-            title: "Schedules 📅",
-            payload: "SCHEDULES"
-          },
-          {
-            title: "FAQ 📚",
-            payload: "FAQ"
-          },
-          {
-            title: "Report stats/info 👩‍💻",
-            payload: "REPORT_STATS"
-          },
-          {
-            title: "Live Chat",
-            payload: "LIVE"
-          }
-        ]
+        this.replies['MENU_BUTTON']
+        // [
+        //   {
+        //     title: "HR question 🙋",
+        //     payload: "HR"
+        //   },
+        //   {
+        //     title: "Schedules 📅",
+        //     payload: "SCHEDULES"
+        //   },
+        //   {
+        //     title: "FAQ 📚",
+        //     payload: "FAQ"
+        //   },
+        //   {
+        //     title: "Report stats/info 👩‍💻",
+        //     payload: "REPORT_STATS"
+        //   },
+        //   {
+        //     title: "Live Chat",
+        //     payload: "LIVE"
+        //   }
+        // ]
       )],
     "HR": Responses.genQuickReply("Ok! What do you want to know about: \n" +
       "- HR company policy\n" +
