@@ -262,7 +262,7 @@ class Replies {
           payload: "FINANCE"
         },
         {
-          title: "IT and Tech 🖥",
+          title: "IT and Tech 🖥️",
           payload: "IT_TECH"
         },
         {
@@ -270,7 +270,7 @@ class Replies {
           payload: "CORPORATE_LAW"
         },
         {
-          title: "Training and Self Improvement 🏋️‍♂️",
+          title: "Training 🏋️‍♂️",
           payload: "TRAINING"
         },
       ]),
@@ -350,18 +350,18 @@ class Replies {
       Responses.genQuickReply(
         "- What are the current training courses available for me?\n" +
         "- What training courses do I require to complete my current tasks?\n" +
-        "- What self improvement courses do I need to take to improve my performance?\n",
+        "- What self improvement courses do I need to take to improve my performance metrics?\n",
         [
           {
             title: "Courses available",
             payload: "COURSES_AVAILABLE"
           },
           {
-            title: "Prerequisite Training",
+            title: "Prerequisite",
             payload: "PREREQUISITE_TRAINING"
           },
           {
-            title: "Self Improvement Courses",
+            title: "Improvement Courses",
             payload: "SELF_IMPROVEMENT_COURSES"
           }
         ])],
