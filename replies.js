@@ -117,14 +117,14 @@ class Replies {
       "https://i.pinimg.com/originals/0b/60/fa/0b60fa088d19f0d825a22677585bc637.jpg"
     ];
 
-    this.replies["BORED"] = [
-      Responses.genPictureReply( this.getRandId(this.replies['RAND_HAPPY_PICTURES']) ),
-      Responses.genTextReply("Also, here’s something to get you going back up again!!"),
-      Responses.genPictureReply( this.getRandId(this.replies['RAND_FUNNY_GIFS']) ),
-      Responses.genTextReply("Studies suggest that the simple act of walking around in the office" + 
-                              "and talking to other employees you might be close with can drastically improve moods and increase productivity!"),
-      Responses.genPictureReply( this.getRandId(this.replies['RAND_SUCCESS_QUOTES']) ),
-    ];
+    // this.replies["BORED"] = [
+    //   Responses.genPictureReply( this.getRandId(this.replies['RAND_HAPPY_PICTURES']) ),
+    //   Responses.genTextReply("Also, here’s something to get you going back up again!!"),
+    //   Responses.genPictureReply( this.getRandId(this.replies['RAND_FUNNY_GIFS']) ),
+    //   Responses.genTextReply("Studies suggest that the simple act of walking around in the office" + 
+    //                           "and talking to other employees you might be close with can drastically improve moods and increase productivity!"),
+    //   Responses.genPictureReply( this.getRandId(this.replies['RAND_SUCCESS_QUOTES']) ),
+    // ];
 
     this.replies["HOLIDAYS"] = [
       Responses.genTextReply("You have " + this.userData.Item['sick_leave'] + " sick days and " + this.userData.Item['holiday_left'] +
@@ -593,7 +593,7 @@ class Replies {
       Responses.genTextReply(" is to make direct payments to satisfy the indebtedness. If an agreement is reached, the employee must" + 
       " ask the creditor to issue a written release to KEYS."),
     ]      
-  }
+  };
 
 }
 
