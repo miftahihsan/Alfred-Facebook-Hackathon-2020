@@ -24,6 +24,19 @@ class Response{
         return response
     }
 
+    static genPictureReply(url){
+        let response = {
+            "attachment":{
+                "type":"image",
+                "payload":{
+                    "url":url, 
+                    "is_reusable":true
+                }
+            }
+        };
+        return response 
+    }
+
     static genAttachmentReply(){
         let response = {
             "attachment":{

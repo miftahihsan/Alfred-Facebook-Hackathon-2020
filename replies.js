@@ -61,7 +61,16 @@ class Replies {
       )
     ];
 
-    // this.replies[]
+    // 
+    // https://steemitimages.com/DQmPxe2AtmcDXZZPKapjoFAUUG44DEHQSNtgG8Vfx8KtRgA/8_16.jpg
+    // https://www.millionfeed.com/wp-content/uploads/2017/09/motivational-quotes-about-strength-success-15051191064k8ng-700x700.jpg
+    // https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQcajSOcWDQRDPqH4mtRLgi0bdImtoAN1HT8APzFcscrmohX64r
+    // https://steemitimages.com/DQmV5e5LjNsVpoovUPfB5QaN66WbMLZkJ1H8bpqpz62XB2C/Success%20quotes%20images%20ideas%20best%20pics%20%20(18)%20(1).jpg
+
+    this.replies["BORED"] = [
+      Responses.genTextReply("I’ve found something to cheer you up! 😄"),
+      Responses.genPictureReply("https://www.success.com/wp-content/uploads/legacy/sites/default/files/14_14.jpg"),
+    ];
 
     this.replies["HOLIDAYS"] = [
       Responses.genTextReply("You have " + this.userData.Item['sick_leave'] + " sick days and " + this.userData.Item['holiday_left'] +
