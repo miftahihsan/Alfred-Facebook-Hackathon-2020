@@ -429,6 +429,7 @@ class Replies {
     "VIEW_SCHEDULE": Responses.genTextReply("Ok, Here's your schedule"),
     "VIEW_TRIPS": Responses.genTextReply("OHNO ABRAR HASNT WRITTEN YET.")
   };
+
 }
 
 
