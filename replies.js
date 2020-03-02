@@ -84,7 +84,7 @@ class Replies {
 
     this.replies["BORED"] = [
       Responses.genTextReply("I’ve found something to cheer you up! 😄"),
-      Responses.genPictureReply( this.replies['RAND_QUOTES'] )
+      Responses.genPictureReply( getRandId(this.replies['RAND_QUOTES']) )
     ];
 
     this.replies["HOLIDAYS"] = [
