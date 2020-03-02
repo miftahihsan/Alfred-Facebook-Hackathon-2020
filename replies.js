@@ -17,28 +17,28 @@ class Replies {
        this.replies["VIEW_REMINDERS"] = Responses.genReminders(this.uid, userData.Item['reminders']);
     }
 
-    this.replies['MENU_BUTTON'] = [
-      {
-        title: "HR question 🙋",
-        payload: "HR"
-      },
-      {
-        title: "Schedules 📅",
-        payload: "SCHEDULES"
-      },
-      {
-        title: "FAQ 📚",
-        payload: "FAQ"
-      },
-      {
-        title: "Report stats/info 👩‍💻",
-        payload: "REPORT_STATS"
-      },
-      {
-        title: "Live Chat",
-        payload: "LIVE"
-      }
-    ]
+    // this.replies['MENU_BUTTON'] = [
+    //   {
+    //     title: "HR question 🙋",
+    //     payload: "HR"
+    //   },
+    //   {
+    //     title: "Schedules 📅",
+    //     payload: "SCHEDULES"
+    //   },
+    //   {
+    //     title: "FAQ 📚",
+    //     payload: "FAQ"
+    //   },
+    //   {
+    //     title: "Report stats/info 👩‍💻",
+    //     payload: "REPORT_STATS"
+    //   },
+    //   {
+    //     title: "Live Chat",
+    //     payload: "LIVE"
+    //   }
+    // ]
 
     this.replies['HR_POLICIES'] = [
       Responses.genTextReply("You can say something like"),
@@ -186,6 +186,28 @@ class Replies {
 
 
   static replies = {
+    "MENU_BUTTON" : [
+      {
+        title: "HR question 🙋",
+        payload: "HR"
+      },
+      {
+        title: "Schedules 📅",
+        payload: "SCHEDULES"
+      },
+      {
+        title: "FAQ 📚",
+        payload: "FAQ"
+      },
+      {
+        title: "Report stats/info 👩‍💻",
+        payload: "REPORT_STATS"
+      },
+      {
+        title: "Live Chat",
+        payload: "LIVE"
+      }
+    ],
     "WELCOME_BACK" : [
       Responses.genTextReply("Welcome Back!"),
       Responses.genTextReply("Hope your Issue was solved")
