@@ -117,14 +117,14 @@ class Replies {
       "https://i.pinimg.com/originals/0b/60/fa/0b60fa088d19f0d825a22677585bc637.jpg"
     ];
 
-    // this.replies["BORED"] = [
-    //   Responses.genPictureReply( this.getRandId(this.replies['RAND_HAPPY_PICTURES']) ),
-    //   Responses.genTextReply("Also, here’s something to get you going back up again!!"),
-    //   Responses.genPictureReply( this.getRandId(this.replies['RAND_FUNNY_GIFS']) ),
-    //   Responses.genTextReply("Studies suggest that the simple act of walking around in the office" + 
-    //                           "and talking to other employees you might be close with can drastically improve moods and increase productivity!"),
-    //   Responses.genPictureReply( this.getRandId(this.replies['RAND_SUCCESS_QUOTES']) ),
-    // ];
+    this.replies["BORED"] = [
+      Responses.genPictureReply( this.getRandId(this.replies['RAND_HAPPY_PICTURES']) ),
+      Responses.genTextReply("Also, here’s something to get you going back up again!!"),
+      Responses.genPictureReply( this.getRandId(this.replies['RAND_FUNNY_GIFS']) ),
+      Responses.genTextReply("Studies suggest that the simple act of walking around in the office" + 
+                              "and talking to other employees you might be close with can drastically improve moods and increase productivity!"),
+      Responses.genPictureReply( this.getRandId(this.replies['RAND_SUCCESS_QUOTES']) ),
+    ];
 
     this.replies["HOLIDAYS"] = [
       Responses.genTextReply("You have " + this.userData.Item['sick_leave'] + " sick days and " + this.userData.Item['holiday_left'] +
@@ -132,9 +132,9 @@ class Replies {
       Responses.genTextReply("Here is a list of all the holidays for the year" ),
       Responses.genTextReply("- New Year’s Day, January 1st \n\n- Martin Luther King, Jr. Birthday January, 3rd Monday \n\n" + 
                             "- President's Day, February 3rd Monday\n\n- Memorial Day May, Last Monday\n\n" ),
-      Responses.genQuickReply("- Independence Day, July 4th\n\n- Labor Day September, 1st Monday\n\n- Columbus Day October, 2nd Monday\n\n"),
-      Responses.genQuickReply("- Veteran's Day, November\n\n- Thanksgiving Day, 4th Thursday of November\n\n- Day after Thanksgiving, 4th Friday of November\n\n"),
-      Responses.genQuickReply("- Christmas Eve, December 24th\n\n- Christmas December, 25th\n\n- New Year’s Eve, December 31st , half-day\n\n"),
+      Responses.genTextReply("- Independence Day, July 4th\n\n- Labor Day September, 1st Monday\n\n- Columbus Day October, 2nd Monday\n\n"),
+      Responses.genTextReply("- Veteran's Day, November\n\n- Thanksgiving Day, 4th Thursday of November\n\n- Day after Thanksgiving, 4th Friday of November\n\n"),
+      Responses.genTextReply("- Christmas Eve, December 24th\n\n- Christmas December, 25th\n\n- New Year’s Eve, December 31st , half-day\n\n"),
       Responses.genQuickReply("You can apply for a leave at any time just by saying “Apply for a leave from 30 March to 30 April”!",
         [
           {
