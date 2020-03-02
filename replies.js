@@ -131,10 +131,10 @@ class Replies {
                                           " leave days remaining for this year" ),
       Responses.genTextReply("Here is a list of all the holidays for the year" ),
       Responses.genTextReply("- New Year’s Day, January 1st \n\n- Martin Luther King, Jr. Birthday January, 3rd Monday \n\n" + 
-                            "- President's Day, February 3rd Monday\n\n- Memorial Day May, Last Monday\n\n" ),
-      Responses.genTextReply("- Independence Day, July 4th\n\n- Labor Day September, 1st Monday\n\n- Columbus Day October, 2nd Monday\n\n"),
-      Responses.genTextReply("- Veteran's Day, November\n\n- Thanksgiving Day, 4th Thursday of November\n\n- Day after Thanksgiving, 4th Friday of November\n\n"),
-      Responses.genTextReply("- Christmas Eve, December 24th\n\n- Christmas December, 25th\n\n- New Year’s Eve, December 31st , half-day\n\n"),
+                            "- President's Day, February 3rd Monday\n\n- Memorial Day May, Last Monday" ),
+      Responses.genTextReply("- Independence Day, July 4th \n\n- Labor Day September, 1st Monday\n\n- Columbus Day October, 2nd Monday"),
+      Responses.genTextReply("- Veteran's Day, November\n\n- Thanksgiving Day, 4th Thursday of November\n\n- Day after Thanksgiving, 4th Friday of November"),
+      Responses.genTextReply("- Christmas Eve, December 24th\n\n- Christmas December, 25th\n\n- New Year’s Eve, December 31st , half-day"),
       Responses.genQuickReply("You can apply for a leave at any time just by saying “Apply for a leave from 30 March to 30 April”!",
         [
           {
