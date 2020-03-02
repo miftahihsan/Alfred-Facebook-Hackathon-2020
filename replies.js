@@ -68,9 +68,16 @@ class Replies {
       )
     ];
 
+    this.replies["RAND_FUNNY_GIFS"] = [
+      "https://media.giphy.com/media/xUPGcxtF0XweuykLVS/giphy.gif",
+      "https://1.bp.blogspot.com/-p2HQb1F5owk/WLojv1Q8lDI/AAAAAAANzGY/QFihFXDJ4Ocgq_85eKBA7ix4AekGqoC1QCLcB/s1600/AW386481_00.gif",
+      "https://i.pinimg.com/originals/b5/0e/e4/b50ee4bc436cafccddf6c0b99b0add4e.gif",
+      "https://media.giphy.com/media/37R3fbYQpWQ7m2WOsF/giphy.gif",
+      
+    ]
+
     this.replies["RAND_SUCCESS_QUOTES"] = [ 
       "https://ih1.redbubble.net/image.177668254.3654/flat,750x1000,075,f.u2.jpg",
-      "https://media.giphy.com/media/xUPGcxtF0XweuykLVS/giphy.gif",
       "https://cdn4.vectorstock.com/i/1000x1000/36/58/stay-positive-work-hard-motivational-quote-for-vector-23593658.jpg",
       "https://i.pinimg.com/736x/c9/98/ea/c998ea1d120959472a3a28cf8d821fec.jpg",
       "https://www.success.com/wp-content/uploads/legacy/sites/default/files/new3.jpg",
@@ -82,7 +89,7 @@ class Replies {
     this.replies["BORED"] = [
       Responses.genTextReply("Also, here’s something to get you going back up again!!"),
       // Responses.genPictureReply( this.getRandId(this.replies['RAND_SUCCESS_QUOTES']) )
-      Responses.genPictureReply( "https://1.bp.blogspot.com/-p2HQb1F5owk/WLojv1Q8lDI/AAAAAAANzGY/QFihFXDJ4Ocgq_85eKBA7ix4AekGqoC1QCLcB/s1600/AW386481_00.gif" )
+      Responses.genPictureReply( "https://steamuserimages-a.akamaihd.net/ugc/933804400183708747/9B6121BEC51002C0F27902FFB1A1C7FAC5809FC5/" )
     ];
 
     this.replies["HOLIDAYS"] = [
