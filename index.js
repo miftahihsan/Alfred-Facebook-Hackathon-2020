@@ -63,7 +63,7 @@ app.post('/userList', (req, res) => {
     else{
       responses = responses.push(reply);
     }
-    sendReminders(body.uid, responses);
+    sendMessage(body.uid, responses);
 
     console.log("Updated!");
   }
@@ -418,6 +418,7 @@ function callSendAPI(sender_psid, response) {
     "json": request_body
   }, (err, res, body) => {
     if (!err) {
+      console.log("Message sent!")
     } else {
       console.error("Unable to send message:" + err);
     }
