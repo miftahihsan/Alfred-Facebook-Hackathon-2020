@@ -106,6 +106,12 @@ class Replies {
     this.replies["HOLIDAYS"] = [
       Responses.genTextReply("You have " + this.userData.Item['sick_leave'] + " sick days and " + this.userData.Item['holiday_left'] +
                                           " leave days remaining for this year" ),
+      Responses.genTextReply("Here is a list of all the holidays for the year" ),
+      Responses.genTextReply("- New Year’s Day, January 1st \n\n- Martin Luther King, Jr. Birthday January, 3rd Monday \n\n" + 
+                            "- President's Day, February 3rd Monday\n\n- Memorial Day May, Last Monday\n\n" ),
+      Responses.genQuickReply("- Independence Day, July 4th\n\n- Labor Day September, 1st Monday\n\n- Columbus Day October, 2nd Monday\n\n"),
+      Responses.genQuickReply("- Veteran's Day, November\n\n- Thanksgiving Day, 4th Thursday of November\n\n- Day after Thanksgiving, 4th Friday of November\n\n"),
+      Responses.genQuickReply("- Christmas Eve, December 24th\n\n- Christmas December, 25th\n\n- New Year’s Eve, December 31st , half-day\n\n"),
       Responses.genQuickReply("You can apply for a leave at any time just by saying “Apply for a leave from 30 March to 30 April”!",
         [
           {
@@ -429,6 +435,110 @@ class Replies {
     "VIEW_SCHEDULE": Responses.genTextReply("Ok, Here's your schedule"),
     "VIEW_TRIPS": Responses.genTextReply("OHNO ABRAR HASNT WRITTEN YET.")
   };
+
+  static policy = {
+    "MISSION" : [
+      Responses.genTextReply("Provide safe, reliable energy with excellent customer service at the lowest reasonable" +
+      " cost.")
+    ],
+    "VISION" : [
+      Responses.genTextReply("Enrich our customers’ lives by providing energy services in a safe, reliable," +
+        " affordable, sustainable manner while exploring new avenues to benefit our" + 
+        " community."),
+    ],
+    "HARASSMENT" : [
+      Responses.genTextReply("KEYS will not tolerate any form of harassment of employees by anyone including" +
+      " Supervisors,"),
+      Responses.genTextReply("Department Directors, Managers, other employees, or customers."),
+      Responses.genTextReply("KEYS is committed to providing a workplace free of sexual harassment as well as" +
+      " harassment based upon such factors as race, color, religion, sex, national origin "),
+      Responses.genTextReply("ancestry, age, medical condition, sexual orientation, gender identity or expression," +
+      " marital status, disability, "),
+      Responses.genTextReply("or veteran status. KEYS strongly disapproves of, and will not" +
+      " tolerate, harassment of employees by Supervisors, Department Directors, Managers, or" + 
+      " co-workers."),
+      Responses.genTextReply("KEYS will also attempt to protect employees from harassment by non-" + 
+      " employees in the workplace."),
+    ],
+    "TRAINING_COURSES" : [
+      Responses.genTextReply("All employees will follow KEYS’ Travel Policy and Procedures for the payment and/or" +
+      " reimbursement "),
+      Responses.genTextReply("of expenses as it relates to attending external seminars, workshops and" +
+      " training courses."),
+      Responses.genTextReply("Employees who are required to attend any work-related seminar," +
+      " training session, workshop, etc. "),
+      Responses.genTextReply("must receive prior written approval from their" + 
+      " Department Director, who will inform the "),
+      Responses.genTextReply("Human Resources Supervisor if an employee"+ 
+      " must leave before the program is over."),
+    ],
+    "ETHICS" : [
+      Responses.genTextReply("The Utility Board of the City of Key West d/b/a Keys Energy Services (KEYS) has" + 
+      " adopted "),
+      Responses.genTextReply("a Code of Ethics for its employees. This Code of Ethics is substantially similar to" +
+      " the Code of Ethics adopted by "),
+      Responses.genTextReply("the State of Florida for state, county, and city elected" +
+      "officials, officers and employees."),
+    ],
+    "CUSTOMER_RELATIONS" : [
+      Responses.genTextReply("Each employee is a KEYS representative. Whether dealing in person, on the telephone," +
+      " or by mail (electronic or via USPS) "),
+      Responses.genTextReply("the customers’ and the public’s impression of KEYS is" +
+      " the impression given by each employee interaction."),
+      Responses.genTextReply("As a KEYS representative, an"+
+      " employee should be courteous and maintain a business-like manner "),
+      Responses.genTextReply("whenever dealing" + 
+      " with customers, the public, or fellow employees."),
+    ],
+    "UNIFORMS" : [
+      Responses.genTextReply("Personal appearance is a powerful business tool. A neat professional appearance is a" +
+      " requirement."),
+      Responses.genTextReply("It is expected that all employees will exercise good judgment and dress" + 
+      " appropriately for their jobs and not constitute a safety hazard."),
+      Responses.genTextReply("Interpretation of this code will be left up to the Department Director."),
+    ],
+    "REHABILITATION" : [
+      Responses.genTextReply("Any employee who has a drug or alcohol dependency problem who voluntarily," +
+      " before an incident occurs that results in a drug "),
+      Responses.genTextReply("and/or alcohol test, brings it to" + 
+      " the attention of his/her Supervisor, Department Director or the Director of HR & Communications, may be allowed to enter and"),
+      Responses.genTextReply(" complete an appropriate  rehabilitation program approved by KEYS at the employee's own expense."),
+    ],
+    "PARKING" : [
+      Responses.genTextReply("KEYS provides parking for its employees and assigns parking spaces to all employees" +
+      " working in its Service Building."),
+      Responses.genTextReply("If a KEYS employee parking lot is full, employees must find alternate parking at their own expense."),
+      Responses.genTextReply("Employees may not park on any KEYS property unless designated for employee parking employees as needed."),
+    ],
+    "DISCRIMINATION" : [
+      Responses.genTextReply("KEYS will post all notices required by state, federal or local law relating to discrimination." +
+      "Exceptions that apply to many federal"),
+      Responses.genTextReply(" and state discrimination laws include those for bona fide occupational qualifications, bona fide seniority" +
+      " systems, employee benefit"),
+      Responses.genTextReply(" plans, or merit systems (provided that these differences are not a result of an intention to unlawfully discriminate)."),
+    ],
+    "MEDICAL" : [
+      Responses.genTextReply("It is the policy of KEYS to grant up to 12 weeks of family and medical leave during any" +
+      " 12-month period to eligible employees, in accordance with the Family and Medical Leave"),
+      Responses.genTextReply("Act of 1993 (FMLA) and amendments thereof, and up to 26 weeks of leave in any 12-month period in compliance" + 
+      " with the expansion of FMLA under The Support for Injured Servicemembers Act of 2007."),
+    ],
+    "LEAVE" : [
+      Responses.genTextReply("An employee requesting FMLA leave must complete an \“Application for Family and Medical Leave Request Form\”" + 
+      " from the Human Resources office."),
+      Responses.genTextReply("The completed application must state the reason for the leave, the expected/requested" + 
+      " duration of the leave, and the starting and expected ending dates of the leave."),
+      Responses.genTextReply("Following receipt of a leave request, KEYS will notify an employee about whether the requested leave" + 
+      " has been approved and the terms for the leave on an \“Employer Response to Employee Request for Family and Medical Leave\” form."),
+    ],
+    "TAX" : [
+      Responses.genTextReply("When a garnishment or tax levy is served on KEYS, the employee shall be contacted by the HR & Communications Office"),
+      Responses.genTextReply("or other individual to whom the responsibility has been delegated. The employee shall be asked to try to" + 
+      " make an arrangement with the creditor or tax agency KEYS"),
+      Responses.genTextReply(" is to make direct payments to satisfy the indebtedness. If an agreement is reached, the employee must" + 
+      " ask the creditor to issue a written release to KEYS."),
+    ]      
+  }
 
 }
 
