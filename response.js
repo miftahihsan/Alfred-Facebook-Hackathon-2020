@@ -88,13 +88,17 @@ class Response{
                     "type": "web_url",
                     "url": "https://nafiz6.github.io/bizbotteuxdeux/index.html?uid=" + uid+ "&path=" + JSON.stringify(reminder) + "&ind=" + ind,
                     "webview_height_ratio": "tall",
+                    "messenger_extensions": true,
+                    "fallback_url": "https://nafiz6.github.io/bizbotteuxdeux?uid=" + uid
                 },
                 "buttons":[
                     {
                         "type":"web_url",
                         "url":"https://nafiz6.github.io/bizbotteuxdeux/index.html?uid=" + uid + "&path=" + JSON.stringify(reminder) + "&ind=" + ind,
                         "title":"View Details",
-                        "webview_height_ratio": "tall"
+                        "webview_height_ratio": "tall",
+                        "messenger_extensions": true,
+                        "fallback_url": "https://nafiz6.github.io/bizbotteuxdeux?uid=" + uid
                     }
                 ]
             };
@@ -132,10 +136,12 @@ class Response{
                         "text":"Create a reminder!",
                         "buttons":[
                         {
+                            "messenger_extensions": true,
                             "type":"web_url",
                             "url": link,
                             "title":"Reminders",
-                            "webview_height_ratio": "tall"
+                            "webview_height_ratio": "tall",
+                            "fallback_url" : "https://nafiz6.github.io/bizbotteuxdeux"
                         }
                     ]
                 }
