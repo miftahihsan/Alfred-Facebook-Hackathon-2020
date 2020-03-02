@@ -155,8 +155,8 @@ class Replies {
     ];
 
     this.replies["LIVE"] = [
-      Responses.genTextReply("Your Chat has been connected to the Page Admin"),
-      Responses.genTextReply("Please wait for his reply"),
+      Responses.genTextReply("Your conversation has been handed over to the page Admin"),
+      Responses.genTextReply("Please be patient 🕐 and wait for them to attend to your queries"),
     ]
   }
 
