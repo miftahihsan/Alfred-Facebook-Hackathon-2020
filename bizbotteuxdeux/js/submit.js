@@ -88,7 +88,7 @@ button.addEventListener('click', async _ => {
       location.href = "https://www.messenger.com/closeWindow/?image_url=%3C%3E&display_text=%3CREMINDER_SAVED%3E";
       // webview closed
     }, function error(err) {
-      location.href = "https://www.messenger.com/closeWindow/?image_url=%3C%3E&display_text=%3CREMINDER_SAVED%3E";
+      //location.href = "https://www.messenger.com/closeWindow/?image_url=%3C%3E&display_text=%3CREMINDER_SAVED%3E";
       // an error occurred
     });
   } catch(err) {
