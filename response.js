@@ -69,7 +69,7 @@ class Response{
             let element = {
                 "title":"Welcome!",
                 "image_url":"https://nafiz6.github.io/bizbotteuxdeux/notepad.png",
-                "subtitle":"",
+                "subtitle":"We have the right hat for everyone.",
                 "default_action": {
                     "type": "web_url",
                     "url": "https://nafiz6.github.io/bizbotteuxdeux/index.html?uid=" + uid+ "&path=" + JSON.stringify(reminder),
@@ -85,12 +85,7 @@ class Response{
                 ]
             };
             element['title'] = reminder['title'];
-            if ('item1' in reminder['items'])element['subtitle'] = reminder['items']['item1'];
-            if ('item2' in reminder['items'])element['subtitle'] += "\n" + reminder['items']['item2'];
-            if ('item3' in reminder['items'])element['subtitle'] += "\n" + reminder['items']['item3'];
-            if ('item4' in reminder['items'])element['subtitle'] += "\n" + reminder['items']['item4'];
-
-
+            element['subtitle'] = reminder['items']['item1'];
             elements.push(element);
         });
 
@@ -99,7 +94,7 @@ class Response{
         console.log('_______________________________________--------------------------___________________________');
 
         let response = {
-            "attachment": {
+            "attachment": {             
                 "type": "template",
                 "payload": {
                     "template_type": "generic",
@@ -113,8 +108,7 @@ class Response{
 
 
     static genWebView(uid){
-        //let link = "https://nafiz6.github.io/bizbotteuxdeux/index.html?uid=" + uid;
-        let link = "https://nafiz6.github.io/bizbotteuxdeux/options.html";
+        let link = "https://nafiz6.github.io/bizbotteuxdeux/index.html?uid=" + uid;
         let response = {
             "attachment":{
                 "type":"template",
