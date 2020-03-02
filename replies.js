@@ -463,7 +463,24 @@ class Replies {
           payload: "VIEW_TRIPS"
         }
       ]),
-    "NEW_REMINDER": Responses.genWebView(this.uid),
+    "NEW_REMINDER": [
+      Responses.genWebView(this.uid),
+      Responses.genQuickReply(
+        "Or manage other reminders",
+        [
+          {
+            title: "Make a new Reminder 🗒",
+            payload: "NEW_REMINDER"
+          },
+          {
+            title: "View Schedule 📆",
+            payload: "VIEW_SCHEDULE"
+          },
+          {
+            title: "View Trips ✈",
+            payload: "VIEW_TRIPS"
+          }
+        ])],
     "VIEW_SCHEDULE": Responses.genTextReply("Ok, Here's your schedule"),
     "VIEW_TRIPS": Responses.genTextReply("OHNO ABRAR HASNT WRITTEN YET.")
   };
