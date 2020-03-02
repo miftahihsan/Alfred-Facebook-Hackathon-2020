@@ -52,10 +52,16 @@ class Replies {
           {
             title: "Live Chat",
             payload: "LIVE"
+          },
+          {
+            title: "I'm bored! 🙍‍♂️",
+            payload: "BORED"
           }
         ]
       )
     ];
+
+    // this.replies[]
 
     this.replies["HOLIDAYS"] = [
       Responses.genTextReply("You have " + this.userData.Item['sick_leave'] + " sick days and " + this.userData.Item['holiday_left'] +
