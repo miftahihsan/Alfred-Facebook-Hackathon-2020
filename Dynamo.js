@@ -149,28 +149,45 @@ function updateUserState(user_id, table_name,state){
 }
 
 function updateReminder(user_id, table_name, data){
-    var params = {
-        TableName:table_name,
-        Key:{
-            "uid" : user_id
-        },
-        UpdateExpression: "set reminders = list_append(if_not_exists(reminders, :empty_list), :s)",
-        ExpressionAttributeValues:{
-            ":s": [data],
-          ':empty_list': []
+    let params;
+    let ind=data['ind']+"";
+    delete data.ind;
+  params = {
+    TableName: table_name,
+    Key: {
+      "uid": user_id
+    },
+    UpdateExpression: "set reminders = list_append(if_not_exists(reminders, :empty_list), :s)",
+    ExpressionAttributeValues: {
+      ":s": [data],
+      ':empty_list': []
 
-        },
-        ReturnValues:"UPDATED_NEW"
-    };
+    },
+    ReturnValues: "UPDATED_NEW"
+  };
+    if (ind==="-1") {
+      console.log("updating old");
+    }
+    else{
+      console.log("updating new");
+      params.UpdateExpression = "set reminders[" + ind + "] = :s";
+      params.ExpressionAttributeValues = {
+        ":s" : data
+      };
 
-    console.log("Updating the item...");
+    }
+
+
     docClient.update(params, function(err, data) {
-        if (err) {
-            console.error("Unable to update item. Error JSON:", JSON.stringify(err, null, 2));
-        } else {
-            console.log("UpdateItem succeeded:", JSON.stringify(data, null, 2));
-        }
+      if (err) {
+        console.error("Unable to update item. Error JSON:", JSON.stringify(err, null, 2));
+      } else {
+        console.log("UpdateItem succeeded:", JSON.stringify(data, null, 2));
+      }
     });
+
+
+
 
 }
 

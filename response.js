@@ -65,6 +65,7 @@ class Response{
         let elements = [
 
         ];
+        let ind=0;
         reminders.forEach(reminder=>{
             let element = {
                 "title":"Welcome!",
@@ -72,13 +73,13 @@ class Response{
                 "subtitle":"We have the right hat for everyone.",
                 "default_action": {
                     "type": "web_url",
-                    "url": "https://nafiz6.github.io/bizbotteuxdeux/index.html?uid=" + uid+ "&path=" + JSON.stringify(reminder),
+                    "url": "https://nafiz6.github.io/bizbotteuxdeux/index.html?uid=" + uid+ "&path=" + JSON.stringify(reminder) + "&ind=" + ind,
                     "webview_height_ratio": "tall",
                 },
                 "buttons":[
                     {
                         "type":"web_url",
-                        "url":"https://nafiz6.github.io/bizbotteuxdeux/index.html?uid=" + uid + "&path=" + JSON.stringify(reminder),
+                        "url":"https://nafiz6.github.io/bizbotteuxdeux/index.html?uid=" + uid + "&path=" + JSON.stringify(reminder) + "&ind=" + ind,
                         "title":"View Details",
                         "webview_height_ratio": "tall"
                     }
@@ -87,6 +88,7 @@ class Response{
             element['title'] = reminder['title'];
             element['subtitle'] = reminder['items']['item1'];
             elements.push(element);
+            ind++;
         });
 
 
