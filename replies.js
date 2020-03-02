@@ -68,12 +68,20 @@ class Replies {
       )
     ];
 
+    this.replies["RAND_HAPPY_PICTURES"] = [
+      "https://lndnxprss.files.wordpress.com/2013/03/tumblr_mciwejzfqf1r14f5po1_500.jpg",
+      "https://www.nirapadnews.com/english/wp-content/uploads/2015/01/Happy-funny-smiley-monkey.png",
+      "https://data.whicdn.com/images/29999481/original.jpg",
+      "https://keyassets-p2.timeincuk.net/wp/prod/wp-content/uploads/sites/29/2015/01/iStock_000005542321_Medium.jpg",
+      "https://thumbs.dreamstime.com/b/happy-cat-closeup-portrait-funny-smile-cardboard-young-blue-background-102078702.jpg"
+    ]
+
     this.replies["RAND_FUNNY_GIFS"] = [
       "https://media.giphy.com/media/xUPGcxtF0XweuykLVS/giphy.gif",
       "https://1.bp.blogspot.com/-p2HQb1F5owk/WLojv1Q8lDI/AAAAAAANzGY/QFihFXDJ4Ocgq_85eKBA7ix4AekGqoC1QCLcB/s1600/AW386481_00.gif",
       "https://i.pinimg.com/originals/b5/0e/e4/b50ee4bc436cafccddf6c0b99b0add4e.gif",
       "https://media.giphy.com/media/37R3fbYQpWQ7m2WOsF/giphy.gif",
-      
+      "https://i.pinimg.com/originals/85/31/1f/85311f39e674454dfc7fc12fd6ce01d7.gif"
     ]
 
     this.replies["RAND_SUCCESS_QUOTES"] = [ 
@@ -87,9 +95,13 @@ class Replies {
     ]
 
     this.replies["BORED"] = [
+      Responses.genPictureReply( this.getRandId(this.replies['RAND_HAPPY_PICTURES']) ),
       Responses.genTextReply("Also, here’s something to get you going back up again!!"),
-      // Responses.genPictureReply( this.getRandId(this.replies['RAND_SUCCESS_QUOTES']) )
-      Responses.genPictureReply( "https://steamuserimages-a.akamaihd.net/ugc/933804400183708747/9B6121BEC51002C0F27902FFB1A1C7FAC5809FC5/" )
+      Responses.genPictureReply( this.getRandId(this.replies['RAND_FUNNY_GIFS']) ),
+      Responses.genTextReply("Studies suggest that the simple act of walking around in the office"),
+      Responses.genTextReply("and talking to other employees you might be close with can drastically improve moods and increase productivity! "),
+      Responses.genPictureReply( this.getRandId(this.replies['RAND_SUCCESS_QUOTES']) ),
+      // Responses.genPictureReply( "https://steamuserimages-a.akamaihd.net/ugc/933804400183708747/9B6121BEC51002C0F27902FFB1A1C7FAC5809FC5/" )
     ];
 
     this.replies["HOLIDAYS"] = [
