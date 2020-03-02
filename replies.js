@@ -17,29 +17,6 @@ class Replies {
        this.replies["VIEW_REMINDERS"] = Responses.genReminders(this.uid, userData.Item['reminders']);
     }
 
-    // this.replies['MENU_BUTTON'] = [
-    //   {
-    //     title: "HR question 🙋",
-    //     payload: "HR"
-    //   },
-    //   {
-    //     title: "Schedules 📅",
-    //     payload: "SCHEDULES"
-    //   },
-    //   {
-    //     title: "FAQ 📚",
-    //     payload: "FAQ"
-    //   },
-    //   {
-    //     title: "Report stats/info 👩‍💻",
-    //     payload: "REPORT_STATS"
-    //   },
-    //   {
-    //     title: "Live Chat",
-    //     payload: "LIVE"
-    //   }
-    // ]
-
     this.replies['HR_POLICIES'] = [
       Responses.genTextReply("You can say something like"),
       Responses.genTextReply("\“I’d like to read the sexual harassment guidelines\”"),
@@ -55,29 +32,28 @@ class Replies {
       Responses.genTextReply("- Know something from a specific company department, like finance, tech support, law etc..\n"),
       Responses.genQuickReply(
         "- Report stats/info to manager\n",
-        // [
-          this.replies['MENU_BUTTON']
-          // {
-          //   title: "HR question 🙋",
-          //   payload: "HR"
-          // },
-          // {
-          //   title: "Schedules 📅",
-          //   payload: "SCHEDULES"
-          // },
-          // {
-          //   title: "FAQ 📚",
-          //   payload: "FAQ"
-          // },
-          // {
-          //   title: "Report stats/info 👩‍💻",
-          //   payload: "REPORT_STATS"
-          // },
-          // {
-          //   title: "Live Chat",
-          //   payload: "LIVE"
-          // }
-        // ]
+        [
+          {
+            title: "HR question 🙋",
+            payload: "HR"
+          },
+          {
+            title: "Schedules 📅",
+            payload: "SCHEDULES"
+          },
+          {
+            title: "FAQ 📚",
+            payload: "FAQ"
+          },
+          {
+            title: "Report stats/info 👩‍💻",
+            payload: "REPORT_STATS"
+          },
+          {
+            title: "Live Chat",
+            payload: "LIVE"
+          }
+        ]
       )
     ];
 
@@ -201,7 +177,6 @@ class Replies {
       Responses.genTextReply("- Know something from a specific company department, like finance, tech support, law etc..\n"),
       Responses.genQuickReply(
         "- Report stats/info to manager\n",
-        // this.replies['MENU_BUTTON']
         [
           {
             title: "HR question 🙋",
