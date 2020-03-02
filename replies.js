@@ -502,21 +502,21 @@ class Replies {
         " community."),
     ],
     "HARASSMENT" : [
-      Responses.genTextReply("KEYS will not tolerate any form of harassment of employees by anyone including" +
+      Responses.genTextReply("We will not tolerate any form of harassment of employees by anyone including" +
       " Supervisors,"),
       Responses.genTextReply("Department Directors, Managers, other employees, or customers."),
-      Responses.genTextReply("KEYS is committed to providing a workplace free of sexual harassment as well as" +
+      Responses.genTextReply("We are committed to providing a workplace free of sexual harassment as well as" +
       " harassment based upon such factors as race, color, religion, sex, national origin "),
       Responses.genTextReply("ancestry, age, medical condition, sexual orientation, gender identity or expression," +
       " marital status, disability, "),
-      Responses.genTextReply("or veteran status. KEYS strongly disapproves of, and will not" +
+      Responses.genTextReply("or veteran status. we strongly disapproves of, and will not" +
       " tolerate, harassment of employees by Supervisors, Department Directors, Managers, or" + 
       " co-workers."),
-      Responses.genTextReply("KEYS will also attempt to protect employees from harassment by non-" + 
+      Responses.genTextReply("we will also attempt to protect employees from harassment by non-" + 
       " employees in the workplace."),
     ],
     "TRAINING_COURSES" : [
-      Responses.genTextReply("All employees will follow KEYS’ Travel Policy and Procedures for the payment and/or" +
+      Responses.genTextReply("All employees will follow us’ Travel Policy and Procedures for the payment and/or" +
       " reimbursement "),
       Responses.genTextReply("of expenses as it relates to attending external seminars, workshops and" +
       " training courses."),
@@ -528,7 +528,7 @@ class Replies {
       " must leave before the program is over."),
     ],
     "ETHICS" : [
-      Responses.genTextReply("The Utility Board of the City of Key West d/b/a Keys Energy Services (KEYS) has" + 
+      Responses.genTextReply("The Utility Board of the City of Key West d/b/a our Energy Services has" + 
       " adopted "),
       Responses.genTextReply("a Code of Ethics for its employees. This Code of Ethics is substantially similar to" +
       " the Code of Ethics adopted by "),
@@ -536,11 +536,11 @@ class Replies {
       "officials, officers and employees."),
     ],
     "CUSTOMER_RELATIONS" : [
-      Responses.genTextReply("Each employee is a KEYS representative. Whether dealing in person, on the telephone," +
+      Responses.genTextReply("Each employee is our representative. Whether dealing in person, on the telephone," +
       " or by mail (electronic or via USPS) "),
-      Responses.genTextReply("the customers’ and the public’s impression of KEYS is" +
+      Responses.genTextReply("the customers’ and the public’s impression of us is" +
       " the impression given by each employee interaction."),
-      Responses.genTextReply("As a KEYS representative, an"+
+      Responses.genTextReply("As our representative, an"+
       " employee should be courteous and maintain a business-like manner "),
       Responses.genTextReply("whenever dealing" + 
       " with customers, the public, or fellow employees."),
@@ -557,23 +557,23 @@ class Replies {
       " before an incident occurs that results in a drug "),
       Responses.genTextReply("and/or alcohol test, brings it to" + 
       " the attention of his/her Supervisor, Department Director or the Director of HR & Communications, may be allowed to enter and"),
-      Responses.genTextReply(" complete an appropriate  rehabilitation program approved by KEYS at the employee's own expense."),
+      Responses.genTextReply(" complete an appropriate  rehabilitation program approved by us at the employee's own expense."),
     ],
     "PARKING" : [
-      Responses.genTextReply("KEYS provides parking for its employees and assigns parking spaces to all employees" +
+      Responses.genTextReply("We provides parking for its employees and assigns parking spaces to all employees" +
       " working in its Service Building."),
-      Responses.genTextReply("If a KEYS employee parking lot is full, employees must find alternate parking at their own expense."),
-      Responses.genTextReply("Employees may not park on any KEYS property unless designated for employee parking employees as needed."),
+      Responses.genTextReply("If our employee parking lot is full, employees must find alternate parking at their own expense."),
+      Responses.genTextReply("Employees may not park on any of our property unless designated for employee parking employees as needed."),
     ],
     "DISCRIMINATION" : [
-      Responses.genTextReply("KEYS will post all notices required by state, federal or local law relating to discrimination." +
+      Responses.genTextReply("We will post all notices required by state, federal or local law relating to discrimination." +
       "Exceptions that apply to many federal"),
       Responses.genTextReply(" and state discrimination laws include those for bona fide occupational qualifications, bona fide seniority" +
       " systems, employee benefit"),
       Responses.genTextReply(" plans, or merit systems (provided that these differences are not a result of an intention to unlawfully discriminate)."),
     ],
     "MEDICAL" : [
-      Responses.genTextReply("It is the policy of KEYS to grant up to 12 weeks of family and medical leave during any" +
+      Responses.genTextReply("It is the policy of ours to grant up to 12 weeks of family and medical leave during any" +
       " 12-month period to eligible employees, in accordance with the Family and Medical Leave"),
       Responses.genTextReply("Act of 1993 (FMLA) and amendments thereof, and up to 26 weeks of leave in any 12-month period in compliance" + 
       " with the expansion of FMLA under The Support for Injured Servicemembers Act of 2007."),
@@ -583,16 +583,84 @@ class Replies {
       " from the Human Resources office."),
       Responses.genTextReply("The completed application must state the reason for the leave, the expected/requested" + 
       " duration of the leave, and the starting and expected ending dates of the leave."),
-      Responses.genTextReply("Following receipt of a leave request, KEYS will notify an employee about whether the requested leave" + 
+      Responses.genTextReply("Following receipt of a leave request, we will notify an employee about whether the requested leave" + 
       " has been approved and the terms for the leave on an \“Employer Response to Employee Request for Family and Medical Leave\” form."),
     ],
     "TAX" : [
-      Responses.genTextReply("When a garnishment or tax levy is served on KEYS, the employee shall be contacted by the HR & Communications Office"),
+      Responses.genTextReply("When a garnishment or tax levy is served on us, the employee shall be contacted by the HR & Communications Office"),
       Responses.genTextReply("or other individual to whom the responsibility has been delegated. The employee shall be asked to try to" + 
-      " make an arrangement with the creditor or tax agency KEYS"),
+      " make an arrangement with the creditor or tax agency"),
       Responses.genTextReply(" is to make direct payments to satisfy the indebtedness. If an agreement is reached, the employee must" + 
-      " ask the creditor to issue a written release to KEYS."),
-    ]      
+      " ask the creditor to issue a written release to us."),
+    ],
+    "PAY" : [
+      Responses.genTextReply("Advance payment of earned wages or salaries may be made in an emergency or" +
+              " when an employee's regular payday falls within his or her vacation period or leave of absence."),
+      Responses.genTextReply("Except in cases of emergency, requests for advance payment of wages or salaries must be made at" +
+      " least two weeks in advance. Such requests must be initiated by the Supervisor."),
+      Responses.genTextReply("Employees will be paid by direct deposit to the financial institution(s) of their choice."),
+      Responses.genTextReply("A paycheck will only be issued in cases of pending direct deposit pre-note, resulting from" + 
+      " initial direct deposit set up or subsequent bank/deposit account change."),
+      Responses.genTextReply("Paychecks that employees do not claim within two (2) weeks of the date of issue must be returned to the payroll section."),
+      Responses.genTextReply("Employees should report checks lost or otherwise missing to the payroll section" + 
+            " immediately so a stop-payment order may be initiated."),
+      Responses.genTextReply("The Accounting & Analysis Supervisor will determine when and if a new check should be issued to replace a" +
+            " lost or missing check."),
+      Responses.genTextReply("Employees will cash paychecks on their personal time"),
+      Responses.genTextReply("Payday is every other Friday (bi-weekly) unless otherwise specified by Management."),
+    ],
+    "PRIVACY" : [
+      Responses.genTextReply("we respect the privacy of its employees; however, as a public entity, we must comply with Florida's Public Records Law."),
+      Responses.genTextReply("If a request is made for information from an employee’s personnel file, we must comply; however,"),
+      Responses.genTextReply("if time permits, Human Resources will attempt to contact the employee to advise them of said request."),
+    ],
+    "SMOKING" : [
+      Responses.genTextReply("We have a non-smoking, nicotine/tobacco-free campus. No smoking or nicotine/tobacco products are allowed on our’" +
+      " properties, or in its buildings or vehicles."),
+      Responses.genTextReply("Nicotine/tobacco products include cigarettes, cigars, e-cigarettes, vaporizers, chewing tobacco, snuff," + 
+      " and any other similar products."),
+      Responses.genTextReply("Smoking is not permitted in any public building."),
+    ],
+    "PERFORMANCE" : [
+      Responses.genTextReply("Positive Performance Coaching steps will always be used when trying to correct a performance problem."),
+      Responses.genTextReply("However, employees who do not correct their deficiencies after being counseled may be disciplined up" + 
+      " to and including termination for poor job performance"),
+    ],
+    "MISCONDUCT" : [
+      Responses.genTextReply("Employees may be disciplined up to and including termination for misconduct"),
+    ],
+    "ATTENDANCE" : [
+      Responses.genTextReply("In addition to the rules stated above, employees may be disciplined up to and including termination for" + 
+      " failing to observe the companies policies"),
+    ],
+     "SUSPENSION:" : [
+      Responses.genTextReply("An employee may be suspended with or without pay as a disciplinary action. Following" +
+                            " an Administrative Review Hearing the General Manager & CEO"),
+      Responses.genTextReply("will take into consideration any recommendations made by Supervisors, Directors and/or the Director of HR & Communications"),
+      Responses.genTextReply(" as well as taking into consideration the employees personnel records, including past disciplinary actions."),
+      Responses.genTextReply("Depending on the seriousness of the reason(s), an employee can be suspended with or without pay until" +
+                            " the Administrative Review hearing is held and the outcome is determined."),
+    ],
+    "TERMINATION" : [
+      Responses.genTextReply("We will consider an employee to have voluntarily terminated his or her employment if an employee fails to follow the" + 
+      " companies policies"),
+    ],  
+    "TRAVEL" : [
+      Responses.genTextReply("The most current travel policy can be located in each department by seeing the Department Staff"),
+      Responses.genTextReply(" Assistant and/or the HR & Communications Office. Any employee traveling on our business must follow our Travel Policy"),
+    ],
+    "COMPENSATION" : [
+      Responses.genTextReply("All employees of ours are covered by Workers’ Compensation Insurance in the event of injuries or accidents while at work."),
+      Responses.genTextReply("This insurance provides for compensation for medical expenses and for a percentage of wages lost due to accidents or illnesses" +
+      " occurring while you are on the job."),
+    ],
+    "VIOLENCE" : [
+      Responses.genTextReply("Our policy is to strive to maintain a work environment free from intimidation, threats, or violent acts."),
+      Responses.genTextReply("This includes, but is not limited to, intimidating, threatening or hostile behaviors, physical abuse, vandalism," + 
+                " arson, sabotage, use of weapons,"),
+      Responses.genTextReply(" carrying weapons onto our property, or any other act, which, in Management’s opinion, is inappropriate to the workplace."),
+      Responses.genTextReply("In addition, offensive comments regarding violent events and/or behavior are not tolerated."),
+    ]     
   };
 
 }
