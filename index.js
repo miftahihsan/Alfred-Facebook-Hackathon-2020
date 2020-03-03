@@ -250,7 +250,7 @@ function handleMessage(sender_psid, received_message, user_name) {
   if (received_message.quick_reply){       //Button replies
     handleQuickReplies(sender_psid, received_message.quick_reply);
 
-    if( received_message.quick_reply == "ANNOUNCEMENT" ){
+    if( received_message.quick_reply.payload === "ANNOUNCEMENT" ){
       DynamoDB.getIdColumn()
       .then(res => {
         console.log("Announcement !!!!");
