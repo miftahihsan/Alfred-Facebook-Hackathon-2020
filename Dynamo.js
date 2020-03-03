@@ -91,6 +91,7 @@ async function getIdColumn(){
     ExpressionAttributeNames: {
      "#AT": "uid"
     },
+    ProjectionExpression: "#AT",
     TableName: "Employee"
    };
    
