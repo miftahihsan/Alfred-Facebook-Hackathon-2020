@@ -44,7 +44,7 @@ app.use(function(req, res, next) {
 
 app.post('/userList', (req, res) => {
   let body = req.body;
-  console.log("here!-----------------------------------------------------------");
+  console.log("here!---------inside--UserList---------------------------------------------");
   console.log( body );
   if (body.uid!==null && body.title!=='') {
     let data ={};
@@ -63,6 +63,7 @@ app.post('/userList', (req, res) => {
     else{
       responses = responses.push(reply);
     }
+    console.log(body.uid);
     console.log(responses);
     sendMessage(body.uid, responses);
 
