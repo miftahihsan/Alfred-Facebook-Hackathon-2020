@@ -255,6 +255,18 @@ function handleMessage(sender_psid, received_message, user_name) {
       .then(res => {
         console.log("Announcement !!!!");
         console.log(res.Items[0].uid);
+        let c = res.Count;
+        for (let i=0;i< c;i++){
+          if (res.Items[i].uid.S===sender_psid)continue;
+          sendMessage(res.Items[i].uid.S, Response.genTextReply("A meeting has been scheduled by " + userData['name']) );
+        }
+
+
+
+
+
+
+
       })
       .catch(err => {
         console.log("Announcement ERROR !!!!");
