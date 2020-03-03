@@ -18,6 +18,10 @@ class Replies {
     return list[id];
   }
 
+  static getRandMsg(list){
+    return Math.floor( Math.random() * list.length );
+  }
+
   static setUserData(userData){
     this.userData = userData;
     if ('reminders' in userData.Item){
@@ -91,6 +95,29 @@ class Replies {
       )
     ];
 
+    this.replies["RAND_OFFICE_FACTS"] = [
+      "Tuesday is the most productive day of the week.",
+      "Listening to the right music while working helps people get things done faster.",
+      "Adults who regularly get 7.5 to 9 hours of sleep per night are up to 20% more productive.",
+      "Drinking sufficient amount of water/liquid can increase your daily productivity by 14%.",
+      "Workers spend more than 25% of their day in reading and answering emails. If they check emails at set points in the day," + 
+      " it will increase their productivity.",
+      "Laughter boosts your immune system by enhancing your antibodies (which help fight infections) and increasing your immune cell" +
+      " count. This helps reduce your chances of illness and missing out on work.",
+      "Organizations with high employee engagement outperform those with low employee engagement by 202%.",
+      "70% of employees say that motivation and morale would improve massively with managers saying thank you more.",
+      "Worried that office humour will lead to distraction? Studies show increased humour in the workplace does not detract from people’s" + 
+      " productivity or their ability to complete tasks that require concentration.",
+      "Highly engaged business teams result in 21% greater profitability. ",
+      "Monday is the most common sick day. Except in Australia, apparently, where the most common sick day is Tuesday.",
+      "In the mid 2000s, the Netherlands became the first industrialized country to drop its work week hours to below 30 hours.",
+      "The average office chair with wheels travels about 12.5km per year.",
+      "61% of employees are more productive when the dress code is relaxed.",
+      "68% of Australian businesses have embraced activity-based working within their workplaces.",
+      "Laughter increases blood flow by 22 percent and stress decreases blood flow by 35 percent.",
+      "A glimpse of green makes people more creative."
+    ]
+
     this.replies["RAND_HAPPY_PICTURES"] = [
       "https://lndnxprss.files.wordpress.com/2013/03/tumblr_mciwejzfqf1r14f5po1_500.jpg",
       "https://www.nirapadnews.com/english/wp-content/uploads/2015/01/Happy-funny-smiley-monkey.png",
@@ -121,8 +148,7 @@ class Replies {
       Responses.genPictureReply( this.getRandId(this.replies['RAND_HAPPY_PICTURES']) ),
       Responses.genTextReply("Also, here’s something to get you going back up again!!"),
       Responses.genPictureReply( this.getRandId(this.replies['RAND_FUNNY_GIFS']) ),
-      Responses.genTextReply("Studies suggest that the simple act of walking around in the office" + 
-                              "and talking to other employees you might be close with can drastically improve moods and increase productivity!"),
+      Responses.genTextReply( getRandMsg(this.replies['RAND_OFFICE_FACTS']) ),
       Responses.genPictureReply( this.getRandId(this.replies['RAND_SUCCESS_QUOTES']) ),
     ];
 
