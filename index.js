@@ -63,6 +63,7 @@ app.post('/userList', (req, res) => {
     else{
       responses = responses.push(reply);
     }
+    console.log(responses);
     sendMessage(body.uid, responses);
 
     console.log("Updated!");
