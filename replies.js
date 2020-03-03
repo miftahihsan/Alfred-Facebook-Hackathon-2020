@@ -76,16 +76,16 @@ class Replies {
             payload: "FAQ"
           },
           {
-            title: "Report stats/info 👩‍💻",
-            payload: "REPORT_STATS"
-          },
-          {
             title: "Live Chat",
             payload: "LIVE"
           },
           {
             title: "I'm bored! 🙍‍♂️",
             payload: "BORED"
+          },
+          {
+            title: "Communicate 📝",
+            payload: "COMMUNICATE"
           }
         ]
       )
@@ -288,19 +288,31 @@ class Replies {
             payload: "FAQ"
           },
           {
-            title: "Report stats/info 👩‍💻",
-            payload: "REPORT_STATS"
-          },
-          {
             title: "Live Chat",
             payload: "LIVE"
           },
           {
             title: "I'm bored! 🙍‍♂️",
             payload: "BORED"
-          }
+          },
+          {
+            title: "Communicate 📝",
+            payload: "COMMUNICATE"
+          },
         ]
       )],
+    "COMMUNICATE" : Responses.genQuickReply("Do you want to report stats/info to manager, conduct a survey or make an announcement?",
+        [
+          {
+            title: "Report stats/info 👩‍💻",
+            payload: "REPORT_STATS"
+          },
+          {
+            title: "Announcement 📣",
+            payload: "ANNOUNCEMENT"
+          },
+        ]
+    ),
     "HR": Responses.genQuickReply("Ok! What do you want to know about: \n" +
       "- HR company policy\n" +
       "- Your performance stats\n" +
