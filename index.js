@@ -253,10 +253,12 @@ function handleMessage(sender_psid, received_message, user_name) {
     if( received_message.quick_reply == "ANNOUNCEMENT" ){
       DynamoDB.getIdColumn()
       .then(res => {
-        console.log("Announcement !!!!", data);
+        console.log("Announcement !!!!");
+        console.log(res);
       })
       .catch(err => {
-        console.log("Announcement ERROR !!!!", err);
+        console.log("Announcement ERROR !!!!");
+        console.log(err);
       });
     }
 
