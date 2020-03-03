@@ -18,10 +18,6 @@ class Replies {
     return list[id];
   }
 
-  static getRandMsg(list){
-    return Math.floor( Math.random() * list.length );
-  }
-
   static setUserData(userData){
     this.userData = userData;
     if ('reminders' in userData.Item){
@@ -148,7 +144,7 @@ class Replies {
       Responses.genPictureReply( this.getRandId(this.replies['RAND_HAPPY_PICTURES']) ),
       Responses.genTextReply("Also, here’s something to get you going back up again!!"),
       Responses.genPictureReply( this.getRandId(this.replies['RAND_FUNNY_GIFS']) ),
-      Responses.genTextReply( getRandMsg(this.replies['RAND_OFFICE_FACTS']) ),
+      Responses.genTextReply( this.getRandId(this.replies['RAND_OFFICE_FACTS']) ),
       Responses.genPictureReply( this.getRandId(this.replies['RAND_SUCCESS_QUOTES']) ),
     ];
 
