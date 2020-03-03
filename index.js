@@ -254,7 +254,7 @@ function handleMessage(sender_psid, received_message, user_name) {
       DynamoDB.getIdColumn()
       .then(res => {
         console.log("Announcement !!!!");
-        console.log(res);
+        console.log(res.Items[0].uid);
       })
       .catch(err => {
         console.log("Announcement ERROR !!!!");
