@@ -182,7 +182,7 @@ app.post('/webhook', (req, res) => {
               handleMessage(sender_psid, webhook_event.message);
             } else if (webhook_event.postback) {
               console.log("INSIDE event.postbacl HERE --------------------------+++++++++++++++++++++++++++++++++++++++-----------------------------------------------");
-              handlePostback(sender_psid, webhook_event.postback);
+              handlePostback(sender_psid, webhook_event.postback, user_name['name']);
             }else{
               sendMessage(sender_psid, Replies.replies["WELCOME_BACK"] );
             }
@@ -349,13 +349,42 @@ function giveAdminAccess( sender_psid ){
 
 
 // Handles messaging_postbacks events
-function handlePostback(sender_psid, received_postback) {
+function handlePostback(sender_psid, received_postback, user_name) {
+
   // Get the payload for the postback
   let payload = received_postback.payload;
+
+
+  // THIS IS WHERE THE CODE OF MEETING WILL RUN
+  
+  /* 
+    0 -> MEETING,
+    1 -> SENDER_ID,
+    2 -> YES,NO,
+    3 -> NAME OF THE PEROSN WHO SET UP THE MEETING
+  */
+  if( payload.includes('_') ){
+    var arr = payload.split('_');
+    if( arr.length == 4 && arr[0] == 'MEETING' ){
+      let response;
+      if( arr[2] == "YES" ){
+        response = {'text' : user_name + " wanted to let you know that he will be able to attend the meeting."}
+      }
+      else{
+        response = {'text' : user_name + " wanted to let you know that he will not be able to attend the meeting." }
+      }
+
+      callSendAPI(arr[1], response);
+      return;
+    }
+  }
+
+
   userData['state'] = payload;
   let response = Replies.replies[userData['state']];
   sendMessage(sender_psid, response);
 
+ 
 }
 
 // new function
