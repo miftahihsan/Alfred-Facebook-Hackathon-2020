@@ -179,10 +179,10 @@ app.post('/webhook', (req, res) => {
             userData['uid'] = sender_psid;
             if (webhook_event.message) {
               console.log("INSIDE messeging HERE --------------------------+++++++++++++++++++++++++++++++++++++++-----------------------------------------------");
-              handleMessage(sender_psid, webhook_event.message);
+              handleMessage(sender_psid, webhook_event.message, user_name);
             } else if (webhook_event.postback) {
               console.log("INSIDE event.postbacl HERE --------------------------+++++++++++++++++++++++++++++++++++++++-----------------------------------------------");
-              handlePostback(sender_psid, webhook_event.postback, user_name['name']);
+              handlePostback(sender_psid, webhook_event.postback, user_name);
             }else{
               sendMessage(sender_psid, Replies.replies["WELCOME_BACK"] );
             }
@@ -241,13 +241,24 @@ app.get('/webhook', (req, res) => {
 // Check Documentation for sending and detecting attachment
 
 // Handles messages events
-function handleMessage(sender_psid, received_message) {
+function handleMessage(sender_psid, received_message, user_name) {
   let response;
 
   // Checks if the message contains text
 
   if (received_message.quick_reply){       //Button replies
     handleQuickReplies(sender_psid, received_message.quick_reply);
+
+    if( received_message.quick_reply == "ANNOUNCEMENT" ){
+      DynamoDB.getIdColumn()
+      .then(res => {
+        console.log("Announcement !!!!", data);
+      })
+      .catch(err => {
+        console.log("Announcement ERROR !!!!", err);
+      });
+    }
+
   }
   else if (received_message.text) {
 
@@ -368,10 +379,10 @@ function handlePostback(sender_psid, received_postback, user_name) {
     if( arr.length == 4 && arr[0] == 'MEETING' ){
       let response;
       if( arr[2] == "YES" ){
-        response = {'text' : user_name + " wanted to let you know that he will be able to attend the meeting."}
+        response = {'text' : user_name['name'] + " wanted to let you know that he will be able to attend the meeting."}
       }
       else{
-        response = {'text' : user_name + " wanted to let you know that he will not be able to attend the meeting." }
+        response = {'text' : user_name['name'] + " wanted to let you know that he will not be able to attend the meeting." }
       }
 
       callSendAPI(arr[1], response);

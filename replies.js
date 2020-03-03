@@ -51,7 +51,11 @@ class Replies {
       Responses.genTextReply("You can say something like"),
       Responses.genTextReply("\“I’d like to read the sexual harassment guidelines\”"),
       Responses.genTextReply("and I’ll search the HR handbook and get the relevant information to you!")
-    ]
+    ];
+
+    this.replies['ANNOUNCEMENT'] = [
+      Responses.genTextReply("We have delivered a message to every one that you called for a meeting"),
+    ];
 
     this.replies["INITIATE"] = [Responses.genTextReply("Hi "+userData['name']+" ! "),
       Responses.genTextReply("I am an advanced bot designed to be your personal assistant here in the offices of Dunder Mifflin."),
@@ -112,7 +116,7 @@ class Replies {
       "68% of Australian businesses have embraced activity-based working within their workplaces.",
       "Laughter increases blood flow by 22 percent and stress decreases blood flow by 35 percent.",
       "A glimpse of green makes people more creative."
-    ]
+    ];
 
     this.replies["RAND_HAPPY_PICTURES"] = [
       "https://lndnxprss.files.wordpress.com/2013/03/tumblr_mciwejzfqf1r14f5po1_500.jpg",

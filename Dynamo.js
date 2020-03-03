@@ -85,6 +85,30 @@ function insert(emp_id, table_name){
 
 }
 
+// Adding new function for meeting
+async function getIdColumn(){
+  var params = {
+    ExpressionAttributeNames: {
+     "#AT": "uid"
+    },
+    TableName: "Employee"
+   };
+   
+   return await new Promise( (res, rej) => {
+    dynamodb.scan(params, function(err, data) {
+      if (err) {
+        console.log(err, err.stack); // an error occurred
+        rej({ statusCode: 400 });
+      }
+      else {
+        res(data);    //returns data     
+        console.log(data);           // successful response
+      }
+     });
+   });
+}
+
+// New fucntion for meeting ends
 
 async function getHelper(params){
   return await new Promise( (res, rej) => {
@@ -197,5 +221,6 @@ module.exports = {
   insert,
   get,
   updateUserState,
-  updateReminder
+  updateReminder,
+  getIdColumn
 }
