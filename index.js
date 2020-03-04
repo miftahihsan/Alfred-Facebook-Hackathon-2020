@@ -313,15 +313,15 @@ function handleMessage(sender_psid, received_message, user_name) {
 
     if (userData['state']==="REPORT_STATS"){
       sendMessage(sender_psid, [
-        // Response.genAttachmentReply(),
-        {
-          "attachment":{
-              "type":"image",
-              "payload":{
-                  "attachment_id": "235306070839999"
-              }
-          }
-        },
+        Response.genAttachmentReply(),
+        // {
+        //   "attachment":{
+        //       "type":"image",
+        //       "payload":{
+        //           "attachment_id": "235306070839999"
+        //       }
+        //   }
+        // },
         Response.genTextReply("Document successfully transferred to your manager!"),
       ].concat(
         Replies.replies["MENU"]
@@ -331,15 +331,6 @@ function handleMessage(sender_psid, received_message, user_name) {
     else {
       // REPLY WITH GIF
       let responses = [Response.genAttachmentReply()];
-      // let responses = [{
-      //     "attachment":{
-      //         "type":"image",
-      //         "payload":{
-      //             "attachment_id": "235306070839999"
-      //         }
-      //     }
-      //   }
-      // ];
 
       let reply = Replies.replies[userData['state']];
       
