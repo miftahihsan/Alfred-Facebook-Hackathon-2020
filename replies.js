@@ -150,7 +150,7 @@ class Replies {
       Responses.genPictureReply( this.getRandId(this.replies['RAND_FUNNY_GIFS']) ),
       Responses.genTextReply( this.getRandId(this.replies['RAND_OFFICE_FACTS']) ),
       Responses.genPictureReply( this.getRandId(this.replies['RAND_SUCCESS_QUOTES']) ),
-      Responses.genQuickReply("",
+      Responses.genQuickReply("What do you want to do next?",
         [
           {
             title: "HR question 🙋",
