@@ -827,7 +827,69 @@ class Replies {
             payload: "INCREMENT"
           },
         ])],
-    "CORPORATE_LAW": [Responses.genTextReply("Here are some common Corporate Law questions you can ask:"),
+    "NEW_LAWS" : [
+      Responses.genTextReply("As a part of its commitment to safeguard the health of its employees, to provide a safe" +
+      " place for its employees to work, and to promote a drug-free community, we have established this policy on the use" +
+      " or abuse of alcohol and drugs by its employees."),
+      Responses.genTextReply("Substance abuse, while at work or otherwise, seriously endangers the safety of employees as well" +
+      " as the general public, and creates a variety of workplace problems including increased injuries"),
+      Responses.genTextReply("on the job, absenteeism, increased health care and benefit costs, theft, decreased morale, decreased" + 
+      " productivity, and a decline in the quality of services provided."),
+      Responses.genTextReply("This policy is established to detect and remove users and abusers of drugs and alcohol. It is also our " + 
+      " policy to prevent the use and/or presence of these substances"),
+      Responses.genQuickReply("in the workplace and to assist employees in overcoming any dependence on drugs and/or alcohol", 
+      [
+        {
+          title: "New Laws",
+          payload: "NEW_LAWS"
+        },
+        {
+          title: "Employee Rights",
+          payload: "EMPLOYEE_RIGHTS"
+        },
+        {
+          title: "Laws",
+          payload: "LAWS_CO_WORKERS"
+        },
+        {
+          title: "Buy Shares",
+          payload: "BUY_SHARES"
+        },
+      ]),
+    ],
+    "EMPLOYEE_RIGHTS" : [
+      Responses.genTextReply("Employment law covers all rights and obligations within the employer-employee relationship," + 
+      " including not only current employees but also former employees and job applicants."),
+      Responses.genTextReply("In most states, employees are afforded privacy in the workplace. This employee right applies" + 
+      " to personal possessions, including handbags or briefcases, storage lockers accessible only by the employee, and private mail addressed only to employee."),
+      Responses.genTextReply("Employees may also have a right to privacy in their telephone conversations or voicemail messages. However, employees have very" + 
+      " limited rights to privacy in their e-mail messages and Internet usage while using the employer's computer system."),
+      Responses.genTextReply("Other important employee rights include:"),
+      Responses.genTextReply("- Right to be free from discrimination and harassment of all types\n\n- Right to be free from discrimination and harassment of all types"),
+      Responses.genTextReply("Right to be free from retaliation for filing a claim or complaint against an employer (these" + 
+      " are sometimes called \"whistleblower\" rights)"),
+      Responses.genQuickReply("Right to fair wages for work performed.",
+      [
+        {
+          title: "New Laws",
+          payload: "NEW_LAWS"
+        },
+        {
+          title: "Employee Rights",
+          payload: "EMPLOYEE_RIGHTS"
+        },
+        {
+          title: "Laws",
+          payload: "LAWS_CO_WORKERS"
+        },
+        {
+          title: "Buy Shares",
+          payload: "BUY_SHARES"
+        },
+      ])
+    ],
+    "CORPORATE_LAW": [
+      Responses.genTextReply("Here are some common Corporate Law questions you can ask:"),
       Responses.genQuickReply(
         "- What are the new law changes introduced in the company\n?" +
         "- What are my rights as an employee in the company?\n" +
@@ -850,7 +912,8 @@ class Replies {
             title: "Buy Shares",
             payload: "BUY_SHARES"
           },
-        ])],
+        ])
+      ],
     "TRAINING": [
       Responses.genTextReply("Here are some common Training and Self Improvement questions you can ask:"),
       Responses.genQuickReply(
