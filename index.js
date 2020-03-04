@@ -343,17 +343,26 @@ function handleMessage(sender_psid, received_message, user_name) {
 
       let reply = Replies.replies[userData['state']];
       
+      let replyArray = [];
+
+      if( !Array.isArray(reply) ) {
+        replyArray.push(reply);
+      }
+      else{
+        replyArray = reply;
+      }
+
       console.log("SEND THE GIF NOW");
       // console.log("Response = " + response.length);
 
-      if (Array.isArray(reply)){
-        responses = responses.concat(reply);
-        console.log("IT IS AN ARRAY ");
-      }
-      else{
-        responses = responses.push(reply);
-        console.log("IT IS NOT AN ARRAY ");
-      }
+      // if (Array.isArray(reply)){
+        responses = responses.concat(replyArray);
+      //   console.log("IT IS AN ARRAY ");
+      // }
+      // else{
+      //   responses = responses.push(reply);
+      //   console.log("IT IS NOT AN ARRAY ");
+      // }
 
       sendMessage(sender_psid, responses);
 
