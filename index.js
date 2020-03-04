@@ -316,6 +316,9 @@ function handleMessage(sender_psid, received_message, user_name) {
   }
   else if (received_message.attachments){
 
+    console.log("-------------------------------------------------------------------");
+    console.log("*****************(((((((((((((((((((((((*************************(((((((((((((((((((((((((9 ATTTTTTTTATCH<E TQ@@@@@@@@@@@@@@");
+
     if (userData['state']==="REPORT_STATS"){
       sendMessage(sender_psid, [
         Response.genAttachmentReply(),
