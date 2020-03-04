@@ -866,9 +866,61 @@ class Replies {
       " limited rights to privacy in their e-mail messages and Internet usage while using the employer's computer system."),
       Responses.genTextReply("Other important employee rights include:"),
       Responses.genTextReply("- Right to be free from discrimination and harassment of all types\n\n- Right to be free from discrimination and harassment of all types"),
-      Responses.genTextReply("Right to be free from retaliation for filing a claim or complaint against an employer (these" + 
+      Responses.genTextReply("- Right to be free from retaliation for filing a claim or complaint against an employer (these" + 
       " are sometimes called \"whistleblower\" rights)"),
-      Responses.genQuickReply("Right to fair wages for work performed.",
+      Responses.genQuickReply("- Right to fair wages for work performed.",
+      [
+        {
+          title: "New Laws",
+          payload: "NEW_LAWS"
+        },
+        {
+          title: "Employee Rights",
+          payload: "EMPLOYEE_RIGHTS"
+        },
+        {
+          title: "Laws",
+          payload: "LAWS_CO_WORKERS"
+        },
+        {
+          title: "Buy Shares",
+          payload: "BUY_SHARES"
+        },
+      ])
+    ],
+    "LAWS_CO_WORKERS" : [
+      Responses.genTextReply("So what should employees understand about protecting the privacy of other employees? Well, that’s a big question without a simple answer."),
+      Responses.genTextReply("At the very least, it is important that employers write and distribute clearly written policies about who is authorized to access such " + 
+      "information, the requirement to maintain the privacy of the information, and the systems or processes employees need to follow to protect it."),
+      Responses.genQuickReply("Also, it’s a good idea to include the obligation to protect the privacy of employee information in whatever confidentiality agreement" + 
+      " employees are required to sign as a condition of employment.",
+      [
+        {
+          title: "New Laws",
+          payload: "NEW_LAWS"
+        },
+        {
+          title: "Employee Rights",
+          payload: "EMPLOYEE_RIGHTS"
+        },
+        {
+          title: "Laws",
+          payload: "LAWS_CO_WORKERS"
+        },
+        {
+          title: "Buy Shares",
+          payload: "BUY_SHARES"
+        },
+      ])
+    ],
+    "BUY_SHARES" : [
+      Responses.genTextReply("Through the course of time, Business Law has evolved in the field of the division and flexibility in transferability " + 
+      "of the ownership of a company. Each shareholder is considered an owner of the company. The degree of ownership depends on the number of shares" + 
+      " each individual buys."),
+      Responses.genTextReply("Any kind of shares can be issued in accordance with the company’s articles of association. The articles of association" + 
+      " are a set of guidelines, which provide the rules for buying, selling and transferring different types of shares. "),
+      Responses.genQuickReply("The articles of association also mention the types of shares, which could be transacted by the company. Ordinary shares " + 
+      "constitute the biggest amount of shares, but special types of shares like the alphabet shares also exist.",
       [
         {
           title: "New Laws",
