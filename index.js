@@ -303,9 +303,7 @@ function handleMessage(sender_psid, received_message, user_name) {
     // Compiles the user text message and makes meaning out if it
     // using which it fills the user table appropriately.
 
-    console.log("-------------------------------------------------------------------");
-    console.log("*****************(((((((((((((((((((((((*************************(((((((((((((((((((((((((9");
-    
+    console.log("-------------------------------------------------------------------");    
     console.log(received_message.nlp.entities);
     console.log("-------------------------------------------------------------------");
 
@@ -315,9 +313,11 @@ function handleMessage(sender_psid, received_message, user_name) {
 
   }
   else if (received_message.attachments){
-
-    console.log("-------------------------------------------------------------------");
-    console.log("*****************(((((((((((((((((((((((*************************(((((((((((((((((((((((((9 ATTTTTTTTATCH<E TQ@@@@@@@@@@@@@@");
+    console.log"(+++++++++++++++++++++++_______________________________+++++++++++++++++++++++++++++++++++");
+    
+    console.log('attachment' in received_message);
+    console.log('attachments' in received_message);
+    console.log(received_message.attachment);
 
     if (userData['state']==="REPORT_STATS"){
       sendMessage(sender_psid, [
@@ -330,7 +330,6 @@ function handleMessage(sender_psid, received_message, user_name) {
     }
     else {
       // REPLY WITH GIF
-      console.log("SEND GIFFFFFFFFFFFFFFFFFFFF NOWWWWWWWWWWWWWWWWWWWWWWWw");
       // let responses = [Response.genAttachmentReply()];
       let responses = [{
           "attachment":{
@@ -341,8 +340,7 @@ function handleMessage(sender_psid, received_message, user_name) {
           }
         }
       ];
-      
-      console.log("responseIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII = " + response);
+
       let reply = Replies.replies[userData['state']];
       console.log("reply = " + reply);
       console.log("reply = " + reply['text']);
@@ -363,8 +361,8 @@ function handleMessage(sender_psid, received_message, user_name) {
     // get a response for the particular state now
 
 
-    console.log("current state = " + userData['state']);
-    console.log("-------------------------------------------------------------------");
+  console.log("current state = " + userData['state']);
+  console.log("-------------------------------------------------------------------");
   
   console.log(response);
 
