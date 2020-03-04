@@ -481,7 +481,8 @@ class Replies {
           payload: "TRAINING"
         },
       ]),
-    "COURSES_AVAILABLE" : [Responses.genTextReply("Here is a list of all the courses that you can apply for!!"),
+    "COURSES_AVAILABLE" : [
+      Responses.genTextReply("Here is a list of all the courses that you can apply for!!"),
       {
         "attachment": {
           "type": "template",
@@ -507,7 +508,36 @@ class Replies {
               payload: "SELF_IMPROVEMENT_COURSES"
             }
           ]
-        )
+      )
+    ],
+    "PREREQUISITE_TRAINING" : [
+      Responses.genTextReply("Here is a list of all the courses that you can apply for!!"),
+      {
+        "attachment": {
+          "type": "template",
+          "payload": {
+            "template_type": "generic",
+            "elements": Course.preReq()
+          }
+        }
+      },
+      Responses.genQuickReply(
+        "What would you like to do next?",
+          [
+            {
+              title: "Courses available",
+              payload: "COURSES_AVAILABLE"
+            },
+            {
+              title: "Prerequisite",
+              payload: "PREREQUISITE_TRAINING"
+            },
+            {
+              title: "Improvement Courses",
+              payload: "SELF_IMPROVEMENT_COURSES"
+            }
+          ]
+      )
     ],
     "IT_TECH": [Responses.genTextReply("Here are some common IT concerns you can ask about:"),
       Responses.genQuickReply(
