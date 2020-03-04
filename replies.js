@@ -606,8 +606,8 @@ class Replies {
         ])],
     "USER_NAME_PASSWORD" : [
       Responses.genTextReply("We have sent an email to the IT perosn regarding your issue : Username and password"),
-      Response.genTextReply("He will be in contact with you very shortly"),
-      Response.genQuickReply("Support Ticket Issued : " + supportTicketGenerator() , 
+      Responses.genTextReply("He will be in contact with you very shortly"),
+      Responses.genQuickReply("Support Ticket Issued : " + supportTicketGenerator() , 
       [
         {
           title: "Username and password?",
@@ -629,8 +629,8 @@ class Replies {
     ],
     "CANT_LOGIN" : [
       Responses.genTextReply("We have sent an email to the IT perosn regarding your issue : Forgot Username and password"),
-      Response.genTextReply("He will be in contact with you very shortly"),
-      Response.genQuickReply("Support Ticket Issued : " + supportTicketGenerator() , 
+      Responses.genTextReply("He will be in contact with you very shortly"),
+      Responses.genQuickReply("Support Ticket Issued : " + supportTicketGenerator() , 
       [
         {
           title: "Username and password?",
@@ -652,8 +652,8 @@ class Replies {
     ],
     "EQUIPMENT_NOT_WORKING" : [
       Responses.genTextReply("We have sent an email to the IT perosn regarding your issue : Equipment not working!"),
-      Response.genTextReply("He will be in contact with you very shortly"),
-      Response.genQuickReply("Support Ticket Issued : " + supportTicketGenerator() , 
+      Responses.genTextReply("He will be in contact with you very shortly"),
+      Responses.genQuickReply("Support Ticket Issued : " + supportTicketGenerator() , 
       [
         {
           title: "Username and password?",
@@ -675,8 +675,8 @@ class Replies {
     ],
     "NO_NETWORK" : [
       Responses.genTextReply("We have sent an email to the IT perosn regarding your issue : No Network!"),
-      Response.genTextReply("He will be in contact with you very shortly"),
-      Response.genQuickReply("Support Ticket Issued : " + supportTicketGenerator() , 
+      Responses.genTextReply("He will be in contact with you very shortly"),
+      Responses.genQuickReply("Support Ticket Issued : " + supportTicketGenerator() , 
       [
         {
           title: "Username and password?",
