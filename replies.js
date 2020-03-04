@@ -1,4 +1,5 @@
 const Responses = require('./response');
+const Course = require('./course');
 
 class Replies {
 
@@ -480,6 +481,19 @@ class Replies {
           payload: "TRAINING"
         },
       ]),
+    "TRAINING" : [Response.genTextReply("Here is a list of all the courses that you can apply for!!"),
+      {
+        "attachment": {
+          "type": "template",
+          "payload": {
+            "template_type": "generic",
+            "elements": [
+              Course.enrollList()
+            ]
+          }
+        }
+      }
+    ],
     "IT_TECH": [Responses.genTextReply("Here are some common IT concerns you can ask about:"),
       Responses.genQuickReply(
         "- What's my username and password?\n" +
