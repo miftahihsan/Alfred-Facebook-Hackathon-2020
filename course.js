@@ -57,7 +57,8 @@ class course{
             {
                 title: "Facebook Blue Print : Healing Waters",
                 subtitle: "Course coordinator : Andrew NG",
-                image_url: "https://teach.udemy.com/wp-content/uploads/2016/02/og-default.png",
+                image_url: "https://scontent.fdac6-1.fna.fbcdn.net/v/t39.2365-6/18280380_255665961572167_5865628924817440768_n.png?_nc_cat=111&_nc_sid=ad8a9d&_nc_eui2=AeGjM9tiG80VnE_TpbF8rX5uZtn26aEYqMdoxTCEj126r3PqylyIitaadnSyjTLUgNaxvFUHY6wvIIyZgNQ4dlYOcUchCOhE27mpe9qKF3l1aQ&_nc_ohc" + 
+                        "=4cBDanLBEtwAX9iNM1c&_nc_ht=scontent.fdac6-1.fna&oh=98262f34dd9e12bbeac500144fb70d00&oe=5E85A666",
                 buttons: [
                     {
                         type: "postback",
