@@ -707,7 +707,7 @@ class Replies {
       " (without prior notice) by us for a period of three (3) years. All such tests will be administered by qualified personnel."),
       Responses.genTextReply("Failure by the employee to submit to any test or any test result showing any degree of" +
       " intoxication of alcohol or any level or amount of drugs/controlled substances, not wholly attributable to drugs prescribed by the employee's physician shall be"),
-      Responses.genQuickReply("Nothing in this policy shall be construed as an obligation upon KEYS to provide or to pay for, substance" +
+      Responses.genQuickReply("Nothing in this policy shall be construed as an obligation upon us to provide or to pay for, substance" +
       " abuse counseling or rehabilitation except to the extent it may be part of our health insurance plan.",
       [
         {
