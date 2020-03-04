@@ -321,7 +321,15 @@ function handleMessage(sender_psid, received_message, user_name) {
 
     if (userData['state']==="REPORT_STATS"){
       sendMessage(sender_psid, [
-        Response.genAttachmentReply(),
+        // Response.genAttachmentReply(),
+        {
+          "attachment":{
+              "type":"image",
+              "payload":{
+                  "attachment_id": "235306070839999"
+              }
+          }
+        },
         Response.genTextReply("Document successfully transferred to your manager!"),
       ].concat(
         Replies.replies["MENU"]
