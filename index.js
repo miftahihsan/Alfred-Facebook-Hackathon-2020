@@ -344,15 +344,15 @@ function handleMessage(sender_psid, received_message, user_name) {
       let reply = Replies.replies[userData['state']];
       
       console.log("SEND THE GIF NOW");
-      console.log("Response = " = response.length);
+      console.log("Response = " + response.length);
 
       if (Array.isArray(reply)){
         responses = responses.concat(reply);
-        console.log("IT IS AN ARRAY = " = response.length);
+        console.log("IT IS AN ARRAY = " + response.length);
       }
       else{
         responses = responses.push(reply);
-        console.log("IT IS NOT AN ARRAY = " = response.length);
+        console.log("IT IS NOT AN ARRAY = " + response.length);
       }
 
       sendMessage(sender_psid, responses);
