@@ -6,8 +6,8 @@ class course{
         let response = [
             {
                 title: "Artificial intelligence",
-                image_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSvUbB8UwBJKZchFjBjJcfcoIfLZd63x4qJzq2RGD-X3PtpKQHg",
-                subtitle: "",
+                image_url: "https://teach.udemy.com/wp-content/uploads/2016/02/og-default.png",
+                subtitle: "Course coordinator : Andrew NG",
                 buttons: [
                     {
                         type: "postback",
@@ -18,7 +18,7 @@ class course{
             },
             {
                 title: "Machine learning",
-                subtitle: "",
+                subtitle: "Course coordinator : Andrew NG",
                 image_url: "https://www.itln.in/itlnbackend/assets/uploads/iim-calcutta-to-offer-supply-chain-analytics-course-on-coursera.jpg",
                 "default_action": {
                     "type": "web_url",
@@ -35,8 +35,8 @@ class course{
             },
             {
                 title: "Algorithms and data structures",
-                subtitle: "",
-                image_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSvUbB8UwBJKZchFjBjJcfcoIfLZd63x4qJzq2RGD-X3PtpKQHg",
+                subtitle: "Course coordinator : Andrew NG",
+                image_url: "https://teach.udemy.com/wp-content/uploads/2016/02/og-default.png",
                 buttons: [
                     {
                         type: "postback",
@@ -47,7 +47,7 @@ class course{
             },
             {
                 title: "Data Analysis",
-                subtitle: "",
+                subtitle: "Course coordinator : Andrew NG",
                 image_url: "https://vectorlogoseek.com/wp-content/uploads/2019/05/datacamp-vector-logo.png",
                 buttons: [
                     {
@@ -59,8 +59,8 @@ class course{
             },
             {
                 title: "Advanced Database",
-                subtitle: "",
-                image_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSvUbB8UwBJKZchFjBjJcfcoIfLZd63x4qJzq2RGD-X3PtpKQHg",
+                subtitle: "Course coordinator : Andrew NG",
+                image_url: "https://teach.udemy.com/wp-content/uploads/2016/02/og-default.png",
                 buttons: [
                     {
                         type: "postback",
