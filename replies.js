@@ -698,6 +698,111 @@ class Replies {
             payload: "NO_NETWORK"
           },
         ])],
+    "HEALTH_INSURANCE" : [
+      Responses.genTextReply("Upon receipt of written documentation of successful completion of the approved rehabilitation program," + 
+      " the employee will be placed in a similar position when available."),
+      Responses.genTextReply("(This policy does not require us as a company to hold any position open nor" +
+      " create a position for employees who successfully complete a drug rehabilitation program)."),
+      Responses.genTextReply("Upon reinstatement, the employee shall submit to random tests for alcohol and/or drugs" + 
+      " (without prior notice) by us for a period of three (3) years. All such tests will be administered by qualified personnel."),
+      Responses.genTextReply("Failure by the employee to submit to any test or any test result showing any degree of" +
+      " intoxication of alcohol or any level or amount of drugs/controlled substances, not wholly attributable to drugs prescribed by the employee's physician shall be"),
+      Responses.genQuickReply("Nothing in this policy shall be construed as an obligation upon KEYS to provide or to pay for, substance" +
+      " abuse counseling or rehabilitation except to the extent it may be part of our health insurance plan.",
+      [
+        {
+          title: "Current health insurance policies?",
+          payload: "HEALTH_INSURANCE"
+        },
+        {
+          title: "Bonus",
+          payload: "BONUS"
+        },
+        {
+          title: "Rules for fines",
+          payload: "FINE_RULES"
+        },
+        {
+          title: "Increment",
+          payload: "INCREMENT"
+        },
+      ]),
+    ],
+    "FINE_RULES" : [
+      Responses.genQuickReply("As of now we do not have any policy to fine employees.",
+      [
+        {
+          title: "Current health insurance policies?",
+          payload: "HEALTH_INSURANCE"
+        },
+        {
+          title: "Bonus",
+          payload: "BONUS"
+        },
+        {
+          title: "Rules for fines",
+          payload: "FINE_RULES"
+        },
+        {
+          title: "Increment",
+          payload: "INCREMENT"
+        },
+      ]),
+    ],
+    "INCREMENT" : [
+      Responses.genTextReply("Performance Ratings as a Criteria: Increments will be linked to individual performances." + 
+      "The most ideal /common method of assessing the performance of each individual is Categorization:"),
+      Responses.genTextReply("A, B, C, D, E or 1, 2, 3, 4, 5 on a scale of 1(Lowest) -> 5(Highest) or 1(Lowest) -> 10 (Highest)"),
+      Responses.genTextReply("In both the above A is highest & 5 is Highest (Outstanding or Excellent Performance category) & E & 1 are the least (Poor Performers)"),
+      Responses.genTextReply("Candidates who are assessed as Outstanding / Excellent fall under͞Consistently Exceeds Expectations Category."+
+      "Such employees qualify for Recognition & Rewards & Poor Performers fall under ͞Below Expectations category."),
+      Responses.genQuickReply("The above recommended policy is a guideline as such the same is subject to review /change from time to time.",
+      [
+        {
+          title: "Current health insurance policies?",
+          payload: "HEALTH_INSURANCE"
+        },
+        {
+          title: "Bonus",
+          payload: "BONUS"
+        },
+        {
+          title: "Rules for fines",
+          payload: "FINE_RULES"
+        },
+        {
+          title: "Increment",
+          payload: "INCREMENT"
+        },
+      ]),
+    ],
+    "BONUS" : [
+      Responses.genTextReply("Employees who take FMLA leave will not lose any previous accrued seniority or employment benefits" + 
+      " (including the longevity bonus, safety incentive, and holiday pay), and those benefits will continue to accrue during the FMLA leave."),
+      Responses.genTextReply("Leave accruals will be based according to the Management Handbook and/or IBEW Contract."),
+      Responses.genTextReply("If an employee fails to return to work after the expiration of the leave, the employee may be required to" +
+      " reimburse us for payment of health insurance premiums during the FMLA leave."),
+      Responses.genQuickReply("Reimbursement will not be required if the employee does not return to work because of a serious health" + 
+      " condition or other circumstances beyond the employee’s control.",
+      [
+        {
+          title: "Current health insurance policies?",
+          payload: "HEALTH_INSURANCE"
+        },
+        {
+          title: "Bonus",
+          payload: "BONUS"
+        },
+        {
+          title: "Rules for fines",
+          payload: "FINE_RULES"
+        },
+        {
+          title: "Increment",
+          payload: "INCREMENT"
+        },
+      ]),
+    ],
     "FINANCE": [Responses.genTextReply("Here are some common Finances questions you can ask:"),
       Responses.genQuickReply(
         "- What are the current health insurance policies?\n" +
