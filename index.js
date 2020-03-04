@@ -44,7 +44,7 @@ app.use(function(req, res, next) {
 
 app.post('/userList', (req, res) => {
   let body = req.body;
-  console.log("here!-----------------------------------------------------------");
+  console.log("here!---------inside--UserList---------------------------------------------");
   console.log( body );
   if (body.uid!==null && body.title!=='') {
     let data ={};
@@ -63,6 +63,7 @@ app.post('/userList', (req, res) => {
     else{
       responses = responses.push(reply);
     }
+    console.log(body.uid);
     console.log(responses);
     sendMessage(body.uid, responses);
 
@@ -134,6 +135,7 @@ app.post('/webhook', (req, res) => {
 
             // Replies.user_name = user_name['name'];
             userData['name'] = user_name['name'];
+            userData['profile_pic'] = user_name['profile_pic'];
             
 
             var text;
@@ -258,13 +260,34 @@ function handleMessage(sender_psid, received_message, user_name) {
         let c = res.Count;
         for (let i=0;i< c;i++){
           if (res.Items[i].uid.S===sender_psid)continue;
-          sendMessage(res.Items[i].uid.S, Response.genTextReply("A meeting has been scheduled by " + userData['name']) );
+          sendMessage(res.Items[i].uid.S, [Response.genTextReply("A meeting has been scheduled by " + userData['name']),
+            {
+              "attachment": {
+                "type": "template",
+                "payload": {
+                  "template_type": "generic",
+                  "elements": [{
+                    "title": "Do you wish to attend this meeting?",
+                    "subtitle": "Tap a button to answer.",
+                    "image_url": userData['profile_pic'],
+                    "buttons": [
+                      {
+                        "type": "postback",
+                        "title": "Sure thing!",
+                        "payload": "MEETING_" + sender_psid + "_YES",
+                      },
+                      {
+                        "type": "postback",
+                        "title": "Sorry I'm busy!",
+                        "payload": "MEETING_" + sender_psid + "_NO",
+                      }
+                    ],
+                  }]
+                }
+              }
+            }
+            ]);
         }
-
-
-
-
-
 
 
       })
@@ -327,6 +350,9 @@ function handleMessage(sender_psid, received_message, user_name) {
 
 function handleQuickReplies(sender_psid, quick_reply) {
   let payload = quick_reply.payload;
+
+
+
   userData['state'] = payload;
   let response = Replies.replies[userData['state']];
 
@@ -357,7 +383,7 @@ function giveAdminAccess( sender_psid ){
     },
     "target_app_id" : 263902037430900,
     "metadata":"Please attend as soon as possible to the user"
-  }
+  };
 
   // Send the HTTP request to the Messenger Platform
   request({
@@ -382,28 +408,29 @@ function handlePostback(sender_psid, received_postback, user_name) {
 
 
   // THIS IS WHERE THE CODE OF MEETING WILL RUN
-  
-  /* 
+
+  /*
     0 -> MEETING,
     1 -> SENDER_ID,
     2 -> YES,NO,
-    3 -> NAME OF THE PEROSN WHO SET UP THE MEETING
+    3 -> NAME OF THE PEROSN WHO SET UP THE MEETING --> ETA NAI
   */
   if( payload.includes('_') ){
     var arr = payload.split('_');
-    if( arr.length == 4 && arr[0] == 'MEETING' ){
+    if( arr.length === 3 && arr[0] === 'MEETING' ){
       let response;
-      if( arr[2] == "YES" ){
-        response = {'text' : user_name['name'] + " wanted to let you know that he will be able to attend the meeting."}
+      if( arr[2] === "YES" ){
+        response = {'text' : userData['name'] + " wanted to let you know that he will be able to attend the meeting."}
       }
       else{
-        response = {'text' : user_name['name'] + " wanted to let you know that he will not be able to attend the meeting." }
+        response = {'text' : userData['name'] + " wanted to let you know that he will not be able to attend the meeting." }
       }
 
       callSendAPI(arr[1], response);
       return;
     }
   }
+
 
 
   userData['state'] = payload;
@@ -441,6 +468,8 @@ function sendMessage(sender_psid, responses) {
 
       setTimeout(()=>callSendAPI(sender_psid,response), (delay) * 1000 );   // 0 1000  2000  3000
       setTimeout(()=> senderAction( sender_psid, Response.getAnimation("on")), (delay)*1000 + 300 );   // 300  1300  2300  3300
+
+      if ("attachment" in response && response['attachment']['type'] === "image")delay+=2;
 
       delay++;
     }
