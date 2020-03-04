@@ -37,7 +37,7 @@ class Response{
         return response 
     }
 
-    async static genAttachmentReply(){
+    static async genAttachmentReply(){
         let response = {
             "attachment":{
                 "type":"image",
