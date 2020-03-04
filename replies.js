@@ -150,6 +150,34 @@ class Replies {
       Responses.genPictureReply( this.getRandId(this.replies['RAND_FUNNY_GIFS']) ),
       Responses.genTextReply( this.getRandId(this.replies['RAND_OFFICE_FACTS']) ),
       Responses.genPictureReply( this.getRandId(this.replies['RAND_SUCCESS_QUOTES']) ),
+      Response.genQuickReply(
+        [
+          {
+            title: "HR question 🙋",
+            payload: "HR"
+          },
+          {
+            title: "Schedules 📅",
+            payload: "SCHEDULES"
+          },
+          {
+            title: "FAQ 📚",
+            payload: "FAQ"
+          },
+          {
+            title: "Live Chat",
+            payload: "LIVE"
+          },
+          {
+            title: "I'm bored! 🙍‍♂️",
+            payload: "BORED"
+          },
+          {
+            title: "Communicate 📝",
+            payload: "COMMUNICATE"
+          }
+        ]
+      )
     ];
 
     this.replies["HOLIDAYS"] = [
