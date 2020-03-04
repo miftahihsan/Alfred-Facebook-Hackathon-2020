@@ -331,7 +331,8 @@ function handleMessage(sender_psid, received_message, user_name) {
     else {
       // REPLY WITH GIF
       console.log("SEND GIFFFFFFFFFFFFFFFFFFFF NOWWWWWWWWWWWWWWWWWWWWWWWw");
-      let responses = [Response.genAttachmentReply()];
+      let responses = [];
+      response.push(Response.genAttachmentReply());
       console.log("responseIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII = " + response);
       let reply = Replies.replies[userData['state']];
       console.log("reply = " + reply);
