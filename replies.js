@@ -487,9 +487,8 @@ class Replies {
           "type": "template",
           "payload": {
             "template_type": "generic",
-            "elements": [
-              Course.enrollList()
-            ]
+            "elements": Course.enrollList()
+            
           }
         }
       }
