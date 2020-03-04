@@ -943,10 +943,10 @@ class Replies {
     "CORPORATE_LAW": [
       Responses.genTextReply("Here are some common Corporate Law questions you can ask:"),
       Responses.genQuickReply(
-        "- What are the new law changes introduced in the company?\n" +
-        "- What are my rights as an employee in the company?\n" +
-        "- What are the laws regarding issues with co workers?\n" +
-        "- Can I buy shares for Dunder Mifflin as an employee?\n",
+        "- What are the new law changes introduced in the company?\n\n" +
+        "- What are my rights as an employee in the company?\n\n" +
+        "- What are the laws regarding issues with co workers?\n\n" +
+        "- Can I buy shares for Dunder Mifflin as an employee?\n\n",
         [
           {
             title: "New Laws",
