@@ -331,9 +331,18 @@ function handleMessage(sender_psid, received_message, user_name) {
     else {
       // REPLY WITH GIF
       console.log("SEND GIFFFFFFFFFFFFFFFFFFFF NOWWWWWWWWWWWWWWWWWWWWWWWw");
-      let responses = [Response.genAttachmentReply()];
+      // let responses = [Response.genAttachmentReply()];
+      let responses = [{
+          "attachment":{
+              "type":"image",
+              "payload":{
+                  "attachment_id": "235306070839999"
+              }
+          }
+        }
+      ];
+      
       console.log("responseIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII = " + response);
-      console.log("responseIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII = " + response.length);
       let reply = Replies.replies[userData['state']];
       console.log("reply = " + reply);
       console.log("reply = " + reply['text']);
