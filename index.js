@@ -329,48 +329,22 @@ function handleMessage(sender_psid, received_message, user_name) {
       userData['state']="MENU";
     }
     else {
-      //REPLY WITH GIF
-      // console.log("SEND GIFFFFFFFFFFFFFFFFFFFF NOWWWWWWWWWWWWWWWWWWWWWWWw");
-      // let responses = [Response.genAttachmentReply()];
-      // console.log("response = " + response);
-      // let reply = Replies.replies[userData['state']];
-      // console.log("reply = " + reply);
-      // if (Array.isArray(reply)){
-      //   responses = responses.concat(reply);
-      // }
-      // else{
-      //   responses = responses.push(reply);
-      // }
-
-      // console.log("response = " + response);
-
-      // sendMessage(sender_psid, responses);
-
-
+      // REPLY WITH GIF
       console.log("SEND GIFFFFFFFFFFFFFFFFFFFF NOWWWWWWWWWWWWWWWWWWWWWWWw");
       let responses = [Response.genAttachmentReply()];
-      console.log("response = " + response);
+      console.log("responseIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII = " + response);
       let reply = Replies.replies[userData['state']];
       console.log("reply = " + reply);
+      if (Array.isArray(reply)){
+        responses = responses.concat(reply);
+      }
+      else{
+        responses = responses.push(reply);
+      }
 
+      console.log("response = " + response);
 
-      responses
-      .then(res => {
-        console.log(res);
-        if (Array.isArray(reply)){
-          responses = responses.concat(reply);
-        }
-        else{
-          responses = responses.push(reply);
-        }
-  
-        console.log("response = " + response);
-  
-        sendMessage(sender_psid, responses);
-      })
-      .catch(err => {
-        console.log(err);
-      })
+      sendMessage(sender_psid, responses);
 
     }
   }
