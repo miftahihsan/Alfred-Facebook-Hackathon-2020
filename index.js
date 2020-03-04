@@ -348,11 +348,11 @@ function handleMessage(sender_psid, received_message, user_name) {
 
       if (Array.isArray(reply)){
         responses = responses.concat(reply);
-        // console.log("IT IS AN ARRAY = " + response.length);
+        console.log("IT IS AN ARRAY ");
       }
       else{
         responses = responses.push(reply);
-        // console.log("IT IS NOT AN ARRAY = " + response.length);
+        console.log("IT IS NOT AN ARRAY ");
       }
 
       sendMessage(sender_psid, responses);
