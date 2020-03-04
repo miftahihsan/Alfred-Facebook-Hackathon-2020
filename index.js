@@ -330,21 +330,47 @@ function handleMessage(sender_psid, received_message, user_name) {
     }
     else {
       //REPLY WITH GIF
+      // console.log("SEND GIFFFFFFFFFFFFFFFFFFFF NOWWWWWWWWWWWWWWWWWWWWWWWw");
+      // let responses = [Response.genAttachmentReply()];
+      // console.log("response = " + response);
+      // let reply = Replies.replies[userData['state']];
+      // console.log("reply = " + reply);
+      // if (Array.isArray(reply)){
+      //   responses = responses.concat(reply);
+      // }
+      // else{
+      //   responses = responses.push(reply);
+      // }
+
+      // console.log("response = " + response);
+
+      // sendMessage(sender_psid, responses);
+
+
       console.log("SEND GIFFFFFFFFFFFFFFFFFFFF NOWWWWWWWWWWWWWWWWWWWWWWWw");
       let responses = [Response.genAttachmentReply()];
       console.log("response = " + response);
       let reply = Replies.replies[userData['state']];
       console.log("reply = " + reply);
-      if (Array.isArray(reply)){
-        responses = responses.concat(reply);
-      }
-      else{
-        responses = responses.push(reply);
-      }
 
-      console.log("response = " + response);
 
-      sendMessage(sender_psid, responses);
+      responses
+      .then(res => {
+        console.log(res);
+        if (Array.isArray(reply)){
+          responses = responses.concat(reply);
+        }
+        else{
+          responses = responses.push(reply);
+        }
+  
+        console.log("response = " + response);
+  
+        sendMessage(sender_psid, responses);
+      })
+      .catch(err => {
+        console.log(err);
+      })
 
     }
   }

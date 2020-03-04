@@ -37,7 +37,7 @@ class Response{
         return response 
     }
 
-    static genAttachmentReply(){
+    async static genAttachmentReply(){
         let response = {
             "attachment":{
                 "type":"image",
@@ -46,7 +46,7 @@ class Response{
                 }
             }
         };
-        return response
+        return await new Promise(response);
     }
 
     static getAnimation( state ){
