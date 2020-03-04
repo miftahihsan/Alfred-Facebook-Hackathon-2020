@@ -330,7 +330,32 @@ class Replies {
   static replies = {
     "WELCOME_BACK" : [
       Responses.genTextReply("Welcome Back!"),
-      Responses.genTextReply("Hope your Issue was solved")
+      Responses.genTextReply("Hope your issue was solved!"),
+      Responses.genQuickReply(
+        "What do you want to do next?",
+        [
+          {
+            title: "HR question 🙋",
+            payload: "HR"
+          },
+          {
+            title: "Schedules 📅",
+            payload: "SCHEDULES"
+          },
+          {
+            title: "FAQ 📚",
+            payload: "FAQ"
+          },
+          {
+            title: "I'm bored! 🙍‍♂️",
+            payload: "BORED"
+          },
+          {
+            title: "Communicate 📝",
+            payload: "COMMUNICATE"
+          },
+        ]
+      )
     ],
     "INITIATE": [Responses.genTextReply("Hi "+this.userData['name']+" ! "),
       Responses.genTextReply("I am an advanced bot designed to be your personal assistant here in the offices of Dunder Mifflin."),
