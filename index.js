@@ -114,10 +114,6 @@ app.post('/webhook', (req, res) => {
 
       console.log('Sender PSID: ' + sender_psid);
       // console.log('event: ' + entry.messaging[0]);
-
-      if( 'messaging' in entry ){
-        console.log("messeging in entry");
-      }
       
       senderAction(sender_psid, Response.getAnimation("on"));
 
@@ -146,7 +142,6 @@ app.post('/webhook', (req, res) => {
               if ( !(publicUser.Item !== undefined && publicUser.Item !== null) ){
                 DynamoDB.insert( sender_psid, "Employee" );
                 userData['state'] = "INITIATE";
-                console.log("Done putting the user into the DataBase check for more info, User is an Outsider");
                 text = "Done putting the user into the DataBase check for more info, User is an Outsider";
               }
               else{
@@ -161,8 +156,6 @@ app.post('/webhook', (req, res) => {
 
             }
             else{
-              console.log("User already Exists inside the employee table for now");
-
               // just for now
               userData["Item"] = employee.Item;
               userData['type'] = "Employee";
@@ -181,10 +174,8 @@ app.post('/webhook', (req, res) => {
 
             userData['uid'] = sender_psid;
             if (webhook_event.message) {
-              console.log("INSIDE messeging HERE --------------------------+++++++++++++++++++++++++++++++++++++++-----------------------------------------------");
               handleMessage(sender_psid, webhook_event.message, user_name);
             } else if (webhook_event.postback) {
-              console.log("INSIDE event.postbacl HERE --------------------------+++++++++++++++++++++++++++++++++++++++-----------------------------------------------");
               handlePostback(sender_psid, webhook_event.postback, user_name);
             }else{
               sendMessage(sender_psid, Replies.replies["WELCOME_BACK"] );
@@ -303,9 +294,9 @@ function handleMessage(sender_psid, received_message, user_name) {
     // Compiles the user text message and makes meaning out if it
     // using which it fills the user table appropriately.
 
-    console.log("-------------------------------------------------------------------");    
-    console.log(received_message.nlp.entities);
-    console.log("-------------------------------------------------------------------");
+    // console.log("-------------------------------------------------------------------");    
+    // console.log(received_message.nlp.entities);
+    // console.log("-------------------------------------------------------------------");
 
     nlp.compile( received_message.nlp.entities, userData ); // maybe do it only initially
     response = nlp.findState(userData, received_message.text);
@@ -313,11 +304,6 @@ function handleMessage(sender_psid, received_message, user_name) {
 
   }
   else if (received_message.attachments){
-    console.log("+++++++++++++++++++++++_______________________________+++++++++++++++++++++++++++++++++++");
-    
-    console.log('attachment' in received_message);
-    console.log('attachments' in received_message);
-    console.log(received_message.attachment);
 
     if (userData['state']==="REPORT_STATS"){
       sendMessage(sender_psid, [
@@ -350,16 +336,13 @@ function handleMessage(sender_psid, received_message, user_name) {
       ];
 
       let reply = Replies.replies[userData['state']];
-      console.log("reply = " + reply);
-      console.log("reply = " + reply['text']);
+      
       if (Array.isArray(reply)){
         responses = responses.concat(reply);
       }
       else{
         responses = responses.push(reply);
       }
-
-      console.log("response = " + response);
 
       sendMessage(sender_psid, responses);
 
@@ -371,8 +354,6 @@ function handleMessage(sender_psid, received_message, user_name) {
 
   console.log("current state = " + userData['state']);
   console.log("-------------------------------------------------------------------");
-  
-  console.log(response);
 
   // Send the response message
 }
@@ -385,11 +366,8 @@ function handleQuickReplies(sender_psid, quick_reply) {
   userData['state'] = payload;
   let response = Replies.replies[userData['state']];
 
-  console.log("");
-
   if( userData['state'] == 'LIVE_YES' ){
     userData['state'] = "INITIATE";
-    console.log('HEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEERRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRREEEEEEEEEEEEEEEEEEEEEE');
     sendMessage(sender_psid, response );
     giveAdminAccess( sender_psid ); 
   }
@@ -401,9 +379,6 @@ function handleQuickReplies(sender_psid, quick_reply) {
 
 
 function giveAdminAccess( sender_psid ){
-
-
-  console.log('INSIDE ADMIN ACCESS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
 
   // Construct the message body
   let request_body = {
@@ -481,8 +456,6 @@ async function getUserName( sender_psid ){
     })
 
   let json = await response.json();
-
-  console.log(json);
   
   return json;
 }
