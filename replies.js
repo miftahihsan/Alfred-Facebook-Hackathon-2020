@@ -486,13 +486,13 @@ class Replies {
         "attachment": {
           "type": "template",
           "payload": {
-            "template_type": "list",
+            "template_type": "generic",
             "elements": Course.enrollList()
           }
         }
       },
       Responses.genQuickReply(
-        "What yould you like to do next?",
+        "What would you like to do next?",
           [
             {
               title: "Courses available",

@@ -20,6 +20,11 @@ class course{
                 title: "Machine learning",
                 subtitle: "",
                 image_url: "https://www.itln.in/itlnbackend/assets/uploads/iim-calcutta-to-offer-supply-chain-analytics-course-on-coursera.jpg",
+                "default_action": {
+                    "type": "web_url",
+                    "url": "https://petersfancybrownhats.com/view?item=103",
+                    "webview_height_ratio": "tall",
+                },
                 buttons: [
                     {
                         type: "postback",
