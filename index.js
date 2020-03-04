@@ -330,6 +330,7 @@ function handleMessage(sender_psid, received_message, user_name) {
     }
     else {
       //REPLY WITH GIF
+      console.log("SEND GIFFFFFFFFFFFFFFFFFFFF NOWWWWWWWWWWWWWWWWWWWWWWWw");
       let responses = [Response.genAttachmentReply()];
       let reply = Replies.replies[userData['state']];
       if (Array.isArray(reply)){
