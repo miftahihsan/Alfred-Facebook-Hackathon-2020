@@ -304,6 +304,8 @@ function handleMessage(sender_psid, received_message, user_name) {
     // using which it fills the user table appropriately.
 
     console.log("-------------------------------------------------------------------");
+    console.log("*****************(((((((((((((((((((((((*************************(((((((((((((((((((((((((9");
+    
     console.log(received_message.nlp.entities);
     console.log("-------------------------------------------------------------------");
 

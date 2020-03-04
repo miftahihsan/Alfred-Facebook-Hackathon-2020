@@ -994,7 +994,6 @@ class Replies {
             payload: "MENU"
           }
         ])],
-    // "TO_DO_LIST" : Responses.genTextReply
     "VIEW_REMINDERS": Responses.genQuickReply(
       "Looks like your schedule is free! You have no reminders.",
       [
