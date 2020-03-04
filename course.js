@@ -7,7 +7,7 @@ class course{
             {
                 title: "Artificial intelligence",
                 image_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSvUbB8UwBJKZchFjBjJcfcoIfLZd63x4qJzq2RGD-X3PtpKQHg",
-                subtitle: "Date : " + date + "\nTime : 06:00\nDuration 00:45\nPrice : 89.99$",
+                subtitle: "",
                 buttons: [
                     {
                         type: "postback",
@@ -18,7 +18,7 @@ class course{
             },
             {
                 title: "Machine learning",
-                subtitle: "Date : " + date + "\nTime : 08:00\nDuration 00:45\nPrice : 89.99$",
+                subtitle: "",
                 image_url: "https://www.itln.in/itlnbackend/assets/uploads/iim-calcutta-to-offer-supply-chain-analytics-course-on-coursera.jpg",
                 buttons: [
                     {
@@ -30,7 +30,7 @@ class course{
             },
             {
                 title: "Algorithms and data structures",
-                subtitle: "Date : " + date + "\nTime : 10:00\nDuration 00:45\nPrice : 99.99$",
+                subtitle: "",
                 image_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSvUbB8UwBJKZchFjBjJcfcoIfLZd63x4qJzq2RGD-X3PtpKQHg",
                 buttons: [
                     {
@@ -42,7 +42,7 @@ class course{
             },
             {
                 title: "Data Analysis",
-                subtitle: "Date : " + date + "\nTime : 12:00\nDuration 00:45\nPrice : 120.00$",
+                subtitle: "",
                 image_url: "https://vectorlogoseek.com/wp-content/uploads/2019/05/datacamp-vector-logo.png",
                 buttons: [
                     {
@@ -54,7 +54,7 @@ class course{
             },
             {
                 title: "Advanced Database",
-                subtitle: "Date : " + date + "\nTime : 14:00\nDuration 00:45\nPrice : 120.00$",
+                subtitle: "",
                 image_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSvUbB8UwBJKZchFjBjJcfcoIfLZd63x4qJzq2RGD-X3PtpKQHg",
                 buttons: [
                     {
