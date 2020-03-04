@@ -481,7 +481,7 @@ class Replies {
           payload: "TRAINING"
         },
       ]),
-    "TRAINING" : [Response.genTextReply("Here is a list of all the courses that you can apply for!!"),
+    "TRAINING" : [Responses.genTextReply("Here is a list of all the courses that you can apply for!!"),
       {
         "attachment": {
           "type": "template",
