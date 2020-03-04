@@ -335,6 +335,7 @@ function handleMessage(sender_psid, received_message, user_name) {
       console.log("responseIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII = " + response);
       let reply = Replies.replies[userData['state']];
       console.log("reply = " + reply);
+      console.log("reply = " + reply[0]);
       if (Array.isArray(reply)){
         responses = responses.concat(reply);
       }
