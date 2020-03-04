@@ -20,7 +20,7 @@ class Replies {
     var ticket = "";
     var limit = 10;
     for(var i = 0; i < limit; i++){
-      ticket += this.randomNumber(limit);
+      ticket += this.randomNumber(limit - 1);
     }
     return ticket;
   }
