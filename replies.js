@@ -294,7 +294,8 @@ class Replies {
 
     this.replies['LIVE_YES'] = [
       Responses.genTextReply("Your conversation has now been handed over to a live agent"),
-      Responses.genTextReply("Please be patient and wait for them to get back to you."),
+      Responses.genTextReply("Make sure to ask your question for them to get notified and"),
+      Responses.genTextReply("please be patient and wait for them to get back to you."),
     ]
     
     this.replies['LIVE_NO'] = [
