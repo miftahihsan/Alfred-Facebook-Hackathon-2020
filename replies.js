@@ -711,7 +711,7 @@ class Replies {
       " abuse counseling or rehabilitation except to the extent it may be part of our health insurance plan.",
       [
         {
-          title: "Current health insurance policies?",
+          title: "Health insurance",
           payload: "HEALTH_INSURANCE"
         },
         {
@@ -732,7 +732,7 @@ class Replies {
       Responses.genQuickReply("As of now we do not have any policy to fine employees.",
       [
         {
-          title: "Current health insurance policies?",
+          title: "Health insurance",
           payload: "HEALTH_INSURANCE"
         },
         {
@@ -759,7 +759,7 @@ class Replies {
       Responses.genQuickReply("The above recommended policy is a guideline as such the same is subject to review /change from time to time.",
       [
         {
-          title: "Current health insurance policies?",
+          title: "Health insurance",
           payload: "HEALTH_INSURANCE"
         },
         {
@@ -786,7 +786,7 @@ class Replies {
       " condition or other circumstances beyond the employee’s control.",
       [
         {
-          title: "Current health insurance policies?",
+          title: "Health insurance",
           payload: "HEALTH_INSURANCE"
         },
         {
@@ -811,7 +811,7 @@ class Replies {
         "- When will I get an increment?\n",
         [
           {
-            title: "Current health insurance policies?",
+            title: "Health insurance",
             payload: "HEALTH_INSURANCE"
           },
           {
