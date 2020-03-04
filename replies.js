@@ -12,6 +12,18 @@ class Replies {
     this.uid = uid;
   }
 
+  static randomNumber(limit){
+    return Math.floor( Math.random() * limit );
+  }
+
+  static supportTicketGenerator(){
+    var ticket = "";
+    ticket += randomNumber(9);ticket += randomNumber(9);ticket += randomNumber(9);ticket += randomNumber(9);
+    ticket += randomNumber(9);ticket += randomNumber(9);ticket += randomNumber(9);ticket += randomNumber(9);
+    ticket += randomNumber(9);ticket += randomNumber(9);
+    return ticket;
+  }
+
   static getRandId(list){
     var id = Math.floor( Math.random() * list.length );
     console.log("id============================================= " + id);
@@ -592,6 +604,98 @@ class Replies {
             payload: "NO_NETWORK"
           },
         ])],
+    "USER_NAME_PASSWORD" : [
+      Responses.genTextReply("We have sent an email to the IT perosn regarding your issue : Username and password"),
+      Response.genTextReply("He will be in contact with you very shortly"),
+      Response.genQuickReply("Support Ticket Issued : " + supportTicketGenerator() , 
+      [
+        {
+          title: "Username and password?",
+          payload: "USER_NAME_PASSWORD"
+        },
+        {
+          title: "Can't login",
+          payload: "CANT_LOGIN"
+        },
+        {
+          title: "Equipment not working!",
+          payload: "EQUIPMENT_NOT_WORKING"
+        },
+        {
+          title: "No Network!",
+          payload: "NO_NETWORK"
+        },
+      ]),
+    ],
+    "CANT_LOGIN" : [
+      Responses.genTextReply("We have sent an email to the IT perosn regarding your issue : Forgot Username and password"),
+      Response.genTextReply("He will be in contact with you very shortly"),
+      Response.genQuickReply("Support Ticket Issued : " + supportTicketGenerator() , 
+      [
+        {
+          title: "Username and password?",
+          payload: "USER_NAME_PASSWORD"
+        },
+        {
+          title: "Can't login",
+          payload: "CANT_LOGIN"
+        },
+        {
+          title: "Equipment not working!",
+          payload: "EQUIPMENT_NOT_WORKING"
+        },
+        {
+          title: "No Network!",
+          payload: "NO_NETWORK"
+        },
+      ]),
+    ],
+    "EQUIPMENT_NOT_WORKING" : [
+      Responses.genTextReply("We have sent an email to the IT perosn regarding your issue : Equipment not working!"),
+      Response.genTextReply("He will be in contact with you very shortly"),
+      Response.genQuickReply("Support Ticket Issued : " + supportTicketGenerator() , 
+      [
+        {
+          title: "Username and password?",
+          payload: "USER_NAME_PASSWORD"
+        },
+        {
+          title: "Can't login",
+          payload: "CANT_LOGIN"
+        },
+        {
+          title: "Equipment not working!",
+          payload: "EQUIPMENT_NOT_WORKING"
+        },
+        {
+          title: "No Network!",
+          payload: "NO_NETWORK"
+        },
+      ]),
+    ],
+    "NO_NETWORK" : [
+      Responses.genTextReply("We have sent an email to the IT perosn regarding your issue : No Network!"),
+      Response.genTextReply("He will be in contact with you very shortly"),
+      Response.genQuickReply("Support Ticket Issued : " + supportTicketGenerator() , 
+      [
+        {
+          title: "Username and password?",
+          payload: "USER_NAME_PASSWORD"
+        },
+        {
+          title: "Can't login",
+          payload: "CANT_LOGIN"
+        },
+        {
+          title: "Equipment not working!",
+          payload: "EQUIPMENT_NOT_WORKING"
+        },
+        {
+          title: "No Network!",
+          payload: "NO_NETWORK"
+        },
+      ]),
+    ],
     "FINANCE": [Responses.genTextReply("Here are some common Finances questions you can ask:"),
       Responses.genQuickReply(
         "- What are the current health insurance policies?\n" +
