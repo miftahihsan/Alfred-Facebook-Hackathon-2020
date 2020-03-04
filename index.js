@@ -331,7 +331,7 @@ function handleMessage(sender_psid, received_message, user_name) {
     else {
       // REPLY WITH GIF
       // let responses = [Response.genAttachmentReply()];
-      let responses = [{
+      var responses = [{
           "attachment":{
               "type":"image",
               "payload":{
@@ -341,7 +341,7 @@ function handleMessage(sender_psid, received_message, user_name) {
         }
       ];
 
-      let reply = Replies.replies[userData['state']];
+      var reply = Replies.replies[userData['state']];
       
       console.log("SEND THE GIF NOW");
       console.log("Response = " + response.length);
