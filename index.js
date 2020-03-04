@@ -330,16 +330,16 @@ function handleMessage(sender_psid, received_message, user_name) {
     }
     else {
       // REPLY WITH GIF
-      // let responses = [Response.genAttachmentReply()];
-      let responses = [{
-          "attachment":{
-              "type":"image",
-              "payload":{
-                  "attachment_id": "235306070839999"
-              }
-          }
-        }
-      ];
+      let responses = [Response.genAttachmentReply()];
+      // let responses = [{
+      //     "attachment":{
+      //         "type":"image",
+      //         "payload":{
+      //             "attachment_id": "235306070839999"
+      //         }
+      //     }
+      //   }
+      // ];
 
       let reply = Replies.replies[userData['state']];
       
