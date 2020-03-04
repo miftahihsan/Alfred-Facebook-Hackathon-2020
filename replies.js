@@ -488,10 +488,26 @@ class Replies {
           "payload": {
             "template_type": "generic",
             "elements": Course.enrollList()
-            
           }
         }
-      }
+      },
+      Responses.genQuickReply(
+        "What yould you like to do next?",
+          [
+            {
+              title: "Courses available",
+              payload: "COURSES_AVAILABLE"
+            },
+            {
+              title: "Prerequisite",
+              payload: "PREREQUISITE_TRAINING"
+            },
+            {
+              title: "Improvement Courses",
+              payload: "SELF_IMPROVEMENT_COURSES"
+            }
+          ]
+        )
     ],
     "IT_TECH": [Responses.genTextReply("Here are some common IT concerns you can ask about:"),
       Responses.genQuickReply(
@@ -565,25 +581,28 @@ class Replies {
             payload: "BUY_SHARES"
           },
         ])],
-    "TRAINING": [Responses.genTextReply("Here are some common Training and Self Improvement questions you can ask:"),
+    "TRAINING": [
+      Responses.genTextReply("Here are some common Training and Self Improvement questions you can ask:"),
       Responses.genQuickReply(
         "- What are the current training courses available for me?\n" +
         "- What training courses do I require to complete my current tasks?\n" +
         "- What self improvement courses do I need to take to improve my performance metrics?\n",
-        [
-          {
-            title: "Courses available",
-            payload: "COURSES_AVAILABLE"
-          },
-          {
-            title: "Prerequisite",
-            payload: "PREREQUISITE_TRAINING"
-          },
-          {
-            title: "Improvement Courses",
-            payload: "SELF_IMPROVEMENT_COURSES"
-          }
-        ])],
+          [
+            {
+              title: "Courses available",
+              payload: "COURSES_AVAILABLE"
+            },
+            {
+              title: "Prerequisite",
+              payload: "PREREQUISITE_TRAINING"
+            },
+            {
+              title: "Improvement Courses",
+              payload: "SELF_IMPROVEMENT_COURSES"
+            }
+          ]
+        )
+      ],
     "REPORT_STATS": [Responses.genTextReply("Please Upload the sales records that you would like to send"),
       Responses.genQuickReply("The document will be transferred to the manager, David Wallace",
         [
