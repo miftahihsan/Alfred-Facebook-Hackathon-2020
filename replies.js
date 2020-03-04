@@ -80,10 +80,6 @@ class Replies {
             payload: "FAQ"
           },
           {
-            title: "Live Chat",
-            payload: "LIVE"
-          },
-          {
             title: "I'm bored! 🙍‍♂️",
             payload: "BORED"
           },
@@ -163,10 +159,6 @@ class Replies {
           {
             title: "FAQ 📚",
             payload: "FAQ"
-          },
-          {
-            title: "Live Chat",
-            payload: "LIVE"
           },
           {
             title: "I'm bored! 🙍‍♂️",
@@ -284,8 +276,53 @@ class Replies {
     ];
 
     this.replies["LIVE"] = [
-      Responses.genTextReply("Your conversation has been handed over to the page Admin"),
-      Responses.genTextReply("Please be patient 🕐 and wait for them to attend to your queries"),
+      Responses.genTextReply("If you press yes your conversation will be handed over to a live agent."),
+      Responses.genTextReply("It will take them a while to get back to your queries."),
+      Responses.genTextReply("Note : You wont be able to get back to the bot unless the admin allows you to do so"),
+      Responses.genQuickReply("What do you want to do next?",
+        [
+          {
+            title: "Ask for Live Agent 👨",
+            payload: "LIVE_YES"
+          },
+          {
+            title: "No Thank You",
+            payload: "LIVE_NO"
+          },
+        ]
+      )
+    ]
+
+    this.replies['LIVE_YES'] = [
+      Responses.genTextReply("Your conversation has now been handed over to a live agent"),
+      Responses.genTextReply("Please be patient and wait for them to get back to you."),
+    ]
+    
+    this.replies['LIVE_NO'] = [
+      Responses.genQuickReply("What do you want to do next?",
+        [
+          {
+            title: "HR question 🙋",
+            payload: "HR"
+          },
+          {
+            title: "Schedules 📅",
+            payload: "SCHEDULES"
+          },
+          {
+            title: "FAQ 📚",
+            payload: "FAQ"
+          },
+          {
+            title: "I'm bored! 🙍‍♂️",
+            payload: "BORED"
+          },
+          {
+            title: "Communicate 📝",
+            payload: "COMMUNICATE"
+          }
+        ]
+      )
     ]
   }
 
@@ -320,10 +357,6 @@ class Replies {
             payload: "FAQ"
           },
           {
-            title: "Live Chat",
-            payload: "LIVE"
-          },
-          {
             title: "I'm bored! 🙍‍♂️",
             payload: "BORED"
           },
@@ -343,6 +376,10 @@ class Replies {
             title: "Announcement 📣",
             payload: "ANNOUNCEMENT"
           },
+          {
+            title: "Live Chat",
+            payload: "LIVE"
+          }
         ]
     ),
     "HR": Responses.genQuickReply("Ok! What do you want to know about: \n" +

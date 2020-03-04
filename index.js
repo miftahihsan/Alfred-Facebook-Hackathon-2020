@@ -358,7 +358,7 @@ function handleQuickReplies(sender_psid, quick_reply) {
 
   console.log("");
 
-  if( userData['state'] == 'LIVE' ){
+  if( userData['state'] == 'LIVE_YES' ){
     userData['state'] = "INITIATE";
     console.log('HEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEERRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRREEEEEEEEEEEEEEEEEEEEEE');
     sendMessage(sender_psid, response );
