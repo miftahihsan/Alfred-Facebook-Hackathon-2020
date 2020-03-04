@@ -486,7 +486,7 @@ class Replies {
         "attachment": {
           "type": "template",
           "payload": {
-            "template_type": "generic",
+            "template_type": "list",
             "elements": Course.enrollList()
           }
         }
