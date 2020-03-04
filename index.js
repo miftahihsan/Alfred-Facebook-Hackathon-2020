@@ -188,7 +188,9 @@ app.post('/webhook', (req, res) => {
           }
 
       );
+      
 
+      console.log("I AM HERE");
       DynamoDB.updateUserState(userData['uid'], userData['type'], userData['state']);
 
     });
