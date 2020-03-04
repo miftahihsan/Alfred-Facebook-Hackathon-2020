@@ -18,9 +18,10 @@ class Replies {
 
   static supportTicketGenerator(){
     var ticket = "";
-    ticket += randomNumber(9);ticket += randomNumber(9);ticket += randomNumber(9);ticket += randomNumber(9);
-    ticket += randomNumber(9);ticket += randomNumber(9);ticket += randomNumber(9);ticket += randomNumber(9);
-    ticket += randomNumber(9);ticket += randomNumber(9);
+    var limit = 10;
+    for(var i = 0; i < limit; i++){
+      ticket += this.randomNumber(limit);
+    }
     return ticket;
   }
 
