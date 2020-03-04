@@ -1,5 +1,74 @@
 class course{
 
+    static selfImprovement(){
+        let response = [
+            {
+                title: "Mental Health",
+                image_url: "https://armacad.info/images/2019/01/16/60776bdb7a37963b.png",
+                subtitle: "Course coordinator : Andrew NG",
+                buttons: [
+                    {
+                        type: "postback",
+                        title: "Enroll Now!",
+                        payload: "ENROLL",
+                    }
+                ],
+            },
+            {
+                title: "Humanities 101",
+                subtitle: "Course coordinator : Andrew NG",
+                image_url: "https://armacad.info/images/2019/01/16/60776bdb7a37963b.png",
+                buttons: [
+                    {
+                        type: "postback",
+                        title: "Enroll Now!",
+                        payload: "ENROLL",
+                    }
+                ],
+            },
+            {
+                title: "Humanities 102",
+                subtitle: "Course coordinator : Andrew NG",
+                image_url: "https://armacad.info/images/2019/01/16/60776bdb7a37963b.png",
+                buttons: [
+                    {
+                        type: "postback",
+                        title: "Enroll Now!",
+                        payload: "ENROLL",
+                    }
+                ],
+            },
+            {
+                title: "Mind Field-Fear",
+                subtitle: "Course coordinator : Vsauce Michael",
+                image_url: "https://lh3.googleusercontent.com/OMdHmhLthRNL-LXWj_yzXByc4FNuQi" + 
+                    "wxv7F6GyxV1n_ldo5nakz5z_9Cp4I6Y6dXeX1a_3VfOvvX5hdjE_ScXD7iNliUoEiWdAUyTIP_qO5PNKyKG2mjdZ_iPKVRULMT-7QQphXt",
+                buttons: [
+                    {
+                        type: "postback",
+                        title: "Enroll Now!",
+                        payload: "ENROLL",
+                    }
+                ],
+            },
+            {
+                title: "Mind Field - Cognitive learning theory",
+                subtitle: "Course coordinator : Vsauce Michael",
+                image_url: "https://lh3.googleusercontent.com/OMdHmhLthRNL-LXWj_yzXByc4FNuQi" + 
+                    "wxv7F6GyxV1n_ldo5nakz5z_9Cp4I6Y6dXeX1a_3VfOvvX5hdjE_ScXD7iNliUoEiWdAUyTIP_qO5PNKyKG2mjdZ_iPKVRULMT-7QQphXt",
+                buttons: [
+                    {
+                        type: "postback",
+                        title: "Enroll Now!",
+                        payload: "ENROLL",
+                    }
+                ],
+            }
+        ]
+
+        return response;
+    }
+
     static preReq(){
         let response = [
             {

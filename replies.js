@@ -481,6 +481,35 @@ class Replies {
           payload: "TRAINING"
         },
       ]),
+    "SELF_IMPROVEMENT_COURSES" : [
+      Responses.genTextReply("Here is a list of all the courses that you can apply for!!"),
+      {
+        "attachment": {
+          "type": "template",
+          "payload": {
+            "template_type": "generic",
+            "elements": Course.selfImprovement()
+          }
+        }
+      },
+      Responses.genQuickReply(
+        "What would you like to do next?",
+          [
+            {
+              title: "Courses available",
+              payload: "COURSES_AVAILABLE"
+            },
+            {
+              title: "Prerequisite",
+              payload: "PREREQUISITE_TRAINING"
+            },
+            {
+              title: "Improvement Courses",
+              payload: "SELF_IMPROVEMENT_COURSES"
+            }
+          ]
+      )
+    ],
     "COURSES_AVAILABLE" : [
       Responses.genTextReply("Here is a list of all the courses that you can apply for!!"),
       {
