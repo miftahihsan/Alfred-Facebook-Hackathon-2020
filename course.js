@@ -4,7 +4,7 @@ class course{
         let response = [
             {
                 title: "Humanities 101",
-                subtitle: "Course coordinator : Andrew NG",
+                subtitle: "Course coordinator : Armstrong, J. Scott",
                 image_url: "https://armacad.info/images/2019/01/16/60776bdb7a37963b.png",
                 buttons: [
                     {
@@ -16,7 +16,7 @@ class course{
             },
             {
                 title: "Humanities 102",
-                subtitle: "Course coordinator : Andrew NG",
+                subtitle: "Course coordinator : Armstrong, J. Scott",
                 image_url: "https://armacad.info/images/2019/01/16/60776bdb7a37963b.png",
                 buttons: [
                     {
