@@ -193,9 +193,9 @@ app.post('/webhook', (req, res) => {
 
       );
       
-
-      console.log("I AM HERE");
-      DynamoDB.updateUserState(userData['uid'], userData['type'], userData['state']);
+      // ORIGINAL PLACE
+      // console.log("I AM HERE");
+      // DynamoDB.updateUserState(userData['uid'], userData['type'], userData['state']);
 
     });
     // Return a '200 OK' response to all events
