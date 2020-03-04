@@ -986,14 +986,10 @@ class Replies {
           ]
         )
       ],
-    "REPORT_STATS": [Responses.genTextReply("Please Upload the sales records that you would like to send"),
-      Responses.genQuickReply("The document will be transferred to the manager, David Wallace",
-        [
-          {
-            title: "MENU",
-            payload: "MENU"
-          }
-        ])],
+    "REPORT_STATS": [
+      Responses.genTextReply("Please Upload the sales records that you would like to send"),
+      Responses.genTextReply("The document will be transferred to the manager, David Wallace")
+    ],
     "VIEW_REMINDERS": Responses.genQuickReply(
       "Looks like your schedule is free! You have no reminders.",
       [
