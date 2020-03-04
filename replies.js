@@ -294,8 +294,7 @@ class Replies {
 
     this.replies['LIVE_YES'] = [
       Responses.genTextReply("Your conversation has now been handed over to a live agent"),
-      Responses.genTextReply("Make sure to ask your question for them to get notified and"),
-      Responses.genTextReply("please be patient and wait for them to get back to you."),
+      Responses.genTextReply("Make sure to ask your question for them to get notified also, please be patient and wait for them to get back to you."),
     ]
     
     this.replies['LIVE_NO'] = [
@@ -391,7 +390,7 @@ class Replies {
           },
         ]
       )],
-    "COMMUNICATE" : Responses.genQuickReply("Do you want to report stats/info to manager, conduct a survey or make an announcement?",
+    "COMMUNICATE" : Responses.genQuickReply("Do you want to report stats/info to manager, make an announcement or ask for a live conversation with the admins?",
         [
           {
             title: "Report stats/info 👩‍💻",
@@ -402,7 +401,7 @@ class Replies {
             payload: "ANNOUNCEMENT"
           },
           {
-            title: "Live Chat",
+            title: "Live Chat 👨",
             payload: "LIVE"
           }
         ]
