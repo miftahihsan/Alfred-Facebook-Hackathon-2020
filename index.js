@@ -182,6 +182,10 @@ app.post('/webhook', (req, res) => {
             }
 
 
+            // REMOVE LATER IF NO NEEDED
+            console.log("I AM HERE");
+            DynamoDB.updateUserState(userData['uid'], userData['type'], userData['state']);
+
           },
           error =>{
             console.log("Promise Failed because of " + error);
