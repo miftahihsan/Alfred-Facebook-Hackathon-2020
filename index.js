@@ -313,7 +313,7 @@ function handleMessage(sender_psid, received_message, user_name) {
 
   }
   else if (received_message.attachments){
-    console.log"(+++++++++++++++++++++++_______________________________+++++++++++++++++++++++++++++++++++");
+    console.log("+++++++++++++++++++++++_______________________________+++++++++++++++++++++++++++++++++++");
     
     console.log('attachment' in received_message);
     console.log('attachments' in received_message);
