@@ -77,9 +77,8 @@ class Replies {
       Responses.genTextReply("In order to best serve your needs, I’ve already gathered some basic info about you from the Dunder Mifflin employee records"),
       Responses.genTextReply("Lets get started! \uD83D\uDE04\n"),
       Responses.genTextReply("- Ask an HR question\n\n- Modify your calendar, make a list etc.."),
-      Responses.genTextReply("- Know something from a specific company department, like finance, tech support, law etc..\n"),
       Responses.genQuickReply(
-        "- Report stats/info to manager\n",
+        "- Know something from a specific company department, like finance, tech support, law etc..\n\n- Report stats/info to manager\n",
         [
           {
             title: "HR question 🙋",
@@ -295,7 +294,7 @@ class Replies {
           payload: "CANT_LOGIN"
         },
         {
-          title: "Equipment not working!",
+          title: "Faulty equipment",
           payload: "EQUIPMENT_NOT_WORKING"
         },
         {
@@ -318,7 +317,7 @@ class Replies {
           payload: "CANT_LOGIN"
         },
         {
-          title: "Equipment not working!",
+          title: "Faulty equipment",
           payload: "EQUIPMENT_NOT_WORKING"
         },
         {
@@ -328,7 +327,7 @@ class Replies {
       ]),
     ],
     this.replies["EQUIPMENT_NOT_WORKING"] = [
-      Responses.genTextReply("We have sent an email to the IT perosn regarding your issue : Equipment not working!"),
+      Responses.genTextReply("We have sent an email to the IT perosn regarding your issue : Faulty equipment"),
       Responses.genTextReply("He will be in contact with you very shortly"),
       Responses.genQuickReply("Support Ticket Issued : " + this.supportTicketGenerator() , 
       [
@@ -341,7 +340,7 @@ class Replies {
           payload: "CANT_LOGIN"
         },
         {
-          title: "Equipment not working!",
+          title: "Faulty equipment",
           payload: "EQUIPMENT_NOT_WORKING"
         },
         {
@@ -364,7 +363,7 @@ class Replies {
           payload: "CANT_LOGIN"
         },
         {
-          title: "Equipment not working!",
+          title: "Faulty equipment",
           payload: "EQUIPMENT_NOT_WORKING"
         },
         {
@@ -471,9 +470,8 @@ class Replies {
     ],
     "MENU": [Responses.genTextReply("What do you want to do next?"),
       Responses.genTextReply("- Ask an HR question\n\n- Modify your calendar, make a list etc.."),
-      Responses.genTextReply("- Know something from a specific company department, like finance, tech support, law etc..\n"),
       Responses.genQuickReply(
-        "- Report stats/info to manager\n",
+        "- Know something from a specific company department, like finance, tech support, law etc..\n\n- Report stats/info to manager\n",
         [
           {
             title: "HR question 🙋",
@@ -676,10 +674,10 @@ class Replies {
     ],
     "IT_TECH": [Responses.genTextReply("Here are some common IT concerns you can ask about:"),
       Responses.genQuickReply(
-        "- What's my username and password?\n" +
-        "- I can't login to my account\n" +
-        "- My office equipment isn’t working\n" +
-        "- My office equipment doesn't have network connectivity\n",
+        "- What's my username and password?\n\n" +
+        "- I can't login to my account\n\n" +
+        "- My office equipment isn’t working\n\n" +
+        "- My office equipment doesn't have network connectivity\n\n",
         [
           {
             title: "Username and password?",
@@ -690,7 +688,7 @@ class Replies {
             payload: "CANT_LOGIN"
           },
           {
-            title: "Equipment not working!",
+            title: "Faulty equipment",
             payload: "EQUIPMENT_NOT_WORKING"
           },
           {
@@ -779,7 +777,7 @@ class Replies {
     "BONUS" : [
       Responses.genTextReply("Employees who take FMLA leave will not lose any previous accrued seniority or employment benefits" + 
       " (including the longevity bonus, safety incentive, and holiday pay), and those benefits will continue to accrue during the FMLA leave."),
-      Responses.genTextReply("Leave accruals will be based according to the Management Handbook and/or IBEW Contract."),
+      Responses.genTextReply("Leave accruals will be based according to the Management Handbook and/or our Contract."),
       Responses.genTextReply("If an employee fails to return to work after the expiration of the leave, the employee may be required to" +
       " reimburse us for payment of health insurance premiums during the FMLA leave."),
       Responses.genQuickReply("Reimbursement will not be required if the employee does not return to work because of a serious health" + 
@@ -805,10 +803,10 @@ class Replies {
     ],
     "FINANCE": [Responses.genTextReply("Here are some common Finances questions you can ask:"),
       Responses.genQuickReply(
-        "- What are the current health insurance policies?\n" +
-        "- When will I get a bonus?\n" +
-        "- What are the rules for fines?\n" +
-        "- When will I get an increment?\n",
+        "- What are the current health insurance policies?\n\n" +
+        "- When will I get a bonus?\n\n" +
+        "- What are the rules for fines?\n\n" +
+        "- When will I get an increment?\n\n",
         [
           {
             title: "Health insurance",
@@ -969,9 +967,9 @@ class Replies {
     "TRAINING": [
       Responses.genTextReply("Here are some common Training and Self Improvement questions you can ask:"),
       Responses.genQuickReply(
-        "- What are the current training courses available for me?\n" +
-        "- What training courses do I require to complete my current tasks?\n" +
-        "- What self improvement courses do I need to take to improve my performance metrics?\n",
+        "- What are the current training courses available for me?\n\n" +
+        "- What training courses do I require to complete my current tasks?\n\n" +
+        "- What self improvement courses do I need to take to improve my performance metrics?",
           [
             {
               title: "Courses available",
