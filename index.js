@@ -374,17 +374,8 @@ function handleMessage(sender_psid, received_message, user_name) {
         replyArray = reply;
       }
 
-    //  console.log("SEND THE GIF NOW");
-      // console.log("Response = " + response.length);
+      responses = responses.concat(replyArray);
 
-      // if (Array.isArray(reply)){
-        responses = responses.concat(replyArray);
-      //   console.log("IT IS AN ARRAY ");
-      // }
-      // else{
-      //   responses = responses.push(reply);
-      //   console.log("IT IS NOT AN ARRAY ");
-      // }
 
       sendMessage(sender_psid, responses);
 
