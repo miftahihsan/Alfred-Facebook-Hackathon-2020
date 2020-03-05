@@ -275,7 +275,7 @@ function handleMessage(sender_psid, received_message, user_name) {
           for (let i=0;i< c;i++){
             if (res.Items[i].uid.S===sender_psid)continue;
             //UNCOMMENT THIS  LATER PLEASE
-         /*   sendMessage(res.Items[i].uid.S, [Response.genTextReply("A meeting has been scheduled by " + userData['name']),
+            sendMessage(res.Items[i].uid.S, [Response.genTextReply("A meeting has been scheduled by " + userData['name']),
               {
                 "attachment": {
                   "type": "template",
@@ -301,7 +301,7 @@ function handleMessage(sender_psid, received_message, user_name) {
                   }
                 }
               }
-              ]);*/
+              ]);
           }
 
 
@@ -504,7 +504,6 @@ function handlePostback(sender_psid, received_postback, user_name) {
     if( arr.length === 3 && arr[0] === 'MEETING' ){
       let response;
 
-
         DynamoDB.getMeetingInfo(arr[1]).then(
           res=>{
             let attend=false;
@@ -531,16 +530,17 @@ function handlePostback(sender_psid, received_postback, user_name) {
 
             }
             else{
-              sendMessage(sender_psid, Response.genTextReply("You have already responded. Spamming is strictly prohibited!!! "))
+              response = Response.genTextReply("You have already responded. Spamming is strictly prohibited!!! ");
             }
+
+            //UNCOMMENT LATES PLS
+            callSendAPI(arr[1], response);
+
 
 
           });
 
 
-
-      //UNCOMMENT LATES PLS
-      //callSendAPI(arr[1], response);
 
       return;
     }
