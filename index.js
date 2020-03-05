@@ -497,17 +497,24 @@ function handlePostback(sender_psid, received_postback, user_name) {
 
         DynamoDB.getMeetingInfo(arr[1]).then(
           res=>{
-            let attend=false;
+            let responded=false;
             console.log("attendeee");
             console.log(res);
             if ('attendees' in res.Item) {
               res.Item.attendees.forEach(id => {
                 if (id == userData['uid']) {
-                  attend = true;
+                  responded = true;
                 }
               });
             }
-            if (!attend) {
+            if ('decliners' in res.Item){
+              res.Item.decliners.forEach(id=>{
+                if (id == userData['uid']){
+                  responded=true;
+                }
+              })
+            }
+            if (!responded) {
               if( arr[2] === "YES" ) {
                 response = {'text': userData['name'] + " wanted to let you know that he will be able to attend the meeting."};
                 //update attendee in database
@@ -518,16 +525,12 @@ function handlePostback(sender_psid, received_postback, user_name) {
                 response = {'text' : userData['name'] + " wanted to let you know that he will not be able to attend the meeting." };
                 DynamoDB.updateDecliningMeeting(arr[1], userData['uid']);
               }
+              callSendAPI(arr[1], response);
 
             }
             else{
-              response = Response.genTextReply("You have already responded. Spamming is strictly prohibited!!! ");
+              sendMessage(sender_psid, Response.genTextReply("You have already responded. Spamming is strictly prohibited!!!"));
             }
-
-            //UNCOMMENT LATES PLS
-            callSendAPI(arr[1], response);
-
-
 
           });
 
