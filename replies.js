@@ -824,7 +824,7 @@ class Replies {
           payload: "HEALTH_INSURANCE"
         },
         {
-          title: "Paid Vacation 🏖️",
+          title: "Paid vacation 🏖️",
           payload: "BONUS"
         },
         {
@@ -845,7 +845,7 @@ class Replies {
           payload: "HEALTH_INSURANCE"
         },
         {
-          title: "Paid Vacation 🏖️",
+          title: "Paid vacation 🏖️",
           payload: "BONUS"
         },
         {
@@ -872,7 +872,7 @@ class Replies {
           payload: "HEALTH_INSURANCE"
         },
         {
-          title: "Paid Vacation 🏖️",
+          title: "Paid vacation 🏖️",
           payload: "BONUS"
         },
         {
@@ -899,7 +899,7 @@ class Replies {
           payload: "HEALTH_INSURANCE"
         },
         {
-          title: "Paid Vacation 🏖️",
+          title: "Paid vacation 🏖️",
           payload: "BONUS"
         },
         {
@@ -924,7 +924,7 @@ class Replies {
             payload: "HEALTH_INSURANCE"
           },
           {
-            title: "Paid Vacation 🏖️",
+            title: "Paid vacation 🏖️",
             payload: "BONUS"
           },
           {
