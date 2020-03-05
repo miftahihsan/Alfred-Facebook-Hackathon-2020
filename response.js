@@ -48,7 +48,8 @@ class Response{
                 "type": "template",
                 "payload": {
                     "template_type": "generic",
-                    "elements": elements
+                    "elements": elements,
+                    "image_aspect_ratio": "square"
                 }
             }
         };
