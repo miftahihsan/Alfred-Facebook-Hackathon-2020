@@ -51,10 +51,6 @@ class Replies {
              {
                title: "View Schedule 📆",
                payload: "VIEW_SCHEDULE"
-             },
-             {
-               title: "View Trips ✈",
-               payload: "VIEW_TRIPS"
              }
            ])
 
@@ -671,10 +667,6 @@ class Replies {
         {
           title: "View Schedule 📆",
           payload: "VIEW_SCHEDULE"
-        },
-        {
-          title: "View Trips ✈",
-          payload: "VIEW_TRIPS"
         }
       ]),
     "FAQ": Responses.genQuickReply("Great! What do you want to know about?",
@@ -1144,10 +1136,6 @@ class Replies {
         {
           title: "View Schedule 📆",
           payload: "VIEW_SCHEDULE"
-        },
-        {
-          title: "View Trips ✈",
-          payload: "VIEW_TRIPS"
         }
       ]),
     "NEW_REMINDER": [
@@ -1162,14 +1150,9 @@ class Replies {
           {
             title: "View Schedule 📆",
             payload: "VIEW_SCHEDULE"
-          },
-          {
-            title: "View Trips ✈",
-            payload: "VIEW_TRIPS"
           }
         ])],
     "VIEW_SCHEDULE": Responses.genTextReply("Looks like your schedule is free!"),
-    "VIEW_TRIPS": Responses.genTextReply("OHNO ABRAR HASNT WRITTEN YET.")
   };
 
   static policy = {
