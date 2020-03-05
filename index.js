@@ -508,7 +508,7 @@ function handlePostback(sender_psid, received_postback, user_name) {
             console.log("attendeee");
             console.log(res);
             res.Item.attendees.forEach(id=>{
-              if (id== userData['uid']){
+              if (id == userData['uid']){
                 attend=true;
               }
             });
@@ -526,7 +526,7 @@ function handlePostback(sender_psid, received_postback, user_name) {
       else{
         response = {'text' : userData['name'] + " wanted to let you know that he will not be able to attend the meeting." }
 
-        callSendAPI(arr[1], response);
+        //callSendAPI(arr[1], response);
       }
 
       return;
