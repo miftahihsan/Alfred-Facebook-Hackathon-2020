@@ -179,7 +179,7 @@ async function getMeetingInfo(set_by){
 
   var result = await getHelper(params);
 
-  console.log("This is Get Helper");
+  console.log("This is Get Helper for meeting");
   console.log(result);
 
   var exists = false;
@@ -205,7 +205,7 @@ function updateUserState(user_id, table_name,state){
         ReturnValues:"UPDATED_NEW"
     };
 
-    console.log("Updating the item...");
+    console.log("Updating USER STATE");
     docClient.update(params, function(err, data) {
         if (err) {
             console.error("Unable to update item. Error JSON:", JSON.stringify(err, null, 2));

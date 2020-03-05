@@ -274,7 +274,8 @@ function handleMessage(sender_psid, received_message, user_name) {
           let c = res.Count;
           for (let i=0;i< c;i++){
             if (res.Items[i].uid.S===sender_psid)continue;
-            sendMessage(res.Items[i].uid.S, [Response.genTextReply("A meeting has been scheduled by " + userData['name']),
+            //UNCOMMENT THIS  LATER PLEASE
+         /*   sendMessage(res.Items[i].uid.S, [Response.genTextReply("A meeting has been scheduled by " + userData['name']),
               {
                 "attachment": {
                   "type": "template",
@@ -300,7 +301,7 @@ function handleMessage(sender_psid, received_message, user_name) {
                   }
                 }
               }
-              ]);
+              ]);*/
           }
 
 
