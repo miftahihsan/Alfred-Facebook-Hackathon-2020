@@ -421,7 +421,7 @@ class Replies {
     ];
 
     this.replies["COMPLAINT_ATTACHMENT"] = [
-      Responses.genQuickReply("You can upload more documents if you want. You can aslo choose to go through or discard the documents that you have uploaded" + 
+      Responses.genQuickReply("You can upload more documents if you want. You can also choose to go through or discard the documents that you have uploaded" + 
       " by pressing the buttons below",
       [
         {
