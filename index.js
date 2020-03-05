@@ -251,53 +251,60 @@ function handleMessage(sender_psid, received_message, user_name) {
   if (received_message.quick_reply){       //Button replies
     handleQuickReplies(sender_psid, received_message.quick_reply);
 
-    if( received_message.quick_reply.payload === "ANNOUNCEMENT" ){
-      DynamoDB.getIdColumn()
-      .then(res => {
+    if( received_message.quick_reply.payload.includes("_")){
+      var arr = received_message.quick_reply.payload.split("_");
 
-        //Insert meeting to database
-       
-        //console.log("Announcement !!!!");
-       // console.log(res.Items[0].uid);
-        let c = res.Count;
-        for (let i=0;i< c;i++){
-          if (res.Items[i].uid.S===sender_psid)continue;
-          sendMessage(res.Items[i].uid.S, [Response.genTextReply("A meeting has been scheduled by " + userData['name']),
-            {
-              "attachment": {
-                "type": "template",
-                "payload": {
-                  "template_type": "generic",
-                  "elements": [{
-                    "title": "Do you wish to attend this meeting?",
-                    "subtitle": "Tap a button to answer.",
-                    "image_url": userData['profile_pic'],
-                    "buttons": [
-                      {
-                        "type": "postback",
-                        "title": "Sure thing!",
-                        "payload": "MEETING_" + sender_psid + "_YES",
-                      },
-                      {
-                        "type": "postback",
-                        "title": "Sorry I'm busy!",
-                        "payload": "MEETING_" + sender_psid + "_NO",
-                      }
-                    ],
-                  }]
+      if( arr[0] == 'TIME' && arr.length == 3 ){
+        
+
+
+    // if( received_message.quick_reply.payload === "ANNOUNCEMENT" ){
+        DynamoDB.getIdColumn()
+        .then(res => {
+          console.log("Announcement !!!!");
+          console.log(res.Items[0].uid);
+          let c = res.Count;
+          for (let i=0;i< c;i++){
+            if (res.Items[i].uid.S===sender_psid)continue;
+            sendMessage(res.Items[i].uid.S, [Response.genTextReply("A meeting has been scheduled by " + userData['name']),
+              {
+                "attachment": {
+                  "type": "template",
+                  "payload": {
+                    "template_type": "generic",
+                    "elements": [{
+                      "title": "Do you wish to attend this meeting?",
+                      "subtitle": "Time of meeting : " + arr[1] + " " + arr[2],
+                      "image_url": userData['profile_pic'],
+                      "buttons": [
+                        {
+                          "type": "postback",
+                          "title": "Sure thing!",
+                          "payload": "MEETING_" + sender_psid + "_YES",
+                        },
+                        {
+                          "type": "postback",
+                          "title": "Sorry I'm busy!",
+                          "payload": "MEETING_" + sender_psid + "_NO",
+                        }
+                      ],
+                    }]
+                  }
                 }
               }
-            }
-            ]);
-        }
+              ]);
+          }
 
 
-      })
-      .catch(err => {
-        console.log("Announcement ERROR !!!!");
-        console.log(err);
-      });
+        })
+        .catch(err => {
+          console.log("Announcement ERROR !!!!");
+          console.log(err);
+        });
+    // }
     }
+
+  }
 
   }
   else if (received_message.text) {

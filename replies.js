@@ -67,8 +67,32 @@ class Replies {
       Responses.genTextReply("and I’ll search the HR handbook and get the relevant information to you!")
     ];
 
-    this.replies['ANNOUNCEMENT'] = [
+    this.replies['TIME_11:00_AM'] = [
       Responses.genTextReply("We have delivered a message to every one that you called for a meeting"),
+    ];
+    this.replies['TIME_1:00_PM'] = [
+      Responses.genTextReply("We have delivered a message to every one that you called for a meeting"),
+    ];
+    this.replies['TIME_3:30_PM'] = [
+      Responses.genTextReply("We have delivered a message to every one that you called for a meeting"),
+    ];
+
+    this.replies['ANNOUNCEMENT_TIME'] = [
+      Responses.genQuickReply("Select a time from below",
+      [
+        {
+          title: "11:00-AM",
+          payload: "TIME_11:00_AM"
+        },
+        {
+          title: "1:00-PM",
+          payload: "TIME_1:00_PM"
+        },
+        {
+          title: "3:30-PM",
+          payload: "TIME_3:30_PM"
+        },
+      ]),
     ];
 
     this.replies["INITIATE"] = [Responses.genTextReply("Hi "+userData['name']+" ! "),
@@ -400,7 +424,7 @@ class Replies {
     ];
 
     this.replies["COMPLAINT_ATTACHMENT"] = [
-      Responses.genQuickReply("You can upload more documents if you want, of submit or discard the your complaint the ones that you have uploaded\n" + 
+      Responses.genQuickReply("You can upload more documents if you want. You cal submit or discard the your complaint the ones that you have uploaded" + 
       " by press the buttons below",
       [
         {
@@ -589,7 +613,7 @@ class Replies {
           },
           {
             title: "Announcement 📣",
-            payload: "ANNOUNCEMENT"
+            payload: "ANNOUNCEMENT_TIME"
           },
           {
             title: "Live Chat 👨",
