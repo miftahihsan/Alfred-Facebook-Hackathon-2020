@@ -31,7 +31,7 @@ class Response{
         let ind=0;
         meetings.forEach(meeting=>{
             let element = {
-                "title":"Welcome!",
+                "title":meeting['name'],
                 "image_url":meeting['profile_pic'],
                 "subtitle":"Meeting set by " + meeting['name'] + " at " + meeting['time'],
 
@@ -39,6 +39,8 @@ class Response{
             elements.push(element);
 
         });
+
+        console.log(elements[0]);
 
 
         let response = {
@@ -50,6 +52,7 @@ class Response{
                 }
             }
         };
+
 
         return response;
     }
