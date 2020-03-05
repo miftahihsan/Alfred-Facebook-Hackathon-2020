@@ -507,11 +507,13 @@ function handlePostback(sender_psid, received_postback, user_name) {
             let attend=false;
             console.log("attendeee");
             console.log(res);
-            res.Item.attendees.forEach(id=>{
-              if (id == userData['uid']){
-                attend=true;
-              }
-            });
+            if ('attendees' in res.Item) {
+              res.Item.attendees.forEach(id => {
+                if (id == userData['uid']) {
+                  attend = true;
+                }
+              });
+            }
             if (!attend) {
               response = {'text': userData['name'] + " wanted to let you know that he will be able to attend the meeting."}
               //update attendee in database
@@ -525,7 +527,7 @@ function handlePostback(sender_psid, received_postback, user_name) {
       }
       else{
         response = {'text' : userData['name'] + " wanted to let you know that he will not be able to attend the meeting." }
-
+        //UNCOMMENT LATES PLS
         //callSendAPI(arr[1], response);
       }
 
