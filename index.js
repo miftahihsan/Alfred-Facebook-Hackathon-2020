@@ -356,7 +356,10 @@ function handleMessage(sender_psid, received_message, user_name) {
       userData['state'] = 'REPORT_STATS_ATTACHMENT';
       sendMessage(sender_psid, Replies.replies[userData['state']]);
     }
-    else if( userData['state'] !== 'REPORT_STATS_ATTACHMENT' && userData['state'] !== 'COMPLAINT_ATTACHMENT' ) {
+    else if( userData['state'] === 'REPORT_STATS_ATTACHMENT' || userData['state'] === 'COMPLAINT_ATTACHMENT' ){
+      sendMessage(sender_psid, Replies.replies[userData['state']]);
+    }
+    else {
       // REPLY WITH GIF
       let responses = [Response.genAttachmentReply()];
 
