@@ -348,25 +348,12 @@ function handleMessage(sender_psid, received_message, user_name) {
   }
   else if (received_message.attachments){
 
-    if (userData['state']==="SUBMIT_REPORT"){
-      sendMessage(sender_psid, [
-        // Response.genAttachmentReply(),
-        {
-          "attachment":{
-              "type":"image",
-              "payload":{
-                  "url": "https://media.giphy.com/media/DoCIC5Pxp57qg/giphy-downsized.gif"
-              }
-          }
-        },
-        Response.genTextReply("Document successfully transferred to your manager!"),
-      ].concat(
-        Replies.replies["COMMUNICATE"]
-      ));
-      userData['state']="COMMUNICATE";
-    }
-    else if( userData['state']==="COMPLAINT" ){
+    if( userData['state']==="COMPLAINT" ){
       userData['state'] = "COMPLAINT_ATTACHMENT";
+      sendMessage(sender_psid, Replies.replies[userData['state']]);
+    }
+    else if( userData['state']==='REPORT_STATS' ){
+      userData['state'] = 'REPORT_STATS_ATTACHMENT';
       sendMessage(sender_psid, Replies.replies[userData['state']]);
     }
     else {
@@ -418,7 +405,24 @@ function handleQuickReplies(sender_psid, quick_reply) {
   userData['state'] = payload;
   let response = Replies.replies[userData['state']];
 
-  if( userData['state'] === 'LIVE_YES' ){
+  if (userData['state']==="SUBMIT_REPORT"){
+    sendMessage(sender_psid, [
+      // Response.genAttachmentReply(),
+      {
+        "attachment":{
+            "type":"image",
+            "payload":{
+                "url": "https://media.giphy.com/media/DoCIC5Pxp57qg/giphy-downsized.gif"
+            }
+        }
+      },
+      Response.genTextReply("Document successfully transferred to your manager!"),
+    ].concat(
+      Replies.replies["COMMUNICATE"]
+    ));
+    userData['state']="COMMUNICATE";
+  }
+  else if( userData['state'] === 'LIVE_YES' ){
     userData['state'] = "INITIATE";
     sendMessage(sender_psid, response );
     giveAdminAccess( sender_psid ); 
