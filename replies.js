@@ -307,7 +307,7 @@ class Replies {
       Responses.genQuickReply("Support Ticket Issued : " + this.supportTicketGenerator() , 
       [
         {
-          title: "Username and password?",
+          title: "Credentials?",
           payload: "USER_NAME_PASSWORD"
         },
         {
@@ -330,7 +330,7 @@ class Replies {
       Responses.genQuickReply("Support Ticket Issued : " + this.supportTicketGenerator() , 
       [
         {
-          title: "Username and password?",
+          title: "Credentials?",
           payload: "USER_NAME_PASSWORD"
         },
         {
@@ -353,7 +353,7 @@ class Replies {
       Responses.genQuickReply("Support Ticket Issued : " + this.supportTicketGenerator() , 
       [
         {
-          title: "Username and password?",
+          title: "Credentials?",
           payload: "USER_NAME_PASSWORD"
         },
         {
@@ -376,7 +376,7 @@ class Replies {
       Responses.genQuickReply("Support Ticket Issued : " + this.supportTicketGenerator() , 
       [
         {
-          title: "Username and password?",
+          title: "Credentials?",
           payload: "USER_NAME_PASSWORD"
         },
         {
@@ -782,7 +782,7 @@ class Replies {
         "- My office equipment doesn't have network connectivity\n\n",
         [
           {
-            title: "Username and password?",
+            title: "Credentials?",
             payload: "USER_NAME_PASSWORD"
           },
           {
