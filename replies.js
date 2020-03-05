@@ -307,11 +307,11 @@ class Replies {
       Responses.genQuickReply("Support Ticket Issued : " + this.supportTicketGenerator() , 
       [
         {
-          title: "Credentials?",
+          title: "Credentials ? 🔑",
           payload: "USER_NAME_PASSWORD"
         },
         {
-          title: "Can't login",
+          title: "Can't login 👨‍💻",
           payload: "CANT_LOGIN"
         },
         {
@@ -319,7 +319,7 @@ class Replies {
           payload: "EQUIPMENT_NOT_WORKING"
         },
         {
-          title: "No Network!",
+          title: "No Network! 🌐",
           payload: "NO_NETWORK"
         },
       ]),
@@ -330,11 +330,11 @@ class Replies {
       Responses.genQuickReply("Support Ticket Issued : " + this.supportTicketGenerator() , 
       [
         {
-          title: "Credentials?",
+          title: "Credentials ? 🔑",
           payload: "USER_NAME_PASSWORD"
         },
         {
-          title: "Can't login",
+          title: "Can't login 👨‍💻",
           payload: "CANT_LOGIN"
         },
         {
@@ -342,7 +342,7 @@ class Replies {
           payload: "EQUIPMENT_NOT_WORKING"
         },
         {
-          title: "No Network!",
+          title: "No Network! 🌐",
           payload: "NO_NETWORK"
         },
       ]),
@@ -353,11 +353,11 @@ class Replies {
       Responses.genQuickReply("Support Ticket Issued : " + this.supportTicketGenerator() , 
       [
         {
-          title: "Credentials?",
+          title: "Credentials ? 🔑",
           payload: "USER_NAME_PASSWORD"
         },
         {
-          title: "Can't login",
+          title: "Can't login 👨‍💻",
           payload: "CANT_LOGIN"
         },
         {
@@ -365,7 +365,7 @@ class Replies {
           payload: "EQUIPMENT_NOT_WORKING"
         },
         {
-          title: "No Network!",
+          title: "No Network! 🌐",
           payload: "NO_NETWORK"
         },
       ]),
@@ -376,11 +376,11 @@ class Replies {
       Responses.genQuickReply("Support Ticket Issued : " + this.supportTicketGenerator() , 
       [
         {
-          title: "Credentials?",
+          title: "Credentials ? 🔑",
           payload: "USER_NAME_PASSWORD"
         },
         {
-          title: "Can't login",
+          title: "Can't login 👨‍💻",
           payload: "CANT_LOGIN"
         },
         {
@@ -388,7 +388,7 @@ class Replies {
           payload: "EQUIPMENT_NOT_WORKING"
         },
         {
-          title: "No Network!",
+          title: "No Network! 🌐",
           payload: "NO_NETWORK"
         },
       ]),
@@ -782,11 +782,11 @@ class Replies {
         "- My office equipment doesn't have network connectivity\n\n",
         [
           {
-            title: "Credentials?",
+            title: "Credentials ? 🔑",
             payload: "USER_NAME_PASSWORD"
           },
           {
-            title: "Can't login",
+            title: "Can't login 👨‍💻",
             payload: "CANT_LOGIN"
           },
           {
@@ -794,7 +794,7 @@ class Replies {
             payload: "EQUIPMENT_NOT_WORKING"
           },
           {
-            title: "No Network!",
+            title: "No Network! 🌐",
             payload: "NO_NETWORK"
           },
         ])],
