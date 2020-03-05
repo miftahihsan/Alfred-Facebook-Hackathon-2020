@@ -653,7 +653,7 @@ class Replies {
     ],
     "SCHEDULES": Responses.genQuickReply(
       "Would you like to work with your lists, \n" +
-      "make a new list, view/manage your calendar \n"
+      "make a new list, view/manage your calendar",
       [
         {
           title: "View Reminders 📝",
