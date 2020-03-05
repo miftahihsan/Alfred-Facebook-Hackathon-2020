@@ -171,7 +171,7 @@ async function getUserInfo(emp_id, table_name){
 async function getMeetingInfo(set_by){
   var params = {
     TableName: "Schedule",
-    Key:{
+    Key: {
         "set_by": set_by,
     }
 
