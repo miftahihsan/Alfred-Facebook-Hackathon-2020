@@ -1152,6 +1152,25 @@ class Replies {
           }
         ])],
     "VIEW_SCHEDULE": Responses.genTextReply("Looks like your schedule is free!"),
+    "ENROLL" : Response.genQuickReply("You have been enrolled to the following course",
+    [
+      {
+        title: "Finances 💰",
+        payload: "FINANCE"
+      },
+      {
+        title: "IT and Tech 🖥️",
+        payload: "IT_TECH"
+      },
+      {
+        title: "Corporate Law 👨‍⚖️",
+        payload: "CORPORATE_LAW"
+      },
+      {
+        title: "Training 🏋️‍♂️",
+        payload: "TRAINING"
+      },
+    ])
   };
 
   static policy = {
