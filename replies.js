@@ -406,7 +406,7 @@ class Replies {
     ];
 
     this.replies["COMPLAINT_ERROR_MSG"] = [
-      Responses.genTextReply("Please upload a document of less than 25MB for the complaint to go through.")
+      Responses.genTextReply("Please upload a document and not text for the complaint to go through.")
     ]
 
     this.replies["COMPLAINT_BUTTON"] = [
@@ -424,8 +424,8 @@ class Replies {
     ];
 
     this.replies["COMPLAINT_ATTACHMENT"] = [
-      Responses.genQuickReply("You can upload more documents if you want. You cal submit or discard the your complaint the ones that you have uploaded" + 
-      " by press the buttons below",
+      Responses.genQuickReply("You can upload more documents if you want. You can aslo choose to go through or discard the documents that you have uploaded" + 
+      " by pressing the buttons below",
       [
         {
           title: "Submit Complaint 😤",
