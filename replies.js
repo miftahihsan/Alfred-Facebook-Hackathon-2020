@@ -374,7 +374,7 @@ class Replies {
     ],
 
     this.replies["COMPLAINT"] = [
-      Responses.genTextReply("Remember, your complaints/reports are completely anonymous." + 
+      Responses.genTextReply("Re`member, your complaints/reports are completely anonymous." +
       "Only I’ll know that you’ve submitted this complaint and no one else, not even your superiors! 😎"),
       Responses.genTextReply("Please tell us about your experience in details or upload a complaint file as an attachment" + 
       " so that we can perform proper investigation and take necessary actions as soon as possible"),
@@ -397,7 +397,7 @@ class Replies {
           payload: "DISCARD_COMPLAINT"
         },
       ]),
-    ]
+    ];
 
     this.replies["COMPLAINT_ATTACHMENT"] = [
       Responses.genQuickReply("You can upload more documents if you want, of submit or discard the your complaint the ones that you have uploaded\n" + 
@@ -438,7 +438,7 @@ class Replies {
           payload: "COMPLAINT"
         }
       ])
-    ]
+    ];
 
     this.replies["SUBMIT_COMPLAINT"] = [
       Responses.genQuickReply("Your complaint has been submitted successfully. Rest assured as our team will conduct proper investigation" + 
@@ -514,7 +514,7 @@ class Replies {
           }
         ]
       )
-    ]
+    ];
   }
 
 
