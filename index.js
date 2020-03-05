@@ -436,9 +436,12 @@ function handleQuickReplies(sender_psid, quick_reply) {
         console.log(res)
 
       console.log("----------viewschedule------------");
-        let data = res.Items;
-        response = Response.genGenericTemplate(data);
-        console.log(response);
+        if (c===0) response = Replies.replies['VIEW_SCHEDULE'];
+        else {
+          let data = res.Items;
+          response = Response.genGenericTemplate(data);
+          console.log(response);
+        }
         sendMessage(sender_psid, response);
 
       }
