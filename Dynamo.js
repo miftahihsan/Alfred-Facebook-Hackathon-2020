@@ -216,6 +216,49 @@ function updateReminder(user_id, table_name, data){
 
 }
 
+function updateAttendingMeeting(setBy, attendee){
+
+  let params = {
+    TableName: "Schedule",
+    Key: {
+      "set_by": setBy
+    },
+    UpdateExpression: "set attendees = list_append(if_not_exists(attendees, :empty_list), :s)",
+    ExpressionAttributeValues: {
+      ":s": [attendee],
+      ':empty_list': []
+
+    },
+    ReturnValues: "UPDATED_NEW"
+  };
+
+
+    docClient.update(params, function(err, data) {
+      if (err) {
+        console.error("Unable to update item. Error JSON:", JSON.stringify(err, null, 2));
+      } else {
+        console.log("UpdateItem succeeded:", JSON.stringify(data, null, 2));
+      }
+    });
+
+
+
+
+}
+
+function createMeeting(data){
+
+  var params = {
+    TableName: "Schedule",
+    Item: data  // set_by  and time
+  };
+  docClient.put(params, function(err, data) {
+    if (err) console.log(err, err.stack); // an error occurred
+    else console.log(data); // successful response
+  });
+
+}
+
 
 module.exports = {
   getUserInfo,
@@ -223,5 +266,7 @@ module.exports = {
   get,
   updateUserState,
   updateReminder,
-  getIdColumn
+  getIdColumn,
+  createMeeting,
+  updateAttendingMeeting
 }

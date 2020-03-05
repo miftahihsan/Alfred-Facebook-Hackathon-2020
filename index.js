@@ -42,7 +42,7 @@ app.use(function(req, res, next) {
   next();
 });
 
-app.post('/userList', (req, res) => {
+app.post('/userList', (req, res) => {     //REMINDERS
   let body = req.body;
   console.log("here!---------inside--UserList---------------------------------------------");
   console.log( body );
@@ -185,7 +185,7 @@ app.post('/webhook', (req, res) => {
 
 
             // REMOVE LATER IF NO NEEDED
-            console.log("I AM HERE");
+            //console.log("I AM HERE");
             DynamoDB.updateUserState(userData['uid'], userData['type'], userData['state']);
 
           },
@@ -254,8 +254,11 @@ function handleMessage(sender_psid, received_message, user_name) {
     if( received_message.quick_reply.payload === "ANNOUNCEMENT" ){
       DynamoDB.getIdColumn()
       .then(res => {
-        console.log("Announcement !!!!");
-        console.log(res.Items[0].uid);
+
+        //Insert meeting to database
+       
+        //console.log("Announcement !!!!");
+       // console.log(res.Items[0].uid);
         let c = res.Count;
         for (let i=0;i< c;i++){
           if (res.Items[i].uid.S===sender_psid)continue;
@@ -358,7 +361,7 @@ function handleMessage(sender_psid, received_message, user_name) {
         replyArray = reply;
       }
 
-      console.log("SEND THE GIF NOW");
+    //  console.log("SEND THE GIF NOW");
       // console.log("Response = " + response.length);
 
       // if (Array.isArray(reply)){
@@ -378,8 +381,8 @@ function handleMessage(sender_psid, received_message, user_name) {
     // get a response for the particular state now
 
 
-  console.log("current state = " + userData['state']);
-  console.log("-------------------------------------------------------------------");
+  //console.log("current state = " + userData['state']);
+  //console.log("-------------------------------------------------------------------");
 
   // Send the response message
 }

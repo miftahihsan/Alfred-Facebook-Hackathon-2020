@@ -36,7 +36,7 @@ class Replies {
     this.userData = userData;
     if ('reminders' in userData.Item){
        this.replies["VIEW_REMINDERS"] = [
-         Responses.genReminders(this.uid, userData.Item['reminders']),
+         Responses.genReminders(userData.uid, userData.Item['reminders']),
          Responses.genQuickReply(
            "Or change previous reminders",
            [
