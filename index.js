@@ -305,7 +305,7 @@ function handleMessage(sender_psid, received_message, user_name) {
     // console.log("-------------------------------------------------------------------");    
     // console.log(received_message.nlp.entities);
 
-    if( user['state'] === "COMPLAINT" || user['state'] === "COMPLAINT_ATTACHMENT" ){
+    if( userData['state'] === "COMPLAINT" || userData['state'] === "COMPLAINT_ATTACHMENT" ){
 
       let response = Replies.replies['COMPLAINT_ERROR_MSG'];
       sendMessage(sender_psid, response);
@@ -341,7 +341,7 @@ function handleMessage(sender_psid, received_message, user_name) {
     }
     else if( userData['state']==="COMPLAINT" ){
       userData['state'] = "COMPLAINT_ATTACHMENT";
-      sendMessage(sender_psid, Response.replies[userData['state']]);
+      sendMessage(sender_psid, Replies.replies[userData['state']]);
     }
     else {
       // REPLY WITH GIF
