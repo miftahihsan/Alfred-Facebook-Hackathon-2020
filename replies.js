@@ -315,7 +315,7 @@ class Replies {
           payload: "CANT_LOGIN"
         },
         {
-          title: "Faulty equipment",
+          title: "Faulty equipment ⚡",
           payload: "EQUIPMENT_NOT_WORKING"
         },
         {
@@ -338,7 +338,7 @@ class Replies {
           payload: "CANT_LOGIN"
         },
         {
-          title: "Faulty equipment",
+          title: "Faulty equipment ⚡",
           payload: "EQUIPMENT_NOT_WORKING"
         },
         {
@@ -361,7 +361,7 @@ class Replies {
           payload: "CANT_LOGIN"
         },
         {
-          title: "Faulty equipment",
+          title: "Faulty equipment ⚡",
           payload: "EQUIPMENT_NOT_WORKING"
         },
         {
@@ -384,7 +384,7 @@ class Replies {
           payload: "CANT_LOGIN"
         },
         {
-          title: "Faulty equipment",
+          title: "Faulty equipment ⚡",
           payload: "EQUIPMENT_NOT_WORKING"
         },
         {
@@ -790,7 +790,7 @@ class Replies {
             payload: "CANT_LOGIN"
           },
           {
-            title: "Faulty equipment",
+            title: "Faulty equipment ⚡",
             payload: "EQUIPMENT_NOT_WORKING"
           },
           {
