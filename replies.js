@@ -498,7 +498,7 @@ class Replies {
             payload: "LIVE_YES"
           },
           {
-            title: "No Thank You",
+            title: "No Thank You! ❌",
             payload: "LIVE_NO"
           },
         ]
