@@ -36,7 +36,7 @@ class Replies {
     this.userData = userData;
     if ('reminders' in userData.Item){
        this.replies["VIEW_REMINDERS"] = [
-         Responses.genReminders(this.uid, userData.Item['reminders']),
+         Responses.genReminders(userData.uid, userData.Item['reminders']),
          Responses.genQuickReply(
            "Or change previous reminders",
            [
@@ -60,6 +60,7 @@ class Replies {
 
        ];
     }
+
 
     this.replies['HR_POLICIES'] = [
       Responses.genTextReply("You can say something like"),
@@ -1134,7 +1135,7 @@ class Replies {
             payload: "VIEW_TRIPS"
           }
         ])],
-    "VIEW_SCHEDULE": Responses.genTextReply("Ok, Here's your schedule"),
+    "VIEW_SCHEDULE": Responses.genTextReply("Looks like your schedule is free!"),
     "VIEW_TRIPS": Responses.genTextReply("OHNO ABRAR HASNT WRITTEN YET.")
   };
 
