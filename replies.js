@@ -71,6 +71,24 @@ class Replies {
       Responses.genTextReply("We have delivered a message to every one that you called for a meeting"),
     ];
 
+    this.replies['ANNOUNCEMENT_TIME'] = [
+      Responses.genQuickReply("Select a time from below",
+      [
+        {
+          title: "11:00-AM",
+          payload: "TIME_11:00_AM"
+        },
+        {
+          title: "1:00-PM",
+          payload: "TIME_1:00_PM"
+        },
+        {
+          title: "3:30-PM",
+          payload: "TIME_3:30_PM"
+        },
+      ]),
+    ];
+
     this.replies["INITIATE"] = [Responses.genTextReply("Hi "+userData['name']+" ! "),
       Responses.genTextReply("I am an advanced bot designed to be your personal assistant here in the offices of Dunder Mifflin."),
       Responses.genTextReply("I'm also designed to be your very own HR manager. That means you can ask me things you'd normally have to ask your HR department. If the question is too difficult for me I can redirect you to an HR representative for further help."),
@@ -400,7 +418,7 @@ class Replies {
     ];
 
     this.replies["COMPLAINT_ATTACHMENT"] = [
-      Responses.genQuickReply("You can upload more documents if you want, of submit or discard the your complaint the ones that you have uploaded\n" + 
+      Responses.genQuickReply("You can upload more documents if you want. You cal submit or discard the your complaint the ones that you have uploaded" + 
       " by press the buttons below",
       [
         {
@@ -589,7 +607,7 @@ class Replies {
           },
           {
             title: "Announcement 📣",
-            payload: "ANNOUNCEMENT"
+            payload: "ANNOUNCEMENT_TIME"
           },
           {
             title: "Live Chat 👨",
