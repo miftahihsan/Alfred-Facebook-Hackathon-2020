@@ -399,9 +399,9 @@ class Replies {
     ],
 
     this.replies["COMPLAINT"] = [
-      Responses.genTextReply("Re`member, your complaints/reports are completely anonymous." +
+      Responses.genTextReply("Remember, your complaints/reports are completely anonymous." +
       "Only I’ll know that you’ve submitted this complaint and no one else, not even your superiors! 😎"),
-      Responses.genTextReply("Please tell us about your experience in details or upload a complaint file as an attachment" + 
+      Responses.genTextReply("Please upload a complaint file as an attachment" + 
       " so that we can perform proper investigation and take necessary actions as soon as possible"),
       Responses.genTextReply("Please Make Sure to upload a document file less than 25MB"),
     ];
