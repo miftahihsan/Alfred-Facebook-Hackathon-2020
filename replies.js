@@ -1152,7 +1152,7 @@ class Replies {
           }
         ])],
     "VIEW_SCHEDULE": Responses.genTextReply("Looks like your schedule is free!"),
-    "ENROLL" : Response.genQuickReply("You have been enrolled to the following course",
+    "ENROLL" : Responses.genQuickReply("You have been enrolled to the following course",
     [
       {
         title: "Finances 💰",
