@@ -45,7 +45,7 @@ class Replies {
                payload: "VIEW_REMINDERS"
              },
              {
-               title: "Make a new Reminder 🗒",
+               title: "Create Reminder 🗒",
                payload: "NEW_REMINDER"
              },
              {
@@ -619,11 +619,11 @@ class Replies {
         ]
     ),
     "HR": Responses.genQuickReply("Ok! What do you want to know about: \n" +
-      "- HR company policy\n" +
-      "- Your performance stats\n" +
-      "- Sick days/holidays\n" +
-      "- Bonus and payments\n" +
-      "- Submit a complaint\n",
+      "- HR company policy\n\n" +
+      "- Your performance stats\n\n" +
+      "- Sick days/holidays\n\n" +
+      "- Bonus and payments\n\n" +
+      "- Submit a complaint",
       [
         {
           title: "HR policies 📚",
@@ -661,7 +661,7 @@ class Replies {
           payload: "VIEW_REMINDERS"
         },
         {
-          title: "Make a new Reminder 🗒",
+          title: "Create Reminder 🗒",
           payload: "NEW_REMINDER"
         },
         {
@@ -1130,7 +1130,7 @@ class Replies {
       "Looks like your schedule is free! You have no reminders.",
       [
         {
-          title: "Make a new Reminder 🗒",
+          title: "Create Reminder 🗒",
           payload: "NEW_REMINDER"
         },
         {
@@ -1144,7 +1144,7 @@ class Replies {
         "Or manage other reminders",
         [
           {
-            title: "Make a new Reminder 🗒",
+            title: "Create Reminder 🗒",
             payload: "NEW_REMINDER"
           },
           {
