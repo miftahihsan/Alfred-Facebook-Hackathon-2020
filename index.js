@@ -85,13 +85,6 @@ app.post('/sendMessageToUser' , (req, res) => {
 });
 
 
-// Remove later
-app.post('/Tester' , (req, res) => {
-
-  console.log("BROADCAST REQUESTED");
-
-  res.status(200).send('EVENT_RECEIVED');
-});
 
 // Creates the endpoint for our webhook 
 app.post('/webhook', (req, res) => {  
@@ -321,15 +314,15 @@ function handleMessage(sender_psid, received_message, user_name) {
 
     if (userData['state']==="REPORT_STATS"){
       sendMessage(sender_psid, [
-        Response.genAttachmentReply(),
-        // {
-        //   "attachment":{
-        //       "type":"image",
-        //       "payload":{
-        //           "attachment_id": "235306070839999"
-        //       }
-        //   }
-        // },
+        // Response.genAttachmentReply(),
+        {
+          "attachment":{
+              "type":"image",
+              "payload":{
+                  "url": "https://media.giphy.com/media/DoCIC5Pxp57qg/giphy-downsized.gif"
+              }
+          }
+        },
         Response.genTextReply("Document successfully transferred to your manager!"),
       ].concat(
         Replies.replies["MENU"]
