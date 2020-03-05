@@ -502,7 +502,7 @@ function handlePostback(sender_psid, received_postback, user_name) {
       let response;
       if( arr[2] === "YES" ){
 
-        DynamoDB.getMeetingInfo().then(
+        DynamoDB.getMeetingInfo(arr[1]).then(
           res=>{
             let attend=false;
             console.log("attendeee");
