@@ -820,19 +820,19 @@ class Replies {
       " abuse counseling or rehabilitation except to the extent it may be part of our health insurance plan.",
       [
         {
-          title: "Health insurance",
+          title: "Health insurance 🏥",
           payload: "HEALTH_INSURANCE"
         },
         {
-          title: "Bonus",
+          title: "Paid Vacation 🏖️",
           payload: "BONUS"
         },
         {
-          title: "Rules for fines",
+          title: "Rules for fines 🧾",
           payload: "FINE_RULES"
         },
         {
-          title: "Increment",
+          title: "Increment 💰",
           payload: "INCREMENT"
         },
       ]),
@@ -841,19 +841,19 @@ class Replies {
       Responses.genQuickReply("As of now we do not have any policy to fine employees.",
       [
         {
-          title: "Health insurance",
+          title: "Health insurance 🏥",
           payload: "HEALTH_INSURANCE"
         },
         {
-          title: "Bonus",
+          title: "Paid Vacation 🏖️",
           payload: "BONUS"
         },
         {
-          title: "Rules for fines",
+          title: "Rules for fines 🧾",
           payload: "FINE_RULES"
         },
         {
-          title: "Increment",
+          title: "Increment 💰",
           payload: "INCREMENT"
         },
       ]),
@@ -868,19 +868,19 @@ class Replies {
       Responses.genQuickReply("The above recommended policy is a guideline as such the same is subject to review /change from time to time.",
       [
         {
-          title: "Health insurance",
+          title: "Health insurance 🏥",
           payload: "HEALTH_INSURANCE"
         },
         {
-          title: "Bonus",
+          title: "Paid Vacation 🏖️",
           payload: "BONUS"
         },
         {
-          title: "Rules for fines",
+          title: "Rules for fines 🧾",
           payload: "FINE_RULES"
         },
         {
-          title: "Increment",
+          title: "Increment 💰",
           payload: "INCREMENT"
         },
       ]),
@@ -895,19 +895,19 @@ class Replies {
       " condition or other circumstances beyond the employee’s control.",
       [
         {
-          title: "Health insurance",
+          title: "Health insurance 🏥",
           payload: "HEALTH_INSURANCE"
         },
         {
-          title: "Bonus",
+          title: "Paid Vacation 🏖️",
           payload: "BONUS"
         },
         {
-          title: "Rules for fines",
+          title: "Rules for fines 🧾",
           payload: "FINE_RULES"
         },
         {
-          title: "Increment",
+          title: "Increment 💰",
           payload: "INCREMENT"
         },
       ]),
@@ -920,19 +920,19 @@ class Replies {
         "- When will I get an increment?\n\n",
         [
           {
-            title: "Health insurance",
+            title: "Health insurance 🏥",
             payload: "HEALTH_INSURANCE"
           },
           {
-            title: "Bonus",
+            title: "Paid Vacation 🏖️",
             payload: "BONUS"
           },
           {
-            title: "Rules for fines",
+            title: "Rules for fines 🧾",
             payload: "FINE_RULES"
           },
           {
-            title: "Increment",
+            title: "Increment 💰",
             payload: "INCREMENT"
           },
         ])],
