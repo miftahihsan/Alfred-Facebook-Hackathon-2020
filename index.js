@@ -324,6 +324,13 @@ function handleMessage(sender_psid, received_message, user_name) {
     // console.log("-------------------------------------------------------------------");    
     // console.log(received_message.nlp.entities);
 
+    if( userData['state'] === "REPORT_STATS" || userData['state'] === "REPORT_STATS_ATTACHMENT" ){
+
+      let response = Replies.replies['REPORT_STATS_ERROR_MSG'];
+      sendMessage(sender_psid, response);
+      return;
+    }
+
     if( userData['state'] === "COMPLAINT" || userData['state'] === "COMPLAINT_ATTACHMENT" ){
 
       let response = Replies.replies['COMPLAINT_ERROR_MSG'];
@@ -341,7 +348,7 @@ function handleMessage(sender_psid, received_message, user_name) {
   }
   else if (received_message.attachments){
 
-    if (userData['state']==="REPORT_STATS"){
+    if (userData['state']==="SUBMIT_REPORT"){
       sendMessage(sender_psid, [
         // Response.genAttachmentReply(),
         {
@@ -354,9 +361,9 @@ function handleMessage(sender_psid, received_message, user_name) {
         },
         Response.genTextReply("Document successfully transferred to your manager!"),
       ].concat(
-        Replies.replies["MENU"]
+        Replies.replies["COMMUNICATE"]
       ));
-      userData['state']="MENU";
+      userData['state']="COMMUNICATE";
     }
     else if( userData['state']==="COMPLAINT" ){
       userData['state'] = "COMPLAINT_ATTACHMENT";

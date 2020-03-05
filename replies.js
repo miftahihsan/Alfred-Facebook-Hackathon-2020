@@ -974,7 +974,7 @@ class Replies {
       Responses.genTextReply("Employees may also have a right to privacy in their telephone conversations or voicemail messages. However, employees have very" + 
       " limited rights to privacy in their e-mail messages and Internet usage while using the employer's computer system."),
       Responses.genTextReply("Other important employee rights include:"),
-      Responses.genTextReply("- Right to be free from discrimination and harassment of all types\n\n- Right to be free from discrimination and harassment of all types"),
+      Responses.genTextReply("- Right to be free from discrimination and harassment of all types"),
       Responses.genTextReply("- Right to be free from retaliation for filing a claim or complaint against an employer (these" + 
       " are sometimes called \"whistleblower\" rights)"),
       Responses.genQuickReply("- Right to fair wages for work performed.",
@@ -1100,6 +1100,39 @@ class Replies {
     "REPORT_STATS": [
       Responses.genTextReply("Please Upload the sales records that you would like to send"),
       Responses.genTextReply("The document will be transferred to the manager, David Wallace")
+    ],
+    "DISCARD_REPORT" : [
+      Responses.genQuickReply("Your Attachments have been discarded successfully!",        [
+        {
+          title: "Report stats/info 👩‍💻",
+          payload: "REPORT_STATS"
+        },
+        {
+          title: "Announcement 📣",
+          payload: "ANNOUNCEMENT_TIME"
+        },
+        {
+          title: "Live Chat 👨",
+          payload: "LIVE"
+        }
+      ])
+    ],
+    "REPORT_STATS_ATTACHMENT": [
+      Responses.genQuickReply("You can upload more documents if you want. You can aslo choose to go through or discard the documents that you have uploaded" + 
+      " by pressing the buttons below",
+      [
+        {
+          title: "Submit Report 📈",
+          payload: "SUBMIT_REPORT"
+        },
+        {
+          title: "Discard Report 🗑️",
+          payload: "DISCARD_REPORT"
+        },
+      ]),
+    ],
+    "REPORT_STATS_ERROR_MSG": [
+      Responses.genTextReply("Please Upload a document file as an attachment and not text.")
     ],
     "VIEW_REMINDERS": Responses.genQuickReply(
       "Looks like your schedule is free! You have no reminders.",
