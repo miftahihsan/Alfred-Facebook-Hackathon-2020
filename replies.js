@@ -67,7 +67,13 @@ class Replies {
       Responses.genTextReply("and I’ll search the HR handbook and get the relevant information to you!")
     ];
 
-    this.replies['ANNOUNCEMENT'] = [
+    this.replies['TIME_11:00_AM'] = [
+      Responses.genTextReply("We have delivered a message to every one that you called for a meeting"),
+    ];
+    this.replies['TIME_1:00_PM'] = [
+      Responses.genTextReply("We have delivered a message to every one that you called for a meeting"),
+    ];
+    this.replies['TIME_3:30_PM'] = [
       Responses.genTextReply("We have delivered a message to every one that you called for a meeting"),
     ];
 
