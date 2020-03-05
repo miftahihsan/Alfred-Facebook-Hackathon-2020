@@ -85,6 +85,14 @@ app.post('/sendMessageToUser' , (req, res) => {
 });
 
 
+// Remove later
+app.post('/Tester' , (req, res) => {
+
+  console.log("BROADCAST REQUESTED");
+
+  res.status(200).send('EVENT_RECEIVED');
+});
+
 // Creates the endpoint for our webhook 
 app.post('/webhook', (req, res) => {  
 
