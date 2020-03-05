@@ -254,9 +254,6 @@ function updateReminder(user_id, table_name, data){
       }
     });
 
-
-
-
 }
 
 function updateAttendingMeeting(setBy, attendee){
@@ -283,11 +280,36 @@ function updateAttendingMeeting(setBy, attendee){
         console.log("UpdateItem succeeded:", JSON.stringify(data, null, 2));
       }
     });
-
-
-
-
 }
+
+
+function updateDecliningMeeting(setBy, decliners){
+
+  let params = {
+    TableName: "Schedule",
+    Key: {
+      "set_by": setBy
+    },
+    UpdateExpression: "set decliners = list_append(if_not_exists(decliners, :empty_list), :s)",
+    ExpressionAttributeValues: {
+      ":s": [decliners],
+      ':empty_list': []
+
+    },
+    ReturnValues: "UPDATED_NEW"
+  };
+
+
+    docClient.update(params, function(err, data) {
+      if (err) {
+        console.error("Unable to update item. Error JSON:", JSON.stringify(err, null, 2));
+      } else {
+        console.log("UpdateItem succeeded:", JSON.stringify(data, null, 2));
+      }
+    });
+}
+
+
 
 function createMeeting(data){
 
@@ -313,5 +335,6 @@ module.exports = {
   createMeeting,
   updateAttendingMeeting,
   getAllMeetings,
-  getMeetingInfo
+  getMeetingInfo,
+  updateDecliningMeeting
 }
