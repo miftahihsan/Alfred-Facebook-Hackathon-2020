@@ -274,7 +274,8 @@ function handleMessage(sender_psid, received_message, user_name) {
           let c = res.Count;
           for (let i=0;i< c;i++){
             if (res.Items[i].uid.S===sender_psid)continue;
-            sendMessage(res.Items[i].uid.S, [Response.genTextReply("A meeting has been scheduled by " + userData['name']),
+            //UNCOMMENT THIS  LATER PLEASE
+         /*   sendMessage(res.Items[i].uid.S, [Response.genTextReply("A meeting has been scheduled by " + userData['name']),
               {
                 "attachment": {
                   "type": "template",
@@ -300,7 +301,7 @@ function handleMessage(sender_psid, received_message, user_name) {
                   }
                 }
               }
-              ]);
+              ]);*/
           }
 
 
@@ -493,18 +494,34 @@ function handlePostback(sender_psid, received_postback, user_name) {
     if( arr.length === 3 && arr[0] === 'MEETING' ){
       let response;
       if( arr[2] === "YES" ){
-        response = {'text' : userData['name'] + " wanted to let you know that he will be able to attend the meeting."}
 
-        //update attendee in database
-        DynamoDB.updateAttendingMeeting(arr[1], userData['uid']);
+        DynamoDB.getMeetingInfo().then(
+          res=>{
+            let attend=false;
+            console.log("attendeee");
+            console.log(res);
+            res.Item.attendees.forEach(id=>{
+              if (id== userData['uid']){
+                attend=true;
+              }
+            });
+            if (!attend) {
+              response = {'text': userData['name'] + " wanted to let you know that he will be able to attend the meeting."}
+              //update attendee in database
+              DynamoDB.updateAttendingMeeting(arr[1], userData['uid']);
+            }
+
+
+          });
 
 
       }
       else{
         response = {'text' : userData['name'] + " wanted to let you know that he will not be able to attend the meeting." }
+
+        callSendAPI(arr[1], response);
       }
 
-      callSendAPI(arr[1], response);
       return;
     }
   }

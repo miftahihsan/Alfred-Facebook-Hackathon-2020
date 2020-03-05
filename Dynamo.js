@@ -168,6 +168,29 @@ async function getUserInfo(emp_id, table_name){
   return  result;
 }
 
+async function getMeetingInfo(set_by){
+  var params = {
+    TableName: "Schedule",
+    Key:{
+        "set_by": set_by,
+    }
+
+  };
+
+  var result = await getHelper(params);
+
+  console.log("This is Get Helper for meeting");
+  console.log(result);
+
+  var exists = false;
+
+  if (result.Item !== undefined && result.Item !== null) {
+    exists = true
+  }
+
+  return  result;
+}
+
 function updateUserState(user_id, table_name,state){
     var params = {
         TableName:table_name,
@@ -182,7 +205,7 @@ function updateUserState(user_id, table_name,state){
         ReturnValues:"UPDATED_NEW"
     };
 
-    console.log("Updating the item...");
+    console.log("Updating USER STATE");
     docClient.update(params, function(err, data) {
         if (err) {
             console.error("Unable to update item. Error JSON:", JSON.stringify(err, null, 2));
@@ -289,5 +312,6 @@ module.exports = {
   getIdColumn,
   createMeeting,
   updateAttendingMeeting,
-  getAllMeetings
+  getAllMeetings,
+  getMeetingInfo
 }
