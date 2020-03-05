@@ -378,7 +378,93 @@ class Replies {
       "Only I’ll know that you’ve submitted this complaint and no one else, not even your superiors! 😎"),
       Responses.genTextReply("Please tell us about your experience in details or upload a complaint file as an attachment" + 
       " so that we can perform proper investigation and take necessary actions as soon as possible"),
-      Responses.genTextReply("Press the button when you are done"),
+      Responses.genTextReply("Please Make Sure to upload a document file less than 25MB"),
+    ];
+
+    this.replies["COMPLAINT_ERROR_MSG"] = [
+      Responses.genTextReply("Please upload a document of less than 25MB for the complaint to go through.")
+    ]
+
+    this.replies["COMPLAINT_BUTTON"] = [
+      Responses.genQuickReply("Press Buttons to Submit or Discard",
+      [
+        {
+          title: "Submit Complaint 😤",
+          payload: "SUBMIT_COMPLAINT"
+        },
+        {
+          title: "Discard Complaint 🗑️",
+          payload: "DISCARD_COMPLAINT"
+        },
+      ]),
+    ]
+
+    this.replies["COMPLAINT_ATTACHMENT"] = [
+      Responses.genQuickReply("You can upload more documents if you want, of submit or discard the your complaint the ones that you have uploaded\n" + 
+      " by press the buttons below",
+      [
+        {
+          title: "Submit Complaint 😤",
+          payload: "SUBMIT_COMPLAINT"
+        },
+        {
+          title: "Discard Complaint 🗑️",
+          payload: "DISCARD_COMPLAINT"
+        },
+      ]),
+    ];
+
+    this.replies["DISCARD_COMPLAINT"] = [
+      Response.genQuickReply("Your complaint has been discarded successfully",
+      [
+        {
+          title: "HR policies 📚",
+          payload: "HR_POLICIES"
+        },
+        {
+          title: "Performance Stats 🔖",
+          payload: "PERFORMANCE_STATS"
+        },
+        {
+          title: "Upcoming Holidays 🎄",
+          payload: "HOLIDAYS"
+        },
+        {
+          title : "Bonus & Payments 💵" ,
+          payload: "BONUS_PAYMENTS"
+        },
+        {
+          title : "Submit a complaint 😕" ,
+          payload: "COMPLAINT"
+        }
+      ])
+    ]
+
+    this.replies["SUBMIT_COMPLAINT"] = [
+      Response.genQuickReply("Your complaint has been submitted successfully. Rest assured as our team will conduct proper investigation" + 
+      " and take necessary actions on the issue. Sorry for your inconvenience",
+      [
+        {
+          title: "HR policies 📚",
+          payload: "HR_POLICIES"
+        },
+        {
+          title: "Performance Stats 🔖",
+          payload: "PERFORMANCE_STATS"
+        },
+        {
+          title: "Upcoming Holidays 🎄",
+          payload: "HOLIDAYS"
+        },
+        {
+          title : "Bonus & Payments 💵" ,
+          payload: "BONUS_PAYMENTS"
+        },
+        {
+          title : "Submit a complaint 😕" ,
+          payload: "COMPLAINT"
+        }
+      ])
     ];
 
     this.replies["LIVE"] = [
@@ -396,12 +482,12 @@ class Replies {
           },
         ]
       )
-    ]
+    ];
 
     this.replies['LIVE_YES'] = [
       Responses.genTextReply("Your conversation has now been handed over to a live agent"),
       Responses.genTextReply("Make sure to ask your question for them to get notified also, please be patient and wait for them to get back to you."),
-    ]
+    ];
     
     this.replies['LIVE_NO'] = [
       Responses.genQuickReply("What do you want to do next?",

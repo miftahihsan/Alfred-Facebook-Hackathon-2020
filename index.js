@@ -303,6 +303,15 @@ function handleMessage(sender_psid, received_message, user_name) {
 
     // console.log("-------------------------------------------------------------------");    
     // console.log(received_message.nlp.entities);
+
+    if( user['state'] === "COMPLAINT" || user['state'] === "COMPLAINT_ATTACHMENT" ){
+
+      let response = Replies.replies['COMPLAINT_ERROR_MSG'];
+      sendMessage(sender_psid, response);
+      return;
+    }
+
+
     // console.log("-------------------------------------------------------------------");
 
     nlp.compile( received_message.nlp.entities, userData ); // maybe do it only initially
@@ -328,6 +337,10 @@ function handleMessage(sender_psid, received_message, user_name) {
         Replies.replies["MENU"]
       ));
       userData['state']="MENU";
+    }
+    else if( userData['state']==="COMPLAINT" ){
+      userData['state'] = "COMPLAINT_ATTACHMENT";
+      sendMessage(sender_psid, Response.replies[userData['state']]);
     }
     else {
       // REPLY WITH GIF
