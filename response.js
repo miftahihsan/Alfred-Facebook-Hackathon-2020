@@ -24,6 +24,36 @@ class Response{
         return response
     }
 
+    static genGenericTemplate(meetings){
+        let elements = [
+
+        ];
+        let ind=0;
+        meetings.forEach(meeting=>{
+            let element = {
+                "title":"Welcome!",
+                "image_url":meeting['profile_pic'],
+                "subtitle":"Meeting set by " + meeting['name'] + " at " + meeting['time'],
+
+            };
+            elements.push(element);
+
+        });
+
+
+        let response = {
+            "attachment": {
+                "type": "template",
+                "payload": {
+                    "template_type": "generic",
+                    "elements": elements
+                }
+            }
+        };
+
+        return response;
+    }
+
     static genPictureReply(url){
         let response = {
             "attachment":{

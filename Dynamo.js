@@ -109,6 +109,26 @@ async function getIdColumn(){
    });
 }
 
+// Adding new function for meeting
+async function getAllMeetings(){
+  var params = {
+    TableName: "Schedule"
+   };
+
+   return await new Promise( (res, rej) => {
+    dynamodb.scan(params, function(err, data) {
+      if (err) {
+        console.log(err, err.stack); // an error occurred
+        rej({ statusCode: 400 });
+      }
+      else {
+        res(data);    //returns data
+        console.log(data);           // successful response
+      }
+     });
+   });
+}
+
 // New fucntion for meeting ends
 
 async function getHelper(params){
@@ -268,5 +288,6 @@ module.exports = {
   updateReminder,
   getIdColumn,
   createMeeting,
-  updateAttendingMeeting
+  updateAttendingMeeting,
+  getAllMeetings
 }

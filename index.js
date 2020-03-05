@@ -254,8 +254,16 @@ function handleMessage(sender_psid, received_message, user_name) {
     if( received_message.quick_reply.payload.includes("_")){
       var arr = received_message.quick_reply.payload.split("_");
 
-      if( arr[0] == 'TIME' && arr.length == 3 ){
+      if( arr[0] === 'TIME' && arr.length === 3 ){
         
+
+        //UPDATE MEETING IN DATABASE
+        DynamoDB.createMeeting({
+          "set_by" : userData['uid'],
+          "time" : arr[1] +" " + arr[2],
+          "profile_pic" : userData['profile_pic'],
+          "name" : userData['name']
+        });
 
 
     // if( received_message.quick_reply.payload === "ANNOUNCEMENT" ){
@@ -402,10 +410,28 @@ function handleQuickReplies(sender_psid, quick_reply) {
   userData['state'] = payload;
   let response = Replies.replies[userData['state']];
 
-  if( userData['state'] == 'LIVE_YES' ){
+  if( userData['state'] === 'LIVE_YES' ){
     userData['state'] = "INITIATE";
     sendMessage(sender_psid, response );
     giveAdminAccess( sender_psid ); 
+  }
+  else if (userData['state'] === 'VIEW_SCHEDULE'){
+    userData['state'] = "SCHEDULE";
+    let response;
+    DynamoDB.getAllMeetings().then(res=>{
+        let c = res.Count;
+        console.log("----------viewschedule------------");
+        console.log(res)
+
+      console.log("----------viewschedule------------");
+        let data = res.Items;
+        response = Response.genGenericTemplate(data);
+        console.log(response);
+        sendMessage(sender_psid, response);
+
+      }
+
+    )
   }
   else{
     // let response = Replies.replies[userData['state']];
@@ -461,6 +487,11 @@ function handlePostback(sender_psid, received_postback, user_name) {
       let response;
       if( arr[2] === "YES" ){
         response = {'text' : userData['name'] + " wanted to let you know that he will be able to attend the meeting."}
+
+        //update attendee in database
+        DynamoDB.updateAttendingMeeting(arr[1], userData['uid']);
+
+
       }
       else{
         response = {'text' : userData['name'] + " wanted to let you know that he will not be able to attend the meeting." }

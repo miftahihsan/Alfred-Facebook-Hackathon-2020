@@ -61,6 +61,7 @@ class Replies {
        ];
     }
 
+
     this.replies['HR_POLICIES'] = [
       Responses.genTextReply("You can say something like"),
       Responses.genTextReply("\“I’d like to read the sexual harassment guidelines\”"),
@@ -1134,7 +1135,7 @@ class Replies {
             payload: "VIEW_TRIPS"
           }
         ])],
-    "VIEW_SCHEDULE": Responses.genTextReply("Ok, Here's your schedule"),
+    "VIEW_SCHEDULE": Responses.genTextReply("Looks like your schedule is free!"),
     "VIEW_TRIPS": Responses.genTextReply("OHNO ABRAR HASNT WRITTEN YET.")
   };
 
