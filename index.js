@@ -281,6 +281,7 @@ function handleMessage(sender_psid, received_message, user_name) {
                   "type": "template",
                   "payload": {
                     "template_type": "generic",
+                    "image_aspect_ratio": "square",
                     "elements": [{
                       "title": "Do you wish to attend this meeting?",
                       "subtitle": "Time of meeting : " + arr[1] + " " + arr[2],
