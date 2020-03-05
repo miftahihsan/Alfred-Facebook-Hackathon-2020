@@ -415,7 +415,7 @@ class Replies {
     ];
 
     this.replies["DISCARD_COMPLAINT"] = [
-      Response.genQuickReply("Your complaint has been discarded successfully",
+      Responses.genQuickReply("Your complaint has been discarded successfully",
       [
         {
           title: "HR policies 📚",
@@ -441,7 +441,7 @@ class Replies {
     ]
 
     this.replies["SUBMIT_COMPLAINT"] = [
-      Response.genQuickReply("Your complaint has been submitted successfully. Rest assured as our team will conduct proper investigation" + 
+      Responses.genQuickReply("Your complaint has been submitted successfully. Rest assured as our team will conduct proper investigation" + 
       " and take necessary actions on the issue. Sorry for your inconvenience",
       [
         {
