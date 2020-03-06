@@ -263,10 +263,10 @@ function updateAttendingMeeting(setBy, attendee ){
     Key: {
       "set_by": setBy
     },
-    UpdateExpression: "set attendees = list_append(if_not_exists(attendees, :empty_list), :s)",
+    UpdateExpression: "set attendees = list_append(if_not_exists(attendees, :empty_list), :s, :d)",
     ExpressionAttributeValues: {
       ":s": [attendee],
-      // "status" : [status],
+      ":d" : ["YES"],
       ':empty_list': []
 
     },
@@ -291,9 +291,10 @@ function updateDecliningMeeting(setBy, decliners){
     Key: {
       "set_by": setBy
     },
-    UpdateExpression: "set decliners = list_append(if_not_exists(decliners, :empty_list), :s)",
+    UpdateExpression: "set decliners = list_append(if_not_exists(decliners, :empty_list), :s, :d)",
     ExpressionAttributeValues: {
       ":s": [decliners],
+      ":d" : ["NO"],
       ':empty_list': []
 
     },
