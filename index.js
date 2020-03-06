@@ -425,6 +425,7 @@ function handleQuickReplies(sender_psid, quick_reply) {
   else if (userData['state'] === 'VIEW_SCHEDULE'){
     userData['state'] = "SCHEDULE";
     let response;
+    let temp = [];
     DynamoDB.getAllMeetings().then(res=>{
         let c = res.Count;
         console.log("----------viewschedule------------");
@@ -448,7 +449,7 @@ function handleQuickReplies(sender_psid, quick_reply) {
             });
 
             if( data[i]['set_by'].S === userData['uid']  || attending){
-              response.push( Response.genGenericTemplate(data[i]) );
+              temp.push( data[i] );
               console.log(response);
               console.log("Length = " + response.length);
             }
@@ -461,7 +462,10 @@ function handleQuickReplies(sender_psid, quick_reply) {
 
           console.log(response);
         }
-        if( response.length == 0 ) response = Replies.replies['VIEW_SCHEDULE'];
+        if( temp.length == 0 ) response = Replies.replies['VIEW_SCHEDULE'];
+        else{
+          response = Response.genGenericTemplate( temp );
+        }
         sendMessage(sender_psid, response);
 
       }

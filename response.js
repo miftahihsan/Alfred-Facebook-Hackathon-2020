@@ -29,7 +29,7 @@ class Response{
 
         ];
         let ind=0;
-        // meetings.forEach(meeting=>{
+        meetings.forEach(meeting=>{
             let element = {
                 "title":meetings['name'].S,
                 "image_url":meetings['profile_pic'].S,
@@ -38,7 +38,7 @@ class Response{
             };
             elements.push(element);
 
-        // });
+        });
 
         console.log(elements[0]);
 
