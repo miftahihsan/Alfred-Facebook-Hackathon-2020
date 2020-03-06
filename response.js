@@ -175,7 +175,7 @@ class Response{
                             "url": link,
                             "title":"Reminders",
                             "webview_height_ratio": "tall",
-                            "fallback_url" : "https://nafiz6.github.io/bizbotteuxdeux/index.html?uid=" + uid";
+                            "fallback_url" : "https://nafiz6.github.io/bizbotteuxdeux/index.html?uid=" + uid"
                         }
                     ]
                 }
