@@ -433,12 +433,20 @@ function handleQuickReplies(sender_psid, quick_reply) {
         if (c===0) response = Replies.replies['VIEW_SCHEDULE'];
         else {
           let data = res.Items;
-          response = Response.genGenericTemplate(data);
+          // response = Response.genGenericTemplate(data);
+          response = [];
+
+          for( var i = 0; i < data.length; i++ ){
+            if( data[i]['set_by'].S == userData['uid'] || data[i]['attendees'].L.contains(userData['uid']) ){
+              response.concat( Response.genGenericTemplate(data[i]) );
+            }
+          }
 
           console.log(data);
 
           console.log(response);
         }
+        if( response.length == 0 ) response = Replies.replies['VIEW_SCHEDULE'];
         sendMessage(sender_psid, response);
 
       }
