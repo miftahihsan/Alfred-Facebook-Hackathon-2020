@@ -437,7 +437,7 @@ function handleQuickReplies(sender_psid, quick_reply) {
           response = [];
 
           for( var i = 0; i < data.length; i++ ){
-            console.log("set_by = " + data[i]['set_by']);
+            console.log("set_by = " + data[i]['set_by'].S);
             console.log("uid = " + userData['uid']);
             
             if( data[i]['set_by'].S === userData['uid'] ){
