@@ -440,7 +440,7 @@ function handleQuickReplies(sender_psid, quick_reply) {
             console.log("set_by = " + data[i]['set_by'].S);
             console.log("uid = " + userData['uid']);            
             
-            if( data[i]['set_by'].S === userData['uid'] || data[i]['attendees'].includes(userData['uid']) ){
+            if( data[i]['set_by'].S === userData['uid'] || data[i]['attendees'].L.includes(userData['uid']) ){
               response.push( Response.genGenericTemplate(data[i]) );
               console.log(response);
               console.log("Length = " + response.length);
