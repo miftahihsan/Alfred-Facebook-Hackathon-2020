@@ -575,10 +575,8 @@ class Replies {
       Responses.genTextReply("In order to best serve your needs, I’ve already gathered some basic info about you from the Dunder Mifflin employee records"),
       Responses.genTextReply("Lets get started! \uD83D\uDE04\n")
     ],
-    "MENU": [Responses.genTextReply("What do you want to do next?"),
-      Responses.genTextReply("- Ask an HR question\n\n- Modify your calendar, make a list etc.."),
-      Responses.genQuickReply(
-        "- Know something from a specific company department, like finance, tech support, law etc..\n\n- Report stats/info to manager\n",
+    "MENU": [
+      Responses.genQuickReply("What do you want to do next?",
         [
           {
             title: "HR question 🙋",
