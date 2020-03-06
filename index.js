@@ -707,13 +707,33 @@ curl -X POST -H "Content-Type: application/json" -d '{
             "call_to_actions": [
                 {
                     "type": "postback",
-                    "title": "Menu",
-                    "payload": "MENU"
+                    "title": "Bot Introduction",
+                    "payload": "INITIATE"
                 },
                 {
                     "type": "postback",
-                    "title": "Initiate",
-                    "payload": "INITIATE"
+                    "title": "HR question 🙋",
+                    "payload": "HR"
+                },
+                {
+                    "type": "postback",
+                    "title": "Schedules 📅",
+                    "payload": "SCHEDULES"
+                },
+                {
+                    "type": "postback",
+                    "title": "FAQ 📚",
+                    "payload": "FAQ"
+                },
+                {
+                    "type": "postback",
+                    "title": "I'm bored! 🙍‍♂️",
+                    "payload": "BORED"
+                },
+                {
+                    "type": "postback",
+                    "title": "Communicate 📝",
+                    "payload": "COMMUNICATE"
                 }
 
             ]
