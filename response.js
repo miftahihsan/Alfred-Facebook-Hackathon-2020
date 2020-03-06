@@ -155,7 +155,12 @@ class Response{
                     "elements": elements
                 }
             }
+        };
+
+        if (ind===0){
+            return this.genTextReply("Sorry, no reminders found!")
         }
+
 
         return response;
     }
