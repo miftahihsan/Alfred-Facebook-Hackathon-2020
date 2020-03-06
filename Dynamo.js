@@ -290,7 +290,7 @@ function updateDecliningMeeting(setBy, decliners){
     Key: {
       "set_by": setBy
     },
-    UpdateExpression: "set decliners = list_append(if_not_exists(decliners, :empty_list), :s,)",
+    UpdateExpression: "set decliners = list_append(if_not_exists(decliners, :empty_list), :s)",
     ExpressionAttributeValues: {
       ":s": [decliners],
       ':empty_list': []
