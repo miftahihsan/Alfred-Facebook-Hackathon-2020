@@ -256,16 +256,17 @@ function updateReminder(user_id, table_name, data){
 
 }
 
-function updateAttendingMeeting(setBy, attendee){
+function updateAttendingMeeting(setBy, attendee, status){
 
   let params = {
     TableName: "Schedule",
     Key: {
       "set_by": setBy
     },
-    UpdateExpression: "set attendees = list_append(if_not_exists(attendees, :empty_list), :s)",
+    UpdateExpression: "set attendees = list_append(if_not_exists(attendees, :empty_list), :s, :status)",
     ExpressionAttributeValues: {
       ":s": [attendee],
+      "status" : [status],
       ':empty_list': []
 
     },

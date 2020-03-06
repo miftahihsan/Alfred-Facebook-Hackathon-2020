@@ -429,7 +429,6 @@ function handleQuickReplies(sender_psid, quick_reply) {
         let c = res.Count;
         console.log("----------viewschedule------------");
         console.log(res)
-
       console.log("----------viewschedule------------");
         if (c===0) response = Replies.replies['VIEW_SCHEDULE'];
         else {
@@ -511,7 +510,7 @@ function handlePostback(sender_psid, received_postback, user_name) {
             if ('decliners' in res.Item){
               res.Item.decliners.forEach(id=>{
                 if (id == userData['uid']){
-                  responded=true;
+                  responded = true;
                 }
               })
             }
@@ -519,12 +518,12 @@ function handlePostback(sender_psid, received_postback, user_name) {
               if( arr[2] === "YES" ) {
                 response = {'text': userData['name'] + " wanted to let you know that he will be able to attend the meeting."};
                 //update attendee in database
-                DynamoDB.updateAttendingMeeting(arr[1], userData['uid']);
+                DynamoDB.updateAttendingMeeting(arr[1], userData['uid'], "YES");
               }
 
               else{
                 response = {'text' : userData['name'] + " wanted to let you know that he will not be able to attend the meeting." };
-                DynamoDB.updateDecliningMeeting(arr[1], userData['uid']);
+                DynamoDB.updateDecliningMeeting(arr[1], userData['uid'], "NO");
               }
               callSendAPI(arr[1], response);
 
