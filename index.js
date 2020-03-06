@@ -438,13 +438,21 @@ function handleQuickReplies(sender_psid, quick_reply) {
 
           for( var i = 0; i < data.length; i++ ){
             console.log("set_by = " + data[i]['set_by'].S);
-            console.log("uid = " + userData['uid']);            
-            
-            if( data[i]['set_by'].S === userData['uid'] || data[i]['attendees'].L.includes(userData['uid']) ){
+            console.log("uid = " + userData['uid']);
+
+            let attending=false;
+
+            data[i]['attendees'].L.forEach(u=>{
+              console.log(u);
+              if (u.S == userData['uid'])attending=true;
+            });
+
+            if( data[i]['set_by'].S === userData['uid']  || attending){
               response.push( Response.genGenericTemplate(data[i]) );
               console.log(response);
               console.log("Length = " + response.length);
             }
+
           }
 
           console.log('============================');
