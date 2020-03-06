@@ -435,9 +435,7 @@ function handleQuickReplies(sender_psid, quick_reply) {
           let data = res.Items;
           response = Response.genGenericTemplate(data);
 
-          console.log(data['name']);
-          console.log(data['attendees']);
-          console.log(data['decliners']);
+          console.log(data);
 
           console.log(response);
         }
