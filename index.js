@@ -437,7 +437,7 @@ function handleQuickReplies(sender_psid, quick_reply) {
           response = [];
 
           for( var i = 0; i < data.length; i++ ){
-            if( data[i]['set_by'].S == userData['uid'] || data[i]['attendees'].L.contains(userData['uid']) ){
+            if( data[i]['set_by'].S == userData['uid'] ){
               response.concat( Response.genGenericTemplate(data[i]) );
             }
           }
