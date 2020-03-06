@@ -518,12 +518,12 @@ function handlePostback(sender_psid, received_postback, user_name) {
               if( arr[2] === "YES" ) {
                 response = {'text': userData['name'] + " wanted to let you know that he will be able to attend the meeting."};
                 //update attendee in database
-                DynamoDB.updateAttendingMeeting(arr[1], userData['uid'], "YES");
+                DynamoDB.updateAttendingMeeting(arr[1], userData['uid']);
               }
 
               else{
                 response = {'text' : userData['name'] + " wanted to let you know that he will not be able to attend the meeting." };
-                DynamoDB.updateDecliningMeeting(arr[1], userData['uid'], "NO");
+                DynamoDB.updateDecliningMeeting(arr[1], userData['uid']);
               }
               callSendAPI(arr[1], response);
 
