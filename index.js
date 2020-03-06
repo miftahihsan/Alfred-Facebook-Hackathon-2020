@@ -439,6 +439,8 @@ function handleQuickReplies(sender_psid, quick_reply) {
           for( var i = 0; i < data.length; i++ ){
             console.log("set_by = " + data[i]['set_by'].S);
             console.log("uid = " + userData['uid']);
+            if( data[i]['set_by'].S === userData['uid'] ) console.log("HERE!!!!!!!!!!!");
+            
             
             if( data[i]['set_by'].S === userData['uid'] ){
               response.concat( Response.genGenericTemplate(data[i]) );
