@@ -441,7 +441,7 @@ function handleQuickReplies(sender_psid, quick_reply) {
             console.log("uid = " + userData['uid']);            
             
             if( data[i]['set_by'].S === userData['uid'] ){
-              response.concat( Response.genGenericTemplate(data[i]) );
+              response.push( Response.genGenericTemplate(data[i]) );
               console.log(response);
               console.log("Length = " + response.length);
             }
