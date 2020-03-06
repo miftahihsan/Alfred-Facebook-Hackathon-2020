@@ -114,6 +114,7 @@ class Response{
         ];
         let ind=0;
         reminders.forEach(reminder=>{
+            if (ind===4)return;
             let element = {
                 "title":"Welcome!",
                 "image_url":"https://nafiz6.github.io/bizbotteuxdeux/notepad.png",

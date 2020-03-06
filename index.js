@@ -55,7 +55,7 @@ app.post('/userList', (req, res) => {     //REMINDERS
     DynamoDB.updateReminder(body.uid,"Employee", data);
 
 
-    let responses = Response.genQuickReply("Your reminders have been added successfully! ^_^ ", [
+    let msg = Response.genQuickReply("Your reminders have been added successfully! ^_^ ", [
       {
         title: "View Reminders 📝",
         payload: "VIEW_REMINDERS"
@@ -69,8 +69,8 @@ app.post('/userList', (req, res) => {     //REMINDERS
         payload: "VIEW_SCHEDULE"
       }
     ]);
-    console.log(responses);
-    sendMessage(body.uid, responses);
+    console.log(msg);
+    sendReminders(body.uid, msg);
 
     console.log("Updated!");
   }
