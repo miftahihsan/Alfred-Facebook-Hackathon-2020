@@ -1143,8 +1143,15 @@ class Replies {
     "REPORT_STATS_ERROR_MSG": [
       Responses.genTextReply("Please Upload a document file as an attachment and not text.")
     ],
-    "VIEW_REMINDERS": Responses.genQuickReply(
-      "Looks like your schedule is free! You have no reminders.",
+    "VIEW_REMINDERS": [
+      Responses.genTextReply("Looks like you have nothing todo!"),
+      Responses.genAttachmentReply("https://s3-us-west-2.amazonaws.com/www.whitewall." + 
+        "site/bizbotteuxdeux/assets/thinking.png?fbclid=IwAR33gkTAg0crNSlOSP0SUfCAyQ3LsT8EP8I1Jf9ylYdNva9ITOixIECZ2u8"),
+      Responses.genTextReply("I'll ask your manager to assign you more tasks :3"),
+      Responses.genQuickReply(
+      // "Looks like your schedule is free! You have no reminders.",
+        Responses.genAttachmentReply("https://s3-us-west-2.amazonaws.com/www.whitewall." +
+        "site/bizbotteuxdeux/assets/monkey_smirk.png?fbclid=IwAR1drpDz8oqCfg_5ZRNQaY0vzl2FrfuIKW5jLN97e75dEsY751_5T99agkE"),
       [
         {
           title: "Create Reminder 🗒",
@@ -1154,7 +1161,8 @@ class Replies {
           title: "View Schedule 📆",
           payload: "VIEW_SCHEDULE"
         }
-      ]),
+      ])
+    ],
     "NEW_REMINDER": [
       Responses.genWebView(this.uid),
       Responses.genQuickReply(
