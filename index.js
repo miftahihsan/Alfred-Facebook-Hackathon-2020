@@ -397,20 +397,6 @@ function handleMessage(sender_psid, received_message, user_name) {
   // Send the response message
 }
 
-async function sequence(sender_psid, response, index){
-  if( index >= response.length ){
-    return;
-  }
-
-  await sendMessage(sender_psid, response[index])
-  .then(res => {
-    sequence( sender_psid, response, index + 1 );
-  })
-  .catch( err => {
-    return err;
-  })
-
-}
 
 function handleQuickReplies(sender_psid, quick_reply) {
   let payload = quick_reply.payload;
@@ -420,10 +406,6 @@ function handleQuickReplies(sender_psid, quick_reply) {
   userData['state'] = payload;
   let response = Replies.replies[userData['state']];
 
-  if( userData['state'] === "BORED" ){
-    sequence(sender_psid, response, 0);
-    return;
-  }
 
   if (userData['state']==="SUBMIT_REPORT"){
     sendMessage(sender_psid, [
@@ -621,7 +603,7 @@ async function getUserName( sender_psid ){
 }
 
 
-async function sendMessage(sender_psid, responses) {
+function sendMessage(sender_psid, responses) {
 
 
   if (Array.isArray(responses)) {
@@ -631,14 +613,15 @@ async function sendMessage(sender_psid, responses) {
       setTimeout(()=>callSendAPI(sender_psid,response), (delay) * 1000 );   // 0 1000  2000  3000
       setTimeout(()=> senderAction( sender_psid, Response.getAnimation("on")), (delay)*1000 + 300 );   // 300  1300  2300  3300
 
-      if ("attachment" in response && response['attachment']['type'] === "image")delay+=2;
+      // it was 2 changed it to 3 
+      if ("attachment" in response && response['attachment']['type'] === "image")delay+=3;
 
       delay++;
     }
     setTimeout(()=> senderAction( sender_psid, Response.getAnimation("off")), (delay)*1000 + 300 );   // 300  1300  2300  3300
 
   } else {
-    return callSendAPI(sender_psid, responses);
+    callSendAPI(sender_psid, responses);
   }
 
 }
@@ -647,7 +630,7 @@ async function sendMessage(sender_psid, responses) {
 
 
 // Sends response messages via the Send API
-async function callSendAPI(sender_psid, response) {
+function callSendAPI(sender_psid, response) {
   // Construct the message body
   let request_body = {
     "recipient": {
@@ -657,7 +640,7 @@ async function callSendAPI(sender_psid, response) {
   }
 
   // Send the HTTP request to the Messenger Platform
-  return await request({
+  request({
     "uri": "https://graph.facebook.com/v2.6/me/messages",
     "qs": { "access_token": process.env.PAGE_ACCESS_TOKEN },
     "method": "POST",
