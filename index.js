@@ -398,7 +398,7 @@ function handleMessage(sender_psid, received_message, user_name) {
 }
 
 async function sequence(sender_psid, response, index){
-  if( index > response.length ){
+  if( index >= response.length ){
     return;
   }
 
@@ -621,7 +621,7 @@ async function getUserName( sender_psid ){
 }
 
 
-function sendMessage(sender_psid, responses) {
+async function sendMessage(sender_psid, responses) {
 
 
   if (Array.isArray(responses)) {
@@ -640,6 +640,8 @@ function sendMessage(sender_psid, responses) {
   } else {
     callSendAPI(sender_psid, responses);
   }
+
+  return "Promise";
 
 }
 
