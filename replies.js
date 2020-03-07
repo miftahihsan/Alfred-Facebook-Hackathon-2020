@@ -1178,7 +1178,7 @@ class Replies {
       Responses.genPictureReply("https://s3-us-west-2.amazonaws.com/www.whitewall.site/bizbotteuxdeux/assets/monkey" + 
         "_smirk.png?fbclid=IwAR01UxGdDfPXhuTgLE6oh0LJirwmpEh0anBEWoh03lCZSBloIenFsGN8uP4"),
       Responses.genQuickReply(
-        "What do you want to do next?"
+        "What do you want to do next?",
         [
           {
             title: "View Reminders 📝",
