@@ -638,10 +638,8 @@ async function sendMessage(sender_psid, responses) {
     setTimeout(()=> senderAction( sender_psid, Response.getAnimation("off")), (delay)*1000 + 300 );   // 300  1300  2300  3300
 
   } else {
-    callSendAPI(sender_psid, responses);
+    return callSendAPI(sender_psid, responses);
   }
-
-  return "Promise";
 
 }
 
@@ -649,7 +647,7 @@ async function sendMessage(sender_psid, responses) {
 
 
 // Sends response messages via the Send API
-function callSendAPI(sender_psid, response) {
+async function callSendAPI(sender_psid, response) {
   // Construct the message body
   let request_body = {
     "recipient": {
@@ -659,7 +657,7 @@ function callSendAPI(sender_psid, response) {
   }
 
   // Send the HTTP request to the Messenger Platform
-  request({
+  return await request({
     "uri": "https://graph.facebook.com/v2.6/me/messages",
     "qs": { "access_token": process.env.PAGE_ACCESS_TOKEN },
     "method": "POST",
