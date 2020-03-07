@@ -397,6 +397,21 @@ function handleMessage(sender_psid, received_message, user_name) {
   // Send the response message
 }
 
+async function sequence(sender_psid, response, index){
+  if( index > response.length ){
+    return;
+  }
+
+  await sendMessage(sender_psid, response[index])
+  .then(res => {
+    sequence( sender_psid, response, index + 1 );
+  })
+  .catch( err => {
+    return err;
+  })
+
+}
+
 function handleQuickReplies(sender_psid, quick_reply) {
   let payload = quick_reply.payload;
 
@@ -404,6 +419,11 @@ function handleQuickReplies(sender_psid, quick_reply) {
 
   userData['state'] = payload;
   let response = Replies.replies[userData['state']];
+
+  if( userData['state'] === "BORED" ){
+    sequence(sender_psid, response, 0);
+    return;
+  }
 
   if (userData['state']==="SUBMIT_REPORT"){
     sendMessage(sender_psid, [
