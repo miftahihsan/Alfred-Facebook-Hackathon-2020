@@ -1143,15 +1143,8 @@ class Replies {
     "REPORT_STATS_ERROR_MSG": [
       Responses.genTextReply("Please Upload a document file as an attachment and not text.")
     ],
-    "VIEW_REMINDERS": [
-      Responses.genTextReply("Looks like you have nothing todo!"),
-      Responses.genAttachmentReply("https://s3-us-west-2.amazonaws.com/www.whitewall." + 
-        "site/bizbotteuxdeux/assets/thinking.png?fbclid=IwAR33gkTAg0crNSlOSP0SUfCAyQ3LsT8EP8I1Jf9ylYdNva9ITOixIECZ2u8"),
-      Responses.genTextReply("I'll ask your manager to assign you more tasks :3"),
-      Responses.genQuickReply(
-      // "Looks like your schedule is free! You have no reminders.",
-        Responses.genAttachmentReply("https://s3-us-west-2.amazonaws.com/www.whitewall." +
-        "site/bizbotteuxdeux/assets/monkey_smirk.png?fbclid=IwAR1drpDz8oqCfg_5ZRNQaY0vzl2FrfuIKW5jLN97e75dEsY751_5T99agkE"),
+    "VIEW_REMINDERS": Responses.genQuickReply(
+      "Looks like you have no reminders!",
       [
         {
           title: "Create Reminder 🗒",
@@ -1161,8 +1154,7 @@ class Replies {
           title: "View Schedule 📆",
           payload: "VIEW_SCHEDULE"
         }
-      ])
-    ],
+      ]),
     "NEW_REMINDER": [
       Responses.genWebView(this.uid),
       Responses.genQuickReply(
@@ -1177,7 +1169,31 @@ class Replies {
             payload: "VIEW_SCHEDULE"
           }
         ])],
-    "VIEW_SCHEDULE": Responses.genTextReply("Looks like your schedule is free!"),
+    "VIEW_SCHEDULE": [
+      Responses.genTextReply("Looks like you have nothing todo!"),
+      Responses.genPictureReply("https://s3-us-west-2.amazonaws" + 
+      ".com/www.whitewall.site/bizbotteuxdeux/assets/thinking.png?fbc" + 
+      "lid=IwAR3lHMv3pEPSAglCNhN6S2h2XvGNRl_G9SG_8FN3hCbCa48PUp-33PJzo70"),
+      Responses.genTextReply("Looks like you have nothing todo! I'll ask your manager to assign you more tasks :3"),
+      Responses.genQuickReply(
+        Responses.genPictureReply("https://s3-us-west-2.amazonaws.com/www.whitewall.site/bizbotteuxdeux/assets/monkey" + 
+        "_smirk.png?fbclid=IwAR01UxGdDfPXhuTgLE6oh0LJirwmpEh0anBEWoh03lCZSBloIenFsGN8uP4"),
+        [
+          {
+            title: "View Reminders 📝",
+            payload: "VIEW_REMINDERS"
+          },
+          {
+            title: "Create Reminder 🗒",
+            payload: "NEW_REMINDER"
+          },
+          {
+            title: "View Schedule 📆",
+            payload: "VIEW_SCHEDULE"
+          }
+        ]
+      )
+    ],
     "ENROLL" : Responses.genQuickReply("You have been enrolled to the following course",
     [
       {
