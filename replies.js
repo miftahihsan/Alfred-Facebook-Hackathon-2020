@@ -1175,9 +1175,10 @@ class Replies {
       ".com/www.whitewall.site/bizbotteuxdeux/assets/thinking.png?fbc" + 
       "lid=IwAR3lHMv3pEPSAglCNhN6S2h2XvGNRl_G9SG_8FN3hCbCa48PUp-33PJzo70"),
       Responses.genTextReply("Looks like you have nothing todo! I'll ask your manager to assign you more tasks :3"),
-      Responses.genQuickReply(
-        Responses.genPictureReply("https://s3-us-west-2.amazonaws.com/www.whitewall.site/bizbotteuxdeux/assets/monkey" + 
+      Responses.genPictureReply("https://s3-us-west-2.amazonaws.com/www.whitewall.site/bizbotteuxdeux/assets/monkey" + 
         "_smirk.png?fbclid=IwAR01UxGdDfPXhuTgLE6oh0LJirwmpEh0anBEWoh03lCZSBloIenFsGN8uP4"),
+      Responses.genQuickReply(
+        "What do you want to do next?"
         [
           {
             title: "View Reminders 📝",
