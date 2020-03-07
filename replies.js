@@ -149,11 +149,29 @@ class Replies {
     ];
 
     this.replies["RAND_HAPPY_PICTURES"] = [
-      "https://lndnxprss.files.wordpress.com/2013/03/tumblr_mciwejzfqf1r14f5po1_500.jpg",
-      "https://www.nirapadnews.com/english/wp-content/uploads/2015/01/Happy-funny-smiley-monkey.png",
-      "https://data.whicdn.com/images/29999481/original.jpg",
-      "https://keyassets-p2.timeincuk.net/wp/prod/wp-content/uploads/sites/29/2015/01/iStock_000005542321_Medium.jpg",
-      "https://thumbs.dreamstime.com/b/happy-cat-closeup-portrait-funny-smile-cardboard-young-blue-background-102078702.jpg"
+      "https://scontent.fdac6-1.fna.fbcdn.net/v/t1.0-9/88237137_2807387819336875_4966096484786241536_n.jpg?_nc_cat=1&_nc_sid=110474&_" + 
+      "nc_eui2=AeEhTZSydBvlNAegxlKq4zkWKVfIPCpJONAmQ8gngjmiQl6hpdTlddIbn84FDFfQhHN8SIt7BfeUI0GnKCvd0YqRA_jEmmJrDeg6QjCNtTq_Yg&_nc_ohc=tG" + 
+      "iQOCAxUUwAX_WRB7p&_nc_ht=scontent.fdac6-1.fna&oh=cb684a2834587f11afb68c2169914cea&oe=5E916A69",
+
+      "https://scontent.fdac6-1.fna.fbcdn.net/v/t1.0-9/88097439_2805536576188666_8486403026645417984_n.jpg?_nc_cat=104&_nc_sid=110474&_nc" + 
+      "_eui2=AeHHl7CW836UIjnrmVFEYaeQpTIE2oDHVq1rQwYzCwvHXoSEq59JybdX6_A-SSe2dBp_2iaCJrXA6KUWlUyza6GD0YsTVsvUBOlq011teeopsw&_nc_ohc=MGJA9V3-" + 
+      "mQwAX9gtSG-&_nc_ht=scontent.fdac6-1.fna&oh=a050faa66402bba276ecd284adb73623&oe=5E91D9F8",
+
+      "https://scontent.fdac6-1.fna.fbcdn.net/v/t1.0-9/88993058_2800732466669077_6515014253257162752_n.jpg?_nc_cat=106&_nc_sid=110474&_nc_eui2=" + 
+      "AeHMjKcWtrXmqk1pFzJ6AeFUrqda28rZhPtEGCA4ngf-vRDQqs7nA3a-LfL5tdX4GeMs4MxcUHtevHFvKbsaTL9tN5DW-0-VajGBJ76iY69n5A&_nc_ohc=7vYV_KgWeBoAX-RZyrd&" + 
+      "_nc_ht=scontent.fdac6-1.fna&oh=1cb86e6e75532a22fa0ed5384d6ee81b&oe=5E96E8EF",
+
+      "https://scontent.fdac6-1.fna.fbcdn.net/v/t1.0-9/87790368_2794587080616949_855643337464479744_n.jpg?_nc_cat=100&_nc_sid=110474&_nc_eui2=AeFE" + 
+      "bBUROqvQknOXMkROc2ri231EJpb8Od19wDozr6tlAp4dQgFxWQE3JQ2Bsbjb8FoNHj-mBIGqtQTmjul07LD-RLZl5F50lzGDN2PUH_Y6lg&_nc_ohc=dLxiLMAzYJwAX99xf1P&_nc_ht" + 
+      "=scontent.fdac6-1.fna&oh=e8c7c4c689a622b2b45ad6b5c7c43840&oe=5E921661",
+
+      "https://scontent.fdac6-1.fna.fbcdn.net/v/t1.0-9/87476203_2790068917735432_2792994774204809216_n.jpg?_nc_cat=108&_nc_sid=110474&_nc_eui2=AeEjGL" + 
+      "9O0KsS45fIw2ytUXNjBBJu4HrWXesgUUCfItfR11m9O3SzEqK7kpT0CqW4n8k55MzHRFprieVOboRX70LTLWLJqgFxeFoHZkAvBtkGQA&_nc_ohc=RGNC2NOxYb0AX_nQQqQ&_nc_ht=scont" + 
+      "ent.fdac6-1.fna&oh=8ad1f5978bcc45691c949d468ade22b4&oe=5E941644",
+
+      "https://scontent.fdac6-1.fna.fbcdn.net/v/t1.0-9/88000342_10158141199968506_3207240719181807616_o.jpg?_nc_cat=101&_nc_sid=1480c5&_nc_eui2=AeFx19Kg" + 
+      "8xZvAel_VOpqJcdGENicyrFNIqe75wOKSIHiIfqHReRYj1vJYTC0VD3273ACP9s59N2evef4dDuptbHVCYFYp5rQ12834yTEqhcVmA&_nc_ohc=wvoTYkWryQAAX-AMbwY&_nc_ht=scontent." +
+      "fdac6-1.fna&oh=21299a8cd260748a5fcc33a3cb1286d0&oe=5E9833CB"
     ];
 
     this.replies["RAND_FUNNY_GIFS"] = [
@@ -597,9 +615,10 @@ class Replies {
           {
             title: "Communicate 📝",
             payload: "COMMUNICATE"
-          },
+          }
         ]
-      )],
+      )
+    ],
     "COMMUNICATE" : Responses.genQuickReply("Do you want to report stats/info to manager, make an announcement or ask for a live conversation with the admins?",
         [
           {
