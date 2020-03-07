@@ -613,8 +613,8 @@ function sendMessage(sender_psid, responses) {
       setTimeout(()=>callSendAPI(sender_psid,response), (delay) * 1000 );   // 0 1000  2000  3000
       setTimeout(()=> senderAction( sender_psid, Response.getAnimation("on")), (delay)*1000 + 300 );   // 300  1300  2300  3300
 
-      // it was 2 changed it to 3 
-      if ("attachment" in response && response['attachment']['type'] === "image")delay+=3;
+      // it was 2 changed it to 4 
+      if ("attachment" in response && response['attachment']['type'] === "image")delay+=4;
 
       delay++;
     }
