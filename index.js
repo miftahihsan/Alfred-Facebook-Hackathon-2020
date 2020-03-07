@@ -722,7 +722,7 @@ curl -X POST -H "Content-Type: application/json" -d '{
                 },
                 {
                     "type": "postback",
-                    "title": "Main Menu",
+                    "title": "Main Menu \u2630",
                     "payload": "MENU"
                 },
 

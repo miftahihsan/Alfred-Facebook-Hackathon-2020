@@ -1170,7 +1170,7 @@ class Replies {
           }
         ])],
     "VIEW_SCHEDULE": [
-      Responses.genTextReply("Looks like you have nothing todo!"),
+      Responses.genTextReply("Looks like you have nothing to do!"),
       Responses.genPictureReply("https://s3-us-west-2.amazonaws" + 
       ".com/www.whitewall.site/bizbotteuxdeux/assets/thinking.png?fbc" + 
       "lid=IwAR3lHMv3pEPSAglCNhN6S2h2XvGNRl_G9SG_8FN3hCbCa48PUp-33PJzo70"),
