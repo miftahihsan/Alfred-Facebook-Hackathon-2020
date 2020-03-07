@@ -46,7 +46,7 @@ app.post('/userList', (req, res) => {     //REMINDERS
   let body = req.body;
   console.log("here!---------inside--UserList---------------------------------------------");
   console.log( body );
-  if (body.uid!==null && body.title!=='') {
+  if ('uid' in body && body.uid!==null && body.title!=='') {
     let data ={};
     data['ind'] = body.ind+"";
     data['title'] = body.title;
@@ -55,17 +55,22 @@ app.post('/userList', (req, res) => {     //REMINDERS
     DynamoDB.updateReminder(body.uid,"Employee", data);
 
 
-    let responses = [Response.genTextReply("Your reminders have been added successfully! ^_^ ")];
-    let reply = Replies.replies["SCHEDULES"];
-    if (Array.isArray(reply)){
-      responses = responses.concat(reply);
-    }
-    else{
-      responses = responses.push(reply);
-    }
-    console.log(body.uid);
-    console.log(responses);
-    sendMessage(body.uid, responses);
+    let msg = Response.genQuickReply("Your reminders have been added successfully! ^_^ ", [
+      {
+        title: "View Reminders 📝",
+        payload: "VIEW_REMINDERS"
+      },
+      {
+        title: "Create Reminder 🗒",
+        payload: "NEW_REMINDER"
+      },
+      {
+        title: "View Schedule 📆",
+        payload: "VIEW_SCHEDULE"
+      }
+    ]);
+    console.log(msg);
+    sendReminders(body.uid, msg);
 
     console.log("Updated!");
   }
@@ -694,6 +699,8 @@ function senderAction(sender_psid, response) {
       console.error("Unable to send message:" + err);
     }
   });
+
+
 }
 /*
 curl -X POST -H "Content-Type: application/json" -d '{
@@ -727,11 +734,11 @@ curl -X POST -H "Content-Type: application/json" -d '{
       "locale":"en_US",
       "text":"Hi {{user_first_name}}! I am BizBot!"
     }
-  ],
+  ]
 
 }' "https://graph.facebook.com/v6.0/me/messenger_profile?access_token=EAAkdTVETz5UBABiMRU4LChbImzlhRbIZBL76hdxdTZBQCrR8gm3iUlo2MKsdbzQJgYYX6cvdL5KaMrtJueuOwl6pPHZBrZCV3nzdGPL92wFLWnF6GDqISffJMj0SBZAfv07hwo2fqZBdsjw9rwlLkApvuWDWRrZA26K9tNVdsN6hwjZBoBZCFd4GBsb7Px8W5RB4ZD"
- */
 
+/*
  /*
 
  curl  \

@@ -114,6 +114,7 @@ class Response{
         ];
         let ind=0;
         reminders.forEach(reminder=>{
+            if (ind===4)return;
             let element = {
                 "title":"Welcome!",
                 "image_url":"https://nafiz6.github.io/bizbotteuxdeux/notepad.png",
@@ -123,7 +124,7 @@ class Response{
                     "url": "https://nafiz6.github.io/bizbotteuxdeux/index.html?uid=" + uid+ "&path=" + JSON.stringify(reminder) + "&ind=" + ind,
                     "webview_height_ratio": "tall",
                     "messenger_extensions": true,
-                    "fallback_url": "https://nafiz6.github.io/bizbotteuxdeux?uid=" + uid
+                    "fallback_url": "https://nafiz6.github.io/bizbotteuxdeux?uid=" + uid + "&path=" + JSON.stringify(reminder) + "&ind=" + ind
                 },
                 "buttons":[
                     {
@@ -132,7 +133,7 @@ class Response{
                         "title":"View Details",
                         "webview_height_ratio": "tall",
                         "messenger_extensions": true,
-                        "fallback_url": "https://nafiz6.github.io/bizbotteuxdeux?uid=" + uid
+                        "fallback_url": "https://nafiz6.github.io/bizbotteuxdeux?uid=" + uid+"&path=" + JSON.stringify(reminder) + "&ind=" + ind
                     }
                 ]
             };
@@ -154,7 +155,12 @@ class Response{
                     "elements": elements
                 }
             }
+        };
+
+        if (ind===0){
+            return this.genTextReply("Sorry, no reminders found!")
         }
+
 
         return response;
     }
@@ -175,7 +181,7 @@ class Response{
                             "url": link,
                             "title":"Reminders",
                             "webview_height_ratio": "tall",
-                            "fallback_url" : "https://nafiz6.github.io/bizbotteuxdeux"
+                            "fallback_url" : "https://nafiz6.github.io/bizbotteuxdeux/index.html?uid=" + uid
                         }
                     ]
                 }
