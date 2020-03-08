@@ -566,7 +566,7 @@ function handlePostback(sender_psid, received_postback, user_name) {
 
             }
             else{
-              sendMessage(sender_psid, Response.genTextReply("You have already responded. Spamming is strictly prohibited!!!"));
+              sendMessage(sender_psid, Response.genTextReply("Your response has already been recorded."));
             }
 
           });

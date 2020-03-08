@@ -102,7 +102,7 @@ class Replies {
         "- Know something from a specific company department, like finance, tech support, law etc..\n\n- Report stats/info to manager\n",
         [
           {
-            title: "HR question 🙋",
+            title: "HR tasks 🙋",
             payload: "HR"
           },
           {
@@ -110,7 +110,7 @@ class Replies {
             payload: "SCHEDULES"
           },
           {
-            title: "FAQ 📚",
+            title: "Info 📚",
             payload: "FAQ"
           },
           {
@@ -201,7 +201,7 @@ class Replies {
       Responses.genQuickReply("What do you want to do next?",
         [
           {
-            title: "HR question 🙋",
+            title: "HR tasks 🙋",
             payload: "HR"
           },
           {
@@ -209,7 +209,7 @@ class Replies {
             payload: "SCHEDULES"
           },
           {
-            title: "FAQ 📚",
+            title: "Info 📚",
             payload: "FAQ"
           },
           {
@@ -415,7 +415,7 @@ class Replies {
 
     this.replies["COMPLAINT"] = [
       Responses.genTextReply("Remember, your complaints/reports are completely anonymous." +
-      "Only I’ll know that you’ve submitted this complaint and no one else, not even your superiors! 😎"),
+      "Only I’ll know that you’ve submitted this complaint and no one else, not even your superiors! 🤫"),
       Responses.genTextReply("Please upload a complaint file as an attachment" + 
       " so that we can perform proper investigation and take necessary actions as soon as possible"),
       Responses.genTextReply("Please Make Sure to upload a document file less than 25MB"),
@@ -481,8 +481,7 @@ class Replies {
     ];
 
     this.replies["SUBMIT_COMPLAINT"] = [
-      Responses.genQuickReply("Your complaint has been submitted successfully. Rest assured as our team will conduct proper investigation" + 
-      " and take necessary actions on the issue. Sorry for your inconvenience",
+      Responses.genQuickReply("Great! I've submitted the complaint to the HR! i'll let you know as soon as I hear back from them 😀.",
       [
         {
           title: "HR policies 📚",
@@ -533,7 +532,7 @@ class Replies {
       Responses.genQuickReply("What do you want to do next?",
         [
           {
-            title: "HR question 🙋",
+            title: "HR tasks 🙋",
             payload: "HR"
           },
           {
@@ -541,7 +540,7 @@ class Replies {
             payload: "SCHEDULES"
           },
           {
-            title: "FAQ 📚",
+            title: "Info 📚",
             payload: "FAQ"
           },
           {
@@ -566,7 +565,7 @@ class Replies {
         "What do you want to do next?",
         [
           {
-            title: "HR question 🙋",
+            title: "HR tasks 🙋",
             payload: "HR"
           },
           {
@@ -574,7 +573,7 @@ class Replies {
             payload: "SCHEDULES"
           },
           {
-            title: "FAQ 📚",
+            title: "Info 📚",
             payload: "FAQ"
           },
           {
@@ -598,7 +597,7 @@ class Replies {
       Responses.genQuickReply("What do you want to do next?",
         [
           {
-            title: "HR question 🙋",
+            title: "HR tasks 🙋",
             payload: "HR"
           },
           {
@@ -606,7 +605,7 @@ class Replies {
             payload: "SCHEDULES"
           },
           {
-            title: "FAQ 📚",
+            title: "Info 📚",
             payload: "FAQ"
           },
           {
