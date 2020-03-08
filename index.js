@@ -641,7 +641,7 @@ async function callSendAPI(sender_psid, response) {
   }
 
   // Send the HTTP request to the Messenger Platform
-  return await new Promise( request({
+  return await new Promise( ( req, res ) => { request({
     "uri": "https://graph.facebook.com/v2.6/me/messages",
     "qs": { "access_token": process.env.PAGE_ACCESS_TOKEN },
     "method": "POST",
@@ -654,7 +654,7 @@ async function callSendAPI(sender_psid, response) {
       console.error("Unable to send message:" + err);
       return err;
     }
-  }));
+  }) } );
 }
 
 
