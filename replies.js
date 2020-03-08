@@ -416,95 +416,50 @@ class Replies {
     this.replies["COMPLAINT"] = [
       Responses.genTextReply("Remember, your complaints/reports are completely anonymous." +
       "Only I’ll know that you’ve submitted this complaint and no one else, not even your superiors! 🤫"),
-      Responses.genTextReply("Please upload a complaint file as an attachment" + 
-      " so that we can perform proper investigation and take necessary actions as soon as possible"),
-      Responses.genTextReply("Please Make Sure to upload a document file less than 25MB"),
+      Responses.genQuickReply("Who's the complaint against",
+      [
+        {
+          title: "Employee 👨",
+          payload: "COMPLAINT_EMPLOYEE"
+        },
+        {
+          title: "Department 🏢",
+          payload: "COMPLAINT_DPT"
+        },
+      ])
     ];
 
-    this.replies["COMPLAINT_ERROR_MSG"] = [
-      Responses.genTextReply("Please upload a document and not text for the complaint to go through.")
+    // then change the state to COMPLAINT_MODE
+
+    this.replies["COMPLAINT_SUCCESS"] = [
+      Responses.genQuickReply("Great! I've submitted the complaint to HR! I'll let you know as soon as I hear back from them. 😃",
+      [
+        {
+          title: "HR policies 📚",
+          payload: "HR_POLICIES"
+        },
+        {
+          title: "Performance Stats 🔖",
+          payload: "PERFORMANCE_STATS"
+        },
+        {
+          title: "Upcoming Holidays 🎄",
+          payload: "HOLIDAYS"
+        },
+        {
+          title : "Bonus & Payments 💵" ,
+          payload: "BONUS_PAYMENTS"
+        },
+        {
+          title : "Submit a complaint 😕" ,
+          payload: "COMPLAINT"
+        }
+      ])
     ]
 
-    this.replies["COMPLAINT_BUTTON"] = [
-      Responses.genQuickReply("Press Buttons to Submit or Discard",
-      [
-        {
-          title: "Submit Complaint 😤",
-          payload: "SUBMIT_COMPLAINT"
-        },
-        {
-          title: "Discard Complaint 🗑️",
-          payload: "DISCARD_COMPLAINT"
-        },
-      ]),
-    ];
-
-    this.replies["COMPLAINT_ATTACHMENT"] = [
-      Responses.genQuickReply("You can upload more documents if you want. You can also choose to go through or discard the documents that you have uploaded" + 
-      " by pressing the buttons below",
-      [
-        {
-          title: "Submit Complaint 😤",
-          payload: "SUBMIT_COMPLAINT"
-        },
-        {
-          title: "Discard Complaint 🗑️",
-          payload: "DISCARD_COMPLAINT"
-        },
-      ]),
-    ];
-
-    this.replies["DISCARD_COMPLAINT"] = [
-      Responses.genQuickReply("Your complaint has been discarded successfully",
-      [
-        {
-          title: "HR policies 📚",
-          payload: "HR_POLICIES"
-        },
-        {
-          title: "Performance Stats 🔖",
-          payload: "PERFORMANCE_STATS"
-        },
-        {
-          title: "Upcoming Holidays 🎄",
-          payload: "HOLIDAYS"
-        },
-        {
-          title : "Bonus & Payments 💵" ,
-          payload: "BONUS_PAYMENTS"
-        },
-        {
-          title : "Submit a complaint 😕" ,
-          payload: "COMPLAINT"
-        }
-      ])
-    ];
-
-    this.replies["SUBMIT_COMPLAINT"] = [
-      Responses.genQuickReply("Great! I've submitted the complaint to the HR! i'll let you know as soon as I hear back from them. 😃",
-      [
-        {
-          title: "HR policies 📚",
-          payload: "HR_POLICIES"
-        },
-        {
-          title: "Performance Stats 🔖",
-          payload: "PERFORMANCE_STATS"
-        },
-        {
-          title: "Upcoming Holidays 🎄",
-          payload: "HOLIDAYS"
-        },
-        {
-          title : "Bonus & Payments 💵" ,
-          payload: "BONUS_PAYMENTS"
-        },
-        {
-          title : "Submit a complaint 😕" ,
-          payload: "COMPLAINT"
-        }
-      ])
-    ];
+    this.replies["COMPLAINT_INSTRUCTION"] = [
+      Responses.genTextReply("Ok! Tell me what the complaint is. Just say Done! When you're done with the complaint!"),
+    ]
 
     this.replies["LIVE"] = [
       Responses.genTextReply("If you Ask for a Live Agent, your conversation will be handed over."),

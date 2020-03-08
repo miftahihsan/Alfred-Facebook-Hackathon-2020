@@ -324,25 +324,24 @@ function handleMessage(sender_psid, received_message, user_name) {
   }
   else if (received_message.text) {
 
-    // Compiles the user text message and makes meaning out if it
-    // using which it fills the user table appropriately.
+    if( ( userData['state'] === "COMPLAINT_EMPLOYEE" || userData['state'] === "COMPLAINT_DPT" ) && received_message.text.toLowerCase() == "done" ){
+        userData['state'] = "COMPLAINT_SUCCESS";
+        sendMessage(sender_psid, Replies.replies(userData['state']));
+    }
 
-    // console.log("-------------------------------------------------------------------");    
-    // console.log(received_message.nlp.entities);
-
-    if( userData['state'] === "REPORT_STATS" || userData['state'] === "REPORT_STATS_ATTACHMENT" ){
+    else if( userData['state'] === "REPORT_STATS" || userData['state'] === "REPORT_STATS_ATTACHMENT" ){
 
       let response = Replies.replies['REPORT_STATS_ERROR_MSG'];
       sendMessage(sender_psid, response);
       return;
     }
 
-    if( userData['state'] === "COMPLAINT" || userData['state'] === "COMPLAINT_ATTACHMENT" ){
+    // if( userData['state'] === "COMPLAINT" || userData['state'] === "COMPLAINT_ATTACHMENT" ){
 
-      let response = Replies.replies['COMPLAINT_ERROR_MSG'];
-      sendMessage(sender_psid, response);
-      return;
-    }
+    //   let response = Replies.replies['COMPLAINT_ERROR_MSG'];
+    //   sendMessage(sender_psid, response);
+    //   return;
+    // }
 
 
     // console.log("-------------------------------------------------------------------");
@@ -354,16 +353,19 @@ function handleMessage(sender_psid, received_message, user_name) {
   }
   else if (received_message.attachments){
 
-    if( userData['state']==="COMPLAINT" ){
-      userData['state'] = "COMPLAINT_ATTACHMENT";
-      sendMessage(sender_psid, Replies.replies[userData['state']]);
-    }
-    else if( userData['state']==='REPORT_STATS' ){
+    // if( userData['state']==="COMPLAINT" ){
+    //   userData['state'] = "COMPLAINT_ATTACHMENT";
+    //   sendMessage(sender_psid, Replies.replies[userData['state']]);
+    // }
+    if( userData['state']==='REPORT_STATS' ){
       userData['state'] = 'REPORT_STATS_ATTACHMENT';
       sendMessage(sender_psid, Replies.replies[userData['state']]);
     }
     else if( userData['state'] === 'REPORT_STATS_ATTACHMENT' || userData['state'] === 'COMPLAINT_ATTACHMENT' ){
       sendMessage(sender_psid, Replies.replies[userData['state']]);
+    }
+    else if(userData['state'] === "COMPLAINT_EMPLOYEE" || userData['state'] === "COMPLAINT_DPT" ){
+      // do nothing
     }
     else {
       // REPLY WITH GIF
@@ -406,8 +408,10 @@ function handleQuickReplies(sender_psid, quick_reply) {
   userData['state'] = payload;
   let response = Replies.replies[userData['state']];
 
-
-  if (userData['state']==="SUBMIT_REPORT"){
+  if(userData['state'] === "COMPLAINT_EMPLOYEE" || userData['state'] === "COMPLAINT_DPT" ){
+    sendMessage( sender_psid, Replies.replies["COMPLAINT_INSTRUCTION"] );
+  }
+  else if (userData['state']==="SUBMIT_REPORT"){
     sendMessage(sender_psid, [
       // Response.genAttachmentReply(),
       {
