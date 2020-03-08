@@ -379,7 +379,7 @@ function handleMessage(sender_psid, received_message, user_name) {
 
 }
 
-async function seq( sender_psid, response, i ){
+function seq( sender_psid, response, i ){
 
   if( i >= response.length ){
     return;
@@ -395,7 +395,7 @@ async function seq( sender_psid, response, i ){
     seq( sender_psid, response, i + 1 );
   })
   .catch(err => {
-    console.log("SUCEESS " + err);
+    console.log("ERR " + err);
 
     seq( sender_psid, response, i + 1 );
   });
