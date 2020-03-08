@@ -390,8 +390,15 @@ async function seq( sender_psid, response, i ){
   
   callSendAPI(sender_psid, response[i])
   .then(res => {
+    console.log("SUCEESS " + res);
+    
     seq( sender_psid, response, i + 1 );
   })
+  .catch(err => {
+    console.log("SUCEESS " + err);
+
+    seq( sender_psid, response, i + 1 );
+  });
 
 }
 
