@@ -385,6 +385,7 @@ function seq( sender_psid, response, i ){
     return;
   } 
   
+  senderAction(sender_psid, "typing_on");
 
   console.log("HERE = " + response[i]);
   
