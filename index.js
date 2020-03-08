@@ -338,6 +338,11 @@ function handleMessage(sender_psid, received_message, user_name) {
       sendMessage(sender_psid, response);
       return;
     }
+    else{
+      nlp.compile( received_message.nlp.entities, userData ); // maybe do it only initially
+      response = nlp.findState(userData, received_message.text);
+      sendMessage(sender_psid, response);
+    }
 
     // if( userData['state'] === "COMPLAINT" || userData['state'] === "COMPLAINT_ATTACHMENT" ){
 
@@ -349,9 +354,6 @@ function handleMessage(sender_psid, received_message, user_name) {
 
     // console.log("-------------------------------------------------------------------");
 
-    nlp.compile( received_message.nlp.entities, userData ); // maybe do it only initially
-    response = nlp.findState(userData, received_message.text);
-    sendMessage(sender_psid, response);
 
   }
   else if (received_message.attachments){
