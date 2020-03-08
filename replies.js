@@ -49,7 +49,7 @@ class Replies {
                payload: "NEW_REMINDER"
              },
              {
-               title: "View Schedule 📆",
+               title: "View Meeting 📆",
                payload: "VIEW_SCHEDULE"
              }
            ])
@@ -102,11 +102,11 @@ class Replies {
         "- Know something from a specific company department, like finance, tech support, law etc..\n\n- Report stats/info to manager\n",
         [
           {
-            title: "HR tasks 🙋",
+            title: "HR tasks 👔",
             payload: "HR"
           },
           {
-            title: "Schedules 📅",
+            title: "Meeting/List 📅",
             payload: "SCHEDULES"
           },
           {
@@ -201,11 +201,11 @@ class Replies {
       Responses.genQuickReply("What do you want to do next?",
         [
           {
-            title: "HR tasks 🙋",
+            title: "HR tasks 👔",
             payload: "HR"
           },
           {
-            title: "Schedules 📅",
+            title: "Meeting/List 📅",
             payload: "SCHEDULES"
           },
           {
@@ -481,7 +481,7 @@ class Replies {
     ];
 
     this.replies["SUBMIT_COMPLAINT"] = [
-      Responses.genQuickReply("Great! I've submitted the complaint to the HR! i'll let you know as soon as I hear back from them 😀.",
+      Responses.genQuickReply("Great! I've submitted the complaint to the HR! i'll let you know as soon as I hear back from them. 😃",
       [
         {
           title: "HR policies 📚",
@@ -509,7 +509,7 @@ class Replies {
     this.replies["LIVE"] = [
       Responses.genTextReply("If you Ask for a Live Agent, your conversation will be handed over."),
       Responses.genTextReply("It will take them a while to get back to your queries."),
-      Responses.genQuickReply("Note : You wont be able to get back to the bot unless the admin allows you to do so.",
+      Responses.genQuickReply("Note : You wont be able to communicate with the bot via text unless the admin allows you to do so.",
         [
           {
             title: "Ask for Live Agent 👨",
@@ -532,11 +532,11 @@ class Replies {
       Responses.genQuickReply("What do you want to do next?",
         [
           {
-            title: "HR tasks 🙋",
+            title: "HR tasks 👔",
             payload: "HR"
           },
           {
-            title: "Schedules 📅",
+            title: "Meeting/List 📅",
             payload: "SCHEDULES"
           },
           {
@@ -565,11 +565,11 @@ class Replies {
         "What do you want to do next?",
         [
           {
-            title: "HR tasks 🙋",
+            title: "HR tasks 👔",
             payload: "HR"
           },
           {
-            title: "Schedules 📅",
+            title: "Meeting/List 📅",
             payload: "SCHEDULES"
           },
           {
@@ -597,11 +597,11 @@ class Replies {
       Responses.genQuickReply("What do you want to do next?",
         [
           {
-            title: "HR tasks 🙋",
+            title: "HR tasks 👔",
             payload: "HR"
           },
           {
-            title: "Schedules 📅",
+            title: "Meeting/List 📅",
             payload: "SCHEDULES"
           },
           {
@@ -681,7 +681,7 @@ class Replies {
           payload: "NEW_REMINDER"
         },
         {
-          title: "View Schedule 📆",
+          title: "View Meeting 📆",
           payload: "VIEW_SCHEDULE"
         }
       ]),
@@ -723,7 +723,7 @@ class Replies {
               payload: "COURSES_AVAILABLE"
             },
             {
-              title: "Prerequisite",
+              title: "Courses required",
               payload: "PREREQUISITE_TRAINING"
             },
             {
@@ -752,7 +752,7 @@ class Replies {
               payload: "COURSES_AVAILABLE"
             },
             {
-              title: "Prerequisite",
+              title: "Courses required",
               payload: "PREREQUISITE_TRAINING"
             },
             {
@@ -781,7 +781,7 @@ class Replies {
               payload: "COURSES_AVAILABLE"
             },
             {
-              title: "Prerequisite",
+              title: "Courses required",
               payload: "PREREQUISITE_TRAINING"
             },
             {
@@ -923,9 +923,9 @@ class Replies {
     "FINANCE": [Responses.genTextReply("Here are some common Finances questions you can ask:"),
       Responses.genQuickReply(
         "- What are the current health insurance policies?\n\n" +
-        "- When will I get a bonus?\n\n" +
+        "- Tell me about paid vacations!\n\n" +
         "- What are the rules for fines?\n\n" +
-        "- When will I get an increment?\n\n",
+        "- When will I get a raise?\n\n",
         [
           {
             title: "Health insurance 🏥",
@@ -1095,7 +1095,7 @@ class Replies {
               payload: "COURSES_AVAILABLE"
             },
             {
-              title: "Prerequisite",
+              title: "Courses required",
               payload: "PREREQUISITE_TRAINING"
             },
             {
@@ -1150,7 +1150,7 @@ class Replies {
           payload: "NEW_REMINDER"
         },
         {
-          title: "View Schedule 📆",
+          title: "View Meeting 📆",
           payload: "VIEW_SCHEDULE"
         }
       ]),
@@ -1164,7 +1164,7 @@ class Replies {
             payload: "NEW_REMINDER"
           },
           {
-            title: "View Schedule 📆",
+            title: "View Meeting 📆",
             payload: "VIEW_SCHEDULE"
           }
         ])],
@@ -1188,7 +1188,7 @@ class Replies {
             payload: "NEW_REMINDER"
           },
           {
-            title: "View Schedule 📆",
+            title: "View Meeting 📆",
             payload: "VIEW_SCHEDULE"
           }
         ]
