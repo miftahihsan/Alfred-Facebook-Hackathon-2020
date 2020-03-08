@@ -317,14 +317,15 @@ function handleMessage(sender_psid, received_message, user_name) {
           console.log(err);
         });
     // }
-    }
+      }
 
-  }
+    }
 
   }
   else if (received_message.text) {
 
     if(  userData['state'] === "COMPLAINT_EMPLOYEE" || userData['state'] === "COMPLAINT_DPT"   ){
+      console.log("HEREEEEEEEEEEEEEEEEEEEE!!!!!!!!!!!!!!!!!!!!!!@@@@@@@@@@@@@@@@@@#####################3 " + userData['state']);
       if( received_message.text.toLowerCase() == "done" ){
         userData['state'] = "COMPLAINT_SUCCESS";
         sendMessage(sender_psid, Replies.replies(userData['state']));
