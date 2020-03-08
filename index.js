@@ -328,7 +328,7 @@ function handleMessage(sender_psid, received_message, user_name) {
       console.log("HEREEEEEEEEEEEEEEEEEEEE!!!!!!!!!!!!!!!!!!!!!!@@@@@@@@@@@@@@@@@@#####################3 " + userData['state']);
       if( received_message.text.toLowerCase() == "done" ){
         userData['state'] = "COMPLAINT_SUCCESS";
-        sendMessage(sender_psid, Replies.replies(userData['state']));
+        sendMessage(sender_psid, Replies.replies[userData['state']]);
       }
     }
 
@@ -358,20 +358,16 @@ function handleMessage(sender_psid, received_message, user_name) {
   }
   else if (received_message.attachments){
 
-    // if( userData['state']==="COMPLAINT" ){
-    //   userData['state'] = "COMPLAINT_ATTACHMENT";
-    //   sendMessage(sender_psid, Replies.replies[userData['state']]);
-    // }
-    if( userData['state']==='REPORT_STATS' ){
+    if(  userData['state'] === "COMPLAINT_EMPLOYEE" || userData['state'] === "COMPLAINT_DPT"   ){
+      console.log("ATTACHMENT!!!!!!!!!!!s");
+    }
+    else if( userData['state']==='REPORT_STATS' ){
       userData['state'] = 'REPORT_STATS_ATTACHMENT';
       sendMessage(sender_psid, Replies.replies[userData['state']]);
     }
     else if( userData['state'] === 'REPORT_STATS_ATTACHMENT' || userData['state'] === 'COMPLAINT_ATTACHMENT' ){
       sendMessage(sender_psid, Replies.replies[userData['state']]);
     }
-    // else if(userData['state'] === "COMPLAINT_EMPLOYEE" || userData['state'] === "COMPLAINT_DPT" ){
-    //   // do nothing
-    // }
     else {
       // REPLY WITH GIF
       let responses = [Response.genAttachmentReply()];
