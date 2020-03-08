@@ -387,7 +387,7 @@ function seq( sender_psid, response, i ){
   
   senderAction(sender_psid, "typing_on");
 
-  console.log("HERE = " + response[i]);
+  console.log("HERE = " + response[i] + "i = " + i);
   
   callSendAPI(sender_psid, response[i])
   .then(res => {
