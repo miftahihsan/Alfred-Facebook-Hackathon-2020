@@ -180,6 +180,9 @@ app.post('/webhook', (req, res) => {
             senderAction(sender_psid, Response.getAnimation("off"));
 
             userData['uid'] = sender_psid;
+
+            seenBy(sender_psid);
+
             if (webhook_event.message) {
               handleMessage(sender_psid, webhook_event.message, user_name);
             } else if (webhook_event.postback) {
@@ -685,6 +688,31 @@ function sendReminders(sender_psid, response) {
       console.error("Unable to send message:" + err);
     }
   });
+}
+
+function seenBy(sender_psid) {
+  // Construct the message body
+  let request_body = {
+    "recipient": {
+      "id": sender_psid
+    },
+    "sender_action" : "mark_seen"
+  }
+
+  // Send the HTTP request to the Messenger Platform
+  request({
+    "uri": "https://graph.facebook.com/v2.6/me/messages",
+    "qs": { "access_token": process.env.PAGE_ACCESS_TOKEN },
+    "method": "POST",
+    "json": request_body
+  }, (err, res, body) => {
+    if (!err) {
+    } else {
+      console.error("Unable to send message:" + err);
+    }
+  });
+
+
 }
 
 function senderAction(sender_psid, response) {
