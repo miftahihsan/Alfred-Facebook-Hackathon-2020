@@ -65,7 +65,7 @@ app.post('/userList', (req, res) => {     //REMINDERS
         payload: "NEW_REMINDER"
       },
       {
-        title: "View Schedule 📆",
+        title: "View Meeting 📆",
         payload: "VIEW_SCHEDULE"
       }
     ]);
@@ -447,7 +447,9 @@ function handleQuickReplies(sender_psid, quick_reply) {
         console.log("----------viewschedule------------");
         console.log(res)
       console.log("----------viewschedule------------");
-        if (c===0) response = Replies.replies['VIEW_SCHEDULE'];
+        if (c === 0) {
+          response = Replies.replies['VIEW_SCHEDULE'];
+        }
         else {
           let data = res.Items;
           // response = Response.genGenericTemplate(data);
@@ -459,10 +461,12 @@ function handleQuickReplies(sender_psid, quick_reply) {
 
             let attending=false;
 
-            data[i]['attendees'].L.forEach(u=>{
-              console.log(u);
-              if (u.S == userData['uid'])attending=true;
-            });
+            if( 'attendees' in data[i] ){
+              data[i]['attendees'].L.forEach(u=>{
+                console.log(u);
+                if (u.S == userData['uid'])attending=true;
+              });
+            }
 
             if( data[i]['set_by'].S === userData['uid']  || attending){
               temp.push( data[i] );
