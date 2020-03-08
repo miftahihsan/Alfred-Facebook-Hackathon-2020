@@ -625,8 +625,8 @@ class Replies {
       Responses.genTextReply("You can apply for a leave at any time just by saying “Apply for a leave from 30 March to 30 April”!")               
     ],
     "SCHEDULES": Responses.genQuickReply(
-      "Would you like to work with your lists, \n" +
-      "make a new list, view/manage your calendar",
+      "Would you like to work with your lists," +
+      " make a new list, view/manage your calendar",
       [
         {
           title: "View Reminders 📝",
