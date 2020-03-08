@@ -411,6 +411,7 @@ function handleQuickReplies(sender_psid, quick_reply) {
   let response = Replies.replies[userData['state']];
 
   if(userData['state'] === "COMPLAINT_EMPLOYEE" || userData['state'] === "COMPLAINT_DPT" ){
+    console.log("===============------------------------==================" + userData['state']);
     sendMessage( sender_psid, Replies.replies["COMPLAINT_INSTRUCTION"] );
   }
   else if (userData['state']==="SUBMIT_REPORT"){
