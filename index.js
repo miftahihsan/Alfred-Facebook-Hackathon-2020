@@ -385,7 +385,7 @@ function seq( sender_psid, response, i ){
     return;
   } 
   
-  senderAction(sender_psid, "typing_on");
+  senderAction(sender_psid, Response.getAnimation("on"));
 
   console.log("HERE = " + response[i] + "i = " + i);
   
