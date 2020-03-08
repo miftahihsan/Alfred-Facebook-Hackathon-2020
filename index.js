@@ -381,8 +381,11 @@ function handleMessage(sender_psid, received_message, user_name) {
 async function seq( sender_psid, response, i ){
 
   if( i >= response.length ){
-    return "";
+    return;
   } 
+  
+
+  console.log("HERE = " + response[i]);
   
   callSendAPI(sender_psid, response[i])
   .then(res => {
@@ -641,7 +644,8 @@ async function callSendAPI(sender_psid, response) {
   }
 
   // Send the HTTP request to the Messenger Platform
-  return await new Promise( ( req, res ) => { request({
+  return await new Promise( ( req, res ) => { 
+    request({
     "uri": "https://graph.facebook.com/v2.6/me/messages",
     "qs": { "access_token": process.env.PAGE_ACCESS_TOKEN },
     "method": "POST",
