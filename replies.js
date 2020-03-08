@@ -294,7 +294,8 @@ class Replies {
       Responses.genTextReply("You’ve made "+this.userData.Item['sales_made']+" sales this month, generating $20,000 in company revenue!"),
       Responses.genTextReply("You’ve crossed the minimum required sales target for this quarter, increasing this year’s bonus to " + 
                               this.userData.Item['bonus']+"!!"),
-      Responses.genPictureReply("https://s3-us-west-2.amazonaws.com/www.whitewall.site/bizbotteuxdeux/assets/Face+Emoji+(Heart).jpg"),
+      Responses.genPictureReply("https://s3-us-west-2.amazonaws.com/www.whitewall.site/bizbotteuxdeux/assets/eye_heart_emoji.png?fbcl"+
+      "id=IwAR3rLcb3hHj9gjTghpWjO8o3EAZI7L6Ub12Z7nb0RgfJtoYsxvlD4LThr1M"),
       Responses.genQuickReply("Great job!! 👏👏",
       [
         {

@@ -111,8 +111,6 @@ app.post('/webhook', (req, res) => {
 
       // Gets the body of the webhook event
       let webhook_event = entry.messaging[0];
-      console.log(webhook_event);
-
     
       // Get the sender PSID
       let sender_psid = webhook_event.sender.id;
@@ -120,10 +118,8 @@ app.post('/webhook', (req, res) => {
       //  new line
 
       console.log('Sender PSID: ' + sender_psid);
-      // console.log('event: ' + entry.messaging[0]);
       
       senderAction(sender_psid, Response.getAnimation("on"));
-
 
       var user_info = getUserName(sender_psid);
       var employee_checker =  DynamoDB.getUserInfo( sender_psid, "Employee" );
@@ -273,8 +269,6 @@ function handleMessage(sender_psid, received_message, user_name) {
           "name" : userData['name']
         });
 
-
-    // if( received_message.quick_reply.payload === "ANNOUNCEMENT" ){
         DynamoDB.getIdColumn()
         .then(res => {
           console.log("Announcement !!!!");
@@ -319,7 +313,7 @@ function handleMessage(sender_psid, received_message, user_name) {
           console.log("Announcement ERROR !!!!");
           console.log(err);
         });
-    // }
+
       }
 
     }
@@ -328,7 +322,6 @@ function handleMessage(sender_psid, received_message, user_name) {
   else if (received_message.text) {
 
     if(  userData['state'] === "COMPLAINT_EMPLOYEE" || userData['state'] === "COMPLAINT_DPT"   ){
-      console.log("HEREEEEEEEEEEEEEEEEEEEE!!!!!!!!!!!!!!!!!!!!!!@@@@@@@@@@@@@@@@@@#####################3 " + userData['state']);
       if( received_message.text.toLowerCase() == "done" ){
         userData['state'] = "COMPLAINT_SUCCESS";
         sendMessage(sender_psid, Replies.replies[userData['state']]);
@@ -346,17 +339,6 @@ function handleMessage(sender_psid, received_message, user_name) {
       response = nlp.findState(userData, received_message.text);
       sendMessage(sender_psid, response);
     }
-
-    // if( userData['state'] === "COMPLAINT" || userData['state'] === "COMPLAINT_ATTACHMENT" ){
-
-    //   let response = Replies.replies['COMPLAINT_ERROR_MSG'];
-    //   sendMessage(sender_psid, response);
-    //   return;
-    // }
-
-
-    // console.log("-------------------------------------------------------------------");
-
 
   }
   else if (received_message.attachments){
@@ -394,13 +376,6 @@ function handleMessage(sender_psid, received_message, user_name) {
     }
   }
 
-    // get a response for the particular state now
-
-
-  //console.log("current state = " + userData['state']);
-  //console.log("-------------------------------------------------------------------");
-
-  // Send the response message
 }
 
 
@@ -413,12 +388,10 @@ function handleQuickReplies(sender_psid, quick_reply) {
   let response = Replies.replies[userData['state']];
 
   if(userData['state'] === "COMPLAINT_EMPLOYEE" || userData['state'] === "COMPLAINT_DPT" ){
-    console.log("===============------------------------==================" + userData['state']);
     sendMessage( sender_psid, Replies.replies["COMPLAINT_INSTRUCTION"] );
   }
   else if (userData['state']==="SUBMIT_REPORT"){
     sendMessage(sender_psid, [
-      // Response.genAttachmentReply(),
       {
         "attachment":{
             "type":"image",
@@ -444,9 +417,9 @@ function handleQuickReplies(sender_psid, quick_reply) {
     let temp = [];
     DynamoDB.getAllMeetings().then(res=>{
         let c = res.Count;
-        console.log("----------viewschedule------------");
-        console.log(res)
-      console.log("----------viewschedule------------");
+        // console.log("----------viewschedule------------");
+        // console.log(res)
+        // console.log("----------viewschedule------------");
         if (c === 0) {
           response = Replies.replies['VIEW_SCHEDULE'];
         }
@@ -456,8 +429,8 @@ function handleQuickReplies(sender_psid, quick_reply) {
           response = [];
 
           for( var i = 0; i < data.length; i++ ){
-            console.log("set_by = " + data[i]['set_by'].S);
-            console.log("uid = " + userData['uid']);
+            // console.log("set_by = " + data[i]['set_by'].S);
+            // console.log("uid = " + userData['uid']);
 
             let attending=false;
 
@@ -476,11 +449,11 @@ function handleQuickReplies(sender_psid, quick_reply) {
 
           }
 
-          console.log('============================');
+          // console.log('============================');
 
-          console.log(data);
+          // console.log(data);
 
-          console.log(response);
+          // console.log(response);
         }
         if( temp.length == 0 ) response = Replies.replies['VIEW_SCHEDULE'];
         else{
@@ -638,8 +611,6 @@ function sendMessage(sender_psid, responses) {
   }
 
 }
-
-
 
 
 // Sends response messages via the Send API
