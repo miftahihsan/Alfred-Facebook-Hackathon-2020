@@ -378,14 +378,31 @@ function handleMessage(sender_psid, received_message, user_name) {
 
 }
 
+async function seq( sender_psid, response, i ){
+
+  if( i >= response.length ){
+    return "";
+  } 
+  
+  callSendAPI(sender_psid, response[i])
+  .then(res => {
+    seq( sender_psid, response, i + 1 );
+  })
+
+}
+
 
 function handleQuickReplies(sender_psid, quick_reply) {
   let payload = quick_reply.payload;
 
-
-
   userData['state'] = payload;
   let response = Replies.replies[userData['state']];
+
+
+  if( userData['state'] == "BORED" ){
+    seq( sender_psid, response, 0 );
+    return;
+  }
 
   if(userData['state'] === "COMPLAINT_EMPLOYEE" || userData['state'] === "COMPLAINT_DPT" ){
     sendMessage( sender_psid, Replies.replies["COMPLAINT_INSTRUCTION"] );
@@ -614,7 +631,7 @@ function sendMessage(sender_psid, responses) {
 
 
 // Sends response messages via the Send API
-function callSendAPI(sender_psid, response) {
+async function callSendAPI(sender_psid, response) {
   // Construct the message body
   let request_body = {
     "recipient": {
@@ -631,9 +648,11 @@ function callSendAPI(sender_psid, response) {
     "json": request_body
   }, (err, res, body) => {
     if (!err) {
-      console.log("Message sent!")
+      console.log("Message sent!");
+      return await new Promise( res );
     } else {
       console.error("Unable to send message:" + err);
+      return await new Promise( err );
     }
   });
 }
