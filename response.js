@@ -108,22 +108,20 @@ class Response{
 
     static genReminders(uid, reminders ){
         console.log(uid);
-        let elements = [
+        let elements = [];
 
-        ];
-        let ind=0;
-        reminders.forEach(reminder=>{
-            if (ind==3)return;
+        for (let i=0;i<reminders.length;i++){
+            if (i==3)break;
             let element = {
                 "title":"Welcome!",
                 "image_url":"https://nafiz6.github.io/bizbottFeuxdeux/notepad.png",
                 "subtitle":"We have the right reminder for everyone.",
                 "default_action": {
                     "type": "web_url",
-                    "url": "https://nafiz6.github.io/bizbotteuxdeux/index.html?uid=" + uid+ "&path=" + JSON.stringify(reminder) + "&ind=" + ind,
+                    "url": "https://nafiz6.github.io/bizbotteuxdeux/index.html?uid=" + uid+ "&path=" + JSON.stringify(reminders[i]) + "&ind=" + ind,
                     "webview_height_ratio": "tall",
                     "messenger_extensions": true,
-                    "fallback_url": "https://nafiz6.github.io/bizbotteuxdeux?uid=" + uid + "&path=" + JSON.stringify(reminder) + "&ind=" + ind
+                    "fallback_url": "https://nafiz6.github.io/bizbotteuxdeux?uid=" + uid + "&path=" + JSON.stringify(reminders[i]) + "&ind=" + ind
                 },
                 "buttons":[
                     {
@@ -135,15 +133,14 @@ class Response{
                         "title":"View Details",
                         "webview_height_ratio": "tall",
                         "messenger_extensions": true,
-                        "fallback_url": "https://nafiz6.github.io/bizbotteuxdeux?uid=" + uid+"&path=" + JSON.stringify(reminder) + "&ind=" + ind
+                        "fallback_url": "https://nafiz6.github.io/bizbotteuxdeux?uid=" + uid+"&path=" + JSON.stringify(reminders[i]) + "&ind=" + ind
                     }
                 ]
             };
             element['title'] = reminder['title'];
-            element['subtitle'] = reminder['items']['item1'];
+            element['subtitle'] = reminder['items'][0]['item1'];
             elements.push(element);
-            ind++;
-        });
+        }
 
         console.log(elements);
 
@@ -161,7 +158,7 @@ class Response{
             }
         };
 
-        if (ind===0){
+        if (reminders.length){
             return this.genTextReply("Sorry, no reminders found!")
         }
 
