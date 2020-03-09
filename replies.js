@@ -127,7 +127,7 @@ class Replies {
       Responses.genTextReply("Lets get started! \uD83D\uDE04\n"),
       Responses.genTextReply("\u2022 Ask an HR question\n\n- Modify your calendar, make a list etc.."),
       Responses.genQuickReply(
-        "- Know something from a specific company department, like finance, tech support, law etc..\n\n- Report stats/info to manager\n",
+        "\u2022 Know something from a specific company department, like finance, tech support, law etc..\n\n\u2022 Report stats/info to manager\n",
         [
           {
             title: "HR tasks 👔",
@@ -257,11 +257,11 @@ class Replies {
       Responses.genTextReply("You have " + this.userData.Item['sick_leave'] + " sick days and " + this.userData.Item['holiday_left'] +
                                           " leave days remaining for this year" ),
       Responses.genTextReply("Here is a list of all the holidays for the year" ),
-      Responses.genTextReply("- New Year’s Day, January 1st \n\n- Martin Luther King, Jr. Birthday January, 3rd Monday \n\n" + 
-                            "- President's Day, February 3rd Monday\n\n- Memorial Day May, Last Monday" ),
-      Responses.genTextReply("- Independence Day, July 4th \n\n- Labor Day September, 1st Monday\n\n- Columbus Day October, 2nd Monday"),
-      Responses.genTextReply("- Veteran's Day, November\n\n- Thanksgiving Day, 4th Thursday of November\n\n- Day after Thanksgiving, 4th Friday of November"),
-      Responses.genTextReply("- Christmas Eve, December 24th\n\n- Christmas December, 25th\n\n- New Year’s Eve, December 31st , half-day"),
+      Responses.genTextReply("\u2022 New Year’s Day, January 1st \n\n\u2022 Martin Luther King, Jr. Birthday January, 3rd Monday \n\n" + 
+                            "\u2022 President's Day, February 3rd Monday\n\n\u2022 Memorial Day May, Last Monday" ),
+      Responses.genTextReply("\u2022 Independence Day, July 4th \n\n\u2022 Labor Day September, 1st Monday\n\n\u2022 Columbus Day October, 2nd Monday"),
+      Responses.genTextReply("\u2022 Veteran's Day, November\n\n\u2022 Thanksgiving Day, 4th Thursday of November\n\n\u2022 Day after Thanksgiving, 4th Friday of November"),
+      Responses.genTextReply("\u2022 Christmas Eve, December 24th\n\n\u2022 Christmas December, 25th\n\n\u2022 New Year’s Eve, December 31st , half-day"),
       Responses.genQuickReply("You can apply for a leave at any time just by saying “Apply for a leave from 30 March to 30 April”!",
         [
           {
@@ -290,8 +290,8 @@ class Replies {
 
     this.replies['BONUS_PAYMENTS'] = [
       Responses.genTextReply("I’ll list your remaining bonuses for this year below. Have a look! "),
-      Responses.genTextReply("- Christmas: "+this.userData.Item["holiday_bonus"]+"\n" +
-                             "- Sales Bonus: "+this.userData.Item['bonus']+""),
+      Responses.genTextReply("\u2022 Christmas: "+this.userData.Item["holiday_bonus"]+"\n" +
+                             "\u2022 Sales Bonus: "+this.userData.Item['bonus']+""),
       Responses.genTextReply("You have "+this.userData.Item['due_salary']+" monthly salary payments left this year."),
       Responses.genQuickReply("You can directly ask about payments and bonuses simply by asking" + 
                               "\“How much bonuses am i entitled to this year?\” or \"How much do I get this year in salaries?\"",
@@ -622,11 +622,11 @@ class Replies {
         ]
     ),
     "HR": Responses.genQuickReply("Ok! What do you want to know about: \n" +
-      "- HR company policy\n\n" +
-      "- Your performance stats\n\n" +
-      "- Sick days/holidays\n\n" +
-      "- Bonus and payments\n\n" +
-      "- Submit a complaint",
+      "\u2022 HR company policy\n\n" +
+      "\u2022 Your performance stats\n\n" +
+      "\u2022 Sick days/holidays\n\n" +
+      "\u2022 Bonus and payments\n\n" +
+      "\u2022 Submit a complaint",
       [
         {
           title: "HR policies 📚",
@@ -775,10 +775,10 @@ class Replies {
     ],
     "IT_TECH": [Responses.genTextReply("Here are some common IT concerns you can ask about:"),
       Responses.genQuickReply(
-        "- What's my username and password?\n\n" +
-        "- I can't login to my account\n\n" +
-        "- My office equipment isn’t working\n\n" +
-        "- My office equipment doesn't have network connectivity\n\n",
+        "\u2022 What's my username and password?\n\n" +
+        "\u2022 I can't login to my account\n\n" +
+        "\u2022 My office equipment isn’t working\n\n" +
+        "\u2022 My office equipment doesn't have network connectivity\n\n",
         [
           {
             title: "Credentials ? 🔑",
@@ -897,9 +897,9 @@ class Replies {
     ],
     "FINANCE": [Responses.genTextReply("Here are some common Finances questions you can ask:"),
       Responses.genQuickReply(
-        "- Tell me about paid vacations!\n\n" +
-        "- What are the rules for fines?\n\n" +
-        "- When will I get a raise?\n\n",
+        "\u2022 Tell me about paid vacations!\n\n" +
+        "\u2022 What are the rules for fines?\n\n" +
+        "\u2022 When will I get a raise?\n\n",
         [
           {
             title: "Health insurance 🏥",
@@ -956,10 +956,10 @@ class Replies {
       Responses.genTextReply("Employees may also have a right to privacy in their telephone conversations or voicemail messages. However, employees have very" + 
       " limited rights to privacy in their e-mail messages and Internet usage while using the employer's computer system."),
       Responses.genTextReply("Other important employee rights include:"),
-      Responses.genTextReply("- Right to be free from discrimination and harassment of all types"),
-      Responses.genTextReply("- Right to be free from retaliation for filing a claim or complaint against an employer (these" + 
+      Responses.genTextReply("\u2022 Right to be free from discrimination and harassment of all types"),
+      Responses.genTextReply("\u2022 Right to be free from retaliation for filing a claim or complaint against an employer (these" + 
       " are sometimes called \"whistleblower\" rights)"),
-      Responses.genQuickReply("- Right to fair wages for work performed.",
+      Responses.genQuickReply("\u2022 Right to fair wages for work performed.",
       [
         {
           title: "New Laws",
@@ -1034,10 +1034,10 @@ class Replies {
     "CORPORATE_LAW": [
       Responses.genTextReply("Here are some common Corporate Law questions you can ask:"),
       Responses.genQuickReply(
-        "- What are the new law changes introduced in the company?\n\n" +
-        "- What are my rights as an employee in the company?\n\n" +
-        "- What are the laws regarding issues with co workers?\n\n" +
-        "- Can I buy shares for Dunder Mifflin as an employee?\n\n",
+        "\u2022 What are the new law changes introduced in the company?\n\n" +
+        "\u2022 What are my rights as an employee in the company?\n\n" +
+        "\u2022 What are the laws regarding issues with co workers?\n\n" +
+        "\u2022 Can I buy shares for Dunder Mifflin as an employee?\n\n",
         [
           {
             title: "New Laws",
@@ -1060,9 +1060,9 @@ class Replies {
     "TRAINING": [
       Responses.genTextReply("Here are some common Training and Self Improvement questions you can ask:"),
       Responses.genQuickReply(
-        "- What are the current training courses available for me?\n\n" +
-        "- What training courses do I require to complete my current tasks?\n\n" +
-        "- What self improvement courses do I need to take to improve my performance metrics?",
+        "\u2022 What are the current training courses available for me?\n\n" +
+        "\u2022 What training courses do I require to complete my current tasks?\n\n" +
+        "\u2022 What self improvement courses do I need to take to improve my performance metrics?",
           [
             {
               title: "Courses available",
