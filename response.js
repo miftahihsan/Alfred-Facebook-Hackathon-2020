@@ -111,7 +111,7 @@ class Response{
         let elements = [];
 
         for (let i=0;i<reminders.length;i++){
-            if (i===3)break;
+            if (i===4)break;
             let element = {
               "title":"Welcome!",
               "image_url":"https://nafiz6.github.io/bizbottFeuxdeux/notepad.png",
