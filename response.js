@@ -121,14 +121,9 @@ class Response{
                     "url": "https://nafiz6.github.io/bizbotteuxdeux/index.html?uid=" + uid+ "&path=" + JSON.stringify(reminders[i]) + "&ind=" + i,
                     "webview_height_ratio": "tall",
                     "messenger_extensions": true,
-                    "fallback_url": "https://nafiz6.github.io/bizbotteuxdeux?uid=" + uid + "&path=" + JSON.stringify(reminders[i]) + "&ind=" + i
                 },
                 "buttons":[
                     {
-                        "type":"postback",
-                        "title":"Remove Reminder",
-                        "payload": "DELETE_REMINDER_"+i
-                    },{
                         "type":"web_url",
                         "title":"View Details",
                         "webview_height_ratio": "tall",
