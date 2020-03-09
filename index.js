@@ -389,7 +389,7 @@ function seq( sender_psid, response, i ){
 
   let result = callSendAPI(sender_psid, response[i]);
 
-  if( !( 'attachment' in response[i] ) ){
+  if(  'attachment' in response[i]  ){
     result
     .then(res => {
       console.log("SUCEESS " + res);
@@ -401,7 +401,7 @@ function seq( sender_psid, response, i ){
     setTimeout( ()=> {
       result
       .then(res => {
-        console.log("SUCEESS " + res);
+        console.log("INSIDE " + res);
         
         seq( sender_psid, response, i + 1 );
       }),
