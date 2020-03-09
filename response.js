@@ -114,7 +114,7 @@ class Response{
             if (i===4)break;
             let element = {
               "title":"Welcome!",
-              "image_url":"https://nafiz6.github.io/bizbottFeuxdeux/notepad.png",
+              "image_url":"https://nafiz6.github.io/bizbotteuxdeux/notepad.png",
               "subtitle":"We have the right reminder for everyone.",
               "default_action": {
                 "type": "web_url",
