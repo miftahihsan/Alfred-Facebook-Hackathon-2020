@@ -411,7 +411,7 @@ function handleQuickReplies(sender_psid, quick_reply) {
   let response = Replies.replies[userData['state']];
 
 
-  if( userData['state'] == "BORED" ){
+  if( userData['state'] == "BORED" || userData['state'] == "INITIATE" ){
     seq( sender_psid, response, 0 );
     return;
   }
