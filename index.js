@@ -344,11 +344,6 @@ function handleMessage(sender_psid, received_message, user_name) {
   }
   else if (received_message.attachments){
 
-    if( userData['state'] == 'INITIATE' ){
-      seq( sender_psid, response, 0 );
-      return;
-    }
-
     if(  userData['state'] === "COMPLAINT_EMPLOYEE" || userData['state'] === "COMPLAINT_DPT"   ){
       console.log("ATTACHMENT!!!!!!!!!!!s");
     }
@@ -398,11 +393,6 @@ function seq( sender_psid, response, i ){
   .then(res => {
     console.log("SUCEESS " + res);
     
-    seq( sender_psid, response, i + 1 );
-  })
-  .catch(err => {
-    console.log("ERR " + err);
-
     seq( sender_psid, response, i + 1 );
   });
 
