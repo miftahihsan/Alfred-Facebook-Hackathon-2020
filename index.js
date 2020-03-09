@@ -285,7 +285,7 @@ function handleMessage(sender_psid, received_message, user_name) {
       //nlp.compile( received_message.nlp.entities, userData ); // maybe do it only initially
       response = nlp.findState(userData, received_message.nlp.entities);
       if (userData['state'].includes("_")){
-        let arr = user_Data['state'].split("_");
+        let arr = userData['state'].split("_");
         if( arr[0] === 'TIME' && arr.length === 3 ){
           handleMeetingCall(sender_psid, arr);
         }
