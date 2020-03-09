@@ -118,7 +118,7 @@ class Replies {
         {
           title: "Department",
           payload: "ANNOUNCEMENT_TIME"
-        }]];
+        }])];
 
     this.replies["INITIATE"] = [Responses.genTextReply("Hi "+userData['name']+" ! "),
       Responses.genTextReply("I am an advanced bot designed to be your personal assistant here in the offices of Dunder Mifflin."),
