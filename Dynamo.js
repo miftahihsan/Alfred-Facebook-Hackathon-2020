@@ -255,6 +255,34 @@ function updateReminder(user_id, table_name, data){
     });
 
 }
+function deleteReminder(user_id, table_name, data){
+    let params;
+    let ind=data['ind']+"";
+    delete data.ind;
+  params = {
+    TableName: table_name,
+    Key: {
+      "uid": user_id
+    },
+    UpdateExpression: "set reminders[" + ind + "] = :s",
+    ExpressionAttributeValues: {
+      ":s": [data]
+
+    },
+    ReturnValues: "UPDATED_NEW"
+  };
+
+
+
+    docClient.update(params, function(err, data) {
+      if (err) {
+        console.error("Unable to update item. Error JSON:", JSON.stringify(err, null, 2));
+      } else {
+        console.log("UpdateItem succeeded:", JSON.stringify(data, null, 2));
+      }
+    });
+
+}
 
 function updateAttendingMeeting(setBy, attendee ){
 
@@ -336,5 +364,6 @@ module.exports = {
   updateAttendingMeeting,
   getAllMeetings,
   getMeetingInfo,
-  updateDecliningMeeting
+  updateDecliningMeeting,
+  deleteReminder
 }

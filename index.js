@@ -586,6 +586,16 @@ function handlePostback(sender_psid, received_postback, user_name) {
 
       return;
     }
+    else if ( arr[0]==="DELETE" && arr[1]==="REMINDER"){
+      let rem = userData.Item['reminders'];
+      let new_rem=[];
+      for (let i=0;i<userData.Item['reminders'].length;i++){
+        if (i==arr[2])continue;
+        new_rem.push(rem[i]);
+      }
+      DynamoDB.deleteReminder(sender_psid, "Employee", new_rem);
+    }
+
   }
 
 

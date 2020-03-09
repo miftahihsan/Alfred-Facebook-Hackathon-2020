@@ -117,8 +117,8 @@ class Response{
             if (ind===4)return;
             let element = {
                 "title":"Welcome!",
-                "image_url":"https://nafiz6.github.io/bizbotteuxdeux/notepad.png",
-                "subtitle":"We have the right hat for everyone.",
+                "image_url":"https://nafiz6.github.io/bizbottFeuxdeux/notepad.png",
+                "subtitle":"We have the right reminder for everyone.",
                 "default_action": {
                     "type": "web_url",
                     "url": "https://nafiz6.github.io/bizbotteuxdeux/index.html?uid=" + uid+ "&path=" + JSON.stringify(reminder) + "&ind=" + ind,
@@ -128,8 +128,11 @@ class Response{
                 },
                 "buttons":[
                     {
+                        "type":"postback",
+                        "title":"Remove Reminder",
+                        "payload": "DELETE_REMINDER_"+ind
+                    },{
                         "type":"web_url",
-                        "url":"https://nafiz6.github.io/bizbotteuxdeux/index.html?uid=" + uid + "&path=" + JSON.stringify(reminder) + "&ind=" + ind,
                         "title":"View Details",
                         "webview_height_ratio": "tall",
                         "messenger_extensions": true,
