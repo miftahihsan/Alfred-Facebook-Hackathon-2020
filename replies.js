@@ -90,6 +90,10 @@ class Replies {
       Responses.genQuickReply("Select a time from below",
       [
         {
+          title: "Type your time ! 🕒",
+          payload: "TYPE_YOUR_TIME"
+        },
+        {
           title: "11:00-AM",
           payload: "TIME_11:00_AM"
         },
