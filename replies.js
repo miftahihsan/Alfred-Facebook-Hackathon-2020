@@ -571,29 +571,29 @@ class Replies {
       Responses.genTextReply("Hope your issue was solved!"),
       Responses.genQuickReply(
         "What do you want to do next?",
-        this.replies["INIT_BTN"]
-        // [
-        //   {
-        //     title: "HR tasks 👔",
-        //     payload: "HR"
-        //   },
-        //   {
-        //     title: "Meeting/List 📅",
-        //     payload: "SCHEDULES"
-        //   },
-        //   {
-        //     title: "Communicate 📝",
-        //     payload: "COMMUNICATE"
-        //   },
-        //   {
-        //     title: "Info 📚",
-        //     payload: "FAQ"
-        //   },
-        //   {
-        //     title: "I'm bored! 🙍‍♂️",
-        //     payload: "BORED"
-        //   }
-        // ]
+        // this.replies["INIT_BTN"]
+        [
+          {
+            title: "HR tasks 👔",
+            payload: "HR"
+          },
+          {
+            title: "Meeting/List 📅",
+            payload: "SCHEDULES"
+          },
+          {
+            title: "Communicate 📝",
+            payload: "COMMUNICATE"
+          },
+          {
+            title: "Info 📚",
+            payload: "FAQ"
+          },
+          {
+            title: "I'm bored! 🙍‍♂️",
+            payload: "BORED"
+          }
+        ]
       )
     ],
     "INITIATE": [Responses.genTextReply("Hi "+this.userData['name']+" ! "),
