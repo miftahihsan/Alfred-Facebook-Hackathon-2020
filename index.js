@@ -323,7 +323,7 @@ function handleMessage(sender_psid, received_message, user_name) {
   else if (received_message.text) {
 
     if(  userData['state'] === "COMPLAINT_EMPLOYEE" || userData['state'] === "COMPLAINT_DPT"   ){
-      if( received_message.text.toLowerCase() == "done" ){
+      if( received_message.text.toLowerCase().includes("done")){
         userData['state'] = "COMPLAINT_SUCCESS";
         sendMessage(sender_psid, Replies.replies[userData['state']]);
       }

@@ -104,6 +104,22 @@ class Replies {
       ]),
     ];
 
+    this.replies['ANNOUNCEMENT_WHO'] = [
+      Responses.genQuickReply("Who would you like to set-up a meeting with?",
+       [
+        {
+          title: "Team",
+          payload: "ANNOUNCEMENT_TIME"
+        },
+        {
+          title: "Branch",
+          payload: "ANNOUNCEMENT_TIME"
+        },
+        {
+          title: "Department",
+          payload: "ANNOUNCEMENT_TIME"
+        }]];
+
     this.replies["INITIATE"] = [Responses.genTextReply("Hi "+userData['name']+" ! "),
       Responses.genTextReply("I am an advanced bot designed to be your personal assistant here in the offices of Dunder Mifflin."),
       Responses.genTextReply("I'm also designed to be your very own HR manager. That means you can ask me things you'd normally have to ask your HR department. If the question is too difficult for me I can redirect you to an HR representative for further help."),
@@ -596,8 +612,8 @@ class Replies {
             payload: "REPORT_STATS"
           },
           {
-            title: "Announcement 📣",
-            payload: "ANNOUNCEMENT_TIME"
+            title: "Set-up Meeting 📣",
+            payload: "ANNOUNCEMENT_WHO"
           },
           {
             title: "Live Chat 👨",
@@ -1074,8 +1090,8 @@ class Replies {
           payload: "REPORT_STATS"
         },
         {
-          title: "Announcement 📣",
-          payload: "ANNOUNCEMENT_TIME"
+          title: "Set-up Meeting 📣",
+          payload: "ANNOUNCEMENT_WHO"
         },
         {
           title: "Live Chat 👨",
