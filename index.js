@@ -786,8 +786,7 @@ function enablePersistentMenu(sender_psid) {
     "qs": { "psid": sender_psid,
       "params": "[%22persistent_menu%22]",
       "access_token": process.env.PAGE_ACCESS_TOKEN },
-    "method": "DELETE",
-    "json": request_body
+    "method": "DELETE"
   }, (err, res, body) => {
     if (!err) {
     } else {
