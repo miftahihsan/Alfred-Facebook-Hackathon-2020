@@ -408,6 +408,8 @@ function seq( sender_psid, response, i ){
     });
   }
   
+  // only this works too
+
   // callSendAPI(sender_psid, response[i])
   // .then(res => {
   //   console.log("SUCEESS " + res);
