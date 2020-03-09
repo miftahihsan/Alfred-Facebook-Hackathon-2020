@@ -49,6 +49,24 @@ class Replies {
              }
            ])];
     }
+    else{
+      this.replies["VIEW_REMINDERS"] = [
+        Responses.genTextReply("Sorry, no reminders found! Create a new reminder :) "),
+        Responses.genQuickReply(
+          "Or manage other reminders",
+          [
+            {
+              title: "Create Reminder 🗒",
+              payload: "NEW_REMINDER"
+            },
+            {
+              title: "View Meeting 📆",
+              payload: "VIEW_SCHEDULE"
+            }
+          ])
+
+    ]
+    }
 
 
     this.replies['HR_POLICIES'] = [
