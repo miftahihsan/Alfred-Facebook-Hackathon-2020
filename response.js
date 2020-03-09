@@ -158,7 +158,7 @@ class Response{
             }
         };
 
-        if (reminders.length){
+        if (reminders.length===0){
             return this.genTextReply("Sorry, no reminders found!")
         }
 
