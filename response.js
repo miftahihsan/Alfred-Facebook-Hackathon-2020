@@ -108,13 +108,12 @@ class Response{
 
     static genReminders(uid, reminders ){
         console.log(uid);
-        console.log(reminders);
         let elements = [
 
         ];
         let ind=0;
         reminders.forEach(reminder=>{
-            if (ind===4)return;
+            if (ind==3)return;
             let element = {
                 "title":"Welcome!",
                 "image_url":"https://nafiz6.github.io/bizbottFeuxdeux/notepad.png",
@@ -145,6 +144,8 @@ class Response{
             elements.push(element);
             ind++;
         });
+
+        console.log(elements);
 
 
 
