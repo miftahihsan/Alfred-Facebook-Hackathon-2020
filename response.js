@@ -40,7 +40,7 @@ class Response{
 
         });
 
-        console.log(elements[0]);
+        //console.log(elements[0]);
 
 
         let response = {
@@ -107,7 +107,7 @@ class Response{
     }
 
     static genReminders(uid, reminders ){
-        console.log(uid);
+       // console.log(uid);
         let elements = [];
 
         for (let i=0;i<reminders.length;i++){

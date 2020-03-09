@@ -27,8 +27,8 @@ class Replies {
 
   static getRandId(list){
     var id = Math.floor( Math.random() * list.length );
-    console.log("id============================================= " + id);
-    console.log("id============================================= " + list[id]);
+    //console.log("id============================================= " + id);
+    //console.log("id============================================= " + list[id]);
     return list[id];
   }
 

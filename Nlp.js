@@ -9,8 +9,7 @@ class Nlp{
         @userMsg -> raw text sent by the user to the bot
     */
     compile( nlp, userData ){
-
-        console.log( userData );
+        console.log(nlp);
     }
 
 
