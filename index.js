@@ -388,27 +388,18 @@ function seq( sender_psid, response, i ){
   senderAction(sender_psid, Response.getAnimation("on"));
 
   console.log("HERE = " + response[i] + "i = " + i);
-  // setTimeout(()=> senderAction( sender_psid, Response.getAnimation("on")), (delay)*1000 + 300 );
-  let serverRes;
-
-  if( !( 'attachment' in response[i] ) ){
-    serverRes = callSendAPI(sender_psid, response[i]);
-  }
-  else{
-    serverRes = setTimeout(()=> callSendAPI(sender_psid, response[i]) , 1500 );
-  }
-
-  serverRes
+  
+  callSendAPI(sender_psid, response[i])
   .then(res => {
     console.log("SUCEESS " + res);
     
     seq( sender_psid, response, i + 1 );
   })
   .catch(err => {
-    console.log("ERROR " + err);
-    
+    console.log("ERR " + err);
+
     seq( sender_psid, response, i + 1 );
-  })
+  });
 
 }
 
