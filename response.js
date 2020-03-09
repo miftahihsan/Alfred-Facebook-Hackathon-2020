@@ -111,34 +111,34 @@ class Response{
         let elements = [];
 
         for (let i=0;i<reminders.length;i++){
-            if (i==3)break;
+            if (i===3)break;
             let element = {
                 "title":"Welcome!",
                 "image_url":"https://nafiz6.github.io/bizbottFeuxdeux/notepad.png",
                 "subtitle":"We have the right reminder for everyone.",
                 "default_action": {
                     "type": "web_url",
-                    "url": "https://nafiz6.github.io/bizbotteuxdeux/index.html?uid=" + uid+ "&path=" + JSON.stringify(reminders[i]) + "&ind=" + ind,
+                    "url": "https://nafiz6.github.io/bizbotteuxdeux/index.html?uid=" + uid+ "&path=" + JSON.stringify(reminders[i]) + "&ind=" + i,
                     "webview_height_ratio": "tall",
                     "messenger_extensions": true,
-                    "fallback_url": "https://nafiz6.github.io/bizbotteuxdeux?uid=" + uid + "&path=" + JSON.stringify(reminders[i]) + "&ind=" + ind
+                    "fallback_url": "https://nafiz6.github.io/bizbotteuxdeux?uid=" + uid + "&path=" + JSON.stringify(reminders[i]) + "&ind=" + i
                 },
                 "buttons":[
                     {
                         "type":"postback",
                         "title":"Remove Reminder",
-                        "payload": "DELETE_REMINDER_"+ind
+                        "payload": "DELETE_REMINDER_"+i
                     },{
                         "type":"web_url",
                         "title":"View Details",
                         "webview_height_ratio": "tall",
                         "messenger_extensions": true,
-                        "fallback_url": "https://nafiz6.github.io/bizbotteuxdeux?uid=" + uid+"&path=" + JSON.stringify(reminders[i]) + "&ind=" + ind
+                        "fallback_url": "https://nafiz6.github.io/bizbotteuxdeux?uid=" + uid+"&path=" + JSON.stringify(reminders[i]) + "&ind=" + i
                     }
                 ]
             };
-            element['title'] = reminder['title'];
-            element['subtitle'] = reminder['items'][0]['item1'];
+            element['title'] = reminders[i]['title'];
+            element['subtitle'] = reminders[i]['items'][0]['item1'];
             elements.push(element);
         }
 

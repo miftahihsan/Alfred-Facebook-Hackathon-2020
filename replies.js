@@ -35,26 +35,10 @@ class Replies {
   static setUserData(userData){
     this.userData = userData;
     if ('reminders' in userData.Item){
-       this.replies["VIEW_REMINDERS"] = [
-         Responses.genReminders(userData.Item['uid'], userData.Item['reminders']),
-         Responses.genQuickReply(
-           "Or change previous reminders",
-           [
-             {
-               title: "View Reminders 📝",
-               payload: "VIEW_REMINDERS"
-             },
-             {
-               title: "Create Reminder 🗒",
-               payload: "NEW_REMINDER"
-             },
-             {
-               title: "View Meeting 📆",
-               payload: "VIEW_SCHEDULE"
-             }
-           ])
+       this.replies["VIEW_REMINDERS"] =
+         Responses.genReminders(userData.Item['uid'], userData.Item['reminders'])
 
-       ];
+       ;
     }
 
 
