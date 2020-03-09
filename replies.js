@@ -129,28 +129,28 @@ class Replies {
       Responses.genQuickReply(
         "\u2022 Know something from a specific company department, like finance, tech support, law etc..\n\n\u2022 Report stats/info to manager\n",
         this.replies["INIT_BTN"]
-        [
-          {
-            title: "HR tasks 👔",
-            payload: "HR"
-          },
-          {
-            title: "Meeting/List 📅",
-            payload: "SCHEDULES"
-          },
-          {
-            title: "Communicate 📝",
-            payload: "COMMUNICATE"
-          },
-          {
-            title: "Info 📚",
-            payload: "FAQ"
-          },
-          {
-            title: "I'm bored! 🙍‍♂️",
-            payload: "BORED"
-          }
-        ]
+        // [
+        //   {
+        //     title: "HR tasks 👔",
+        //     payload: "HR"
+        //   },
+        //   {
+        //     title: "Meeting/List 📅",
+        //     payload: "SCHEDULES"
+        //   },
+        //   {
+        //     title: "Communicate 📝",
+        //     payload: "COMMUNICATE"
+        //   },
+        //   {
+        //     title: "Info 📚",
+        //     payload: "FAQ"
+        //   },
+        //   {
+        //     title: "I'm bored! 🙍‍♂️",
+        //     payload: "BORED"
+        //   }
+        // ]
       )
     ];
 
