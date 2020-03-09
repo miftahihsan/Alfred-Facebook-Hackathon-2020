@@ -24,15 +24,16 @@ class Nlp{
             payload="ANNOUNCEMENT_WHO";
             if ('datetime' in nlp){
                 let time;
-                if ('value' in nlp['datetime']){
+                if ('value' in nlp['datetime'][0]){
 
-                    let t = nlp['datetime']['value'].split("T")[1].split("+")[0].split(":");
+                    let t = nlp['datetime'][0]['value']+"";
+                    t=t.split("T")[1].split("+")[0].split(":");
                     time = "TIME_" + t[0]+":"+t[1]+"_PM";
 
                 }
                 else{
 
-                    let t = nlp['datetime']['values'].split("T")[1].split("+")[0].split(":");
+                    let t = nlp['datetime'][0]['values'].split("T")[1].split("+")[0].split(":");
                     time = "TIME_" + t[0]+":"+t[1]+"_PM";
 
                 }
