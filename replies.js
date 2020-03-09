@@ -128,29 +128,28 @@ class Replies {
       Responses.genTextReply("\u2022 Ask an HR question\n\n\u2022 Modify your calendar, make a list etc.."),
       Responses.genQuickReply(
         "\u2022 Know something from a specific company department, like finance, tech support, law etc..\n\n\u2022 Report stats/info to manager\n",
-        this.replies["INIT_BTN"]
-        // [
-        //   {
-        //     title: "HR tasks 👔",
-        //     payload: "HR"
-        //   },
-        //   {
-        //     title: "Meeting/List 📅",
-        //     payload: "SCHEDULES"
-        //   },
-        //   {
-        //     title: "Communicate 📝",
-        //     payload: "COMMUNICATE"
-        //   },
-        //   {
-        //     title: "Info 📚",
-        //     payload: "FAQ"
-        //   },
-        //   {
-        //     title: "I'm bored! 🙍‍♂️",
-        //     payload: "BORED"
-        //   }
-        // ]
+        [
+          {
+            title: "HR tasks 👔",
+            payload: "HR"
+          },
+          {
+            title: "Meeting/List 📅",
+            payload: "SCHEDULES"
+          },
+          {
+            title: "Communicate 📝",
+            payload: "COMMUNICATE"
+          },
+          {
+            title: "Info 📚",
+            payload: "FAQ"
+          },
+          {
+            title: "I'm bored! 🙍‍♂️",
+            payload: "BORED"
+          }
+        ]
       )
     ];
 
@@ -544,34 +543,11 @@ class Replies {
 
 
   static replies = {
-    "INIT_BTN" : [
-        {
-          title: "HR tasks 👔",
-          payload: "HR"
-        },
-        {
-          title: "Meeting/List 📅",
-          payload: "SCHEDULES"
-        },
-        {
-          title: "Communicate 📝",
-          payload: "COMMUNICATE"
-        },
-        {
-          title: "Info 📚",
-          payload: "FAQ"
-        },
-        {
-          title: "I'm bored! 🙍‍♂️",
-          payload: "BORED"
-        }
-    ],
     "WELCOME_BACK" : [
       Responses.genTextReply("Welcome Back!"),
       Responses.genTextReply("Hope your issue was solved!"),
       Responses.genQuickReply(
         "What do you want to do next?",
-        // this.replies["INIT_BTN"]
         [
           {
             title: "HR tasks 👔",
