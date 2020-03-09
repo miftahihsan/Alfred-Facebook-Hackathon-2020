@@ -72,6 +72,7 @@ class Replies {
     this.replies['HR_POLICIES'] = [
       Responses.genTextReply("You can say something like"),
       Responses.genTextReply("\“I’d like to read the sexual harassment guidelines\”"),
+      Responses.genTextReply("Or \“What are the current health insurance policies?\”"),
       Responses.genTextReply("and I’ll search the HR handbook and get the relevant information to you!")
     ];
 
@@ -121,16 +122,16 @@ class Replies {
             payload: "SCHEDULES"
           },
           {
+            title: "Communicate 📝",
+            payload: "COMMUNICATE"
+          },
+          {
             title: "Info 📚",
             payload: "FAQ"
           },
           {
             title: "I'm bored! 🙍‍♂️",
             payload: "BORED"
-          },
-          {
-            title: "Communicate 📝",
-            payload: "COMMUNICATE"
           }
         ]
       )
@@ -220,6 +221,10 @@ class Replies {
             payload: "SCHEDULES"
           },
           {
+            title: "Communicate 📝",
+            payload: "COMMUNICATE"
+          },
+          {
             title: "Info 📚",
             payload: "FAQ"
           },
@@ -227,10 +232,7 @@ class Replies {
             title: "I'm bored! 🙍‍♂️",
             payload: "BORED"
           },
-          {
-            title: "Communicate 📝",
-            payload: "COMMUNICATE"
-          }
+
         ]
       )
     ];
@@ -507,16 +509,16 @@ class Replies {
             payload: "SCHEDULES"
           },
           {
+            title: "Communicate 📝",
+            payload: "COMMUNICATE"
+          },
+          {
             title: "Info 📚",
             payload: "FAQ"
           },
           {
             title: "I'm bored! 🙍‍♂️",
             payload: "BORED"
-          },
-          {
-            title: "Communicate 📝",
-            payload: "COMMUNICATE"
           }
         ]
       )
@@ -540,17 +542,17 @@ class Replies {
             payload: "SCHEDULES"
           },
           {
+            title: "Communicate 📝",
+            payload: "COMMUNICATE"
+          },
+          {
             title: "Info 📚",
             payload: "FAQ"
           },
           {
             title: "I'm bored! 🙍‍♂️",
             payload: "BORED"
-          },
-          {
-            title: "Communicate 📝",
-            payload: "COMMUNICATE"
-          },
+          }
         ]
       )
     ],
@@ -572,17 +574,18 @@ class Replies {
             payload: "SCHEDULES"
           },
           {
+            title: "Communicate 📝",
+            payload: "COMMUNICATE"
+          },
+          {
             title: "Info 📚",
             payload: "FAQ"
           },
           {
             title: "I'm bored! 🙍‍♂️",
             payload: "BORED"
-          },
-          {
-            title: "Communicate 📝",
-            payload: "COMMUNICATE"
           }
+
         ]
       )
     ],
@@ -654,10 +657,6 @@ class Replies {
       ]),
     "FAQ": Responses.genQuickReply("Great! What do you want to know about?",
       [
-        {
-          title: "Finances 💰",
-          payload: "FINANCE"
-        },
         {
           title: "IT and Tech 🖥️",
           payload: "IT_TECH"
@@ -783,16 +782,9 @@ class Replies {
           },
         ])],
     "HEALTH_INSURANCE" : [
-      Responses.genTextReply("Upon receipt of written documentation of successful completion of the approved rehabilitation program," + 
-      " the employee will be placed in a similar position when available."),
-      Responses.genTextReply("(This policy does not require us as a company to hold any position open nor" +
-      " create a position for employees who successfully complete a drug rehabilitation program)."),
-      Responses.genTextReply("Upon reinstatement, the employee shall submit to random tests for alcohol and/or drugs" + 
-      " (without prior notice) by us for a period of three (3) years. All such tests will be administered by qualified personnel."),
-      Responses.genTextReply("Failure by the employee to submit to any test or any test result showing any degree of" +
-      " intoxication of alcohol or any level or amount of drugs/controlled substances, not wholly attributable to drugs prescribed by the employee's physician shall be"),
-      Responses.genQuickReply("Nothing in this policy shall be construed as an obligation upon us to provide or to pay for, substance" +
-      " abuse counseling or rehabilitation except to the extent it may be part of our health insurance plan.",
+      Responses.genTextReply("The company has a wide variety of health insurance packages to choose from."),
+      Responses.genTextReply("All employees here are covered by the default insurance."),
+      Responses.genQuickReply("However you may choose to change your health insurance any time.",
       [
         {
           title: "Health insurance 🏥",
@@ -889,7 +881,6 @@ class Replies {
     ],
     "FINANCE": [Responses.genTextReply("Here are some common Finances questions you can ask:"),
       Responses.genQuickReply(
-        "- What are the current health insurance policies?\n\n" +
         "- Tell me about paid vacations!\n\n" +
         "- What are the rules for fines?\n\n" +
         "- When will I get a raise?\n\n",
