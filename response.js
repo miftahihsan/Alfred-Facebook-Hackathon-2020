@@ -138,7 +138,7 @@ class Response{
                 ]
             };
             element['title'] = reminders[i]['title'];
-            element['subtitle'] = reminders[i]['items'][0]['item1'];
+            element['subtitle'] = reminders[i]['items']['item1'];
             elements.push(element);
         }
 
