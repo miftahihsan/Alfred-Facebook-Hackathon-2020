@@ -42,6 +42,10 @@ class Nlp{
                 return Replies.replies["TIME_11:00_AM"];
             }
         }
+        else if( userData['state'] == "TYPE_YOUR_TIME"  ){
+            console.log("HERE BRO!!!!!!!!!!!!!!!");
+            console.log(nlp['datetime']);
+        } 
         else{payload = nlp[branch][0]['value'];}
         userData['state']  = payload;
 
