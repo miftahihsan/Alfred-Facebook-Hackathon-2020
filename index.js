@@ -344,6 +344,11 @@ function handleMessage(sender_psid, received_message, user_name) {
   }
   else if (received_message.attachments){
 
+    if( userData['state'] == 'INITIATE' ){
+      seq( sender_psid, response, 0 );
+      return;
+    }
+
     if(  userData['state'] === "COMPLAINT_EMPLOYEE" || userData['state'] === "COMPLAINT_DPT"   ){
       console.log("ATTACHMENT!!!!!!!!!!!s");
     }
@@ -411,9 +416,7 @@ function handleQuickReplies(sender_psid, quick_reply) {
   let response = Replies.replies[userData['state']];
 
 
-  if( userData['state'] === "BORED" || userData['state'] === "INITIATE" ){
-    console.log("BBBBBBBBBBBAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBBBb");
-    
+  if( userData['state'] == "BORED" ){
     seq( sender_psid, response, 0 );
     return;
   }
