@@ -14,7 +14,7 @@ class Nlp{
     }
 
 
-    findState( userData, message ){
+    findState( userData, nlp ){
         // HAVE A LIST OF CONTEXTS TO PROCESS SEPARATELY INSTEAD OF NLP
         // NEW_REMINDER
 
