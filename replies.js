@@ -47,7 +47,7 @@ class Replies {
                title: "View Meeting 📆",
                payload: "VIEW_SCHEDULE"
              }
-           ]);
+           ])];
     }
 
 
