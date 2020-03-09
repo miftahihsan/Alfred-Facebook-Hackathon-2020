@@ -24,7 +24,8 @@ class Nlp{
         userData['state']  = payload;
 
         //userData['state'] = "MENU";
-        return Replies.replies[userData['state']];
+        if (payload in Replies.replies)return Replies.replies[userData['state']];
+        else return Replies.policy[userData['state']];
 
     }
     

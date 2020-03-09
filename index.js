@@ -336,7 +336,7 @@ function handleMessage(sender_psid, received_message, user_name) {
       return;
     }
     else{
-      nlp.compile( received_message.nlp.entities, userData ); // maybe do it only initially
+      //nlp.compile( received_message.nlp.entities, userData ); // maybe do it only initially
       response = nlp.findState(userData, received_message.nlp.entities);
       sendMessage(sender_psid, response);
     }
