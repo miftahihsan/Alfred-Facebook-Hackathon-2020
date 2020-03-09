@@ -9,7 +9,8 @@ class Nlp{
         @userMsg -> raw text sent by the user to the bot
     */
     compile( nlp, userData ){
-        console.log(nlp);
+
+
     }
 
 
@@ -17,9 +18,12 @@ class Nlp{
         // HAVE A LIST OF CONTEXTS TO PROCESS SEPARATELY INSTEAD OF NLP
         // NEW_REMINDER
 
+        console.log(nlp);
+        let branch = nlp['intent'][0]['value'];
+        let payload = nlp[branch][0]['value'];
+        userData['state']  = payload;
 
-
-        userData['state'] = "MENU";
+        //userData['state'] = "MENU";
         return Replies.replies[userData['state']];
 
     }
