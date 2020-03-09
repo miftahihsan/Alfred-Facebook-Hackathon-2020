@@ -404,6 +404,11 @@ function seq( sender_psid, response, i ){
     
     seq( sender_psid, response, i + 1 );
   })
+  .catch(err => {
+    console.log("ERROR " + err);
+    
+    seq( sender_psid, response, i + 1 );
+  })
 
 }
 
