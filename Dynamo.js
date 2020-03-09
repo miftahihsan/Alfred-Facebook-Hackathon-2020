@@ -256,17 +256,16 @@ function updateReminder(user_id, table_name, data){
 
 }
 function deleteReminder(user_id, table_name, data){
+  console.log(data)
     let params;
-    let ind=data['ind']+"";
-    delete data.ind;
   params = {
     TableName: table_name,
     Key: {
       "uid": user_id
     },
-    UpdateExpression: "set reminders[" + ind + "] = :s",
+    UpdateExpression: "set reminders = :s",
     ExpressionAttributeValues: {
-      ":s": [data]
+      ":s": data
 
     },
     ReturnValues: "UPDATED_NEW"
