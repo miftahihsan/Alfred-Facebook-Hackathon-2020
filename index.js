@@ -260,61 +260,7 @@ function handleMessage(sender_psid, received_message, user_name) {
       var arr = received_message.quick_reply.payload.split("_");
 
       if( arr[0] === 'TIME' && arr.length === 3 ){
-        
-
-        //UPDATE MEETING IN DATABASE
-        DynamoDB.createMeeting({
-          "set_by" : userData['uid'],
-          "time" : arr[1] +" " + arr[2],
-          "profile_pic" : userData['profile_pic'],
-          "name" : userData['name']
-        });
-
-        DynamoDB.getIdColumn()
-        .then(res => {
-          console.log("Announcement !!!!");
-          console.log(res.Items[0].uid);
-          let c = res.Count;
-          for (let i=0;i< c;i++){
-            if (res.Items[i].uid.S===sender_psid)continue;
-            //UNCOMMENT THIS  LATER PLEASE
-            sendMessage(res.Items[i].uid.S, [Response.genTextReply("A meeting has been scheduled by " + userData['name']),
-              {
-                "attachment": {
-                  "type": "template",
-                  "payload": {
-                    "template_type": "generic",
-                    "image_aspect_ratio": "square",
-                    "elements": [{
-                      "title": "Do you wish to attend this meeting?",
-                      "subtitle": "Time of meeting : " + arr[1] + " " + arr[2],
-                      "image_url": userData['profile_pic'],
-                      "buttons": [
-                        {
-                          "type": "postback",
-                          "title": "Sure thing!",
-                          "payload": "MEETING_" + sender_psid + "_YES",
-                        },
-                        {
-                          "type": "postback",
-                          "title": "Sorry I'm busy!",
-                          "payload": "MEETING_" + sender_psid + "_NO",
-                        }
-                      ],
-                    }]
-                  }
-                }
-              }
-              ]);
-          }
-
-
-        })
-        .catch(err => {
-          console.log("Announcement ERROR !!!!");
-          console.log(err);
-        });
-
+        handleMeetingCall(sender_psid, arr);
       }
 
     }
@@ -338,6 +284,12 @@ function handleMessage(sender_psid, received_message, user_name) {
     else{
       //nlp.compile( received_message.nlp.entities, userData ); // maybe do it only initially
       response = nlp.findState(userData, received_message.nlp.entities);
+      if (userData['state'].includes("_")){
+        let arr = user_Data['state'].split("_");
+        if( arr[0] === 'TIME' && arr.length === 3 ){
+          handleMeetingCall(sender_psid, arr);
+        }
+      }
       sendMessage(sender_psid, response);
     }
 
@@ -378,6 +330,8 @@ function handleMessage(sender_psid, received_message, user_name) {
   }
 
 }
+
+
 
 function seq( sender_psid, response, i ){
 
@@ -515,6 +469,64 @@ function handleQuickReplies(sender_psid, quick_reply) {
     // let response = Replies.replies[userData['state']];
     sendMessage(sender_psid, response);
   }
+}
+
+
+function handleMeetingCall(sender_psid, arr){
+
+  //UPDATE MEETING IN DATABASE
+  DynamoDB.createMeeting({
+    "set_by" : userData['uid'],
+    "time" : arr[1] +" " + arr[2],
+    "profile_pic" : userData['profile_pic'],
+    "name" : userData['name']
+  });
+
+  DynamoDB.getIdColumn()
+    .then(res => {
+      console.log("Announcement !!!!");
+      console.log(res.Items[0].uid);
+      let c = res.Count;
+      for (let i=0;i< c;i++){
+        if (res.Items[i].uid.S===sender_psid)continue;
+        //UNCOMMENT THIS  LATER PLEASE
+        sendMessage(res.Items[i].uid.S, [Response.genTextReply("A meeting has been scheduled by " + userData['name']),
+          {
+            "attachment": {
+              "type": "template",
+              "payload": {
+                "template_type": "generic",
+                "image_aspect_ratio": "square",
+                "elements": [{
+                  "title": "Do you wish to attend this meeting?",
+                  "subtitle": "Time of meeting : " + arr[1] + " " + arr[2],
+                  "image_url": userData['profile_pic'],
+                  "buttons": [
+                    {
+                      "type": "postback",
+                      "title": "Sure thing!",
+                      "payload": "MEETING_" + sender_psid + "_YES",
+                    },
+                    {
+                      "type": "postback",
+                      "title": "Sorry I'm busy!",
+                      "payload": "MEETING_" + sender_psid + "_NO",
+                    }
+                  ],
+                }]
+              }
+            }
+          }
+        ]);
+      }
+
+
+    })
+    .catch(err => {
+      console.log("Announcement ERROR !!!!");
+      console.log(err);
+    });
+
 }
 
 
