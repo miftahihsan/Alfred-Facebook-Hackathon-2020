@@ -402,7 +402,7 @@ function seq( sender_psid, response, i ){
       result
       .then(res => {
         console.log("INSIDE " + res);
-        
+        senderAction(sender_psid, Response.getAnimation("on"));
         seq( sender_psid, response, i + 1 );
       }),
       1500
