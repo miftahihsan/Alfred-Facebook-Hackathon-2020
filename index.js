@@ -390,15 +390,19 @@ function seq( sender_psid, response, i ){
   
   // only this works too
 
-  callSendAPI(sender_psid, response[i])
-  .then(res => {
-    console.log("SUCEESS " + res);
-    
-    seq( sender_psid, response, i + 1 );
-  })
-  .catch(err => {
-    console.log('Hello kaj kore nai ken jani! ' + err);
-  });
+  setTimeout(function(){ 
+
+    callSendAPI(sender_psid, response[i])
+    .then(res => {
+      console.log("SUCEESS " + res);
+      
+      seq( sender_psid, response, i + 1 );
+    })
+    .catch(err => {
+      console.log('Hello kaj kore nai ken jani! ' + err);
+    });
+
+  }, 2000);
 
 }
 
