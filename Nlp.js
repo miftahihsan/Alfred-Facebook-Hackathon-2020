@@ -106,7 +106,10 @@ class Nlp{
             return Replies.replies["TIME_11:00_AM"];
 
         } 
-        else{payload = nlp[branch][0]['value'];}
+        else{
+            if( this.checkConfidence(nlp) ) return "default";
+            payload = nlp[branch][0]['value'];
+        }
         userData['state']  = payload;
 
         //userData['state'] = "MENU";
