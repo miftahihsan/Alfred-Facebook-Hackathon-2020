@@ -13,6 +13,9 @@ class Nlp{
 
     }
 
+    checkConfidence(nlp){
+        if(nlp['intent'][0]['confidence'] < 0.7 ) return true;
+    }
 
     findState( userData, nlp ){
 
@@ -28,6 +31,9 @@ class Nlp{
         let branch = nlp['intent'][0]['value'];
 
         if (branch === "meeting"){
+
+            if( checkConfidence(nlp) ) return "default";
+
             payload="ANNOUNCEMENT_WHO";
             if ('datetime' in nlp){
                 let time;
@@ -52,40 +58,38 @@ class Nlp{
         else if( branch == "holiday" && nlp[branch][0]['value'] == "APPLY" 
                 && nlp[branch][0]['confidence'] > 0.7 ){
 
-                    console.log('I AM HERE IN HOLIDAY');
+                    if( checkConfidence(nlp) ) return "default";
 
                     // directly apply
                     if( 'datetime' in nlp ){
 
-                        console.log('APPLY NOW!!!!!!!!!');
-
                         userData['state'] = "HOLIDAYS_APPLY";
                         return Replies.replies[userData['state']];
+                    
                     }
                     // ask for date
                     else{
 
-                        console.log('GIVE ME DATE AND TIME');
-
                         userData['state'] = "HOLIDAYS_ASK_FOR_TIME";
                         return Replies.replies[userData['state']];
+                    
                     }
             
         }
         else if( userData['state'] == "HOLIDAYS_ASK_FOR_TIME" ){
-            console.log("Inside NLP IF = " + userData['state']);
+
             if( 'datetime' in nlp ) {
+
                 userData['state'] = "HOLIDAYS_APPLY";
                 return Replies.replies[userData['state']];
+                
             } 
             else return "default"
+            
         }
         else if( userData['state'] == "TYPE_YOUR_TIME"  ){
-            console.log("HERE BRO!!!!!!!!!!!!!!!");
-            console.log(nlp['datetime']);
-            console.log(nlp['datetime'][0]);
 
-            let t;
+            // let t;
             let time;
 
             if( 'value' in nlp['datetime'][0] ){
