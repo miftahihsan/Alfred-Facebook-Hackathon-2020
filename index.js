@@ -363,7 +363,7 @@ function seq( sender_psid, response, i ){
 
   let result = callSendAPI(sender_psid, response[i]);
 
-  if(  'attachment' in response[i]  ){
+  if( 'attachment' in response[i] ){
     result
     .then(res => {
       console.log("SUCEESS " + res);
@@ -681,23 +681,33 @@ async function getUserName( sender_psid ){
 function sendMessage(sender_psid, responses) {
 
 
-  if (Array.isArray(responses)) {
-    let delay = 0;
-    for (let response of responses) {
+  // if (Array.isArray(responses)) {
+  //   let delay = 0;
+  //   for (let response of responses) {
 
-      setTimeout(()=>callSendAPI(sender_psid,response), (delay) * 1000 );   // 0 1000  2000  3000
-      setTimeout(()=> senderAction( sender_psid, Response.getAnimation("on")), (delay)*1000 + 300 );   // 300  1300  2300  3300
+  //     setTimeout(()=>callSendAPI(sender_psid,response), (delay) * 1000 );   // 0 1000  2000  3000
+  //     setTimeout(()=> senderAction( sender_psid, Response.getAnimation("on")), (delay)*1000 + 300 );   // 300  1300  2300  3300
 
-      // it was 2 changed it to 4 
-      if ("attachment" in response && response['attachment']['type'] === "image")delay+=4;
+  //     // it was 2 changed it to 4 
+  //     if ("attachment" in response && response['attachment']['type'] === "image")delay+=4;
 
-      delay++;
-    }
-    setTimeout(()=> senderAction( sender_psid, Response.getAnimation("off")), (delay)*1000 + 300 );   // 300  1300  2300  3300
+  //     delay++;
+  //   }
+  //   setTimeout(()=> senderAction( sender_psid, Response.getAnimation("off")), (delay)*1000 + 300 );   // 300  1300  2300  3300
 
-  } else {
-    callSendAPI(sender_psid, responses);
+  // } else {
+  //   callSendAPI(sender_psid, responses);
+  // }
+
+  let res = [];
+  if ( !Array.isArray(responses)) {
+    res.push( responses );
   }
+  else{
+    res = responses;
+  }
+
+  seq(sender_psid, res, 0);
 
 }
 
@@ -865,13 +875,13 @@ curl -X POST -H "Content-Type: application/json" -d '{
             "call_to_actions": [
                 {
                     "type": "postback",
-                    "title": "Say Hi! 👋",
-                    "payload": "INITIATE"
+                    "title": "Main Menu \u2630",
+                    "payload": "MENU"
                 },
                 {
                     "type": "postback",
-                    "title": "Main Menu \u2630",
-                    "payload": "MENU"
+                    "title": "What do you do ❓",
+                    "payload": "INITIATE"
                 },
 
             ]
