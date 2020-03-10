@@ -284,6 +284,12 @@ function handleMessage(sender_psid, received_message, user_name) {
     else{
       //nlp.compile( received_message.nlp.entities, userData ); // maybe do it only initially
       response = nlp.findState(userData, received_message.nlp.entities);
+
+      if( response == "default" ){
+        sendMessage(sender_psid, Replies.replies(userData['state']));
+        return;
+      }
+
       if (userData['state'].includes("_")){
         let arr = userData['state'].split("_");
         if( arr[0] === 'TIME' && arr.length === 3 ){

@@ -20,6 +20,9 @@ class Nlp{
         let payload;
         console.log(nlp);
         let branch = nlp['intent'][0]['value'];
+        
+        if(nlp['intent'][0]['confidence'] < 0.7 ) return "default";
+
         if (branch === "meeting"){
             payload="ANNOUNCEMENT_WHO";
             if ('datetime' in nlp){
