@@ -361,7 +361,7 @@ function seq( sender_psid, response, i ){
   
   senderAction(sender_psid, Response.getAnimation("on"));
 
-  let result = callSendAPI(sender_psid, response[i]);
+  // let result = callSendAPI(sender_psid, response[i]);
 
   // if( 'attachment' in response[i] ){
   //   result
