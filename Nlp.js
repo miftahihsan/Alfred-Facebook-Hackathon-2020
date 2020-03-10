@@ -15,11 +15,11 @@ class Nlp{
 
 
     findState( userData, nlp ){
-        
+
         console.log(nlp);
 
         // no need to look into aything anymore if the confidence is low
-        if(nlp['intent'][0]['confidence'] < 0.7 ) return "default";
+        // if(nlp['intent'][0]['confidence'] < 0.7 ) return "default";
 
         // HAVE A LIST OF CONTEXTS TO PROCESS SEPARATELY INSTEAD OF NLP
         // NEW_REMINDER
