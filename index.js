@@ -296,7 +296,7 @@ function handleMessage(sender_psid, received_message, user_name) {
           responses.push(reply);
         }
         else{
-          responses=response.concat(reply);
+          responses=responses.concat(reply);
         }
 
         apologize=apologize.concat(responses);
