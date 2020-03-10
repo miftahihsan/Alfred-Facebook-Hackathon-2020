@@ -70,6 +70,13 @@ class Nlp{
                     }
             
         }
+        else if( userData['state'] == 'HOLIDAYS_ASK_FOR_TIME' ){
+            if( 'datetime' in nlp ) {
+                userData['state'] = "HOLIDAYS_APPLY";
+                return Replies.replies[userData['state']];
+            } 
+            else return "default"
+        }
         else if( userData['state'] == "TYPE_YOUR_TIME"  ){
             console.log("HERE BRO!!!!!!!!!!!!!!!");
             console.log(nlp['datetime']);

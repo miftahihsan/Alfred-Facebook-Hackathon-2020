@@ -258,7 +258,7 @@ class Replies {
     ];
 
     this.replies["HOLIDAYS_ASK_FOR_TIME"] = [
-      Responses.genTextReply("When would you like to apply for?")
+      Responses.genTextReply("When would you like to apply for ?")
     ];
 
     this.replies["HOLIDAYS_APPLY"] = [
