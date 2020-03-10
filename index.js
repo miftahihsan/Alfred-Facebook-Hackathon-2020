@@ -292,8 +292,7 @@ function handleMessage(sender_psid, received_message, user_name) {
         let responses = [];
         let reply = Replies.replies[userData['state']];
         let apologize = [Replies.replies["APOLOGIZE"]];
-
-        if (!reply.isArray()){
+        if (!Array.isArray(reply)){
           responses.push(reply);
         }
         else{
