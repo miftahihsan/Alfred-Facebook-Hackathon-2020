@@ -296,13 +296,11 @@ function handleMessage(sender_psid, received_message, user_name) {
           responses.push(reply);
         }
         else{
-          responses=response.concat(reply);
+          responses=responses.concat(reply);
         }
 
         apologize=apologize.concat(responses);
-        console.log(apologize);
-        console.log("SORRYYY");
-        sendMessage(sender_psid, responses);   //MAYB ERROR
+        sendMessage(sender_psid, apologize);  
         return;
       }
 
