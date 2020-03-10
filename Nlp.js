@@ -15,13 +15,15 @@ class Nlp{
 
 
     findState( userData, nlp ){
+
+        // no need to look into aything anymore if the confidence is low
+        if(nlp['intent'][0]['confidence'] < 0.7 ) return "default";
+
         // HAVE A LIST OF CONTEXTS TO PROCESS SEPARATELY INSTEAD OF NLP
         // NEW_REMINDER
         let payload;
         console.log(nlp);
         let branch = nlp['intent'][0]['value'];
-        
-        if(nlp['intent'][0]['confidence'] < 0.7 ) return "default";
 
         if (branch === "meeting"){
             payload="ANNOUNCEMENT_WHO";
@@ -44,6 +46,20 @@ class Nlp{
                 userData['state']=payload;
                 return Replies.replies["TIME_11:00_AM"];
             }
+        }
+        else if( userData['state'] == "holiday" && nlp[branch][0]['value'] == "APPLY" 
+                && nlp[branch][0]['confidence'] > 0.7 ){
+
+                    // directly apply
+                    if( 'datetime' in nlp ){
+
+                    }
+                    // ask for date
+                    else{
+                        userData['state'] = "HOLIDAYS_ASK_FOR_TIME";
+                        return Replies.replies[userData['state']];
+                    }
+            
         }
         else if( userData['state'] == "TYPE_YOUR_TIME"  ){
             console.log("HERE BRO!!!!!!!!!!!!!!!");

@@ -257,6 +257,36 @@ class Replies {
       )
     ];
 
+    this.replies["HOLIDAYS_ASK_FOR_TIME"] = [
+      Responses.genTextReply("When would you like to apply for?")
+    ];
+
+    this.replies["HOLIDAYS_APPLY"] = [
+      Responses.genQuickReply("We have submitted your application to the HR department! :D",
+      [
+        {
+          title: "HR policies 🤔",
+          payload: "HR_POLICIES"
+        },
+        {
+          title: "Performance Stats 🔖",
+          payload: "PERFORMANCE_STATS"
+        },
+        {
+          title: "Upcoming Holidays 🎄",
+          payload: "HOLIDAYS"
+        },
+        {
+          title : "Bonus & Payments 💵" ,
+          payload: "BONUS_PAYMENTS"
+        },
+        {
+          title : "Submit a complaint 😕" ,
+          payload: "COMPLAINT"
+        }
+      ])
+    ];
+
     this.replies["HOLIDAYS"] = [
       Responses.genTextReply("You have " + this.userData.Item['sick_leave'] + " sick days and " + this.userData.Item['holiday_left'] +
                                           " leave days remaining for this year" ),
