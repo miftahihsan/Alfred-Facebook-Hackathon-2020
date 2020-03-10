@@ -87,10 +87,12 @@ class Nlp{
             else return "default"
             
         }
-        else if( userData['state'] == "TYPE_YOUR_TIME"  ){
+        else if( userData['state'] == "ANNOUNCEMENT_TIME"  ){
 
             // let t;
             let time;
+
+            if (!'datetime' in nlp)return "default";
 
             if( 'value' in nlp['datetime'][0] ){
                 let t = nlp['datetime'][0]['value']+"";

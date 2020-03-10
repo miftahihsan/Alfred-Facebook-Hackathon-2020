@@ -86,13 +86,9 @@ class Replies {
       Responses.genTextReply("We have delivered a message to every one that you called for a meeting"),
     ];
 
-    this.replies['ANNOUNCEMENT_TIME'] = [
-      Responses.genQuickReply("Select a time from below",
+    this.replies['ANNOUNCEMENT_TIME'] = [Responses.genTextReply("Select a time from below"),
+      Responses.genQuickReply("Or you can also type your preferred time",
       [
-        {
-          title: "Type your time ! 🕒",
-          payload: "TYPE_YOUR_TIME"
-        },
         {
           title: "11:00-AM",
           payload: "TIME_11:00_AM"
@@ -1220,7 +1216,8 @@ class Replies {
         title: "Training 🏋️‍♂️",
         payload: "TRAINING"
       },
-    ])
+    ]),
+    "APOLOGIZE" : Responses.genTextReply("I'm sorry, I didn't quite understand that")
   };
 
   static policy = {
