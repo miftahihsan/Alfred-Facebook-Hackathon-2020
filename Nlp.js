@@ -32,7 +32,7 @@ class Nlp{
 
         if (branch === "meeting"){
 
-            if( checkConfidence(nlp) ) return "default";
+            if( this.checkConfidence(nlp) ) return "default";
 
             payload="ANNOUNCEMENT_WHO";
             if ('datetime' in nlp){
@@ -58,7 +58,7 @@ class Nlp{
         else if( branch == "holiday" && nlp[branch][0]['value'] == "APPLY" 
                 && nlp[branch][0]['confidence'] > 0.7 ){
 
-                    if( checkConfidence(nlp) ) return "default";
+                    if( this.checkConfidence(nlp) ) return "default";
 
                     // directly apply
                     if( 'datetime' in nlp ){
@@ -82,7 +82,7 @@ class Nlp{
 
                 userData['state'] = "HOLIDAYS_APPLY";
                 return Replies.replies[userData['state']];
-                
+
             } 
             else return "default"
             
