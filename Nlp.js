@@ -45,12 +45,13 @@ class Nlp{
         else if( userData['state'] == "TYPE_YOUR_TIME"  ){
             console.log("HERE BRO!!!!!!!!!!!!!!!");
             console.log(nlp['datetime']);
+            console.log(nlp['datetime'][0]);
         } 
         else{payload = nlp[branch][0]['value'];}
         userData['state']  = payload;
 
         //userData['state'] = "MENU";
-        if (payload in Replies.replies)return Replies.replies[userData['state']];
+        if (payload in Replies.replies) return Replies.replies[userData['state']];
         else return Replies.policy[userData['state']];
 
     }
