@@ -364,10 +364,38 @@ function seq( sender_psid, response, i ){
   
   senderAction(sender_psid, Response.getAnimation("on"));
 
-  let result = callSendAPI(sender_psid, response[i]);
+  // let result = callSendAPI(sender_psid, response[i]);
 
-  if( 'attachment' in response[i] ){
-    result
+  // if( 'attachment' in response[i] ){
+  //   result
+  //   .then(res => {
+  //     console.log("SUCEESS " + res);
+      
+  //     seq( sender_psid, response, i + 1 );
+  //   })
+  //   .catch(err => {
+  //     console.log('Hello kaj kore nai ken jani! ' + err);
+  //   });
+  // }
+  // else{
+  //   setTimeout( ()=> {
+  //     result
+  //     .then(res => {
+  //       console.log("INSIDE " + res);
+  //       seq( sender_psid, response, i + 1 );
+  //     })
+  //     .catch(err => {
+  //       console.log('Hello kaj kore nai ken jani! ' + err);
+  //     }),
+  //     2000
+  //   });
+  // }
+  
+  // only this works too
+
+  setTimeout(function(){ 
+
+    callSendAPI(sender_psid, response[i])
     .then(res => {
       console.log("SUCEESS " + res);
       
@@ -376,29 +404,8 @@ function seq( sender_psid, response, i ){
     .catch(err => {
       console.log('Hello kaj kore nai ken jani! ' + err);
     });
-  }
-  else{
-    setTimeout( ()=> {
-      result
-      .then(res => {
-        console.log("INSIDE " + res);
-        seq( sender_psid, response, i + 1 );
-      })
-      .catch(err => {
-        console.log('Hello kaj kore nai ken jani! ' + err);
-      }),
-      2000
-    });
-  }
-  
-  // only this works too
 
-  // callSendAPI(sender_psid, response[i])
-  // .then(res => {
-  //   console.log("SUCEESS " + res);
-    
-  //   seq( sender_psid, response, i + 1 );
-  // });
+  }, 2000);
 
 }
 
