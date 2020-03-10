@@ -642,10 +642,6 @@ class Replies {
             payload: "REPORT_STATS"
           },
           {
-            title: "Set-up Meeting 📣",
-            payload: "ANNOUNCEMENT_WHO"
-          },
-          {
             title: "Live Chat 👨",
             payload: "LIVE"
           }
@@ -691,6 +687,10 @@ class Replies {
         {
           title: "View Reminders 📝",
           payload: "VIEW_REMINDERS"
+        },
+        {
+          title: "Set-up Meeting 📣",
+          payload: "ANNOUNCEMENT_WHO"
         },
         {
           title: "Create Reminder 🗒",
