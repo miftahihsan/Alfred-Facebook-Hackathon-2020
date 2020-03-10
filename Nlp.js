@@ -50,12 +50,21 @@ class Nlp{
         else if( userData['state'] == "holiday" && nlp[branch][0]['value'] == "APPLY" 
                 && nlp[branch][0]['confidence'] > 0.7 ){
 
+                    console.log('I AM HERE IN HOLIDAY');
+
                     // directly apply
                     if( 'datetime' in nlp ){
 
+                        console.log('APPLY NOW!!!!!!!!!');
+
+                        userData['state'] = "HOLIDAYS_APPLY";
+                        return Replies.replies[userData['state']];
                     }
                     // ask for date
                     else{
+
+                        console.log('GIVE ME DATE AND TIME');
+
                         userData['state'] = "HOLIDAYS_ASK_FOR_TIME";
                         return Replies.replies[userData['state']];
                     }
