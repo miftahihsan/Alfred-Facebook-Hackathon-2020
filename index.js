@@ -300,9 +300,7 @@ function handleMessage(sender_psid, received_message, user_name) {
         }
 
         apologize=apologize.concat(responses);
-        console.log(apologize);
-        console.log("SORRYYY");
-        sendMessage(sender_psid, responses);   //MAYB ERROR
+        sendMessage(sender_psid, apologize);  
         return;
       }
 
