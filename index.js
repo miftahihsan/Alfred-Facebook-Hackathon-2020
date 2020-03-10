@@ -854,13 +854,13 @@ curl -X POST -H "Content-Type: application/json" -d '{
             "call_to_actions": [
                 {
                     "type": "postback",
-                    "title": "Say Hi! 👋",
-                    "payload": "INITIATE"
+                    "title": "Main Menu \u2630",
+                    "payload": "MENU"
                 },
                 {
                     "type": "postback",
-                    "title": "Main Menu \u2630",
-                    "payload": "MENU"
+                    "title": "What do you do ❓",
+                    "payload": "INITIATE"
                 },
 
             ]

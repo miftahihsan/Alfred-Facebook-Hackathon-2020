@@ -89,7 +89,6 @@ class Nlp{
         }
         else if( userData['state'] == "TYPE_YOUR_TIME"  ){
 
-            // let t;
             let time;
 
             if( 'value' in nlp['datetime'][0] ){
