@@ -70,7 +70,8 @@ class Nlp{
                     }
             
         }
-        else if( userData['state'] == 'HOLIDAYS_ASK_FOR_TIME' ){
+        else if( userData['state'] == "HOLIDAYS_ASK_FOR_TIME" ){
+            console.log("Inside NLP IF = " + userData['state']);
             if( 'datetime' in nlp ) {
                 userData['state'] = "HOLIDAYS_APPLY";
                 return Replies.replies[userData['state']];

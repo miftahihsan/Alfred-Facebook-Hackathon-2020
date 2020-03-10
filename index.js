@@ -282,6 +282,9 @@ function handleMessage(sender_psid, received_message, user_name) {
       return;
     }
     else{
+
+      console.log("Inside msg = " + userData['state']);
+
       //nlp.compile( received_message.nlp.entities, userData ); // maybe do it only initially
       response = nlp.findState(userData, received_message.nlp.entities);
 
