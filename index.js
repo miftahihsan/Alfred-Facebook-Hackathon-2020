@@ -289,6 +289,7 @@ function handleMessage(sender_psid, received_message, user_name) {
       response = nlp.findState(userData, received_message.nlp.entities);
 
       if( response == "default" ){
+        sendMessage(sender_psid, Replies.replies["APOLOGIZE"]);   //MAYB MERGE INTO ARRAY WITH REPLY IF SEQUENCE ISNT MAINTAINED
         sendMessage(sender_psid, Replies.replies[userData['state']]);
         return;
       }
