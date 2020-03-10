@@ -353,7 +353,7 @@ function seq( sender_psid, response, i ){
 
   let result = callSendAPI(sender_psid, response[i]);
 
-  if(  'attachment' in response[i]  ){
+  if( 'attachment' in response[i] ){
     result
     .then(res => {
       console.log("SUCEESS " + res);
@@ -693,7 +693,9 @@ function sendMessage(sender_psid, responses) {
   if ( !Array.isArray(responses)) {
     res.push( responses );
   }
-  res = responses;
+  else{
+    res = responses;
+  }
 
   seq(sender_psid, res, 0);
 
