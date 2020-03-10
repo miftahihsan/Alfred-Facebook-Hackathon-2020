@@ -289,18 +289,21 @@ function handleMessage(sender_psid, received_message, user_name) {
       response = nlp.findState(userData, received_message.nlp.entities);
 
       if( response == "default" ){
-        let response = [Replies.replies["APOLOGIZE"]];
+        let responses = [];
         let reply = Replies.replies[userData['state']];
+        let apologize = [Replies.replies["APOLOGIZE"]];
 
         if (!reply.isArray()){
-          response.push(reply);
+          responses.push(reply);
         }
         else{
-          response=response.concat(reply);
+          responses=response.concat(reply);
         }
 
-
-        sendMessage(sender_psid,response);   //MAYB ERROR
+        apologize=apologize.concat(responses);
+        console.log(apologize);
+        console.log("SORRYYY");
+        sendMessage(sender_psid, responses);   //MAYB ERROR
         return;
       }
 
