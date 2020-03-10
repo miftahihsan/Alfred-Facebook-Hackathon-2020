@@ -47,7 +47,7 @@ class Nlp{
                 return Replies.replies["TIME_11:00_AM"];
             }
         }
-        else if( userData['state'] == "holiday" && nlp[branch][0]['value'] == "APPLY" 
+        else if( branch == "holiday" && nlp[branch][0]['value'] == "APPLY" 
                 && nlp[branch][0]['confidence'] > 0.7 ){
 
                     console.log('I AM HERE IN HOLIDAY');
