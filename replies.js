@@ -460,7 +460,7 @@ class Replies {
       ]),
     ],
     this.replies["CANT_LOGIN"] = [
-      Responses.genTextReply("We have sent an email to the IT perosn regarding your issue : Forgot Username and password"),
+      Responses.genTextReply("We have sent an email to the IT perosn regarding your issue : Can't login"),
       Responses.genTextReply("He will be in contact with you very shortly"),
       Responses.genQuickReply("Support Ticket Issued : " + this.supportTicketGenerator() , 
       [
@@ -1399,7 +1399,7 @@ class Replies {
       Responses.genTextReply("Payday is every other Friday (bi-weekly) unless otherwise specified by Management."),
     ],
     "PRIVACY" : [
-      Responses.genTextReply("we respect the privacy of its employees; however, as a public entity, we must comply with Florida's Public Records Law."),
+      Responses.genTextReply("We respect the privacy of its employees; however, as a public entity, we must comply with Florida's Public Records Law."),
       Responses.genTextReply("If a request is made for information from an employee’s personnel file, we must comply; however,"),
       Responses.genTextReply("if time permits, Human Resources will attempt to contact the employee to advise them of said request."),
     ],
