@@ -184,6 +184,7 @@ app.post('/webhook', (req, res) => {
             } else if (webhook_event.postback) {
               handlePostback(sender_psid, webhook_event.postback, user_name);
             }else{
+              persistentMenu( sender_psid, false );
               sendMessage(sender_psid, Replies.replies["WELCOME_BACK"] );
               enablePersistentMenu(sender_psid);
             }
@@ -352,6 +353,54 @@ function handleMessage(sender_psid, received_message, user_name) {
 }
 
 
+// Set status = true if you want to disable
+// default value = false
+function persistentMenu( sender_psid, status ){
+  val = false;
+
+  if( status == true ) val = true;
+
+    // Construct the message body
+    let request_body = {
+      "recipient": {
+        "id": sender_psid
+      },
+      "persistent_menu": [
+        {
+            "locale": "default",
+            "composer_input_disabled": val,
+            "call_to_actions": [
+                {
+                    "type": "postback",
+                    "title": "Main Menu \u2630",
+                    "payload": "MENU"
+                },
+                {
+                    "type": "postback",
+                    "title": "What do you do ❓",
+                    "payload": "INITIATE"
+                },
+
+            ]
+        }
+      ]
+    }
+  
+    // Send the HTTP request to the Messenger Platform
+    request({
+      "uri": "https://graph.facebook.com/v6.0/me/custom_user_settings",
+      "qs": { "access_token": process.env.PAGE_ACCESS_TOKEN },
+      "method": "POST",
+      "json": request_body
+    }, (err, res, body) => {
+      if (!err) {
+      } else {
+        console.error("Unable to connect to live admin:" + err);
+      }
+    });
+
+}
+
 
 function seq( sender_psid, response, i ){
 
@@ -441,8 +490,9 @@ function handleQuickReplies(sender_psid, quick_reply) {
   else if( userData['state'] === 'LIVE_YES' ){
     userData['state'] = "INITIATE";
     sendMessage(sender_psid, response );
-    disablePersistentMenu(sender_psid);
-    giveAdminAccess( sender_psid ); 
+    // disablePersistentMenu(sender_psid);
+    giveAdminAccess( sender_psid );
+    persistentMenu( sender_psid, true ); 
   }
   else if (userData['state'] === 'VIEW_SCHEDULE'){
     userData['state'] = "SCHEDULE";
