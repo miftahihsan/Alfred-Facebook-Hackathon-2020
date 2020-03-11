@@ -936,14 +936,14 @@ curl -X POST -H "Content-Type: application/json" -d '{
     "greeting": [
     {
       "locale":"default",
-      "text":"Hello {{user_first_name}}! I am BizBot!"
+      "text":"Hello {{user_first_name}}! I am Alfred, here to help you with the mundane office tasks while you can focus on your work without any distractions!"
     }, {
       "locale":"en_US",
-      "text":"Hi {{user_first_name}}! I am BizBot!"
+      "text":"Hi {{user_first_name}}! I am Alfred, here to help you with the mundane office tasks while you can focus on your work without any distractions!"
     }
   ]
 
-}' "https://graph.facebook.com/v6.0/me/messenger_profile?access_token=EAAkdTVETz5UBABiMRU4LChbImzlhRbIZBL76hdxdTZBQCrR8gm3iUlo2MKsdbzQJgYYX6cvdL5KaMrtJueuOwl6pPHZBrZCV3nzdGPL92wFLWnF6GDqISffJMj0SBZAfv07hwo2fqZBdsjw9rwlLkApvuWDWRrZA26K9tNVdsN6hwjZBoBZCFd4GBsb7Px8W5RB4ZD"
+}' "https://graph.facebook.com/v6.0/me/messenger_profile?access_token=EAAkdTVETz5UBAAOzMevX1rbaKb0JI7Tza4lMLuZCkCvRNWGOsoJZCgXBgqZA9m3thPfezTbPvMSb4VSXe6bDeo64L0bw7Bh4O6Hec5QBfZCijZC2qzppTOMRNdwieNAXZCcajN0U0q37paPy8dF75XYDFVNMZBF1sDvybrDFo7PAlXyDeuSghyZA5yc4NroGCeUZD"
 
 /*
  /*
@@ -951,12 +951,12 @@ curl -X POST -H "Content-Type: application/json" -d '{
  curl  \
   -F 'message={"attachment":{"type":"image", "payload":{"is_reusable":true}}}' \
   -F 'filedata=@./steve.gif;type=image/gif' \
-  "https://graph.facebook.com/v6.0/me/message_attachments?access_token=EAAkdTVETz5UBABiMRU4LChbImzlhRbIZBL76hdxdTZBQCrR8gm3iUlo2MKsdbzQJgYYX6cvdL5KaMrtJueuOwl6pPHZBrZCV3nzdGPL92wFLWnF6GDqISffJMj0SBZAfv07hwo2fqZBdsjw9rwlLkApvuWDWRrZA26K9tNVdsN6hwjZBoBZCFd4GBsb7Px8W5RB4ZD"
+  "https://graph.facebook.com/v6.0/me/message_attachments?access_token=EAAkdTVETz5UBAAOzMevX1rbaKb0JI7Tza4lMLuZCkCvRNWGOsoJZCgXBgqZA9m3thPfezTbPvMSb4VSXe6bDeo64L0bw7Bh4O6Hec5QBfZCijZC2qzppTOMRNdwieNAXZCcajN0U0q37paPy8dF75XYDFVNMZBF1sDvybrDFo7PAlXyDeuSghyZA5yc4NroGCeUZD"
 
 
  */
 
-// curl -X GET "https://graph.facebook.com/2751654314911195?fields=first_name,last_name,profile_pic&access_token=EAAkdTVETz5UBABiMRU4LChbImzlhRbIZBL76hdxdTZBQCrR8gm3iUlo2MKsdbzQJgYYX6cvdL5KaMrtJueuOwl6pPHZBrZCV3nzdGPL92wFLWnF6GDqISffJMj0SBZAfv07hwo2fqZBdsjw9rwlLkApvuWDWRrZA26K9tNVdsN6hwjZBoBZCFd4GBsb7Px8W5RB4ZD"
+// curl -X GET "https://graph.facebook.com/2751654314911195?fields=first_name,last_name,profile_pic&access_token=EAAkdTVETz5UBAAOzMevX1rbaKb0JI7Tza4lMLuZCkCvRNWGOsoJZCgXBgqZA9m3thPfezTbPvMSb4VSXe6bDeo64L0bw7Bh4O6Hec5QBfZCijZC2qzppTOMRNdwieNAXZCcajN0U0q37paPy8dF75XYDFVNMZBF1sDvybrDFo7PAlXyDeuSghyZA5yc4NroGCeUZD"
 
 /*TEST PERSISTENT MENU
 curl -X POST -H "Content-Type: application/json" -d '{
@@ -968,7 +968,7 @@ curl -X POST -H "Content-Type: application/json" -d '{
 
         }
     ]
-}' "https://graph.facebook.com/v6.0/me/custom_user_settings?access_token=EAAkdTVETz5UBABiMRU4LChbImzlhRbIZBL76hdxdTZBQCrR8gm3iUlo2MKsdbzQJgYYX6cvdL5KaMrtJueuOwl6pPHZBrZCV3nzdGPL92wFLWnF6GDqISffJMj0SBZAfv07hwo2fqZBdsjw9rwlLkApvuWDWRrZA26K9tNVdsN6hwjZBoBZCFd4GBsb7Px8W5RB4ZD"
+}' "https://graph.facebook.com/v6.0/me/custom_user_settings?access_token=EAAkdTVETz5UBAAOzMevX1rbaKb0JI7Tza4lMLuZCkCvRNWGOsoJZCgXBgqZA9m3thPfezTbPvMSb4VSXe6bDeo64L0bw7Bh4O6Hec5QBfZCijZC2qzppTOMRNdwieNAXZCcajN0U0q37paPy8dF75XYDFVNMZBF1sDvybrDFo7PAlXyDeuSghyZA5yc4NroGCeUZD"
 
 
  */
