@@ -382,12 +382,6 @@ function handleQuickReplies(sender_psid, quick_reply) {
   userData['state'] = payload;
   let response = Replies.replies[userData['state']];
 
-
-  // if( userData['state'] == "BORED" ){
-  //   seq( sender_psid, response, 0 );
-  //   return;
-  // }
-
   if(userData['state'] === "COMPLAINT_EMPLOYEE" || userData['state'] === "COMPLAINT_DPT" ){
     sendMessage( sender_psid, Replies.replies["COMPLAINT_INSTRUCTION"] );
   }
