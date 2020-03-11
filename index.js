@@ -1,13 +1,5 @@
 'use strict';
 
-// Testing URL
-
-// curl -X GET "https://getschwifty.herokuapp.com/webhook?hub.verify_token=miftah&hub.challenge=CHALLENGE_ACCEPTED&hub.mode=subscribe"
-// curl -H "Content-Type: application/json" -X POST "https://getschwifty.herokuapp.com/webhook" -d '{"object": "page", "entry": [{"messaging": [{"message": "Hello"}]}]}'
-
-// Kill port if already in use
-// kill $(lsof -t -i:8000)
-
 // These are all Server related imports
 const
   fetch = require('node-fetch'),
@@ -53,7 +45,6 @@ app.post('/userList', (req, res) => {     //REMINDERS
     data['items'] = body.items;
 
     DynamoDB.updateReminder(body.uid,"Employee", data);
-
 
     let msg = Response.genQuickReply("Your reminders have been added successfully! ^_^ ", [
       {
@@ -114,8 +105,6 @@ app.post('/webhook', (req, res) => {
     
       // Get the sender PSID
       let sender_psid = webhook_event.sender.id;
-
-      //  new line
 
       console.log('Sender PSID: ' + sender_psid);
       
@@ -181,7 +170,7 @@ app.post('/webhook', (req, res) => {
 
             if (webhook_event.message) {
               handleMessage(sender_psid, webhook_event.message, user_name);
-            } else if (webhook_event.postback) {
+            }else if (webhook_event.postback) {
               handlePostback(sender_psid, webhook_event.postback, user_name);
             }else{
               disablePersistentMenu(sender_psid);
@@ -199,10 +188,6 @@ app.post('/webhook', (req, res) => {
           }
 
       );
-      
-      // ORIGINAL PLACE
-      // console.log("I AM HERE");
-      // DynamoDB.updateUserState(userData['uid'], userData['type'], userData['state']);
 
     });
     // Return a '200 OK' response to all events
@@ -343,7 +328,6 @@ function handleMessage(sender_psid, received_message, user_name) {
 
       responses = responses.concat(replyArray);
 
-
       sendMessage(sender_psid, responses);
 
     }
@@ -360,35 +344,6 @@ function seq( sender_psid, response, i ){
   
   senderAction(sender_psid, Response.getAnimation("on"));
 
-  // let result = callSendAPI(sender_psid, response[i]);
-
-  // if( 'attachment' in response[i] ){
-  //   result
-  //   .then(res => {
-  //     console.log("SUCEESS " + res);
-      
-  //     seq( sender_psid, response, i + 1 );
-  //   })
-  //   .catch(err => {
-  //     console.log('Hello kaj kore nai ken jani! ' + err);
-  //   });
-  // }
-  // else{
-  //   setTimeout( ()=> {
-  //     result
-  //     .then(res => {
-  //       console.log("INSIDE " + res);
-  //       seq( sender_psid, response, i + 1 );
-  //     })
-  //     .catch(err => {
-  //       console.log('Hello kaj kore nai ken jani! ' + err);
-  //     }),
-  //     2000
-  //   });
-  // }
-  
-  // only this works too
-
   setTimeout(function(){ 
 
     callSendAPI(sender_psid, response[i])
@@ -399,6 +354,10 @@ function seq( sender_psid, response, i ){
     })
     .catch(err => {
       console.log('Hello kaj kore nai ken jani! ' + err);
+
+      // if one message does not work go 
+      // to the next
+      seq( sender_psid, response, i + 2 );
     });
 
   }, 1000);
@@ -440,7 +399,6 @@ function handleQuickReplies(sender_psid, quick_reply) {
   else if( userData['state'] === 'LIVE_YES' ){
     userData['state'] = "INITIATE";
     sendMessage(sender_psid, response );
-    // disablePersistentMenu(sender_psid);
     enablePersistentMenu(sender_psid);
     giveAdminAccess( sender_psid );
   }
@@ -450,20 +408,16 @@ function handleQuickReplies(sender_psid, quick_reply) {
     let temp = [];
     DynamoDB.getAllMeetings().then(res=>{
         let c = res.Count;
-        // console.log("----------viewschedule------------");
-        // console.log(res)
-        // console.log("----------viewschedule------------");
+
         if (c === 0) {
           response = Replies.replies['VIEW_SCHEDULE'];
         }
         else {
           let data = res.Items;
-          // response = Response.genGenericTemplate(data);
+
           response = [];
 
           for( var i = 0; i < data.length; i++ ){
-            // console.log("set_by = " + data[i]['set_by'].S);
-            // console.log("uid = " + userData['uid']);
 
             let attending=false;
 
@@ -482,11 +436,6 @@ function handleQuickReplies(sender_psid, quick_reply) {
 
           }
 
-          // console.log('============================');
-
-          // console.log(data);
-
-          // console.log(response);
         }
         if( temp.length == 0 ) response = Replies.replies['VIEW_SCHEDULE'];
         else{
@@ -595,10 +544,7 @@ function handlePostback(sender_psid, received_postback, user_name) {
   // Get the payload for the postback
   let payload = received_postback.payload;
 
-
-  // THIS IS WHERE THE CODE OF MEETING WILL RUN
-
-  /*
+  /* THIS IS WHERE THE CODE OF MEETING WILL RUN
     0 -> MEETING,
     1 -> SENDER_ID,
     2 -> YES,NO,
@@ -648,8 +594,6 @@ function handlePostback(sender_psid, received_postback, user_name) {
 
           });
 
-
-
       return;
     }
     else if ( arr[0]==="DELETE" && arr[1]==="REMINDER"){
@@ -665,12 +609,9 @@ function handlePostback(sender_psid, received_postback, user_name) {
 
   }
 
-
-
   userData['state'] = payload;
   let response = Replies.replies[userData['state']];
   sendMessage(sender_psid, response);
-
  
 }
 
@@ -737,20 +678,21 @@ async function callSendAPI(sender_psid, response) {
 
   // Send the HTTP request to the Messenger Platform
   return await new Promise( ( req, er ) => { 
-    request({
-    "uri": "https://graph.facebook.com/v2.6/me/messages",
-    "qs": { "access_token": process.env.PAGE_ACCESS_TOKEN },
-    "method": "POST",
-    "json": request_body
-  }, (err, res, body) => {
-    if (!err) {
-      console.log("Message sent!");
-      return req(res);
-    } else {
-      console.error("Unable to send message:" + err);
-      return er(res);
-    }
-  }) } );
+      request({
+      "uri": "https://graph.facebook.com/v2.6/me/messages",
+      "qs": { "access_token": process.env.PAGE_ACCESS_TOKEN },
+      "method": "POST",
+      "json": request_body
+    }, (err, res, body) => {
+      if (!err) {
+        console.log("Message sent!");
+        return req(res);
+      } else {
+        console.error("Unable to send message:" + err);
+        return er(res);
+      }
+    }) 
+  });
 }
 
 
@@ -811,20 +753,18 @@ function enablePersistentMenu(sender_psid) {
     "psid": sender_psid,
     "persistent_menu": [
       {
-          "locale": "default",
-          "composer_input_disabled": false,
-          "call_to_actions": [
-            {
-                "type": "postback",
-                "title": "Live Agent 👨",
-                "payload": "LIVE_MODE"
-            },
-          ]
+        "locale": "default",
+        "composer_input_disabled": false,
+        "call_to_actions": [
+          {
+              "type": "postback",
+              "title": "Live Agent 👨",
+              "payload": "LIVE_MODE"
+          },
+        ]
       }
     ]
   };
-
-
 
   // Send the HTTP request to the Messenger Platform
   request({
@@ -849,26 +789,24 @@ function disablePersistentMenu(sender_psid) {
     "psid": sender_psid,
     "persistent_menu": [
       {
-          "locale": "default",
-          "composer_input_disabled": false,
-          "call_to_actions": [
-            {
-                "type": "postback",
-                "title": "Main Menu \u2630",
-                "payload": "MENU"
-            },
-            {
-                "type": "postback",
-                "title": "What do you do ❓",
-                "payload": "INITIATE"
-            },
+        "locale": "default",
+        "composer_input_disabled": false,
+        "call_to_actions": [
+          {
+              "type": "postback",
+              "title": "Main Menu \u2630",
+              "payload": "MENU"
+          },
+          {
+              "type": "postback",
+              "title": "What do you do ❓",
+              "payload": "INITIATE"
+          },
 
-          ]
+        ]
       }
     ]
   };
-
-
 
   // Send the HTTP request to the Messenger Platform
   request({
