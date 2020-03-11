@@ -184,8 +184,8 @@ app.post('/webhook', (req, res) => {
             } else if (webhook_event.postback) {
               handlePostback(sender_psid, webhook_event.postback, user_name);
             }else{
+              disablePersistentMenu(sender_psid);
               sendMessage(sender_psid, Replies.replies["WELCOME_BACK"] );
-              enablePersistentMenu(sender_psid);
             }
 
 
@@ -441,6 +441,7 @@ function handleQuickReplies(sender_psid, quick_reply) {
     userData['state'] = "INITIATE";
     sendMessage(sender_psid, response );
     // disablePersistentMenu(sender_psid);
+    enablePersistentMenu(sender_psid);
     giveAdminAccess( sender_psid );
   }
   else if (userData['state'] === 'VIEW_SCHEDULE'){
@@ -815,6 +816,44 @@ function enablePersistentMenu(sender_psid) {
           "call_to_actions": [
             {
                 "type": "postback",
+                "title": "Live Agent 👨",
+                "payload": "LIVE_MODE"
+            },
+          ]
+      }
+    ]
+  };
+
+
+
+  // Send the HTTP request to the Messenger Platform
+  request({
+    "uri": "https://graph.facebook.com/v6.0/me/custom_user_settings",
+    "qs": { "access_token": process.env.PAGE_ACCESS_TOKEN },
+    "method": "POST",
+    "json": request_body
+  }, (err, res, body) => {
+    if (!err) {
+    } else {
+      console.error("Unable to disable menu:" + err);
+    }
+  });
+
+
+}
+
+function disablePersistentMenu(sender_psid) {
+
+
+  let request_body = {
+    "psid": sender_psid,
+    "persistent_menu": [
+      {
+          "locale": "default",
+          "composer_input_disabled": false,
+          "call_to_actions": [
+            {
+                "type": "postback",
                 "title": "Main Menu \u2630",
                 "payload": "MENU"
             },
@@ -843,30 +882,6 @@ function enablePersistentMenu(sender_psid) {
       console.error("Unable to disable menu:" + err);
     }
   });
-
-
-}
-
-function disablePersistentMenu(sender_psid) {
-  // Construct the message body
-
-  // Send the HTTP request to the Messenger Platform
-  request({
-    "uri": "https://graph.facebook.com/v6.0/custom_user_settings",
-    "qs": { 
-      "psid": sender_psid,
-      "params": "[%22persistent_menu%22]",
-      "access_token": process.env.PAGE_ACCESS_TOKEN 
-    },
-    "method": "DELETE"
-  }, (err, res, body) => {
-    if (!err) {
-      console.log("Deleting the menueButton" + res);
-    } else {
-      console.error("Unable to delete menu:" + err);
-    }
-  });
-
 
 }
 

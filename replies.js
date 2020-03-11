@@ -258,7 +258,7 @@ class Replies {
     ];
 
     this.replies["HOLIDAYS_APPLY"] = [
-      Responses.genQuickReply("We have submitted your application to the HR department! :D",
+      Responses.genQuickReply("We have submitted your application to the HR department! 😀",
       [
         {
           title: "HR policies 🤔",
@@ -460,7 +460,7 @@ class Replies {
       ]),
     ],
     this.replies["CANT_LOGIN"] = [
-      Responses.genTextReply("We have sent an email to the IT perosn regarding your issue : Forgot Username and password"),
+      Responses.genTextReply("We have sent an email to the IT perosn regarding your issue : Can't login"),
       Responses.genTextReply("He will be in contact with you very shortly"),
       Responses.genQuickReply("Support Ticket Issued : " + this.supportTicketGenerator() , 
       [
@@ -629,6 +629,9 @@ class Replies {
 
 
   static replies = {
+    "LIVE_MODE" : [
+      Responses.genTextReply("You are currently in live mode. Please be patient while and wait for the admin to get back to you 😀.")
+    ],
     "WELCOME_BACK" : [
       Responses.genTextReply("Welcome Back!"),
       Responses.genTextReply("Hope your issue was solved!"),
@@ -1313,7 +1316,7 @@ class Replies {
       " must leave before the program is over."),
     ],
     "ETHICS" : [
-      Responses.genTextReply("The Utility Board of the City of Key West d/b/a our Energy Services has" + 
+      Responses.genTextReply("The Utility Board of the City of BD West d/b/a our Energy Services has" + 
       " adopted "),
       Responses.genTextReply("a Code of Ethics for its employees. This Code of Ethics is substantially similar to" +
       " the Code of Ethics adopted by "),
@@ -1351,11 +1354,12 @@ class Replies {
       Responses.genTextReply("Employees may not park on any of our property unless designated for employee parking employees as needed."),
     ],
     "DISCRIMINATION" : [
-      Responses.genTextReply("We will post all notices required by state, federal or local law relating to discrimination." +
-      "Exceptions that apply to many federal"),
-      Responses.genTextReply(" and state discrimination laws include those for bona fide occupational qualifications, bona fide seniority" +
-      " systems, employee benefit"),
-      Responses.genTextReply(" plans, or merit systems (provided that these differences are not a result of an intention to unlawfully discriminate)."),
+      Responses.genTextReply("The laws enforced by EEOC makes it unlawful for Federal agencies to discriminate against employees and job applicants " +
+      " on the bases of race, color, religion, sex, national origin, disability, or age."),
+      Responses.genTextReply("A person who files a complaint or participates in an investigation of an EEO complaint, or who opposes an employment practice" +
+      " made illegal under any of the laws that EEOC enforces is protected from retaliation."),
+      Responses.genTextReply("The Equal Pay Act of 1963 protects men and women from sex-based wage discrimination in the payment of wages or benefits, who" + 
+      " perform substantially equal work in the same establishment. See EEOC guidance on equal pay and compensation discrimination"),
     ],
     "MEDICAL" : [
       Responses.genTextReply("It is the policy of ours to grant up to 12 weeks of family and medical leave during any" +
@@ -1395,7 +1399,7 @@ class Replies {
       Responses.genTextReply("Payday is every other Friday (bi-weekly) unless otherwise specified by Management."),
     ],
     "PRIVACY" : [
-      Responses.genTextReply("we respect the privacy of its employees; however, as a public entity, we must comply with Florida's Public Records Law."),
+      Responses.genTextReply("We respect the privacy of its employees; however, as a public entity, we must comply with Florida's Public Records Law."),
       Responses.genTextReply("If a request is made for information from an employee’s personnel file, we must comply; however,"),
       Responses.genTextReply("if time permits, Human Resources will attempt to contact the employee to advise them of said request."),
     ],
