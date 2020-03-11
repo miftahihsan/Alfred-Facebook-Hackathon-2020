@@ -241,7 +241,6 @@ app.get('/webhook', (req, res) => {
 });
 
 
-// Check Documentation for sending and detecting attachment
 
 // Handles messages events
 function handleMessage(sender_psid, received_message ) {
@@ -281,10 +280,9 @@ function handleMessage(sender_psid, received_message ) {
 
       console.log("Inside msg = " + userData['state']);
 
-      //nlp.compile( received_message.nlp.entities, userData ); // maybe do it only initially
       response = nlp.findState(userData, received_message.nlp.entities);
 
-      if( response == "default" ){
+      if( response === "default" ){
         let responses = [];
         let reply = Replies.replies[userData['state']];
         let apologize = [Replies.replies["APOLOGIZE"]];
@@ -313,7 +311,6 @@ function handleMessage(sender_psid, received_message ) {
   else if (received_message.attachments){
 
     if(  userData['state'] === "COMPLAINT_EMPLOYEE" || userData['state'] === "COMPLAINT_DPT"   ){
-      console.log("ATTACHMENT!!!!!!!!!!!s");
     }
     else if( userData['state']==='REPORT_STATS' ){
       userData['state'] = 'REPORT_STATS_ATTACHMENT';
@@ -866,7 +863,7 @@ curl -X POST -H "Content-Type: application/json" -d '{
             "call_to_actions": [
                 {
                     "type": "postback",
-                    "title": "Main Menu \u2630",
+                    "title": "HOME 🏠",
                     "payload": "MENU"
                 },
                 {

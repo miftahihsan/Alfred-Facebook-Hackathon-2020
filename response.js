@@ -76,7 +76,7 @@ class Response{
             "attachment":{
                 "type":"image",
                 "payload":{
-                    "attachment_id": "235306070839999"
+                    "attachment_id": "598227267572190"
                 }
             }
         };
