@@ -1,13 +1,5 @@
 'use strict';
 
-// Testing URL
-
-// curl -X GET "https://getschwifty.herokuapp.com/webhook?hub.verify_token=miftah&hub.challenge=CHALLENGE_ACCEPTED&hub.mode=subscribe"
-// curl -H "Content-Type: application/json" -X POST "https://getschwifty.herokuapp.com/webhook" -d '{"object": "page", "entry": [{"messaging": [{"message": "Hello"}]}]}'
-
-// Kill port if already in use
-// kill $(lsof -t -i:8000)
-
 // These are all Server related imports
 const
   fetch = require('node-fetch'),
@@ -42,7 +34,7 @@ app.use(function(req, res, next) {
   next();
 });
 
-app.post('/userList', (req, res) => {     //REMINDERS
+app.post('/userList', (req, res) => { 
   let body = req.body;
   console.log("here!---------inside--UserList---------------------------------------------");
   console.log( body );
@@ -53,7 +45,6 @@ app.post('/userList', (req, res) => {     //REMINDERS
     data['items'] = body.items;
 
     DynamoDB.updateReminder(body.uid,"Employee", data);
-
 
     let msg = Response.genQuickReply("Your reminders have been added successfully! ^_^ ", [
       {
@@ -91,7 +82,6 @@ app.post('/sendMessageToUser' , (req, res) => {
 });
 
 
-
 // Creates the endpoint for our webhook 
 app.post('/webhook', (req, res) => {  
 
@@ -115,28 +105,36 @@ app.post('/webhook', (req, res) => {
       // Get the sender PSID
       let sender_psid = webhook_event.sender.id;
 
-      //  new line
-
       console.log('Sender PSID: ' + sender_psid);
       
       senderAction(sender_psid, Response.getAnimation("on"));
 
+      // fetch user personal data
       var user_info = getUserName(sender_psid);
+      
+      /*
+       * Fetch data from user and employee Table AWS DynamboDB.
+       */
       var employee_checker =  DynamoDB.getUserInfo( sender_psid, "Employee" );
       var publicUser_checker =  DynamoDB.getUserInfo( sender_psid, "PublicUser" );
    
 
+      /*
+       *  Wait for all the APIs to return their call before we start the the Bot Script
+       */
       Promise.all([employee_checker, publicUser_checker, user_info]).then(
           results => {
             let employee = results[0];
             let publicUser = results[1];
             let user_name = results[2];
 
-            // Replies.user_name = user_name['name'];
+            /* 
+             *  Storing all the data fetched from the database to a local variable for 
+             *  future use with out the need to fetch it again and again.
+             */
             userData['name'] = user_name['name'];
             userData['profile_pic'] = user_name['profile_pic'];
             
-
             var text;
             if( !(employee.Item !== undefined && employee.Item !== null) ){
               // NOT in employee check if in public user
@@ -172,25 +170,27 @@ app.post('/webhook', (req, res) => {
             Replies.setUID(sender_psid);
             // Replies.setUserData(userData);
 
-            //sendMessage(sender_psid, text);
+            // I dont know why this is here :V
             senderAction(sender_psid, Response.getAnimation("off"));
 
             userData['uid'] = sender_psid;
 
+            // Messenger API to have the users Message mark as seen.
             seenBy(sender_psid);
 
             if (webhook_event.message) {
-              handleMessage(sender_psid, webhook_event.message, user_name);
-            } else if (webhook_event.postback) {
-              handlePostback(sender_psid, webhook_event.postback, user_name);
+              handleMessage(sender_psid, webhook_event.message);
+            }else if (webhook_event.postback) {
+              handlePostback(sender_psid, webhook_event.postback);
             }else{
               disablePersistentMenu(sender_psid);
               sendMessage(sender_psid, Replies.replies["WELCOME_BACK"] );
             }
 
-
-            // REMOVE LATER IF NO NEEDED
-            //console.log("I AM HERE");
+            /* 
+             *  After the Script Executes the we update the database with the JSON variable
+             *  that we kept updating through out the script.
+             */
             DynamoDB.updateUserState(userData['uid'], userData['type'], userData['state']);
 
           },
@@ -199,10 +199,6 @@ app.post('/webhook', (req, res) => {
           }
 
       );
-      
-      // ORIGINAL PLACE
-      // console.log("I AM HERE");
-      // DynamoDB.updateUserState(userData['uid'], userData['type'], userData['state']);
 
     });
     // Return a '200 OK' response to all events
@@ -248,7 +244,7 @@ app.get('/webhook', (req, res) => {
 // Check Documentation for sending and detecting attachment
 
 // Handles messages events
-function handleMessage(sender_psid, received_message, user_name) {
+function handleMessage(sender_psid, received_message ) {
   let response;
 
   // Checks if the message contains text
@@ -343,7 +339,6 @@ function handleMessage(sender_psid, received_message, user_name) {
 
       responses = responses.concat(replyArray);
 
-
       sendMessage(sender_psid, responses);
 
     }
@@ -352,7 +347,7 @@ function handleMessage(sender_psid, received_message, user_name) {
 }
 
 
-function seq( sender_psid, response, i ){
+function messageSequence( sender_psid, response, i ){
 
   if( i >= response.length ){
     return;
@@ -360,45 +355,20 @@ function seq( sender_psid, response, i ){
   
   senderAction(sender_psid, Response.getAnimation("on"));
 
-  // let result = callSendAPI(sender_psid, response[i]);
-
-  // if( 'attachment' in response[i] ){
-  //   result
-  //   .then(res => {
-  //     console.log("SUCEESS " + res);
-      
-  //     seq( sender_psid, response, i + 1 );
-  //   })
-  //   .catch(err => {
-  //     console.log('Hello kaj kore nai ken jani! ' + err);
-  //   });
-  // }
-  // else{
-  //   setTimeout( ()=> {
-  //     result
-  //     .then(res => {
-  //       console.log("INSIDE " + res);
-  //       seq( sender_psid, response, i + 1 );
-  //     })
-  //     .catch(err => {
-  //       console.log('Hello kaj kore nai ken jani! ' + err);
-  //     }),
-  //     2000
-  //   });
-  // }
-  
-  // only this works too
-
   setTimeout(function(){ 
 
     callSendAPI(sender_psid, response[i])
     .then(res => {
       console.log("SUCEESS " + res);
       
-      seq( sender_psid, response, i + 1 );
+      messageSequence( sender_psid, response, i + 1 );
     })
     .catch(err => {
       console.log('Hello kaj kore nai ken jani! ' + err);
+
+      // if one message does not work go 
+      // to the next
+      messageSequence( sender_psid, response, i + 2 );
     });
 
   }, 1000);
@@ -411,12 +381,6 @@ function handleQuickReplies(sender_psid, quick_reply) {
 
   userData['state'] = payload;
   let response = Replies.replies[userData['state']];
-
-
-  if( userData['state'] == "BORED" ){
-    seq( sender_psid, response, 0 );
-    return;
-  }
 
   if(userData['state'] === "COMPLAINT_EMPLOYEE" || userData['state'] === "COMPLAINT_DPT" ){
     sendMessage( sender_psid, Replies.replies["COMPLAINT_INSTRUCTION"] );
@@ -440,7 +404,6 @@ function handleQuickReplies(sender_psid, quick_reply) {
   else if( userData['state'] === 'LIVE_YES' ){
     userData['state'] = "INITIATE";
     sendMessage(sender_psid, response );
-    // disablePersistentMenu(sender_psid);
     enablePersistentMenu(sender_psid);
     giveAdminAccess( sender_psid );
   }
@@ -450,20 +413,16 @@ function handleQuickReplies(sender_psid, quick_reply) {
     let temp = [];
     DynamoDB.getAllMeetings().then(res=>{
         let c = res.Count;
-        // console.log("----------viewschedule------------");
-        // console.log(res)
-        // console.log("----------viewschedule------------");
+
         if (c === 0) {
           response = Replies.replies['VIEW_SCHEDULE'];
         }
         else {
           let data = res.Items;
-          // response = Response.genGenericTemplate(data);
+
           response = [];
 
           for( var i = 0; i < data.length; i++ ){
-            // console.log("set_by = " + data[i]['set_by'].S);
-            // console.log("uid = " + userData['uid']);
 
             let attending=false;
 
@@ -482,11 +441,6 @@ function handleQuickReplies(sender_psid, quick_reply) {
 
           }
 
-          // console.log('============================');
-
-          // console.log(data);
-
-          // console.log(response);
         }
         if( temp.length == 0 ) response = Replies.replies['VIEW_SCHEDULE'];
         else{
@@ -563,6 +517,8 @@ function handleMeetingCall(sender_psid, arr){
 }
 
 
+
+/* This Function uses handover protocol that allows the user to go into live chat with the page admin  */
 function giveAdminAccess( sender_psid ){
 
   // Construct the message body
@@ -590,15 +546,12 @@ function giveAdminAccess( sender_psid ){
 
 
 // Handles messaging_postbacks events
-function handlePostback(sender_psid, received_postback, user_name) {
+function handlePostback(sender_psid, received_postback) {
 
   // Get the payload for the postback
   let payload = received_postback.payload;
 
-
-  // THIS IS WHERE THE CODE OF MEETING WILL RUN
-
-  /*
+  /* THIS IS WHERE THE CODE OF MEETING WILL RUN
     0 -> MEETING,
     1 -> SENDER_ID,
     2 -> YES,NO,
@@ -648,8 +601,6 @@ function handlePostback(sender_psid, received_postback, user_name) {
 
           });
 
-
-
       return;
     }
     else if ( arr[0]==="DELETE" && arr[1]==="REMINDER"){
@@ -665,16 +616,13 @@ function handlePostback(sender_psid, received_postback, user_name) {
 
   }
 
-
-
   userData['state'] = payload;
   let response = Replies.replies[userData['state']];
   sendMessage(sender_psid, response);
-
  
 }
 
-// new function
+/* User Profile API Information  */
 async function getUserName( sender_psid ){
   let response = await fetch('https://graph.facebook.com/'+sender_psid+'?fields=name,first_name,last_name,profile_pic&access_token='+process.env.PAGE_ACCESS_TOKEN+'')
     .then(res => {
@@ -720,7 +668,7 @@ function sendMessage(sender_psid, responses) {
     res = responses;
   }
 
-  seq(sender_psid, res, 0);
+  messageSequence(sender_psid, res, 0);
 
 }
 
@@ -737,20 +685,21 @@ async function callSendAPI(sender_psid, response) {
 
   // Send the HTTP request to the Messenger Platform
   return await new Promise( ( req, er ) => { 
-    request({
-    "uri": "https://graph.facebook.com/v2.6/me/messages",
-    "qs": { "access_token": process.env.PAGE_ACCESS_TOKEN },
-    "method": "POST",
-    "json": request_body
-  }, (err, res, body) => {
-    if (!err) {
-      console.log("Message sent!");
-      return req(res);
-    } else {
-      console.error("Unable to send message:" + err);
-      return er(res);
-    }
-  }) } );
+      request({
+      "uri": "https://graph.facebook.com/v2.6/me/messages",
+      "qs": { "access_token": process.env.PAGE_ACCESS_TOKEN },
+      "method": "POST",
+      "json": request_body
+    }, (err, res, body) => {
+      if (!err) {
+        console.log("Message sent!");
+        return req(res);
+      } else {
+        console.error("Unable to send message:" + err);
+        return er(res);
+      }
+    }) 
+  });
 }
 
 
@@ -780,6 +729,7 @@ function sendReminders(sender_psid, response) {
   });
 }
 
+/* user Action Facebook API */ 
 function seenBy(sender_psid) {
   // Construct the message body
   let request_body = {
@@ -811,20 +761,18 @@ function enablePersistentMenu(sender_psid) {
     "psid": sender_psid,
     "persistent_menu": [
       {
-          "locale": "default",
-          "composer_input_disabled": false,
-          "call_to_actions": [
-            {
-                "type": "postback",
-                "title": "Live Agent 👨",
-                "payload": "LIVE_MODE"
-            },
-          ]
+        "locale": "default",
+        "composer_input_disabled": false,
+        "call_to_actions": [
+          {
+              "type": "postback",
+              "title": "Live Agent 👨",
+              "payload": "LIVE_MODE"
+          },
+        ]
       }
     ]
   };
-
-
 
   // Send the HTTP request to the Messenger Platform
   request({
@@ -844,31 +792,28 @@ function enablePersistentMenu(sender_psid) {
 
 function disablePersistentMenu(sender_psid) {
 
-
   let request_body = {
     "psid": sender_psid,
     "persistent_menu": [
       {
-          "locale": "default",
-          "composer_input_disabled": false,
-          "call_to_actions": [
-            {
-                "type": "postback",
-                "title": "Main Menu \u2630",
-                "payload": "MENU"
-            },
-            {
-                "type": "postback",
-                "title": "What do you do ❓",
-                "payload": "INITIATE"
-            },
+        "locale": "default",
+        "composer_input_disabled": false,
+        "call_to_actions": [
+          {
+              "type": "postback",
+              "title": "Main Menu \u1F3E0",
+              "payload": "MENU"
+          },
+          {
+              "type": "postback",
+              "title": "What do you do ❓",
+              "payload": "INITIATE"
+          },
 
-          ]
+        ]
       }
     ]
   };
-
-
 
   // Send the HTTP request to the Messenger Platform
   request({
