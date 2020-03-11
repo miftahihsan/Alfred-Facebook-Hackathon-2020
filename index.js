@@ -804,7 +804,7 @@ function disablePersistentMenu(sender_psid) {
         "call_to_actions": [
           {
               "type": "postback",
-              "title": "Home \u1F3E0",
+              "title": "Main Menu \u1F3E0",
               "payload": "MENU"
           },
           {
@@ -869,7 +869,7 @@ curl -X POST -H "Content-Type: application/json" -d '{
             "call_to_actions": [
                 {
                     "type": "postback",
-                    "title": "Home \u1F3E0",
+                    "title": "Main Menu \u2630",
                     "payload": "MENU"
                 },
                 {
