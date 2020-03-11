@@ -383,10 +383,10 @@ function handleQuickReplies(sender_psid, quick_reply) {
   let response = Replies.replies[userData['state']];
 
 
-  if( userData['state'] == "BORED" ){
-    seq( sender_psid, response, 0 );
-    return;
-  }
+  // if( userData['state'] == "BORED" ){
+  //   seq( sender_psid, response, 0 );
+  //   return;
+  // }
 
   if(userData['state'] === "COMPLAINT_EMPLOYEE" || userData['state'] === "COMPLAINT_DPT" ){
     sendMessage( sender_psid, Replies.replies["COMPLAINT_INSTRUCTION"] );
@@ -523,6 +523,8 @@ function handleMeetingCall(sender_psid, arr){
 }
 
 
+
+/* This Function uses handover protocol that allows the user to go into live chat with the page admin  */
 function giveAdminAccess( sender_psid ){
 
   // Construct the message body
@@ -626,7 +628,7 @@ function handlePostback(sender_psid, received_postback) {
  
 }
 
-// new function
+/* User Profile API Information  */
 async function getUserName( sender_psid ){
   let response = await fetch('https://graph.facebook.com/'+sender_psid+'?fields=name,first_name,last_name,profile_pic&access_token='+process.env.PAGE_ACCESS_TOKEN+'')
     .then(res => {
@@ -733,6 +735,7 @@ function sendReminders(sender_psid, response) {
   });
 }
 
+/* user Action Facebook API */ 
 function seenBy(sender_psid) {
   // Construct the message body
   let request_body = {
