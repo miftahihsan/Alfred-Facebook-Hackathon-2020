@@ -34,7 +34,7 @@ app.use(function(req, res, next) {
   next();
 });
 
-app.post('/userList', (req, res) => {     //REMINDERS
+app.post('/userList', (req, res) => { 
   let body = req.body;
   console.log("here!---------inside--UserList---------------------------------------------");
   console.log( body );
@@ -82,7 +82,6 @@ app.post('/sendMessageToUser' , (req, res) => {
 });
 
 
-
 // Creates the endpoint for our webhook 
 app.post('/webhook', (req, res) => {  
 
@@ -110,22 +109,32 @@ app.post('/webhook', (req, res) => {
       
       senderAction(sender_psid, Response.getAnimation("on"));
 
+      // fetch user personal data
       var user_info = getUserName(sender_psid);
+      
+      /*
+       * Fetch data from user and employee Table AWS DynamboDB.
+       */
       var employee_checker =  DynamoDB.getUserInfo( sender_psid, "Employee" );
       var publicUser_checker =  DynamoDB.getUserInfo( sender_psid, "PublicUser" );
    
 
+      /*
+       *  Wait for all the APIs to return their call before we start the the Bot Script
+       */
       Promise.all([employee_checker, publicUser_checker, user_info]).then(
           results => {
             let employee = results[0];
             let publicUser = results[1];
             let user_name = results[2];
 
-            // Replies.user_name = user_name['name'];
+            /* 
+             *  Storing all the data fetched from the database to a local variable for 
+             *  future use with out the need to fetch it again and again.
+             */
             userData['name'] = user_name['name'];
             userData['profile_pic'] = user_name['profile_pic'];
             
-
             var text;
             if( !(employee.Item !== undefined && employee.Item !== null) ){
               // NOT in employee check if in public user
@@ -161,11 +170,12 @@ app.post('/webhook', (req, res) => {
             Replies.setUID(sender_psid);
             // Replies.setUserData(userData);
 
-            //sendMessage(sender_psid, text);
+            // I dont know why this is here :V
             senderAction(sender_psid, Response.getAnimation("off"));
 
             userData['uid'] = sender_psid;
 
+            // Messenger API to have the users Message mark as seen.
             seenBy(sender_psid);
 
             if (webhook_event.message) {
@@ -177,9 +187,10 @@ app.post('/webhook', (req, res) => {
               sendMessage(sender_psid, Replies.replies["WELCOME_BACK"] );
             }
 
-
-            // REMOVE LATER IF NO NEEDED
-            //console.log("I AM HERE");
+            /* 
+             *  After the Script Executes the we update the database with the JSON variable
+             *  that we kept updating through out the script.
+             */
             DynamoDB.updateUserState(userData['uid'], userData['type'], userData['state']);
 
           },
@@ -783,7 +794,6 @@ function enablePersistentMenu(sender_psid) {
 }
 
 function disablePersistentMenu(sender_psid) {
-
 
   let request_body = {
     "psid": sender_psid,
