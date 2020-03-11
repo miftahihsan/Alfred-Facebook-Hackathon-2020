@@ -300,7 +300,7 @@ function handleMessage(sender_psid, received_message, user_name) {
         }
 
         apologize=apologize.concat(responses);
-        sendMessage(sender_psid, apologize);  
+        sendMessage(sender_psid, apologize);
         return;
       }
 
