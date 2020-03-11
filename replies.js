@@ -1354,11 +1354,12 @@ class Replies {
       Responses.genTextReply("Employees may not park on any of our property unless designated for employee parking employees as needed."),
     ],
     "DISCRIMINATION" : [
-      Responses.genTextReply("We will post all notices required by state, federal or local law relating to discrimination." +
-      "Exceptions that apply to many federal"),
-      Responses.genTextReply(" and state discrimination laws include those for bona fide occupational qualifications, bona fide seniority" +
-      " systems, employee benefit"),
-      Responses.genTextReply(" plans, or merit systems (provided that these differences are not a result of an intention to unlawfully discriminate)."),
+      Responses.genTextReply("The laws enforced by EEOC makes it unlawful for Federal agencies to discriminate against employees and job applicants " +
+      " on the bases of race, color, religion, sex, national origin, disability, or age."),
+      Responses.genTextReply("A person who files a complaint or participates in an investigation of an EEO complaint, or who opposes an employment practice" +
+      " made illegal under any of the laws that EEOC enforces is protected from retaliation."),
+      Responses.genTextReply("The Equal Pay Act of 1963 protects men and women from sex-based wage discrimination in the payment of wages or benefits, who" + 
+      " perform substantially equal work in the same establishment. See EEOC guidance on equal pay and compensation discrimination"),
     ],
     "MEDICAL" : [
       Responses.genTextReply("It is the policy of ours to grant up to 12 weeks of family and medical leave during any" +
