@@ -574,7 +574,7 @@ class Replies {
     ]
 
     this.replies["COMPLAINT_INSTRUCTION"] = [
-      Responses.genTextReply("Ok! Tell me what the complaint is. Just say Done, When you're done with the complaint!"),
+      Responses.genTextReply("Ok! Tell me what the complaint is. Just say Done, when you're done with the complaint!"),
     ]
 
     this.replies["LIVE"] = [
