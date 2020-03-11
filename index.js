@@ -850,14 +850,12 @@ function enablePersistentMenu(sender_psid) {
 function disablePersistentMenu(sender_psid) {
   // Construct the message body
 
-
-
   // Send the HTTP request to the Messenger Platform
   request({
     "uri": "https://graph.facebook.com/v6.0/custom_user_settings",
     "qs": { 
       "psid": sender_psid,
-      "params": "[%22persistent_menu%22]",
+      "params": "%22persistent_menu%22",
       "access_token": process.env.PAGE_ACCESS_TOKEN 
     },
     "method": "DELETE"
