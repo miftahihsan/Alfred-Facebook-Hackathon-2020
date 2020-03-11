@@ -819,11 +819,11 @@ function enablePersistentMenu(sender_psid) {
                 "title": "Live Agent 👨",
                 "payload": "LIVE_MODE"
             },
-            // {
-            //     "type": "postback",
-            //     "title": "What do you do ❓",
-            //     "payload": "INITIATE"
-            // },
+            {
+                "type": "postback",
+                "title": "What do you do ❓",
+                "payload": "INITIATE"
+            },
 
           ]
       }
