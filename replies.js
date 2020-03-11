@@ -258,7 +258,7 @@ class Replies {
     ];
 
     this.replies["HOLIDAYS_APPLY"] = [
-      Responses.genQuickReply("We have submitted your application to the HR department! :D",
+      Responses.genQuickReply("We have submitted your application to the HR department! 😀",
       [
         {
           title: "HR policies 🤔",
@@ -630,7 +630,7 @@ class Replies {
 
   static replies = {
     "LIVE_MODE" : [
-      Responses.genTextReply("You are currently in live mode. Please be patient while and wait for the admin to get back to you :D.")
+      Responses.genTextReply("You are currently in live mode. Please be patient while and wait for the admin to get back to you 😀.")
     ],
     "WELCOME_BACK" : [
       Responses.genTextReply("Welcome Back!"),

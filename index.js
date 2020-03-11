@@ -819,12 +819,6 @@ function enablePersistentMenu(sender_psid) {
                 "title": "Live Agent 👨",
                 "payload": "LIVE_MODE"
             },
-            {
-                "type": "postback",
-                "title": "What do you do ❓",
-                "payload": "INITIATE"
-            },
-
           ]
       }
     ]
@@ -888,27 +882,6 @@ function disablePersistentMenu(sender_psid) {
       console.error("Unable to disable menu:" + err);
     }
   });
-
-
-  // Construct the message body
-
-  // Send the HTTP request to the Messenger Platform
-  // request({
-  //   "uri": "https://graph.facebook.com/v6.0/custom_user_settings",
-  //   "qs": { 
-  //     "psid": sender_psid,
-  //     "params": "[%22persistent_menu%22]",
-  //     "access_token": process.env.PAGE_ACCESS_TOKEN 
-  //   },
-  //   "method": "DELETE"
-  // }, (err, res, body) => {
-  //   if (!err) {
-  //     console.log("Deleting the menueButton" + res);
-  //   } else {
-  //     console.error("Unable to delete menu:" + err);
-  //   }
-  // });
-
 
 }
 
