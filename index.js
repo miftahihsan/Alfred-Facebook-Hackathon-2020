@@ -942,3 +942,18 @@ curl -X POST -H "Content-Type: application/json" -d '{
  */
 
 // curl -X GET "https://graph.facebook.com/2751654314911195?fields=first_name,last_name,profile_pic&access_token=EAAkdTVETz5UBABiMRU4LChbImzlhRbIZBL76hdxdTZBQCrR8gm3iUlo2MKsdbzQJgYYX6cvdL5KaMrtJueuOwl6pPHZBrZCV3nzdGPL92wFLWnF6GDqISffJMj0SBZAfv07hwo2fqZBdsjw9rwlLkApvuWDWRrZA26K9tNVdsN6hwjZBoBZCFd4GBsb7Px8W5RB4ZD"
+
+/*TEST PERSISTENT MENU
+curl -X POST -H "Content-Type: application/json" -d '{
+  "psid": "1745456992245557",
+  "persistent_menu": [
+        {
+            "locale": "default",
+            "composer_input_disabled": false,
+
+        }
+    ]
+}' "https://graph.facebook.com/v6.0/me/custom_user_settings?access_token=EAAkdTVETz5UBABiMRU4LChbImzlhRbIZBL76hdxdTZBQCrR8gm3iUlo2MKsdbzQJgYYX6cvdL5KaMrtJueuOwl6pPHZBrZCV3nzdGPL92wFLWnF6GDqISffJMj0SBZAfv07hwo2fqZBdsjw9rwlLkApvuWDWRrZA26K9tNVdsN6hwjZBoBZCFd4GBsb7Px8W5RB4ZD"
+
+
+ */
