@@ -630,7 +630,7 @@ class Replies {
 
   static replies = {
     "LIVE_MODE" : [
-      Responses.genPictureReply("You are currently in live mode. Please be patient while and wait for the admin to get back to you :D.")
+      Responses.genTextReply("You are currently in live mode. Please be patient while and wait for the admin to get back to you :D.")
     ],
     "WELCOME_BACK" : [
       Responses.genTextReply("Welcome Back!"),
