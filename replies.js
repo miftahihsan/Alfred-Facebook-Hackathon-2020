@@ -574,7 +574,7 @@ class Replies {
     ]
 
     this.replies["COMPLAINT_INSTRUCTION"] = [
-      Responses.genTextReply("Ok! Tell me what the complaint is. Just say Done! When you're done with the complaint!"),
+      Responses.genTextReply("Ok! Tell me what the complaint is. Just say Done, When you're done with the complaint!"),
     ]
 
     this.replies["LIVE"] = [
@@ -691,15 +691,11 @@ class Replies {
         ]
       )
     ],
-    "COMMUNICATE" : Responses.genQuickReply("Do you want to report stats/info to manager, make an announcement or ask for a live conversation with the admins?",
+    "COMMUNICATE" : Responses.genQuickReply("Would you like to report stats/info to manager or ask for a live conversation with the admins?",
         [
           {
             title: "Report stats/info 👩‍💻",
             payload: "REPORT_STATS"
-          },
-          {
-            title: "Set-up Meeting 📣",
-            payload: "ANNOUNCEMENT_WHO"
           },
           {
             title: "Live Chat 👨",
@@ -747,6 +743,10 @@ class Replies {
         {
           title: "View Reminders 📝",
           payload: "VIEW_REMINDERS"
+        },
+        {
+          title: "Set-up Meeting 📣",
+          payload: "ANNOUNCEMENT_WHO"
         },
         {
           title: "Create Reminder 🗒",

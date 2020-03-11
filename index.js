@@ -352,7 +352,6 @@ function handleMessage(sender_psid, received_message, user_name) {
 }
 
 
-
 function seq( sender_psid, response, i ){
 
   if( i >= response.length ){
@@ -402,7 +401,7 @@ function seq( sender_psid, response, i ){
       console.log('Hello kaj kore nai ken jani! ' + err);
     });
 
-  }, 2000);
+  }, 1000);
 
 }
 
@@ -441,8 +440,8 @@ function handleQuickReplies(sender_psid, quick_reply) {
   else if( userData['state'] === 'LIVE_YES' ){
     userData['state'] = "INITIATE";
     sendMessage(sender_psid, response );
-    disablePersistentMenu(sender_psid);
-    giveAdminAccess( sender_psid ); 
+    // disablePersistentMenu(sender_psid);
+    giveAdminAccess( sender_psid );
   }
   else if (userData['state'] === 'VIEW_SCHEDULE'){
     userData['state'] = "SCHEDULE";
@@ -805,11 +804,29 @@ function seenBy(sender_psid) {
 
 }
 
-function disablePersistentMenu(sender_psid) {
+function enablePersistentMenu(sender_psid) {
   // Construct the message body
   let request_body = {
     "psid": sender_psid,
-    "persistent_menu": []
+    "persistent_menu": [
+      {
+          "locale": "default",
+          "composer_input_disabled": false,
+          "call_to_actions": [
+            {
+                "type": "postback",
+                "title": "Main Menu \u2630",
+                "payload": "MENU"
+            },
+            {
+                "type": "postback",
+                "title": "What do you do ❓",
+                "payload": "INITIATE"
+            },
+
+          ]
+      }
+    ]
   };
 
 
@@ -830,22 +847,23 @@ function disablePersistentMenu(sender_psid) {
 
 }
 
-function enablePersistentMenu(sender_psid) {
+function disablePersistentMenu(sender_psid) {
   // Construct the message body
-
-
 
   // Send the HTTP request to the Messenger Platform
   request({
     "uri": "https://graph.facebook.com/v6.0/custom_user_settings",
-    "qs": { "psid": sender_psid,
+    "qs": { 
+      "psid": sender_psid,
       "params": "[%22persistent_menu%22]",
-      "access_token": process.env.PAGE_ACCESS_TOKEN },
+      "access_token": process.env.PAGE_ACCESS_TOKEN 
+    },
     "method": "DELETE"
   }, (err, res, body) => {
     if (!err) {
+      console.log("Deleting the menueButton" + res);
     } else {
-      console.error("Unable to enable menu:" + err);
+      console.error("Unable to delete menu:" + err);
     }
   });
 
