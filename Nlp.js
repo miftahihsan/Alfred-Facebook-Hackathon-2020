@@ -90,7 +90,7 @@ class Nlp{
         else if( userData['state'] == "ANNOUNCEMENT_TIME"  ){
 
             let time;
-            if (!'datetime' in nlp)return "default";
+            if (!('datetime' in nlp))return "default";
 
             if( 'value' in nlp['datetime'][0] ){
                 let t = nlp['datetime'][0]['value']+"";
