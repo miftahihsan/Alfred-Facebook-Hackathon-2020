@@ -184,8 +184,8 @@ app.post('/webhook', (req, res) => {
             } else if (webhook_event.postback) {
               handlePostback(sender_psid, webhook_event.postback, user_name);
             }else{
+              disablePersistentMenu(sender_psid);
               sendMessage(sender_psid, Replies.replies["WELCOME_BACK"] );
-              enablePersistentMenu(sender_psid);
             }
 
 
@@ -441,6 +441,7 @@ function handleQuickReplies(sender_psid, quick_reply) {
     userData['state'] = "INITIATE";
     sendMessage(sender_psid, response );
     // disablePersistentMenu(sender_psid);
+    enablePersistentMenu(sender_psid);
     giveAdminAccess( sender_psid );
   }
   else if (userData['state'] === 'VIEW_SCHEDULE'){
@@ -813,16 +814,16 @@ function enablePersistentMenu(sender_psid) {
           "locale": "default",
           "composer_input_disabled": false,
           "call_to_actions": [
-            {
-                "type": "postback",
-                "title": "Main Menu \u2630",
-                "payload": "MENU"
-            },
-            {
-                "type": "postback",
-                "title": "What do you do ❓",
-                "payload": "INITIATE"
-            },
+            // {
+            //     "type": "postback",
+            //     "title": "Main Menu \u2630",
+            //     "payload": "MENU"
+            // },
+            // {
+            //     "type": "postback",
+            //     "title": "What do you do ❓",
+            //     "payload": "INITIATE"
+            // },
 
           ]
       }
