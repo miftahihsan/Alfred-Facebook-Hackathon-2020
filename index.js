@@ -814,16 +814,16 @@ function enablePersistentMenu(sender_psid) {
           "locale": "default",
           "composer_input_disabled": false,
           "call_to_actions": [
-            // {
-            //     "type": "postback",
-            //     "title": "Main Menu \u2630",
-            //     "payload": "MENU"
-            // },
-            // {
-            //     "type": "postback",
-            //     "title": "What do you do ❓",
-            //     "payload": "INITIATE"
-            // },
+            {
+                "type": "postback",
+                "title": "Main Menu \u2630",
+                "payload": "MENU"
+            },
+            {
+                "type": "postback",
+                "title": "What do you do ❓",
+                "payload": "INITIATE"
+            },
 
           ]
       }
