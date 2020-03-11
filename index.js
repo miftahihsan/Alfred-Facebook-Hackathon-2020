@@ -816,7 +816,7 @@ function enablePersistentMenu(sender_psid) {
           "call_to_actions": [
             {
                 "type": "postback",
-                "title": "Live Mode 🔴",
+                "title": "Live Agent 👨",
                 "payload": "LIVE_MODE"
             },
             // {
