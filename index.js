@@ -347,7 +347,7 @@ function handleMessage(sender_psid, received_message ) {
 }
 
 
-function seq( sender_psid, response, i ){
+function messageSequence( sender_psid, response, i ){
 
   if( i >= response.length ){
     return;
@@ -361,14 +361,14 @@ function seq( sender_psid, response, i ){
     .then(res => {
       console.log("SUCEESS " + res);
       
-      seq( sender_psid, response, i + 1 );
+      messageSequence( sender_psid, response, i + 1 );
     })
     .catch(err => {
       console.log('Hello kaj kore nai ken jani! ' + err);
 
       // if one message does not work go 
       // to the next
-      seq( sender_psid, response, i + 2 );
+      messageSequence( sender_psid, response, i + 2 );
     });
 
   }, 1000);
@@ -668,7 +668,7 @@ function sendMessage(sender_psid, responses) {
     res = responses;
   }
 
-  seq(sender_psid, res, 0);
+  messageSequence(sender_psid, res, 0);
 
 }
 
