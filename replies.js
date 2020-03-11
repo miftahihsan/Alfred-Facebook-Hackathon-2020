@@ -1428,11 +1428,11 @@ class Replies {
       Responses.genTextReply("will take into consideration any recommendations made by Supervisors, Directors and/or the Director of HR & Communications"),
       Responses.genTextReply(" as well as taking into consideration the employees personnel records, including past disciplinary actions."),
       Responses.genTextReply("Depending on the seriousness of the reason(s), an employee can be suspended with or without pay until" +
-                            " the Administrative Review hearing is held and the outcome is determined."),
+                            " the Administrative Review hearing is held and the outcome is determined.")
     ],
     "TERMINATION" : [
       Responses.genTextReply("We will consider an employee to have voluntarily terminated his or her employment if an employee fails to follow the" + 
-      " companies policies"),
+      " companies policies")
     ],  
     "TRAVEL" : [
       Responses.genTextReply("The most current travel policy can be located in each department by seeing the Department Staff"),
