@@ -179,9 +179,9 @@ app.post('/webhook', (req, res) => {
             seenBy(sender_psid);
 
             if (webhook_event.message) {
-              handleMessage(sender_psid, webhook_event.message, user_name);
+              handleMessage(sender_psid, webhook_event.message);
             }else if (webhook_event.postback) {
-              handlePostback(sender_psid, webhook_event.postback, user_name);
+              handlePostback(sender_psid, webhook_event.postback);
             }else{
               disablePersistentMenu(sender_psid);
               sendMessage(sender_psid, Replies.replies["WELCOME_BACK"] );
@@ -244,7 +244,7 @@ app.get('/webhook', (req, res) => {
 // Check Documentation for sending and detecting attachment
 
 // Handles messages events
-function handleMessage(sender_psid, received_message, user_name) {
+function handleMessage(sender_psid, received_message ) {
   let response;
 
   // Checks if the message contains text
@@ -550,7 +550,7 @@ function giveAdminAccess( sender_psid ){
 
 
 // Handles messaging_postbacks events
-function handlePostback(sender_psid, received_postback, user_name) {
+function handlePostback(sender_psid, received_postback) {
 
   // Get the payload for the postback
   let payload = received_postback.payload;
