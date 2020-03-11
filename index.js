@@ -440,7 +440,7 @@ function handleQuickReplies(sender_psid, quick_reply) {
   else if( userData['state'] === 'LIVE_YES' ){
     userData['state'] = "INITIATE";
     sendMessage(sender_psid, response );
-    disablePersistentMenu(sender_psid);
+    // disablePersistentMenu(sender_psid);
     giveAdminAccess( sender_psid );
   }
   else if (userData['state'] === 'VIEW_SCHEDULE'){
