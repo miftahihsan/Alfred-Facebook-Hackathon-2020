@@ -356,9 +356,23 @@ function handleMessage(sender_psid, received_message, user_name) {
 // Set status = true if you want to disable
 // default value = false
 function persistentMenu( sender_psid, status ){
-  val = false;
-
-  if( status == true ) val = true;
+  var val = false;
+  var menu = [
+          {
+              "type": "postback",
+              "title": "Main Menu \u2630",
+              "payload": "MENU"
+          },
+          {
+              "type": "postback",
+              "title": "What do you do ❓",
+              "payload": "INITIATE"
+          },
+  ]
+  if( status == true ) {
+    val = true;
+    menu = [];
+  }
 
     // Construct the message body
     let request_body = {
@@ -369,19 +383,7 @@ function persistentMenu( sender_psid, status ){
         {
             "locale": "default",
             "composer_input_disabled": val,
-            "call_to_actions": [
-                {
-                    "type": "postback",
-                    "title": "Main Menu \u2630",
-                    "payload": "MENU"
-                },
-                {
-                    "type": "postback",
-                    "title": "What do you do ❓",
-                    "payload": "INITIATE"
-                },
-
-            ]
+            "call_to_actions": menu
         }
       ]
     }
