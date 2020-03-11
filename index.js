@@ -402,7 +402,7 @@ function seq( sender_psid, response, i ){
       console.log('Hello kaj kore nai ken jani! ' + err);
     });
 
-  }, 2000);
+  }, 1000);
 
 }
 

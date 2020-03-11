@@ -635,7 +635,7 @@ class Replies {
         ]
       )
     ],
-    "COMMUNICATE" : Responses.genQuickReply("Do you want to report stats/info to manager, make an announcement or ask for a live conversation with the admins?",
+    "COMMUNICATE" : Responses.genQuickReply("Would you like to report stats/info to manager or ask for a live conversation with the admins?",
         [
           {
             title: "Report stats/info 👩‍💻",
