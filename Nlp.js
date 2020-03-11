@@ -108,7 +108,7 @@ class Nlp{
         } 
         else{
             if( this.checkConfidence(nlp) ) return "default";
-            if (!branch in nlp){
+            if (!(branch in nlp)){
                 payload = branch.toUpperCase();
             }
             else payload = nlp[branch][0]['value'];
