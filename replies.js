@@ -1316,7 +1316,7 @@ class Replies {
       " must leave before the program is over."),
     ],
     "ETHICS" : [
-      Responses.genTextReply("The Utility Board of the City of Key West d/b/a our Energy Services has" + 
+      Responses.genTextReply("The Utility Board of the City of BD West d/b/a our Energy Services has" + 
       " adopted "),
       Responses.genTextReply("a Code of Ethics for its employees. This Code of Ethics is substantially similar to" +
       " the Code of Ethics adopted by "),
