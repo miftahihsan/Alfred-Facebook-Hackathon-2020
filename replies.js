@@ -4,7 +4,6 @@ const Course = require('./course');
 class Replies {
 
   static userData = {};
-  static user_name = "";
   static uid= 0;
 
   static setUID(uid){
@@ -23,6 +22,41 @@ class Replies {
       ticket += this.randomNumber(limit - 1);
     }
     return ticket;
+  }
+
+  static setInitiate(userData){
+    this.replies["INITIATE"] = [Responses.genTextReply("Hi "+userData['name']+" ! "),
+      Responses.genTextReply("I am an advanced bot designed to be your personal assistant here in the offices of Wayne Enterprises."),
+      Responses.genTextReply("I'm also designed to be your very own HR manager. That means you can ask me things you'd normally have to ask your HR department. If the question is too difficult for me I can redirect you to an HR representative for further help."),
+      Responses.genTextReply("In order to best serve your needs, I’ve already gathered some basic info about you from the Wayne Enterprises employee records"),
+      Responses.genTextReply("Lets get started! \uD83D\uDE04\n"),
+      Responses.genTextReply("\u2022 Ask an HR question\n\n\u2022 Modify your calendar, make a list etc.."),
+      Responses.genQuickReply(
+        "\u2022 Know something from a specific company department, like finance, tech support, law etc..\n\n\u2022 Report stats/info to manager\n",
+        [
+          {
+            title: "HR tasks 👔",
+            payload: "HR"
+          },
+          {
+            title: "Meeting/List 📅",
+            payload: "SCHEDULES"
+          },
+          {
+            title: "Communicate 📝",
+            payload: "COMMUNICATE"
+          },
+          {
+            title: "Info 📚",
+            payload: "FAQ"
+          },
+          {
+            title: "I'm bored! 🙍‍♂️",
+            payload: "BORED"
+          }
+        ]
+      )
+    ];
   }
 
   static getRandId(list){

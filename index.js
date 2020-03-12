@@ -136,12 +136,12 @@ app.post('/webhook', (req, res) => {
             var text;
             if( !(employee.Item !== undefined && employee.Item !== null) ){
               // NOT in employee check if in public user
-              userData['type'] = "Employee"; // change it to plublic user later
+              userData['type'] = "Employee"; // change it to public user later
 
               if ( !(publicUser.Item !== undefined && publicUser.Item !== null) ){
                 DynamoDB.insert( sender_psid, "Employee" );
                 userData['state'] = "INITIATE";
-                text = "Done putting the user into the DataBase check for more info, User is an Outsider";
+                Replies.setInitiate(userData);
               }
               else{
                 //User already in publicUser
