@@ -288,28 +288,93 @@ class Replies {
       Responses.genQuickReply("What do you want to do next?",
         [
           {
-            title: "HR tasks 👔",
-            payload: "HR"
-          },
-          {
             title: "Meeting/List 📅",
             payload: "SCHEDULES"
           },
           {
-            title: "Communicate 📝",
-            payload: "COMMUNICATE"
+            title: "Performance Stats 🔖",
+            payload: "PERFORMANCE_STATS"
           },
           {
-            title: "Info 📚",
-            payload: "FAQ"
+            title: "Upcoming Holidays 🎄",
+            payload: "HOLIDAYS"
+          },
+          {
+            title : "Bonus & Payments 💵" ,
+            payload: "BONUS_PAYMENTS"
           },
           {
             title: "I'm bored! 🙍‍♂️",
             payload: "BORED"
-          },
-
+          }
         ]
       )
+    ];
+
+    this.replies["PERSONAL_TASKS"] = [
+      Responses.genQuickReply("What would you like to do ?",
+      [
+        {
+          title: "Meeting/List 📅",
+          payload: "SCHEDULES"
+        },
+        {
+          title: "Performance Stats 🔖",
+          payload: "PERFORMANCE_STATS"
+        },
+        {
+          title: "Upcoming Holidays 🎄",
+          payload: "HOLIDAYS"
+        },
+        {
+          title : "Bonus & Payments 💵" ,
+          payload: "BONUS_PAYMENTS"
+        },
+        {
+          title: "I'm bored! 🙍‍♂️",
+          payload: "BORED"
+        }
+      ])
+    ];   
+
+    this.replies["ADMINISTRATIVE_TASKS"] = [
+      Responses.genQuickReply("What would you like to do ?",
+      [
+        {
+          title: "Report stats/info 👩‍💻",
+          payload: "REPORT_STATS"
+        },
+        {
+          title : "Submit a complaint 😕" ,
+          payload: "COMPLAINT"
+        },
+        {
+          title : "Knowledge 🧠" ,
+          payload: "KNOWLEDGE"
+        },
+      ])
+    ];
+
+    this.replies["KNOWLEDGE"] = [
+      Responses.genQuickReply("What would you like to do ?",
+      [
+        {
+          title: "Company policies 🤔",
+          payload: "HR_POLICIES"
+        },
+        {
+          title: "Training 🏋️‍♂️",
+          payload: "TRAINING"
+        },
+        {
+          title: "IT and Tech 🖥️",
+          payload: "IT_TECH"
+        },
+        {
+          title: "Corporate Law 👨‍⚖️",
+          payload: "CORPORATE_LAW"
+        },
+      ])
     ];
 
     this.replies["HOLIDAYS_ASK_FOR_TIME"] = [
@@ -350,8 +415,8 @@ class Replies {
       Responses.genQuickReply("You can apply for a leave at any time just by saying “Apply for a leave from 30 March to 30 April”!",
         [
           {
-            title: "HR policies 🤔",
-            payload: "HR_POLICIES"
+            title: "Meeting/List 📅",
+            payload: "SCHEDULES"
           },
           {
             title: "Performance Stats 🔖",
@@ -366,8 +431,8 @@ class Replies {
             payload: "BONUS_PAYMENTS"
           },
           {
-            title : "Submit a complaint 😕" ,
-            payload: "COMPLAINT"
+            title: "I'm bored! 🙍‍♂️",
+            payload: "BORED"
           }
         ]
       )
@@ -469,8 +534,8 @@ class Replies {
       Responses.genQuickReply("Great job!! 👏👏",
       [
         {
-          title: "HR policies 🤔",
-          payload: "HR_POLICIES"
+          title: "Meeting/List 📅",
+          payload: "SCHEDULES"
         },
         {
           title: "Performance Stats 🔖",
@@ -485,8 +550,8 @@ class Replies {
           payload: "BONUS_PAYMENTS"
         },
         {
-          title : "Submit a complaint 😕" ,
-          payload: "COMPLAINT"
+          title: "I'm bored! 🙍‍♂️",
+          payload: "BORED"
         }
       ])
     ];
@@ -836,31 +901,26 @@ class Replies {
           payload: "COMPLAINT"
         }
       ])],
-    "HOLIDAYS" : [
-      Responses.genTextReply("You have " + this.userData['sick_leave'] + " sick days and " + this.userData['holiday_left'] +
-                                          " leave days remaining for this year" ),
-      Responses.genTextReply("You can apply for a leave at any time just by saying “Apply for a leave from 30 March to 30 April”!")               
-    ],
     "SCHEDULES": Responses.genQuickReply(
       "Would you like to work with your lists," +
       " make a new list, view/manage your calendar",
       [
         {
-          title: "View Reminders 📝",
-          payload: "VIEW_REMINDERS"
-        },
-        {
           title: "Set-up Meeting 📣",
           payload: "ANNOUNCEMENT_WHO"
         },
+        {
+          title: "View Meeting 📆",
+          payload: "VIEW_SCHEDULE"
+        }, 
         {
           title: "Create Reminder 🗒",
           payload: "NEW_REMINDER"
         },
         {
-          title: "View Meeting 📆",
-          payload: "VIEW_SCHEDULE"
-        }
+          title: "View Reminders 📝",
+          payload: "VIEW_REMINDERS"
+        },
       ]),
     "FAQ": Responses.genQuickReply("Great! What do you want to know about?",
       [
@@ -1068,21 +1128,25 @@ class Replies {
       " condition or other circumstances beyond the employee’s control.",
       [
         {
-          title: "Health insurance 🏥",
-          payload: "HEALTH_INSURANCE"
+          title: "Meeting/List 📅",
+          payload: "SCHEDULES"
         },
         {
-          title: "Paid vacation 🏖️",
-          payload: "BONUS"
+          title: "Performance Stats 🔖",
+          payload: "PERFORMANCE_STATS"
         },
         {
-          title: "Rules for fines 🧾",
-          payload: "FINE_RULES"
+          title: "Upcoming Holidays 🎄",
+          payload: "HOLIDAYS"
         },
         {
-          title: "Increment 💰",
-          payload: "INCREMENT"
+          title : "Bonus & Payments 💵" ,
+          payload: "BONUS_PAYMENTS"
         },
+        {
+          title: "I'm bored! 🙍‍♂️",
+          payload: "BORED"
+        }
       ]),
     ],
     "FINANCE": [Responses.genTextReply("Here are some common Finances questions you can ask:"),
