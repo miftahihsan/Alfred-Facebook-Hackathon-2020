@@ -1232,5 +1232,5 @@ class Replies {
 
 
 
-module.exports = Replies
+module.exports = Replies;
 
