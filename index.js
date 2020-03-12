@@ -170,7 +170,6 @@ app.post('/webhook', (req, res) => {
             Replies.setUID(sender_psid);
             // Replies.setUserData(userData);
 
-            // I dont know why this is here :V
             senderAction(sender_psid, Response.getAnimation("off"));
 
             userData['uid'] = sender_psid;
@@ -628,7 +627,7 @@ async function getUserName( sender_psid ){
     .catch(err => {
       return err;
       // log("could not get nake");
-    })
+    });
 
   let json = await response.json();
   
@@ -798,7 +797,7 @@ function disablePersistentMenu(sender_psid) {
         "call_to_actions": [
           {
               "type": "postback",
-              "title": "Main Menu \u1F3E0",
+              "title": "HOME 🏠",
               "payload": "MENU"
           },
           {
