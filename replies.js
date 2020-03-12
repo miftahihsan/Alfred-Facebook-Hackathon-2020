@@ -127,8 +127,78 @@ class Replies {
     ]
     }
 
+    // BUTTON SECTION START
+    this.replies["TRAINING_BTN"] = [
+      {
+        title: "Courses available",
+        payload: "COURSES_AVAILABLE"
+      },
+      {
+        title: "Courses required",
+        payload: "PREREQUISITE_TRAINING"
+      },
+      {
+        title: "Improvement Courses",
+        payload: "SELF_IMPROVEMENT_COURSES"
+      }
+    ];
 
-    this.replies['HR_POLICIES'] = [
+    this.replies["ADMINISTRATIVE_BTN"] = [
+      {
+        title: "Report stats/info 👩‍💻",
+        payload: "REPORT_STATS"
+      },
+      {
+        title : "Submit a complaint 😕" ,
+        payload: "COMPLAINT"
+      },
+      {
+        title : "Knowledge 🧠" ,
+        payload: "KNOWLEDGE"
+      },
+    ];
+
+    this.replies["IT_BTN"] = [
+      {
+        title: "Credentials ? 🔑",
+        payload: "USER_NAME_PASSWORD"
+      },
+      {
+        title: "Can't login 👨‍💻",
+        payload: "CANT_LOGIN"
+      },
+      {
+        title: "Faulty equipment ⚡",
+        payload: "EQUIPMENT_NOT_WORKING"
+      },
+      {
+        title: "No Network! 🌐",
+        payload: "NO_NETWORK"
+      },
+    ];
+
+    this.replies["CORPORATE_LAW_BTN"] = [
+      {
+        title: "New Laws",
+        payload: "NEW_LAWS"
+      },
+      {
+        title: "Employee Rights",
+        payload: "EMPLOYEE_RIGHTS"
+      },
+      {
+        title: "Laws",
+        payload: "LAWS_CO_WORKERS"
+      },
+      {
+        title: "Buy Shares",
+        payload: "BUY_SHARES"
+      },
+    ]
+    // BUTTON SECTION END
+
+
+    this.replies["HR_POLICIES"] = [
       Responses.genTextReply("You can say something like"),
       Responses.genTextReply("\“I’d like to read the sexual harassment guidelines\”"),
       Responses.genTextReply("Or \“What are the current health insurance policies?\”"),
@@ -145,7 +215,7 @@ class Replies {
       Responses.genTextReply("We have delivered a message to every one that you called for a meeting"),
     ];
 
-    this.replies['ANNOUNCEMENT_TIME'] = [Responses.genTextReply("Select a time from below"),
+    this.replies["ANNOUNCEMENT_TIME"] = [Responses.genTextReply("Select a time from below"),
       Responses.genQuickReply("Or you can also type your preferred time",
       [
         {
@@ -163,7 +233,7 @@ class Replies {
       ]),
     ];
 
-    this.replies['ANNOUNCEMENT_WHO'] = [
+    this.replies["ANNOUNCEMENT_WHO"] = [
       Responses.genQuickReply("Who would you like to set-up a meeting with?",
        [
         {
@@ -337,22 +407,12 @@ class Replies {
       ])
     ];   
 
+
+
     this.replies["ADMINISTRATIVE_TASKS"] = [
       Responses.genQuickReply("What would you like to do ?",
-      [
-        {
-          title: "Report stats/info 👩‍💻",
-          payload: "REPORT_STATS"
-        },
-        {
-          title : "Submit a complaint 😕" ,
-          payload: "COMPLAINT"
-        },
-        {
-          title : "Knowledge 🧠" ,
-          payload: "KNOWLEDGE"
-        },
-      ])
+        this.replies["ADMINISTRATIVE_BTN"]
+      )
     ];
 
     this.replies["KNOWLEDGE"] = [
@@ -438,7 +498,7 @@ class Replies {
       )
     ];
 
-    this.replies['BONUS_QUERIES'] = [
+    this.replies["BONUS_QUERIES"] = [
       Responses.genTextReply("I’ll list your remaining bonuses for this year below. Have a look! "),
       Responses.genQuickReply("\u2022 Christmas: "+this.userData.Item["holiday_bonus"]+"\n" +
         "\u2022 Sales Bonus: "+this.userData.Item['bonus']+"",
@@ -466,7 +526,7 @@ class Replies {
         ])
     ];
 
-    this.replies['BONUS_PAYMENTS'] = [
+    this.replies["BONUS_PAYMENTS"] = [
       Responses.genTextReply("I’ll list your remaining bonuses for this year below. Have a look! "),
       Responses.genTextReply("\u2022 Christmas: "+this.userData.Item["holiday_bonus"]+"\n" +
                              "\u2022 Sales Bonus: "+this.userData.Item['bonus']+""),
@@ -497,7 +557,7 @@ class Replies {
         ])
     ];
 
-    this.replies['SALARIES'] = [
+    this.replies["SALARIES"] = [
       Responses.genTextReply("You have "+this.userData.Item['due_salary']+" monthly salary payments left this year."),
       Responses.genQuickReply("You can directly ask about payments and bonuses simply by asking" +
                               "\“How much bonuses am i entitled to this year?\” or \"How much do I get this year in salaries?\"",
@@ -560,93 +620,29 @@ class Replies {
       Responses.genTextReply("We have sent an email to the IT perosn regarding your issue : Username and password"),
       Responses.genTextReply("He will be in contact with you very shortly"),
       Responses.genQuickReply("Support Ticket Issued : " + this.supportTicketGenerator() , 
-      [
-        {
-          title: "Credentials ? 🔑",
-          payload: "USER_NAME_PASSWORD"
-        },
-        {
-          title: "Can't login 👨‍💻",
-          payload: "CANT_LOGIN"
-        },
-        {
-          title: "Faulty equipment ⚡",
-          payload: "EQUIPMENT_NOT_WORKING"
-        },
-        {
-          title: "No Network! 🌐",
-          payload: "NO_NETWORK"
-        },
-      ]),
+        this.replies["IT_BTN"]
+      ),
     ],
     this.replies["CANT_LOGIN"] = [
       Responses.genTextReply("We have sent an email to the IT perosn regarding your issue : Can't login"),
       Responses.genTextReply("He will be in contact with you very shortly"),
       Responses.genQuickReply("Support Ticket Issued : " + this.supportTicketGenerator() , 
-      [
-        {
-          title: "Credentials ? 🔑",
-          payload: "USER_NAME_PASSWORD"
-        },
-        {
-          title: "Can't login 👨‍💻",
-          payload: "CANT_LOGIN"
-        },
-        {
-          title: "Faulty equipment ⚡",
-          payload: "EQUIPMENT_NOT_WORKING"
-        },
-        {
-          title: "No Network! 🌐",
-          payload: "NO_NETWORK"
-        },
-      ]),
+        this.replies["IT_BTN"]
+      ),
     ],
     this.replies["EQUIPMENT_NOT_WORKING"] = [
       Responses.genTextReply("We have sent an email to the IT perosn regarding your issue : Faulty equipment"),
       Responses.genTextReply("He will be in contact with you very shortly"),
       Responses.genQuickReply("Support Ticket Issued : " + this.supportTicketGenerator() , 
-      [
-        {
-          title: "Credentials ? 🔑",
-          payload: "USER_NAME_PASSWORD"
-        },
-        {
-          title: "Can't login 👨‍💻",
-          payload: "CANT_LOGIN"
-        },
-        {
-          title: "Faulty equipment ⚡",
-          payload: "EQUIPMENT_NOT_WORKING"
-        },
-        {
-          title: "No Network! 🌐",
-          payload: "NO_NETWORK"
-        },
-      ]),
+        this.replies["IT_BTN"]
+      ),
     ],
     this.replies["NO_NETWORK"] = [
       Responses.genTextReply("We have sent an email to the IT perosn regarding your issue : No Network!"),
       Responses.genTextReply("He will be in contact with you very shortly"),
       Responses.genQuickReply("Support Ticket Issued : " + this.supportTicketGenerator() , 
-      [
-        {
-          title: "Credentials ? 🔑",
-          payload: "USER_NAME_PASSWORD"
-        },
-        {
-          title: "Can't login 👨‍💻",
-          payload: "CANT_LOGIN"
-        },
-        {
-          title: "Faulty equipment ⚡",
-          payload: "EQUIPMENT_NOT_WORKING"
-        },
-        {
-          title: "No Network! 🌐",
-          payload: "NO_NETWORK"
-        },
-      ]),
+        this.replies["IT_BTN"]
+      ),
     ],
 
     /*this.replies["COMPLAINT"] = [
@@ -706,12 +702,12 @@ class Replies {
       )
     ];
 
-    this.replies['LIVE_YES'] = [
+    this.replies["LIVE_YES"] = [
       Responses.genTextReply("Your conversation has now been handed over to a live agent"),
       Responses.genTextReply("Make sure to ask your question for them to get notified also, please be patient and wait for them to get back to you."),
     ];
     
-    this.replies['LIVE_NO'] = [
+    this.replies["LIVE_NO"] = [
       Responses.genQuickReply("What do you want to do next?",
         [
           {
@@ -737,39 +733,19 @@ class Replies {
         ]
       )
     ];
-  }
 
-
-  static replies = {
-    "COMPLAINT_SUCCESS" : [Responses.genTextReply("I apologize for that unpleasant experience."),
+    this.replies["COMPLAINT_SUCCESS"] = [
+      Responses.genTextReply("I apologize for that unpleasant experience."),
       Responses.genQuickReply("Your complaint has been logged successfully and will be processed as soon as possible! 😃",
-        [
-          {
-            title: "HR policies 📚",
-            payload: "HR_POLICIES"
-          },
-          {
-            title: "Performance Stats 🔖",
-            payload: "PERFORMANCE_STATS"
-          },
-          {
-            title: "Upcoming Holidays 🎄",
-            payload: "HOLIDAYS"
-          },
-          {
-            title : "Bonus & Payments 💵" ,
-            payload: "BONUS_PAYMENTS"
-          },
-          {
-            title : "Submit a complaint 😕" ,
-            payload: "COMPLAINT"
-          }
-        ])
-    ],
-    "LIVE_MODE" : [
+        this.replies["ADMINISTRATIVE_BTN"]  
+      )
+    ];
+
+    this.replies["LIVE_MODE"] = [
       Responses.genTextReply("You are currently in live mode. Please be patient while and wait for the admin to get back to you 😀.")
-    ],
-    "WELCOME_BACK" : [
+    ];
+
+    this.replies["WELCOME_BACK"] = [
       Responses.genTextReply("Welcome Back!"),
       Responses.genTextReply("Hope your issue was solved!"),
       Responses.genQuickReply(
@@ -797,14 +773,11 @@ class Replies {
           }
         ]
       )
-    ],
-    "INITIATE": [Responses.genTextReply("Hi!"),
-      Responses.genTextReply("I am an advanced bot designed to be your personal assistant here in the offices of Wayne Enterprises."),
-      Responses.genTextReply("I'm also designed to be your very own HR manager. That means you can ask me things you'd normally have to ask your HR department. If the question is too difficult for me I can redirect you to an HR representative for further help."),
-      Responses.genTextReply("In order to best serve your needs, I’ve already gathered some basic info about you from the Wayne Enterprises employee records"),
-      Responses.genTextReply("Lets get started! \uD83D\uDE04\n")
-    ],
-    "WHAT_CAN_YOU_DO": [Responses.genTextReply("Hi!"),
+    ];
+
+
+    this.replies["WHAT_CAN_YOU_DO"] = [
+      Responses.genTextReply("Hi!"),
       Responses.genTextReply("I am an advanced bot designed to be your personal assistant here in the offices of Wayne Enterprises."),
       Responses.genTextReply("I'm also designed to be your very own HR manager. That means you can ask me things you'd normally have to ask your HR department. If the question is too difficult for me I can redirect you to an HR representative for further help."),
       Responses.genTextReply("\u2022 Ask an HR question\n\n\u2022 Modify your calendar, make a list etc.."),
@@ -833,8 +806,9 @@ class Replies {
           }
         ]
       )
-    ],
-    "MENU": [
+    ];
+
+    this.replies["MENU"] = [
       Responses.genQuickReply("What do you want to do next?",
         [
           {
@@ -860,8 +834,10 @@ class Replies {
 
         ]
       )
-    ],
-    "COMMUNICATE" : Responses.genQuickReply("Would you like to report stats/info to manager or ask for a live conversation with the admins?",
+    ];
+
+    this.replies["COMMUNICATE"] = [
+      Responses.genQuickReply("Would you like to report stats/info to manager or ask for a live conversation with the admins?",
         [
           {
             title: "Report stats/info 👩‍💻",
@@ -872,8 +848,11 @@ class Replies {
             payload: "LIVE"
           }
         ]
-    ),
-    "HR": [Responses.genTextReply("Ok! What do you want to know about: "),
+      )
+    ];
+
+    this.replies["HR"] = [
+      Responses.genTextReply("Ok! What do you want to know about: "),
       Responses.genTextReply( "\u2022 HR company policy\n\n" +
         "\u2022 Your performance stats\n\n" +
         "\u2022 Sick days/holidays\n\n"),
@@ -900,29 +879,35 @@ class Replies {
           title : "Submit a complaint 😕" ,
           payload: "COMPLAINT"
         }
-      ])],
-    "SCHEDULES": Responses.genQuickReply(
-      "Would you like to work with your lists," +
-      " make a new list, view/manage your calendar",
-      [
-        {
-          title: "Set-up Meeting 📣",
-          payload: "ANNOUNCEMENT_WHO"
-        },
-        {
-          title: "View Meeting 📆",
-          payload: "VIEW_SCHEDULE"
-        }, 
-        {
-          title: "Create Reminder 🗒",
-          payload: "NEW_REMINDER"
-        },
-        {
-          title: "View Reminders 📝",
-          payload: "VIEW_REMINDERS"
-        },
-      ]),
-    "FAQ": Responses.genQuickReply("Great! What do you want to know about?",
+      ])
+    ];
+
+    this.replies["SCHEDULES"] = [
+      Responses.genQuickReply(
+        "Would you like to work with your lists," +
+        " make a new list, view/manage your calendar",
+        [
+          {
+            title: "Set-up Meeting 📣",
+            payload: "ANNOUNCEMENT_WHO"
+          },
+          {
+            title: "View Meeting 📆",
+            payload: "VIEW_SCHEDULE"
+          }, 
+          {
+            title: "Create Reminder 🗒",
+            payload: "NEW_REMINDER"
+          },
+          {
+            title: "View Reminders 📝",
+            payload: "VIEW_REMINDERS"
+          },
+      ])
+    ];
+
+    this.replies["FAQ"] = [
+      Responses.genQuickReply("Great! What do you want to know about?",
       [
         {
           title: "IT and Tech 🖥️",
@@ -936,8 +921,10 @@ class Replies {
           title: "Training 🏋️‍♂️",
           payload: "TRAINING"
         },
-      ]),
-    "SELF_IMPROVEMENT_COURSES" : [
+      ])
+    ];
+
+    this.replies["SELF_IMPROVEMENT_COURSES"] = [
       Responses.genTextReply("Here is a list of all the courses that you can apply for!!"),
       {
         "attachment": {
@@ -950,23 +937,11 @@ class Replies {
       },
       Responses.genQuickReply(
         "What would you like to do next?",
-          [
-            {
-              title: "Courses available",
-              payload: "COURSES_AVAILABLE"
-            },
-            {
-              title: "Courses required",
-              payload: "PREREQUISITE_TRAINING"
-            },
-            {
-              title: "Improvement Courses",
-              payload: "SELF_IMPROVEMENT_COURSES"
-            }
-          ]
+        this.replies["TRAINING_BTN"]
       )
-    ],
-    "COURSES_AVAILABLE" : [
+    ];
+
+    this.replies["COURSES_AVAILABLE"] = [
       Responses.genTextReply("Here is a list of all the courses that you can apply for!!"),
       {
         "attachment": {
@@ -979,23 +954,11 @@ class Replies {
       },
       Responses.genQuickReply(
         "What would you like to do next?",
-          [
-            {
-              title: "Courses available",
-              payload: "COURSES_AVAILABLE"
-            },
-            {
-              title: "Courses required",
-              payload: "PREREQUISITE_TRAINING"
-            },
-            {
-              title: "Improvement Courses",
-              payload: "SELF_IMPROVEMENT_COURSES"
-            }
-          ]
+        this.replies["TRAINING_BTN"]
       )
-    ],
-    "PREREQUISITE_TRAINING" : [
+    ];
+
+    this.replies["PREREQUISITE_TRAINING"] = [
       Responses.genTextReply("Here is a list of all the courses that you can apply for!!"),
       {
         "attachment": {
@@ -1008,46 +971,22 @@ class Replies {
       },
       Responses.genQuickReply(
         "What would you like to do next?",
-          [
-            {
-              title: "Courses available",
-              payload: "COURSES_AVAILABLE"
-            },
-            {
-              title: "Courses required",
-              payload: "PREREQUISITE_TRAINING"
-            },
-            {
-              title: "Improvement Courses",
-              payload: "SELF_IMPROVEMENT_COURSES"
-            }
-          ]
+        this.replies["TRAINING_BTN"]
       )
-    ],
-    "IT_TECH": [Responses.genTextReply("Here are some common IT concerns you can ask about:"),
+    ];
+
+
+    this.replies["IT_TECH"] = [
+      Responses.genTextReply("Here are some common IT concerns you can ask about:"),
       Responses.genTextReply("\u2022 What's my username and password?\n\n" +
         "\u2022 I can't login to my account"),
       Responses.genQuickReply("\u2022 My office equipment isn’t working\n\n" +
         "\u2022 My office equipment doesn't have network connectivity",
-        [
-          {
-            title: "Credentials ? 🔑",
-            payload: "USER_NAME_PASSWORD"
-          },
-          {
-            title: "Can't login 👨‍💻",
-            payload: "CANT_LOGIN"
-          },
-          {
-            title: "Faulty equipment ⚡",
-            payload: "EQUIPMENT_NOT_WORKING"
-          },
-          {
-            title: "No Network! 🌐",
-            payload: "NO_NETWORK"
-          },
-        ])],
-    "HEALTH_INSURANCE" : [
+          this.replies["IT_BTN"]
+        )
+    ];
+
+    this.replies["HEALTH_INSURANCE"] = [
       Responses.genTextReply("The company has a wide variety of health insurance packages to choose from."),
       Responses.genTextReply("All employees here are covered by the default insurance."),
       Responses.genQuickReply("However you may choose to change your health insurance any time.",
@@ -1069,8 +1008,9 @@ class Replies {
           payload: "INCREMENT"
         },
       ]),
-    ],
-    "FINE_RULES" : [
+    ];
+
+    this.replies["FINE_RULES"] = [
       Responses.genQuickReply("As of now we do not have any policy to fine employees.",
       [
         {
@@ -1090,8 +1030,9 @@ class Replies {
           payload: "INCREMENT"
         },
       ]),
-    ],
-    "INCREMENT" : [
+    ];
+
+    this.replies["INCREMENT"] = [
       Responses.genTextReply("Performance Ratings as a Criteria: Increments will be linked to individual performances." + 
       "The most ideal /common method of assessing the performance of each individual is Categorization:"),
       Responses.genTextReply("A, B, C, D, E or 1, 2, 3, 4, 5 on a scale of 1(Lowest) -> 5(Highest) or 1(Lowest) -> 10 (Highest)"),
@@ -1117,8 +1058,9 @@ class Replies {
           payload: "INCREMENT"
         },
       ]),
-    ],
-    "BONUS" : [
+    ];
+
+    this.replies["BONUS"] = [
       Responses.genTextReply("Employees who take FMLA leave will not lose any previous accrued seniority or employment benefits" + 
       " (including the longevity bonus, safety incentive, and holiday pay), and those benefits will continue to accrue during the FMLA leave."),
       Responses.genTextReply("Leave accruals will be based according to the Management Handbook and/or our Contract."),
@@ -1148,8 +1090,10 @@ class Replies {
           payload: "BORED"
         }
       ]),
-    ],
-    "FINANCE": [Responses.genTextReply("Here are some common Finances questions you can ask:"),
+    ];
+
+    this.replies["FINANCE"] = [
+      Responses.genTextReply("Here are some common Finances questions you can ask:"),
       Responses.genQuickReply(
         "\u2022 Tell me about paid vacations!\n\n" +
         "\u2022 What are the rules for fines?\n\n" +
@@ -1171,8 +1115,10 @@ class Replies {
             title: "Increment 💰",
             payload: "INCREMENT"
           },
-        ])],
-    "NEW_LAWS" : [
+        ])
+    ];
+
+    this.replies["NEW_LAWS"] = [
       Responses.genTextReply("As a part of its commitment to safeguard the health of its employees, to provide a safe" +
       " place for its employees to work, and to promote a drug-free community, we have established this policy on the use" +
       " or abuse of alcohol and drugs by its employees."),
@@ -1183,26 +1129,11 @@ class Replies {
       Responses.genTextReply("This policy is established to detect and remove users and abusers of drugs and alcohol. It is also our " + 
       " policy to prevent the use and/or presence of these substances"),
       Responses.genQuickReply("in the workplace and to assist employees in overcoming any dependence on drugs and/or alcohol", 
-      [
-        {
-          title: "New Laws",
-          payload: "NEW_LAWS"
-        },
-        {
-          title: "Employee Rights",
-          payload: "EMPLOYEE_RIGHTS"
-        },
-        {
-          title: "Laws",
-          payload: "LAWS_CO_WORKERS"
-        },
-        {
-          title: "Buy Shares",
-          payload: "BUY_SHARES"
-        },
-      ]),
-    ],
-    "EMPLOYEE_RIGHTS" : [
+        this.replies["CORPORATE_LAW_BTN"]
+      ),
+    ];
+
+    this.replies["EMPLOYEE_RIGHTS"] = [
       Responses.genTextReply("Employment law covers all rights and obligations within the employer-employee relationship," + 
       " including not only current employees but also former employees and job applicants."),
       Responses.genTextReply("In most states, employees are afforded privacy in the workplace. This employee right applies" + 
@@ -1214,51 +1145,20 @@ class Replies {
       Responses.genTextReply("\u2022 Right to be free from retaliation for filing a claim or complaint against an employer (these" + 
       " are sometimes called \"whistleblower\" rights)"),
       Responses.genQuickReply("\u2022 Right to fair wages for work performed.",
-      [
-        {
-          title: "New Laws",
-          payload: "NEW_LAWS"
-        },
-        {
-          title: "Employee Rights",
-          payload: "EMPLOYEE_RIGHTS"
-        },
-        {
-          title: "Laws",
-          payload: "LAWS_CO_WORKERS"
-        },
-        {
-          title: "Buy Shares",
-          payload: "BUY_SHARES"
-        },
-      ])
-    ],
-    "LAWS_CO_WORKERS" : [
+        this.replies["CORPORATE_LAW_BTN"])
+    ];
+
+    this.replies["LAWS_CO_WORKERS"] = [
       Responses.genTextReply("So what should employees understand about protecting the privacy of other employees? Well, that’s a big question without a simple answer."),
       Responses.genTextReply("At the very least, it is important that employers write and distribute clearly written policies about who is authorized to access such " + 
       "information, the requirement to maintain the privacy of the information, and the systems or processes employees need to follow to protect it."),
       Responses.genQuickReply("Also, it’s a good idea to include the obligation to protect the privacy of employee information in whatever confidentiality agreement" + 
       " employees are required to sign as a condition of employment.",
-      [
-        {
-          title: "New Laws",
-          payload: "NEW_LAWS"
-        },
-        {
-          title: "Employee Rights",
-          payload: "EMPLOYEE_RIGHTS"
-        },
-        {
-          title: "Laws",
-          payload: "LAWS_CO_WORKERS"
-        },
-        {
-          title: "Buy Shares",
-          payload: "BUY_SHARES"
-        },
-      ])
-    ],
-    "BUY_SHARES" : [
+        this.replies["CORPORATE_LAW_BTN"]
+      )
+    ];
+
+    this.replies["BUY_SHARES"] = [
       Responses.genTextReply("Through the course of time, Business Law has evolved in the field of the division and flexibility in transferability " + 
       "of the ownership of a company. Each shareholder is considered an owner of the company. The degree of ownership depends on the number of shares" + 
       " each individual buys."),
@@ -1266,185 +1166,153 @@ class Replies {
       " are a set of guidelines, which provide the rules for buying, selling and transferring different types of shares. "),
       Responses.genQuickReply("The articles of association also mention the types of shares, which could be transacted by the company. Ordinary shares " + 
       "constitute the biggest amount of shares, but special types of shares like the alphabet shares also exist.",
-      [
-        {
-          title: "New Laws",
-          payload: "NEW_LAWS"
-        },
-        {
-          title: "Employee Rights",
-          payload: "EMPLOYEE_RIGHTS"
-        },
-        {
-          title: "Laws",
-          payload: "LAWS_CO_WORKERS"
-        },
-        {
-          title: "Buy Shares",
-          payload: "BUY_SHARES"
-        },
-      ])
-    ],
-    "CORPORATE_LAW": [
+        this.replies["CORPORATE_LAW_BTN"]
+      )
+    ];
+
+    this.replies["CORPORATE_LAW"] = [
       Responses.genTextReply("Here are some common Corporate Law questions you can ask:"),
       Responses.genTextReply("\u2022 What are the new law changes introduced in the company?\n\n" +
         "\u2022 What are my rights as an employee in the company?"),
       Responses.genQuickReply("\u2022 What are the laws regarding issues with co workers?\n\n" +
         "\u2022 Can I buy shares for Wayne Enterprises as an employee?\n\n",
+          this.replies['CORPORATE_LAW_BTN']
+        )
+      ];
+
+      this.replies["TRAINING"] = [
+        Responses.genTextReply("Here are some common Training and Self Improvement questions you can ask:"),
+        Responses.genQuickReply(
+          "\u2022 What are the current training courses available for me?\n\n" +
+          "\u2022 What training courses do I require to complete my current tasks?\n\n" +
+          "\u2022 What self improvement courses do I need to take to improve my performance metrics?",
+            this.replies["TRAINING_BTN"]
+          )
+      ];
+
+      this.replies["REPORT_STATS"] = [
+        Responses.genTextReply("Please Upload the sales records that you would like to send"),
+        Responses.genTextReply("The document will be transferred to the manager, David Wallace")
+      ];
+
+      this.replies["DISCARD_REPORT"] = [
+        Responses.genQuickReply("Your Attachments have been discarded successfully!",
+          this.replies["ADMINISTRATIVE_BTN"]
+        )
+      ];
+
+      this.replies["REPORT_STATS_ATTACHMENT"] = [
+        Responses.genQuickReply("You can upload more documents if you want. You can also choose to go through or discard the documents that you have uploaded" + 
+        " by pressing the buttons below",
         [
           {
-            title: "New Laws",
-            payload: "NEW_LAWS"
+            title: "Submit Report 📈",
+            payload: "SUBMIT_REPORT"
           },
           {
-            title: "Employee Rights",
-            payload: "EMPLOYEE_RIGHTS"
+            title: "Discard Report 🗑️",
+            payload: "DISCARD_REPORT"
           },
-          {
-            title: "Laws",
-            payload: "LAWS_CO_WORKERS"
-          },
-          {
-            title: "Buy Shares",
-            payload: "BUY_SHARES"
-          },
-        ])
-      ],
-    "TRAINING": [
-      Responses.genTextReply("Here are some common Training and Self Improvement questions you can ask:"),
-      Responses.genQuickReply(
-        "\u2022 What are the current training courses available for me?\n\n" +
-        "\u2022 What training courses do I require to complete my current tasks?\n\n" +
-        "\u2022 What self improvement courses do I need to take to improve my performance metrics?",
+        ]),
+      ];
+
+      this.replies["REPORT_STATS_ERROR_MSG"] = [
+        Responses.genTextReply("Please Upload a document file as an attachment and not text.")
+      ];
+
+      this.replies["VIEW_REMINDERS"] = [
+        Responses.genQuickReply(
+          "Looks like you have no reminders!",
           [
             {
-              title: "Courses available",
-              payload: "COURSES_AVAILABLE"
+              title: "Create Reminder 🗒",
+              payload: "NEW_REMINDER"
             },
             {
-              title: "Courses required",
-              payload: "PREREQUISITE_TRAINING"
+              title: "View Meeting 📆",
+              payload: "VIEW_SCHEDULE"
+            }
+        ])
+      ];
+
+      this.replies["NEW_REMINDER"] = [
+        Responses.genWebView(this.uid),
+        Responses.genQuickReply(
+          "Or manage other reminders",
+          [
+            {
+              title: "Create Reminder 🗒",
+              payload: "NEW_REMINDER"
             },
             {
-              title: "Improvement Courses",
-              payload: "SELF_IMPROVEMENT_COURSES"
+              title: "View Meeting 📆",
+              payload: "VIEW_SCHEDULE"
+            }
+          ])
+      ];
+
+      this.replies["VIEW_SCHEDULE"] = [
+        Responses.genTextReply("Looks like you have nothing to do!"),
+        Responses.genPictureReply("https://s3-us-west-2.amazonaws" + 
+        ".com/www.whitewall.site/bizbotteuxdeux/assets/thinking.png?fbc" + 
+        "lid=IwAR3lHMv3pEPSAglCNhN6S2h2XvGNRl_G9SG_8FN3hCbCa48PUp-33PJzo70"),
+        Responses.genTextReply("I'll ask your manager to assign you more tasks :3"),
+        Responses.genPictureReply("https://s3-us-west-2.amazonaws.com/www.whitewall.site/bizbotteuxdeux/assets/monkey" + 
+          "_smirk.png?fbclid=IwAR01UxGdDfPXhuTgLE6oh0LJirwmpEh0anBEWoh03lCZSBloIenFsGN8uP4"),
+        Responses.genQuickReply(
+          "What do you want to do next?",
+          [
+            {
+              title: "View Reminders 📝",
+              payload: "VIEW_REMINDERS"
+            },
+            {
+              title: "Set-up Meeting 📣",
+              payload: "ANNOUNCEMENT_WHO"
+            },
+            {
+              title: "Create Reminder 🗒",
+              payload: "NEW_REMINDER"
+            },
+            {
+              title: "View Meeting 📆",
+              payload: "VIEW_SCHEDULE"
             }
           ]
         )
-      ],
-    "REPORT_STATS": [
-      Responses.genTextReply("Please Upload the sales records that you would like to send"),
-      Responses.genTextReply("The document will be transferred to the manager, David Wallace")
-    ],
-    "DISCARD_REPORT" : [
-      Responses.genQuickReply("Your Attachments have been discarded successfully!",        [
-        {
-          title: "Report stats/info 👩‍💻",
-          payload: "REPORT_STATS"
-        },
-        {
-          title: "Set-up Meeting 📣",
-          payload: "ANNOUNCEMENT_WHO"
-        },
-        {
-          title: "Live Chat 👨",
-          payload: "LIVE"
-        }
-      ])
-    ],
-    "REPORT_STATS_ATTACHMENT": [
-      Responses.genQuickReply("You can upload more documents if you want. You can also choose to go through or discard the documents that you have uploaded" + 
-      " by pressing the buttons below",
-      [
-        {
-          title: "Submit Report 📈",
-          payload: "SUBMIT_REPORT"
-        },
-        {
-          title: "Discard Report 🗑️",
-          payload: "DISCARD_REPORT"
-        },
-      ]),
-    ],
-    "REPORT_STATS_ERROR_MSG": [
-      Responses.genTextReply("Please Upload a document file as an attachment and not text.")
-    ],
-    "VIEW_REMINDERS": Responses.genQuickReply(
-      "Looks like you have no reminders!",
-      [
-        {
-          title: "Create Reminder 🗒",
-          payload: "NEW_REMINDER"
-        },
-        {
-          title: "View Meeting 📆",
-          payload: "VIEW_SCHEDULE"
-        }
-      ]),
-    "NEW_REMINDER": [
-      Responses.genWebView(this.uid),
-      Responses.genQuickReply(
-        "Or manage other reminders",
+      ];
+
+      this.replies["ENROLL"] = [
+        Responses.genQuickReply("You have been enrolled to the following course",
         [
           {
-            title: "Create Reminder 🗒",
-            payload: "NEW_REMINDER"
+            title: "Finances 💰",
+            payload: "FINANCE"
           },
           {
-            title: "View Meeting 📆",
-            payload: "VIEW_SCHEDULE"
-          }
-        ])],
-    "VIEW_SCHEDULE": [
-      Responses.genTextReply("Looks like you have nothing to do!"),
-      Responses.genPictureReply("https://s3-us-west-2.amazonaws" + 
-      ".com/www.whitewall.site/bizbotteuxdeux/assets/thinking.png?fbc" + 
-      "lid=IwAR3lHMv3pEPSAglCNhN6S2h2XvGNRl_G9SG_8FN3hCbCa48PUp-33PJzo70"),
-      Responses.genTextReply("I'll ask your manager to assign you more tasks :3"),
-      Responses.genPictureReply("https://s3-us-west-2.amazonaws.com/www.whitewall.site/bizbotteuxdeux/assets/monkey" + 
-        "_smirk.png?fbclid=IwAR01UxGdDfPXhuTgLE6oh0LJirwmpEh0anBEWoh03lCZSBloIenFsGN8uP4"),
-      Responses.genQuickReply(
-        "What do you want to do next?",
-        [
-          {
-            title: "View Reminders 📝",
-            payload: "VIEW_REMINDERS"
+            title: "IT and Tech 🖥️",
+            payload: "IT_TECH"
           },
           {
-            title: "Set-up Meeting 📣",
-            payload: "ANNOUNCEMENT_WHO"
+            title: "Corporate Law 👨‍⚖️",
+            payload: "CORPORATE_LAW"
           },
           {
-            title: "Create Reminder 🗒",
-            payload: "NEW_REMINDER"
+            title: "Training 🏋️‍♂️",
+            payload: "TRAINING"
           },
-          {
-            title: "View Meeting 📆",
-            payload: "VIEW_SCHEDULE"
-          }
-        ]
-      )
-    ],
-    "ENROLL" : Responses.genQuickReply("You have been enrolled to the following course",
-    [
-      {
-        title: "Finances 💰",
-        payload: "FINANCE"
-      },
-      {
-        title: "IT and Tech 🖥️",
-        payload: "IT_TECH"
-      },
-      {
-        title: "Corporate Law 👨‍⚖️",
-        payload: "CORPORATE_LAW"
-      },
-      {
-        title: "Training 🏋️‍♂️",
-        payload: "TRAINING"
-      },
-    ]),
-    "APOLOGIZE" : Responses.genTextReply("I'm sorry, I didn't quite understand that")
+        ])
+      ];
+
+      this.replies["APOLOGIZE"] = [
+        Responses.genTextReply("I'm sorry, I didn't quite understand that")
+      ];
+
+  }
+
+
+  static replies = {
+   
   };
 
   static policy = {
