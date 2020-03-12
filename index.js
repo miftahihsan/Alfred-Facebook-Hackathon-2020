@@ -34,6 +34,17 @@ app.use(function(req, res, next) {
   next();
 });
 
+
+app.post('/keepAlive', (req, res) => {
+  let body = req.body;
+  console.log(body);
+
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.status(200).send('EVENT_RECEIVED');
+
+});
+
 app.post('/userList', (req, res) => { 
   let body = req.body;
   
@@ -91,6 +102,9 @@ app.post('/sendMessageToUser' , (req, res) => {
   let body = req.body;
   let uid = body.uid;
   console.log("BROADCAST REQUESTED");
+  DynamoDB.getUserInfo(uid, "Employee").then( res=>{
+    Replies.setUserData(res);
+  });
   sendReminders(uid, Response.genTextReply("This is your daily reminder!"));
   sendReminders(uid, Replies.replies["VIEW_REMINDERS"]);
 
@@ -374,7 +388,7 @@ function messageSequence( sender_psid, response, i ){
       messageSequence( sender_psid, response, i + 1 );
     })
     .catch(err => {
-      console.log('Hello kaj kore nai ken jani! ' + err);
+      console.log('Error in message sequence:  ' + err);
 
       // if one message does not work go 
       // to the next

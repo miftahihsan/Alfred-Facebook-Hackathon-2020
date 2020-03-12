@@ -6,10 +6,6 @@ class Response{
             quick_replies: []
         };
 
-        console.log("HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-        
-        console.log( quickReplies );
-
         for (let quickReply of quickReplies) {
             response["quick_replies"].push({
                 content_type: "text",
