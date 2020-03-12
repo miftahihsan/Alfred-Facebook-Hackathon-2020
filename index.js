@@ -807,46 +807,6 @@ function disablePersistentMenu(sender_psid) {
         method: 'DELETE',
   });
 
-  // let request_body = {
-  //   "psid": sender_psid,
-  //   "persistent_menu": [
-  //     {
-  //       "locale": "default",
-  //       "composer_input_disabled": false,
-  //       "call_to_actions": [
-  //         {
-  //           "type": "postback",
-  //           "title": "Administrative tasks",
-  //           "payload": "ADMINISTRATIVE_TASKS"
-  //         },
-  //         {
-  //             "type": "postback",
-  //             "title": "Personal tasks",
-  //             "payload": "PERSONAL_TASKS"
-  //         },
-  //         {
-  //             "type": "postback",
-  //             "title": "What do you do ❓",
-  //             "payload": "WHAT_CAN_YOU_DO"
-  //         },
-  //       ]
-  //     }
-  //   ]
-  // };
-
-  // // Send the HTTP request to the Messenger Platform
-  // request({
-  //   "uri": "https://graph.facebook.com/v6.0/me/custom_user_settings",
-  //   "qs": { "access_token": process.env.PAGE_ACCESS_TOKEN },
-  //   "method": "POST",
-  //   "json": request_body
-  // }, (err, res, body) => {
-  //   if (!err) {
-  //   } else {
-  //     console.error("Unable to disable menu:" + err);
-  //   }
-  // });
-
 }
 
 function senderAction(sender_psid, response) {
