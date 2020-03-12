@@ -38,12 +38,12 @@ class Replies {
     "MENU_BTN" : [
       {
         "type": "postback",
-        "title": "Administrative tasks",
+        "title": "Administrative tasks 🏢",
         "payload": "ADMINISTRATIVE_TASKS"
       },
       {
         "type": "postback",
-        "title": "Personal tasks",
+        "title": "Personal tasks 📓",
         "payload": "PERSONAL_TASKS"
       },
       {
