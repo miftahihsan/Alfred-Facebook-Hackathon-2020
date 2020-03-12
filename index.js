@@ -76,11 +76,10 @@ app.post('/submitComplaint', (req, res) => {
 
   if ('uid' in body && body.uid!==null) {
 
-
-    let msg = Replies.replies["COMPLAINT_SUCCESS"]
+    let msg = Replies.replies["COMPLAINT_SUCCESS"];
     console.log(msg);
-    sendReminders(body.uid, msg);
-    console.log("Updated!");
+    sendMessage(body.uid, msg);
+    console.log(body.uid);
   }
 
   res.header("Access-Control-Allow-Origin", "*");
