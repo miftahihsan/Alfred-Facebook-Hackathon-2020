@@ -107,7 +107,6 @@ app.post('/webhook', (req, res) => {
 
       console.log('Sender PSID: ' + sender_psid);
       
-      senderAction(sender_psid, Response.getAnimation("on"));
 
       // fetch user personal data
       var user_info = getUserName(sender_psid);
@@ -170,7 +169,6 @@ app.post('/webhook', (req, res) => {
             Replies.setUID(sender_psid);
             // Replies.setUserData(userData);
 
-            senderAction(sender_psid, Response.getAnimation("off"));
 
             userData['uid'] = sender_psid;
 
@@ -797,13 +795,13 @@ function disablePersistentMenu(sender_psid) {
         "call_to_actions": [
           {
               "type": "postback",
-              "title": "HOME 🏠",
+              "title": "Home 🏠",
               "payload": "MENU"
           },
           {
               "type": "postback",
               "title": "What do you do ❓",
-              "payload": "INITIATE"
+              "payload": "WHAT_CAN_YOU_DO"
           },
 
         ]
@@ -862,13 +860,13 @@ curl -X POST -H "Content-Type: application/json" -d '{
             "call_to_actions": [
                 {
                     "type": "postback",
-                    "title": "HOME 🏠",
+                    "title": "Home 🏠",
                     "payload": "MENU"
                 },
                 {
                     "type": "postback",
                     "title": "What do you do ❓",
-                    "payload": "INITIATE"
+                    "payload": "WHAT_CAN_YOU_DO"
                 },
 
             ]
@@ -877,10 +875,10 @@ curl -X POST -H "Content-Type: application/json" -d '{
     "greeting": [
     {
       "locale":"default",
-      "text":"Hello {{user_first_name}}! I am Alfred, here to help you with the mundane office tasks while you can focus on your work without any distractions!"
+      "text":"Hello {{user_first_name}}! I am an advanced bot designed to be your personal assistant here in the offices of Wayne Enterprises."
     }, {
       "locale":"en_US",
-      "text":"Hi {{user_first_name}}! I am Alfred, here to help you with the mundane office tasks while you can focus on your work without any distractions!"
+      "text":"Hi {{user_first_name}}! I am an advanced bot designed to be your personal assistant here in the offices of Wayne Enterprises."
     }
   ]
 

@@ -121,9 +121,9 @@ class Replies {
         }])];
 
     this.replies["INITIATE"] = [Responses.genTextReply("Hi "+userData['name']+" ! "),
-      Responses.genTextReply("I am an advanced bot designed to be your personal assistant here in the offices of Dunder Mifflin."),
+      Responses.genTextReply("I am an advanced bot designed to be your personal assistant here in the offices of Wayne Enterprises."),
       Responses.genTextReply("I'm also designed to be your very own HR manager. That means you can ask me things you'd normally have to ask your HR department. If the question is too difficult for me I can redirect you to an HR representative for further help."),
-      Responses.genTextReply("In order to best serve your needs, I’ve already gathered some basic info about you from the Dunder Mifflin employee records"),
+      Responses.genTextReply("In order to best serve your needs, I’ve already gathered some basic info about you from the Wayne Enterprises employee records"),
       Responses.genTextReply("Lets get started! \uD83D\uDE04\n"),
       Responses.genTextReply("\u2022 Ask an HR question\n\n\u2022 Modify your calendar, make a list etc.."),
       Responses.genQuickReply(
@@ -286,12 +286,8 @@ class Replies {
     this.replies["HOLIDAYS"] = [
       Responses.genTextReply("You have " + this.userData.Item['sick_leave'] + " sick days and " + this.userData.Item['holiday_left'] +
                                           " leave days remaining for this year" ),
-      Responses.genTextReply("Here is a list of all the holidays for the year" ),
-      Responses.genTextReply("\u2022 New Year’s Day, January 1st \n\n\u2022 Martin Luther King, Jr. Birthday January, 3rd Monday \n\n" + 
-                            "\u2022 President's Day, February 3rd Monday\n\n\u2022 Memorial Day May, Last Monday" ),
-      Responses.genTextReply("\u2022 Independence Day, July 4th \n\n\u2022 Labor Day September, 1st Monday\n\n\u2022 Columbus Day October, 2nd Monday"),
-      Responses.genTextReply("\u2022 Veteran's Day, November\n\n\u2022 Thanksgiving Day, 4th Thursday of November\n\n\u2022 Day after Thanksgiving, 4th Friday of November"),
-      Responses.genTextReply("\u2022 Christmas Eve, December 24th\n\n\u2022 Christmas December, 25th\n\n\u2022 New Year’s Eve, December 31st , half-day"),
+      Responses.genTextReply("Here are a few upcoming holidays:" ),
+      Responses.genTextReply("\u2022 Memorial Day May, Last Monday\n\n\u2022 Independence Day, July 4th \n\n\u2022 Labor Day September, 1st Monday" ),
       Responses.genQuickReply("You can apply for a leave at any time just by saying “Apply for a leave from 30 March to 30 April”!",
         [
           {
@@ -661,11 +657,41 @@ class Replies {
         ]
       )
     ],
-    "INITIATE": [Responses.genTextReply("Hi "+this.userData['name']+" ! "),
-      Responses.genTextReply("I am an advanced bot designed to be your personal assistant here in the offices of Dunder Mifflin."),
+    "INITIATE": [Responses.genTextReply("Hi!"),
+      Responses.genTextReply("I am an advanced bot designed to be your personal assistant here in the offices of Wayne Enterprises."),
       Responses.genTextReply("I'm also designed to be your very own HR manager. That means you can ask me things you'd normally have to ask your HR department. If the question is too difficult for me I can redirect you to an HR representative for further help."),
-      Responses.genTextReply("In order to best serve your needs, I’ve already gathered some basic info about you from the Dunder Mifflin employee records"),
+      Responses.genTextReply("In order to best serve your needs, I’ve already gathered some basic info about you from the Wayne Enterprises employee records"),
       Responses.genTextReply("Lets get started! \uD83D\uDE04\n")
+    ],
+    "WHAT_CAN_YOU_DO": [Responses.genTextReply("Hi!"),
+      Responses.genTextReply("I am an advanced bot designed to be your personal assistant here in the offices of Wayne Enterprises."),
+      Responses.genTextReply("I'm also designed to be your very own HR manager. That means you can ask me things you'd normally have to ask your HR department. If the question is too difficult for me I can redirect you to an HR representative for further help."),
+      Responses.genTextReply("\u2022 Ask an HR question\n\n\u2022 Modify your calendar, make a list etc.."),
+      Responses.genQuickReply(
+        "\u2022 Know something from a specific company department, like finance, tech support, law etc..\n\n\u2022 Report stats/info to manager\n",
+        [
+          {
+            title: "HR tasks 👔",
+            payload: "HR"
+          },
+          {
+            title: "Meeting/List 📅",
+            payload: "SCHEDULES"
+          },
+          {
+            title: "Communicate 📝",
+            payload: "COMMUNICATE"
+          },
+          {
+            title: "Info 📚",
+            payload: "FAQ"
+          },
+          {
+            title: "I'm bored! 🙍‍♂️",
+            payload: "BORED"
+          }
+        ]
+      )
     ],
     "MENU": [
       Responses.genQuickReply("What do you want to do next?",
@@ -706,11 +732,11 @@ class Replies {
           }
         ]
     ),
-    "HR": Responses.genQuickReply("Ok! What do you want to know about: \n" +
-      "\u2022 HR company policy\n\n" +
-      "\u2022 Your performance stats\n\n" +
-      "\u2022 Sick days/holidays\n\n" +
-      "\u2022 Bonus and payments\n\n" +
+    "HR": [Responses.genTextReply("Ok! What do you want to know about: "),
+      Responses.genTextReply( "\u2022 HR company policy\n\n" +
+        "\u2022 Your performance stats\n\n" +
+        "\u2022 Sick days/holidays\n\n"),
+      Responses.genQuickReply("\u2022 Bonus and payments\n\n" +
       "\u2022 Submit a complaint",
       [
         {
@@ -733,7 +759,7 @@ class Replies {
           title : "Submit a complaint 😕" ,
           payload: "COMPLAINT"
         }
-      ]),
+      ])],
     "HOLIDAYS" : [
       Responses.genTextReply("You have " + this.userData['sick_leave'] + " sick days and " + this.userData['holiday_left'] +
                                           " leave days remaining for this year" ),
@@ -863,11 +889,10 @@ class Replies {
       )
     ],
     "IT_TECH": [Responses.genTextReply("Here are some common IT concerns you can ask about:"),
-      Responses.genQuickReply(
-        "\u2022 What's my username and password?\n\n" +
-        "\u2022 I can't login to my account\n\n" +
-        "\u2022 My office equipment isn’t working\n\n" +
-        "\u2022 My office equipment doesn't have network connectivity\n\n",
+      Responses.genTextReply("\u2022 What's my username and password?\n\n" +
+        "\u2022 I can't login to my account"),
+      Responses.genQuickReply("\u2022 My office equipment isn’t working\n\n" +
+        "\u2022 My office equipment doesn't have network connectivity",
         [
           {
             title: "Credentials ? 🔑",
@@ -1122,11 +1147,10 @@ class Replies {
     ],
     "CORPORATE_LAW": [
       Responses.genTextReply("Here are some common Corporate Law questions you can ask:"),
-      Responses.genQuickReply(
-        "\u2022 What are the new law changes introduced in the company?\n\n" +
-        "\u2022 What are my rights as an employee in the company?\n\n" +
-        "\u2022 What are the laws regarding issues with co workers?\n\n" +
-        "\u2022 Can I buy shares for Dunder Mifflin as an employee?\n\n",
+      Responses.genTextReply("\u2022 What are the new law changes introduced in the company?\n\n" +
+        "\u2022 What are my rights as an employee in the company?"),
+      Responses.genQuickReply("\u2022 What are the laws regarding issues with co workers?\n\n" +
+        "\u2022 Can I buy shares for Wayne Enterprises as an employee?\n\n",
         [
           {
             title: "New Laws",
