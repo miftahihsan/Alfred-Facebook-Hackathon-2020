@@ -36,8 +36,7 @@ app.use(function(req, res, next) {
 
 app.post('/userList', (req, res) => { 
   let body = req.body;
-  console.log("here!---------inside--UserList---------------------------------------------");
-  console.log( body );
+  
   if ('uid' in body && body.uid!==null && body.title!=='') {
     let data ={};
     data['ind'] = body.ind+"";
