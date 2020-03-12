@@ -38,7 +38,7 @@ class Replies {
     "MENU_BTN" : [
       {
         "type": "postback",
-        "title": "Administrative tasks 🏢",
+        "title": "Administrative tasks🏢",
         "payload": "ADMINISTRATIVE_TASKS"
       },
       {
