@@ -36,123 +36,110 @@ class Replies {
   static button = {
     // "btn" : Responses.genTextReply("BLA")
     "MENU_BTN" : [
-      [
-        {
-          "type": "postback",
-          "title": "Administrative tasks",
-          "payload": "ADMINISTRATIVE_TASKS"
-        },
-        {
-          "type": "postback",
-          "title": "Personal tasks",
-          "payload": "PERSONAL_TASKS"
-        },
-        {
-          "type": "postback",
-          "title": "What do you do ❓",
-          "payload": "WHAT_CAN_YOU_DO"
-         }
-      ]
+      {
+        "type": "postback",
+        "title": "Administrative tasks",
+        "payload": "ADMINISTRATIVE_TASKS"
+      },
+      {
+        "type": "postback",
+        "title": "Personal tasks",
+        "payload": "PERSONAL_TASKS"
+      },
+      {
+        "type": "postback",
+        "title": "What do you do ❓",
+        "payload": "WHAT_CAN_YOU_DO"
+       }
     ],
     "PERSONAL_TASKS_BTN" : [
-       [
-          {
-            title: "Meeting/List 📅",
-            payload: "SCHEDULES"
-          },
-          {
-            title: "Performance Stats 🔖",
-            payload: "PERFORMANCE_STATS"
-          },
-          {
-            title: "Upcoming Holidays 🎄",
-            payload: "HOLIDAYS"
-          },
-          {
-            title : "Bonus & Payments 💵" ,
-            payload: "BONUS_PAYMENTS"
-          },
-          {
-            title: "I'm bored! 🙍‍♂️",
-            payload: "BORED"
-          }
-       ]
+        {
+          title: "Meeting/List 📅",
+          payload: "SCHEDULES"
+        },
+        {
+          title: "Performance Stats 🔖",
+          payload: "PERFORMANCE_STATS"
+        },
+        {
+          title: "Upcoming Holidays 🎄",
+          payload: "HOLIDAYS"
+        },
+        {
+          title : "Bonus & Payments 💵" ,
+          payload: "BONUS_PAYMENTS"
+        },
+        {
+          title: "I'm bored! 🙍‍♂️",
+          payload: "BORED"
+        }
     ],
     "SCHEDULES_BTN" : [
-      [
-        {
-          title: "Set-up Meeting 📣",
-          payload: "ANNOUNCEMENT_WHO"
-        },
-        {
-          title: "View Meeting 📆",
-          payload: "VIEW_SCHEDULE"
-        }, 
-        {
-          title: "Create Reminder 🗒",
-          payload: "NEW_REMINDER"
-        },
-        {
-          title: "View Reminders 📝",
-          payload: "VIEW_REMINDERS"
-        }
-      ]
+      {
+        title: "Set-up Meeting 📣",
+        payload: "ANNOUNCEMENT_WHO"
+      },
+      {
+        title: "View Meeting 📆",
+        payload: "VIEW_SCHEDULE"
+      }, 
+      {
+        title: "Create Reminder 🗒",
+        payload: "NEW_REMINDER"
+      },
+      {
+        title: "View Reminders 📝",
+        payload: "VIEW_REMINDERS"
+      },
     ],
     "ADMINISTRATIVE_BTN" : [
-      [
-        {
-          title: "Report stats/info 👩‍💻",
-          payload: "REPORT_STATS"
-        },
-        {
-          title : "Submit a complaint 😕" ,
-          payload: "COMPLAINT"
-        },
-        {
-          title : "Knowledge 🧠" ,
-          payload: "KNOWLEDGE"
-        }
-      ]
+      {
+        title: "Report stats/info 👩‍💻",
+        payload: "REPORT_STATS"
+      },
+      {
+        title : "Submit a complaint 😕" ,
+        payload: "COMPLAINT"
+      },
+      {
+        title : "Knowledge 🧠" ,
+        payload: "KNOWLEDGE"
+      },
     ],
     "TRAINING_BTN" : [
-      [
-        {
-          title: "Courses available",
-          payload: "COURSES_AVAILABLE"
-        },
-        {
-          title: "Courses required",
-          payload: "PREREQUISITE_TRAINING"
-        },
-        {
-          title: "Improvement Courses",
-          payload: "SELF_IMPROVEMENT_COURSES"
-        }
-      ]
+      {
+        title: "Courses available",
+        payload: "COURSES_AVAILABLE"
+      },
+      {
+        title: "Courses required",
+        payload: "PREREQUISITE_TRAINING"
+      },
+      {
+        title: "Improvement Courses",
+        payload: "SELF_IMPROVEMENT_COURSES"
+      }
     ],
     "IT_BTN" : [
-      [
-        {
-          title: "Credentials ? 🔑",
-          payload: "USER_NAME_PASSWORD"
-        },
-        {
-          title: "Can't login 👨‍💻",
-          payload: "CANT_LOGIN"
-        },
-        {
-          title: "Faulty equipment ⚡",
-          payload: "EQUIPMENT_NOT_WORKING"
-        },
-        {
-          title: "No Network! 🌐",
-          payload: "NO_NETWORK"
-        }
-      ]
+      {
+        title: "Credentials ? 🔑",
+        payload: "USER_NAME_PASSWORD"
+      },
+      {
+        title: "Can't login 👨‍💻",
+        payload: "CANT_LOGIN"
+      },
+      {
+        title: "Faulty equipment ⚡",
+        payload: "EQUIPMENT_NOT_WORKING"
+      },
+      {
+        title: "No Network! 🌐",
+        payload: "NO_NETWORK"
+      }
     ],
 
     "CORPORATE_LAW_BTN" : [
-      [
         {
           title: "New Laws",
           payload: "NEW_LAWS"
@@ -168,8 +155,7 @@ class Replies {
         {
           title: "Buy Shares",
           payload: "BUY_SHARES"
-        }
-      ]
+        },
     ]
 
   };
