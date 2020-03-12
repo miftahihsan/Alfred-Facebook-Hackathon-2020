@@ -639,14 +639,14 @@ class Replies {
       Responses.genTextReply("\u2022 Ask an HR question\n\n\u2022 Modify your calendar, make a list etc.."),
       Responses.genQuickReply(
         "If you are still confused and want to know more, we can connect you to our server Admin",
-        {
+        [{
           title: "Live Chat 👨",
           payload: "LIVE"
         },
         {
           title: "No Thank You! ❌",
           payload: "LIVE_NO"
-        },
+        },]
       )
     ],
     "MENU": [
