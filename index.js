@@ -54,24 +54,27 @@ app.post('/userList', (req, res) => {
     data['title'] = body.title;
     data['items'] = body.items;
 
-    DynamoDB.getUserInfo(body.uid,"Employee");
+    DynamoDB.getUserInfo(body.uid,"Employee").then(res=>{
+      let msg = Response.genQuickReply("Your reminders have been added successfully! ^_^ ", [
+        {
+          title: "View Reminders 📝",
+          payload: "VIEW_REMINDERS"
+        },
+        {
+          title: "Create Reminder 🗒",
+          payload: "NEW_REMINDER"
+        },
+        {
+          title: "View Meeting 📆",
+          payload: "VIEW_SCHEDULE"
+        }
+      ]);
+      console.log(msg);
+      sendReminders(body.uid, msg);
 
-    let msg = Response.genQuickReply("Your reminders have been added successfully! ^_^ ", [
-      {
-        title: "View Reminders 📝",
-        payload: "VIEW_REMINDERS"
-      },
-      {
-        title: "Create Reminder 🗒",
-        payload: "NEW_REMINDER"
-      },
-      {
-        title: "View Meeting 📆",
-        payload: "VIEW_SCHEDULE"
-      }
-    ]);
-    console.log(msg);
-    sendReminders(body.uid, msg);
+    });
+
+
 
     console.log("Updated!");
   }
