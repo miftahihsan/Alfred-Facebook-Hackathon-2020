@@ -70,6 +70,24 @@ app.post('/userList', (req, res) => {
   res.status(200).send('EVENT_RECEIVED');
 });
 
+
+app.post('/submitComplaint', (req, res) => {
+  let body = req.body;
+
+  if ('uid' in body && body.uid!==null) {
+
+
+    let msg = Replies.replies["COMPLAINT_SUCCESS"]
+    console.log(msg);
+    sendReminders(body.uid, msg);
+    console.log("Updated!");
+  }
+
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.status(200).send('EVENT_RECEIVED');
+});
+
 app.post('/sendMessageToUser' , (req, res) => {
   let body = req.body;
   let uid = body.uid;

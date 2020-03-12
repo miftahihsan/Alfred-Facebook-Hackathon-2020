@@ -8,6 +8,15 @@ class Replies {
 
   static setUID(uid){
     this.replies["NEW_REMINDER"] = Responses.genWebView(uid);
+    this.replies["COMPLAINT"] = [
+      Responses.genTextReply("Remember, your complaints/reports are completely anonymous."),
+        Responses.genTextReply("Only I’ll know that you’ve submitted this complaint and no one else, not even your superiors! 🤫"),
+      Responses.genComplaintForm(uid)
+    ];
+
+    // then change the state to COMPLAINT_MODE
+
+
     this.uid = uid;
   }
 
@@ -575,6 +584,22 @@ class Replies {
       ]),
     ],
 
+    /*this.replies["COMPLAINT"] = [
+      Responses.genTextReply("Remember, your complaints/reports are completely anonymous." +
+      "Only I’ll know that you’ve submitted this complaint and no one else, not even your superiors! 🤫"),
+      Responses.genQuickReply("Who's the complaint against",
+      [
+        {
+          title: "Employee 👨",
+          payload: "COMPLAINT_EMPLOYEE"
+        },
+        {
+          title: "Department 🏢",
+          payload: "COMPLAINT_DPT"
+        },
+      ])
+    ];*/
+
     this.replies["COMPLAINT"] = [
       Responses.genTextReply("Remember, your complaints/reports are completely anonymous." +
       "Only I’ll know that you’ve submitted this complaint and no one else, not even your superiors! 🤫"),
@@ -593,35 +618,11 @@ class Replies {
 
     // then change the state to COMPLAINT_MODE
 
-    this.replies["COMPLAINT_SUCCESS"] = [
-      Responses.genQuickReply("Great! I've submitted the complaint to HR! I'll let you know as soon as I hear back from them. 😃",
-      [
-        {
-          title: "HR policies 📚",
-          payload: "HR_POLICIES"
-        },
-        {
-          title: "Performance Stats 🔖",
-          payload: "PERFORMANCE_STATS"
-        },
-        {
-          title: "Upcoming Holidays 🎄",
-          payload: "HOLIDAYS"
-        },
-        {
-          title : "Bonus & Payments 💵" ,
-          payload: "BONUS_PAYMENTS"
-        },
-        {
-          title : "Submit a complaint 😕" ,
-          payload: "COMPLAINT"
-        }
-      ])
-    ]
+
 
     this.replies["COMPLAINT_INSTRUCTION"] = [
       Responses.genTextReply("Ok! Tell me what the complaint is. Just say Done, when you're done with the complaint!"),
-    ]
+    ];
 
     this.replies["LIVE"] = [
       Responses.genTextReply("If you Ask for a Live Agent, your conversation will be handed over."),
@@ -675,6 +676,31 @@ class Replies {
 
 
   static replies = {
+    "COMPLAINT_SUCCESS" : [Response.genTextReply("I apologize for that unpleasant experience."),
+      Response.genQuickReply("Your complaint has been logged successfully and will be processed as soon as possible! 😃",
+        [
+          {
+            title: "HR policies 📚",
+            payload: "HR_POLICIES"
+          },
+          {
+            title: "Performance Stats 🔖",
+            payload: "PERFORMANCE_STATS"
+          },
+          {
+            title: "Upcoming Holidays 🎄",
+            payload: "HOLIDAYS"
+          },
+          {
+            title : "Bonus & Payments 💵" ,
+            payload: "BONUS_PAYMENTS"
+          },
+          {
+            title : "Submit a complaint 😕" ,
+            payload: "COMPLAINT"
+          }
+        ])
+    ],
     "LIVE_MODE" : [
       Responses.genTextReply("You are currently in live mode. Please be patient while and wait for the admin to get back to you 😀.")
     ],

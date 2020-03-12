@@ -186,6 +186,31 @@ class Response{
         return response;
     }
 
+
+    static genComplaintForm(uid){
+        let link = "https://nafiz6.github.io/bizbotteuxdeux/complaint.html?uid=" + uid;
+        let response = {
+            "attachment":{
+                "type":"template",
+                    "payload":{
+                    "template_type":"button",
+                        "text":"Submit Your Complaint",
+                        "buttons":[
+                        {
+                            "messenger_extensions": true,
+                            "type":"web_url",
+                            "url": link,
+                            "title":"Complaint Form",
+                            "webview_height_ratio": "tall",
+                            "fallback_url" : "https://nafiz6.github.io/bizbotteuxdeux/complaint.html?uid=" + uid
+                        }
+                    ]
+                }
+            }
+        }
+        return response;
+    }
+
 }
 
 module.exports =  Response;
