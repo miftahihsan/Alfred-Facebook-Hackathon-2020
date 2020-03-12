@@ -33,6 +33,10 @@ class Replies {
     return ticket;
   }
 
+  static button = {
+    "btn" : Responses.genTextReply("BLA")
+  };
+
   static setInitiate(userData){
     this.replies["INITIATE"] = [Responses.genTextReply("Hi "+userData['name']+" ! "),
       Responses.genTextReply("I am an advanced bot designed to be your personal assistant here in the offices of Wayne Enterprises."),
@@ -741,6 +745,10 @@ class Replies {
 
 
   static replies = {
+    "newpayloadforbutton" : [
+      this.button['btn']
+    ],
+
     "COMPLAINT_SUCCESS" : [Responses.genTextReply("I apologize for that unpleasant experience."),
       Responses.genQuickReply("Your complaint has been logged successfully and will be processed as soon as possible! 😃",
         [
