@@ -407,9 +407,9 @@ function handleQuickReplies(sender_psid, quick_reply) {
       },
       Response.genTextReply("Document successfully transferred to your manager!"),
     ].concat(
-      Replies.replies["COMMUNICATE"]
+      Replies.replies["ADMINISTRATIVE_TASKS"]
     ));
-    userData['state']="COMMUNICATE";
+    userData['state']="ADMINISTRATIVE_TASKS";
   }
   else if( userData['state'] === 'LIVE_YES' ){
     userData['state'] = "INITIATE";
@@ -878,21 +878,21 @@ curl -X POST -H "Content-Type: application/json" -d '{
             "locale": "default",
             "composer_input_disabled": false,
             "call_to_actions": [
-                {
-                    "type": "postback",
-                    "title": "Administrative tasks",
-                    "payload": "ADMINISTRATIVE_TASKS"
-                },
-                {
-                    "type": "postback",
-                    "title": "Personal tasks",
-                    "payload": "PERSONAL_TASKS"
-                },
-                {
-                    "type": "postback",
-                    "title": "What do you do ❓",
-                    "payload": "WHAT_CAN_YOU_DO"
-                },
+              {
+                "type": "postback",
+                "title": "Administrative tasks 🏢",
+                "payload": "ADMINISTRATIVE_TASKS"
+              },
+              {
+                "type": "postback",
+                "title": "Personal tasks 📓",
+                "payload": "PERSONAL_TASKS"
+              },
+              {
+                "type": "postback",
+                "title": "What do you do ❓",
+                "payload": "WHAT_CAN_YOU_DO"
+              }
 
             ]
         }
