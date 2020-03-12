@@ -676,8 +676,8 @@ class Replies {
 
 
   static replies = {
-    "COMPLAINT_SUCCESS" : [Response.genTextReply("I apologize for that unpleasant experience."),
-      Response.genQuickReply("Your complaint has been logged successfully and will be processed as soon as possible! 😃",
+    "COMPLAINT_SUCCESS" : [Responses.genTextReply("I apologize for that unpleasant experience."),
+      Responses.genQuickReply("Your complaint has been logged successfully and will be processed as soon as possible! 😃",
         [
           {
             title: "HR policies 📚",
