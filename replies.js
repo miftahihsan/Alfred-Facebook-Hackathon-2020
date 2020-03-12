@@ -39,15 +39,23 @@ class Replies {
          Responses.genQuickReply(
            "Or manage other reminders",
            [
-             {
-               title: "Create Reminder 🗒",
-               payload: "NEW_REMINDER"
-             },
-             {
-               title: "View Meeting 📆",
-               payload: "VIEW_SCHEDULE"
-             }
-           ])];
+            {
+              title: "View Reminders 📝",
+              payload: "VIEW_REMINDERS"
+            },
+            {
+              title: "Set-up Meeting 📣",
+              payload: "ANNOUNCEMENT_WHO"
+            },
+            {
+              title: "Create Reminder 🗒",
+              payload: "NEW_REMINDER"
+            },
+            {
+              title: "View Meeting 📆",
+              payload: "VIEW_SCHEDULE"
+            }
+          ])];
     }
     else{
       this.replies["VIEW_REMINDERS"] = [
@@ -55,6 +63,14 @@ class Replies {
         Responses.genQuickReply(
           "Or manage other reminders",
           [
+            {
+              title: "View Reminders 📝",
+              payload: "VIEW_REMINDERS"
+            },
+            {
+              title: "Set-up Meeting 📣",
+              payload: "ANNOUNCEMENT_WHO"
+            },
             {
               title: "Create Reminder 🗒",
               payload: "NEW_REMINDER"
@@ -1269,6 +1285,10 @@ class Replies {
           {
             title: "View Reminders 📝",
             payload: "VIEW_REMINDERS"
+          },
+          {
+            title: "Set-up Meeting 📣",
+            payload: "ANNOUNCEMENT_WHO"
           },
           {
             title: "Create Reminder 🗒",
