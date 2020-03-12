@@ -54,7 +54,7 @@ app.post('/userList', (req, res) => {
     data['title'] = body.title;
     data['items'] = body.items;
 
-    DynamoDB.getUserInfo(body.uid,"Employee", data);
+    DynamoDB.getUserInfo(body.uid,"Employee");
 
     let msg = Response.genQuickReply("Your reminders have been added successfully! ^_^ ", [
       {
