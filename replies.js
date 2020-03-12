@@ -36,110 +36,123 @@ class Replies {
   static button = {
     // "btn" : Responses.genTextReply("BLA")
     "MENU_BTN" : [
-      {
-        "type": "postback",
-        "title": "Administrative tasks",
-        "payload": "ADMINISTRATIVE_TASKS"
-      },
-      {
-        "type": "postback",
-        "title": "Personal tasks",
-        "payload": "PERSONAL_TASKS"
-      },
-      {
-        "type": "postback",
-        "title": "What do you do ❓",
-        "payload": "WHAT_CAN_YOU_DO"
-       }
+      [
+        {
+          "type": "postback",
+          "title": "Administrative tasks",
+          "payload": "ADMINISTRATIVE_TASKS"
+        },
+        {
+          "type": "postback",
+          "title": "Personal tasks",
+          "payload": "PERSONAL_TASKS"
+        },
+        {
+          "type": "postback",
+          "title": "What do you do ❓",
+          "payload": "WHAT_CAN_YOU_DO"
+         }
+      ]
     ],
     "PERSONAL_TASKS_BTN" : [
-        {
-          title: "Meeting/List 📅",
-          payload: "SCHEDULES"
-        },
-        {
-          title: "Performance Stats 🔖",
-          payload: "PERFORMANCE_STATS"
-        },
-        {
-          title: "Upcoming Holidays 🎄",
-          payload: "HOLIDAYS"
-        },
-        {
-          title : "Bonus & Payments 💵" ,
-          payload: "BONUS_PAYMENTS"
-        },
-        {
-          title: "I'm bored! 🙍‍♂️",
-          payload: "BORED"
-        }
+       [
+          {
+            title: "Meeting/List 📅",
+            payload: "SCHEDULES"
+          },
+          {
+            title: "Performance Stats 🔖",
+            payload: "PERFORMANCE_STATS"
+          },
+          {
+            title: "Upcoming Holidays 🎄",
+            payload: "HOLIDAYS"
+          },
+          {
+            title : "Bonus & Payments 💵" ,
+            payload: "BONUS_PAYMENTS"
+          },
+          {
+            title: "I'm bored! 🙍‍♂️",
+            payload: "BORED"
+          }
+       ]
     ],
     "SCHEDULES_BTN" : [
-      {
-        title: "Set-up Meeting 📣",
-        payload: "ANNOUNCEMENT_WHO"
-      },
-      {
-        title: "View Meeting 📆",
-        payload: "VIEW_SCHEDULE"
-      }, 
-      {
-        title: "Create Reminder 🗒",
-        payload: "NEW_REMINDER"
-      },
-      {
-        title: "View Reminders 📝",
-        payload: "VIEW_REMINDERS"
-      },
+      [
+        {
+          title: "Set-up Meeting 📣",
+          payload: "ANNOUNCEMENT_WHO"
+        },
+        {
+          title: "View Meeting 📆",
+          payload: "VIEW_SCHEDULE"
+        }, 
+        {
+          title: "Create Reminder 🗒",
+          payload: "NEW_REMINDER"
+        },
+        {
+          title: "View Reminders 📝",
+          payload: "VIEW_REMINDERS"
+        }
+      ]
     ],
     "ADMINISTRATIVE_BTN" : [
-      {
-        title: "Report stats/info 👩‍💻",
-        payload: "REPORT_STATS"
-      },
-      {
-        title : "Submit a complaint 😕" ,
-        payload: "COMPLAINT"
-      },
-      {
-        title : "Knowledge 🧠" ,
-        payload: "KNOWLEDGE"
-      },
+      [
+        {
+          title: "Report stats/info 👩‍💻",
+          payload: "REPORT_STATS"
+        },
+        {
+          title : "Submit a complaint 😕" ,
+          payload: "COMPLAINT"
+        },
+        {
+          title : "Knowledge 🧠" ,
+          payload: "KNOWLEDGE"
+        }
+      ]
     ],
     "TRAINING_BTN" : [
-      {
-        title: "Courses available",
-        payload: "COURSES_AVAILABLE"
-      },
-      {
-        title: "Courses required",
-        payload: "PREREQUISITE_TRAINING"
-      },
-      {
-        title: "Improvement Courses",
-        payload: "SELF_IMPROVEMENT_COURSES"
-      }
+      [
+        {
+          title: "Courses available",
+          payload: "COURSES_AVAILABLE"
+        },
+        {
+          title: "Courses required",
+          payload: "PREREQUISITE_TRAINING"
+        },
+        {
+          title: "Improvement Courses",
+          payload: "SELF_IMPROVEMENT_COURSES"
+        }
+      ]
     ],
     "IT_BTN" : [
-      {
-        title: "Credentials ? 🔑",
-        payload: "USER_NAME_PASSWORD"
-      },
-      {
-        title: "Can't login 👨‍💻",
-        payload: "CANT_LOGIN"
-      },
-      {
-        title: "Faulty equipment ⚡",
-        payload: "EQUIPMENT_NOT_WORKING"
-      },
-      {
-        title: "No Network! 🌐",
-        payload: "NO_NETWORK"
-      }
+      [
+        {
+          title: "Credentials ? 🔑",
+          payload: "USER_NAME_PASSWORD"
+        },
+        {
+          title: "Can't login 👨‍💻",
+          payload: "CANT_LOGIN"
+        },
+        {
+          title: "Faulty equipment ⚡",
+          payload: "EQUIPMENT_NOT_WORKING"
+        },
+        {
+          title: "No Network! 🌐",
+          payload: "NO_NETWORK"
+        }
+      ]
     ],
 
     "CORPORATE_LAW_BTN" : [
+      [
         {
           title: "New Laws",
           payload: "NEW_LAWS"
@@ -155,7 +168,8 @@ class Replies {
         {
           title: "Buy Shares",
           payload: "BUY_SHARES"
-        },
+        }
+      ]
     ]
 
   };
@@ -243,17 +257,17 @@ class Replies {
 
     this.replies['TIME_11:00_AM'] = [
       Responses.genQuickReply("We have delivered a message to every one that you called for a meeting",
-        // this.button["SCHEDULES_BTN"]
+        this.button["SCHEDULES_BTN"]
       ),
     ];
     this.replies['TIME_1:00_PM'] = [
       Responses.genQuickReply("We have delivered a message to every one that you called for a meeting",
-        // this.button["SCHEDULES_BTN"]
+        this.button["SCHEDULES_BTN"]
       ),
     ];
     this.replies['TIME_3:30_PM'] = [
       Responses.genQuickReply("We have delivered a message to every one that you called for a meeting",
-        // this.button["SCHEDULES_BTN"]
+        this.button["SCHEDULES_BTN"]
       ),
     ];
 
@@ -299,7 +313,7 @@ class Replies {
       Responses.genTextReply("\u2022 Ask an HR question\n\n\u2022 Modify your calendar, make a list etc.."),
       Responses.genQuickReply(
         "\u2022 Know something from a specific company department, like finance, tech support, law etc..\n\n\u2022 Report stats/info to manager\n",
-        // this.button["MENU_BTN"]
+        this.button["MENU_BTN"]
       )
     ];
 
@@ -377,13 +391,13 @@ class Replies {
       Responses.genTextReply( this.getRandId(this.replies['RAND_OFFICE_FACTS']) ),
       Responses.genPictureReply( this.getRandId(this.replies['RAND_SUCCESS_QUOTES']) ),
       Responses.genQuickReply("What do you want to do next?",
-        // this.button["PERSONAL_TASKS_BTN"]
+        this.button["PERSONAL_TASKS_BTN"]
       )
     ];
 
     this.replies["PERSONAL_TASKS"] = [
       Responses.genQuickReply("What would you like to do ?",
-        // this.button["PERSONAL_TASKS_BTN"]
+        this.button["PERSONAL_TASKS_BTN"]
       )
     ];   
 
@@ -463,7 +477,7 @@ class Replies {
       Responses.genTextReply("Here are a few upcoming holidays:" ),
       Responses.genTextReply("\u2022 Memorial Day May, Last Monday\n\n\u2022 Independence Day, July 4th \n\n\u2022 Labor Day September, 1st Monday" ),
       Responses.genQuickReply("You can apply for a leave at any time just by saying “Apply for a leave from 30 March to 30 April”!",
-        // this.button["PERSONAL_TASKS_BTN"]
+        this.button["PERSONAL_TASKS_BTN"]
       )
     ];
 
@@ -471,7 +485,7 @@ class Replies {
       Responses.genTextReply("I’ll list your remaining bonuses for this year below. Have a look! "),
       Responses.genQuickReply("\u2022 Christmas: "+this.userData.Item["holiday_bonus"]+"\n" +
         "\u2022 Sales Bonus: "+this.userData.Item['bonus']+"",
-          // this.button["PERSONAL_TASKS_BTN"]
+          this.button["PERSONAL_TASKS_BTN"]
         )
     ];
 
@@ -483,7 +497,7 @@ class Replies {
       Responses.genQuickReply("You can directly ask about payments and bonuses simply by asking" + 
                               "\“How much bonuses am i entitled to this year?\” or \"How much do I get this year in salaries?\"",
       
-        // this.button["PERSONAL_TASKS_BTN"]                            
+        this.button["PERSONAL_TASKS_BTN"]                            
       )
     ];
 
@@ -492,7 +506,7 @@ class Replies {
       Responses.genQuickReply("You can directly ask about payments and bonuses simply by asking" +
                               "\“How much bonuses am i entitled to this year?\” or \"How much do I get this year in salaries?\"",
       
-        // this.button["PERSONAL_TASKS_BTN"]
+        this.button["PERSONAL_TASKS_BTN"]
                               
       )
     ];
@@ -504,7 +518,7 @@ class Replies {
       Responses.genPictureReply("https://s3-us-west-2.amazonaws.com/www.whitewall.site/bizbotteuxdeux/assets/eye_heart_emoji.png?fbcl"+
       "id=IwAR3rLcb3hHj9gjTghpWjO8o3EAZI7L6Ub12Z7nb0RgfJtoYsxvlD4LThr1M"),
       Responses.genQuickReply("Great job!! 👏👏",
-        // this.button["PERSONAL_TASKS_BTN"]
+        this.button["PERSONAL_TASKS_BTN"]
       )
     ];
 
@@ -512,28 +526,28 @@ class Replies {
       Responses.genTextReply("We have sent an email to the IT perosn regarding your issue : Username and password"),
       Responses.genTextReply("He will be in contact with you very shortly"),
       Responses.genQuickReply("Support Ticket Issued : " + this.supportTicketGenerator() , 
-        // this.button["IT_BTN"]
+        this.button["IT_BTN"]
       ),
     ],
     this.replies["CANT_LOGIN"] = [
       Responses.genTextReply("We have sent an email to the IT perosn regarding your issue : Can't login"),
       Responses.genTextReply("He will be in contact with you very shortly"),
       Responses.genQuickReply("Support Ticket Issued : " + this.supportTicketGenerator() , 
-        // this.button["IT_BTN"]
+        this.button["IT_BTN"]
       ),
     ],
     this.replies["EQUIPMENT_NOT_WORKING"] = [
       Responses.genTextReply("We have sent an email to the IT perosn regarding your issue : Faulty equipment"),
       Responses.genTextReply("He will be in contact with you very shortly"),
       Responses.genQuickReply("Support Ticket Issued : " + this.supportTicketGenerator() , 
-        // this.button["IT_BTN"]
+        this.button["IT_BTN"]
       ),
     ],
     this.replies["NO_NETWORK"] = [
       Responses.genTextReply("We have sent an email to the IT perosn regarding your issue : No Network!"),
       Responses.genTextReply("He will be in contact with you very shortly"),
       Responses.genQuickReply("Support Ticket Issued : " + this.supportTicketGenerator() , 
-        // this.button["IT_BTN"]
+        this.button["IT_BTN"]
       ),
     ],
 
@@ -601,19 +615,19 @@ class Replies {
     
     this.replies['LIVE_NO'] = [
       Responses.genQuickReply("What do you want to do next?",
-        // this.button["MENU_BTN"]
+        this.button["MENU_BTN"]
       )
     ];
   }
 
   static replies = {
     "newpayloadforbutton" : [
-      // this.button['btn']
+      this.button['btn']
     ],
 
     "COMPLAINT_SUCCESS" : [Responses.genTextReply("I apologize for that unpleasant experience."),
       Responses.genQuickReply("Your complaint has been logged successfully and will be processed as soon as possible! 😃",
-        // this.button["ADMINISTRATIVE_BTN"]
+        this.button["ADMINISTRATIVE_BTN"]
       )
     ],
     "LIVE_MODE" : [
@@ -624,7 +638,7 @@ class Replies {
       Responses.genTextReply("Hope your issue was solved!"),
       Responses.genQuickReply(
         "What do you want to do next?",
-        // this.button["MENU_BTN"]
+        this.button["MENU_BTN"]
       )
     ],
     "INITIATE": [Responses.genTextReply("Hi!"),
@@ -719,7 +733,7 @@ class Replies {
     "SCHEDULES": Responses.genQuickReply(
       "Would you like to work with your lists," +
       " make a new list, view/manage your calendar",
-        // this.button["SCHEDULES_BTN"]
+        this.button["SCHEDULES_BTN"]
       ),
     "FAQ": Responses.genQuickReply("Great! What do you want to know about?",
       [
@@ -749,7 +763,7 @@ class Replies {
       },
       Responses.genQuickReply(
         "What would you like to do next?",
-          // this.button["TRAINING_BTN"]
+          this.button["TRAINING_BTN"]
       )
     ],
     "COURSES_AVAILABLE" : [
@@ -765,7 +779,7 @@ class Replies {
       },
       Responses.genQuickReply(
         "What would you like to do next?",
-          // this.button["TRAINING_BTN"]
+          this.button["TRAINING_BTN"]
       )
     ],
     "PREREQUISITE_TRAINING" : [
@@ -781,7 +795,7 @@ class Replies {
       },
       Responses.genQuickReply(
         "What would you like to do next?",
-          // this.button["TRAINING_BTN"]
+          this.button["TRAINING_BTN"]
       )
     ],
     "IT_TECH": [Responses.genTextReply("Here are some common IT concerns you can ask about:"),
@@ -927,7 +941,7 @@ class Replies {
       Responses.genTextReply("This policy is established to detect and remove users and abusers of drugs and alcohol. It is also our " + 
       " policy to prevent the use and/or presence of these substances"),
       Responses.genQuickReply("in the workplace and to assist employees in overcoming any dependence on drugs and/or alcohol", 
-        // this.button["CORPORATE_LAW_BTN"]
+        this.button["CORPORATE_LAW_BTN"]
       ),
     ],
     "EMPLOYEE_RIGHTS" : [
@@ -942,7 +956,7 @@ class Replies {
       Responses.genTextReply("\u2022 Right to be free from retaliation for filing a claim or complaint against an employer (these" + 
       " are sometimes called \"whistleblower\" rights)"),
       Responses.genQuickReply("\u2022 Right to fair wages for work performed.",
-        // this.button["CORPORATE_LAW_BTN"]
+        this.button["CORPORATE_LAW_BTN"]
       )
     ],
     "LAWS_CO_WORKERS" : [
@@ -962,7 +976,7 @@ class Replies {
       " are a set of guidelines, which provide the rules for buying, selling and transferring different types of shares. "),
       Responses.genQuickReply("The articles of association also mention the types of shares, which could be transacted by the company. Ordinary shares " + 
       "constitute the biggest amount of shares, but special types of shares like the alphabet shares also exist.",
-        // this.button["CORPORATE_LAW_BTN"]
+        this.button["CORPORATE_LAW_BTN"]
       )
     ],
     "CORPORATE_LAW": [
@@ -971,7 +985,7 @@ class Replies {
         "\u2022 What are my rights as an employee in the company?"),
       Responses.genQuickReply("\u2022 What are the laws regarding issues with co workers?\n\n" +
         "\u2022 Can I buy shares for Wayne Enterprises as an employee?\n\n",
-          // this.button["CORPORATE_LAW_BTN"]
+          this.button["CORPORATE_LAW_BTN"]
         )
       ],
     "TRAINING": [
@@ -980,7 +994,7 @@ class Replies {
         "\u2022 What are the current training courses available for me?\n\n" +
         "\u2022 What training courses do I require to complete my current tasks?\n\n" +
         "\u2022 What self improvement courses do I need to take to improve my performance metrics?",
-          // this.button["TRAINING_BTN"]
+          this.button["TRAINING_BTN"]
         )
       ],
     "REPORT_STATS": [
@@ -989,7 +1003,7 @@ class Replies {
     ],
     "DISCARD_REPORT" : [
       Responses.genQuickReply("Your Attachments have been discarded successfully!", 
-        // this.button["ADMINISTRATIVE_BTN"]
+        this.button["ADMINISTRATIVE_BTN"]
       )
     ],
     "REPORT_STATS_ATTACHMENT": [
@@ -1011,13 +1025,13 @@ class Replies {
     ],
     "VIEW_REMINDERS": Responses.genQuickReply(
       "Looks like you have no reminders!",
-        // this.button["SCHEDULES_BTN"]
+        this.button["SCHEDULES_BTN"]
       ),
     "NEW_REMINDER": [
       Responses.genWebView(this.uid),
       Responses.genQuickReply(
         "Or manage other reminders",
-        // this.button["SCHEDULES_BTN"]    
+        this.button["SCHEDULES_BTN"]    
       )
       ],
     "VIEW_SCHEDULE": [
@@ -1030,7 +1044,7 @@ class Replies {
         "_smirk.png?fbclid=IwAR01UxGdDfPXhuTgLE6oh0LJirwmpEh0anBEWoh03lCZSBloIenFsGN8uP4"),
       Responses.genQuickReply(
         "What do you want to do next?",
-        // this.button["SCHEDULES_BTN"]
+        this.button["SCHEDULES_BTN"]
       )
     ],
     "ENROLL" : Responses.genQuickReply("You have been enrolled to the following course",
