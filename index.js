@@ -407,9 +407,9 @@ function handleQuickReplies(sender_psid, quick_reply) {
       },
       Response.genTextReply("Document successfully transferred to your manager!"),
     ].concat(
-      Replies.replies["ADMINISTRATIVE_TASKS"]
+      Replies.replies["COMMUNICATE"]
     ));
-    userData['state']="ADMINISTRATIVE_TASKS";
+    userData['state']="COMMUNICATE";
   }
   else if( userData['state'] === 'LIVE_YES' ){
     userData['state'] = "INITIATE";
