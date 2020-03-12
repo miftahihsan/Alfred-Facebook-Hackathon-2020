@@ -54,27 +54,24 @@ app.post('/userList', (req, res) => {
     data['title'] = body.title;
     data['items'] = body.items;
 
-    DynamoDB.getUserInfo(body.uid,"Employee").then(res=>{
-      let msg = Response.genQuickReply("Your reminders have been added successfully! ^_^ ", [
-        {
-          title: "View Reminders 📝",
-          payload: "VIEW_REMINDERS"
-        },
-        {
-          title: "Create Reminder 🗒",
-          payload: "NEW_REMINDER"
-        },
-        {
-          title: "View Meeting 📆",
-          payload: "VIEW_SCHEDULE"
-        }
-      ]);
-      console.log(msg);
-      sendReminders(body.uid, msg);
+    DynamoDB.updateReminder(body.uid,"Employee", data);
 
-    });
-
-
+    let msg = Response.genQuickReply("Your reminders have been added successfully! ^_^ ", [
+      {
+        title: "View Reminders 📝",
+        payload: "VIEW_REMINDERS"
+      },
+      {
+        title: "Create Reminder 🗒",
+        payload: "NEW_REMINDER"
+      },
+      {
+        title: "View Meeting 📆",
+        payload: "VIEW_SCHEDULE"
+      }
+    ]);
+    console.log(msg);
+    sendReminders(body.uid, msg);
 
     console.log("Updated!");
   }
@@ -105,11 +102,13 @@ app.post('/sendMessageToUser' , (req, res) => {
   let body = req.body;
   let uid = body.uid;
   console.log("BROADCAST REQUESTED");
-  DynamoDB.getUserInfo(uid, "Employee").then( res=>{
-    Replies.setUserData(res);
+  console.log(uid);
+  DynamoDB.getUserInfo(uid, "Employee").then( ress=>{
+    Replies.setUserData(ress);
+    sendReminders(uid, Response.genTextReply("This is your daily reminder!"));
+    sendReminders(uid, Replies.replies["VIEW_REMINDERS"]);
+
   });
-  sendReminders(uid, Response.genTextReply("This is your daily reminder!"));
-  sendReminders(uid, Replies.replies["VIEW_REMINDERS"]);
 
   res.status(200).send('EVENT_RECEIVED');
 });
