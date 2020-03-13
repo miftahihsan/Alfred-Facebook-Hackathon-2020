@@ -1198,7 +1198,7 @@ class Replies {
       Responses.genTextReply("In addition to the rules stated above, employees may be disciplined up to and including termination for" + 
       " failing to observe the companies policies"),
     ],
-     "SUSPENSION:" : [
+     "SUSPENSION" : [
       Responses.genTextReply("An employee may be suspended with or without pay as a disciplinary action. Following" +
                             " an Administrative Review Hearing the General Manager & CEO"),
       Responses.genTextReply("will take into consideration any recommendations made by Supervisors, Directors and/or the Director of HR & Communications"),
