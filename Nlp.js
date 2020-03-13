@@ -153,13 +153,7 @@ class Nlp{
          *  Else we search it from the policy and look if that contains the Intent
          */
         if (payload in Replies.replies) return Replies.replies[userData['state']];
-        else {
-            var res = Replies.policy[userData['state']];
-
-            res.push(Response.genTextReply("For more Information visit the Info desk. 😁"));
-
-            return res;
-        }
+        else return Replies.policy[userData['state']];
 
     }
 
