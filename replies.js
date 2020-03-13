@@ -1067,7 +1067,7 @@ class Replies {
     ],
     "HARASSMENT" : [
       Responses.genTextReply("We will not tolerate any form of harassment of employees by anyone including" +
-      " Supervisors,"),
+      " Supervisors, "),
       Responses.genTextReply("Department Directors, Managers, other employees, or customers."),
       Responses.genTextReply("We are committed to providing a workplace free of sexual harassment as well as" +
       " harassment based upon such factors as race, color, religion, sex, national origin "),
@@ -1080,7 +1080,7 @@ class Replies {
       " employees in the workplace."),
     ],
     "TRAINING_COURSES" : [
-      Responses.genTextReply("All employees will follow us’ Travel Policy and Procedures for the payment and/or" +
+      Responses.genTextReply("All employees will follow our Travel Policy and Procedures for the payment and/or" +
       " reimbursement "),
       Responses.genTextReply("of expenses as it relates to attending external seminars, workshops and" +
       " training courses."),
@@ -1102,7 +1102,7 @@ class Replies {
     "CUSTOMER_RELATIONS" : [
       Responses.genTextReply("Each employee is our representative. Whether dealing in person, on the telephone," +
       " or by mail (electronic or via USPS) "),
-      Responses.genTextReply("the customers’ and the public’s impression of us is" +
+      Responses.genTextReply("the customer's and the public’s impression of us is" +
       " the impression given by each employee interaction."),
       Responses.genTextReply("As our representative, an"+
       " employee should be courteous and maintain a business-like manner "),
@@ -1116,7 +1116,8 @@ class Replies {
       " appropriately for their jobs and not constitute a safety hazard."),
       Responses.genTextReply("Interpretation of this code will be left up to the Department Director."),
     ],
-    "REHABILITATION" : [
+    //REHABILITATION
+    "REHAB" : [
       Responses.genTextReply("Any employee who has a drug or alcohol dependency problem who voluntarily," +
       " before an incident occurs that results in a drug "),
       Responses.genTextReply("and/or alcohol test, brings it to" + 
