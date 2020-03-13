@@ -154,7 +154,7 @@ class Nlp{
          */
         if (payload in Replies.replies) return Replies.replies[userData['state']];
         else {
-            let res = Replies.policy[userData['state']];
+            var res = Replies.policy[userData['state']];
 
             res.push(Response.genTextReply("For more Information visit the Info desk. 😁"));
 
