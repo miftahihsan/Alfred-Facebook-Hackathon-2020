@@ -298,6 +298,10 @@ function handleMessage(sender_psid, received_message ) {
 
       response = nlp.findState(userData, received_message.nlp.entities);
 
+      console.log("RESPONSE IS START");
+      console.log(response);
+      console.log("RESPONSE IS END");
+      
       if( response === "default" ){
         let responses = [];
         let reply = Replies.replies[userData['state']];
