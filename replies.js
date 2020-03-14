@@ -584,7 +584,7 @@ class Replies {
         [
           {
             title: "Ask for Live Agent 👨",
-            payload: "LIVE_YES"
+            payload: "LIVE_CHAT"
           },
           {
             title: "No Thank You! ❌",
@@ -594,7 +594,7 @@ class Replies {
       )
     ];
 
-    this.replies['LIVE_YES'] = [
+    this.replies['LIVE_CHAT'] = [
       Responses.genTextReply("Your conversation has now been handed over to a live agent"),
       Responses.genTextReply("Make sure to ask your question for them to get notified also, please be patient and wait for them to get back to you."),
     ];
