@@ -157,7 +157,7 @@ class Nlp{
             var res = [];
             res.concat( Replies.policy[userData['state']] );
             res.concat( "Visit Info Desk For more Information! 😀 ", Replies.button["KNOWLEDGE"] );
-            return Replies.policy[userData['state']];
+            return res;
         }
 
     }
