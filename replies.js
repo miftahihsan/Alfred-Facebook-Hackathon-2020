@@ -596,7 +596,7 @@ class Replies {
 
     this.replies['LIVE_CHAT'] = [
       Responses.genTextReply("Your conversation has now been handed over to a live agent"),
-      Responses.genTextReply("Make sure to ask your question for them to get notified, and please be patient and wait for them to get back to you. They won't respond as fast as I do!"),
+      Responses.genTextReply("Make sure to ask your question for them to get notified. They won't respond as fast as I do, so please be patient and wait for them to get back to you. "),
     ];
     
     this.replies['LIVE_NO'] = [
@@ -611,8 +611,8 @@ class Replies {
       this.button['btn']
     ],
 
-    "COMPLAINT_SUCCESS" : [Responses.genTextReply("I apologize for that unpleasant experience."),
-      Responses.genQuickReply("Your complaint has been logged successfully and will be processed as soon as possible! 😃",
+    "COMPLAINT_SUCCESS" : [Responses.genTextReply("I'm sorry you had to go through that unpleasant experience."),
+      Responses.genQuickReply("I've logged your complaint successfully. It'll be processed as soon as possible! 😃",
         this.button["ADMINISTRATIVE_BTN"]
       )
     ],
