@@ -428,11 +428,11 @@ class Replies {
     ];
 
     this.replies["HOLIDAYS_ASK_FOR_TIME"] = [
-      Responses.genTextReply("When would you like to apply for ?")
+      Responses.genTextReply("When do you want to take your leave?")
     ];
 
     this.replies["HOLIDAYS_APPLY"] = [
-      Responses.genQuickReply("We have submitted your application to the HR department! 😀",
+      Responses.genQuickReply("I've submitted your application to the HR department! 😀",
       [
         {
           title: "HR policies 🤔",
@@ -509,29 +509,29 @@ class Replies {
     ];
 
     this.replies["USER_NAME_PASSWORD"] = [
-      Responses.genTextReply("We have sent an email to the IT perosn regarding your issue : Username and password"),
-      Responses.genTextReply("He will be in contact with you very shortly"),
+      Responses.genTextReply("I've sent a token to the IT department regarding your issue : Username and password"),
+      Responses.genTextReply("They will be in contact with you very shortly"),
       Responses.genQuickReply("Support Ticket Issued : " + this.supportTicketGenerator() , 
         this.button["IT_BTN"]
       ),
     ],
     this.replies["CANT_LOGIN"] = [
-      Responses.genTextReply("We have sent an email to the IT perosn regarding your issue : Can't login"),
-      Responses.genTextReply("He will be in contact with you very shortly"),
+      Responses.genTextReply("I've sent a token to the IT department regarding your issue : Can't login"),
+      Responses.genTextReply("They will be in contact with you very shortly"),
       Responses.genQuickReply("Support Ticket Issued : " + this.supportTicketGenerator() , 
         this.button["IT_BTN"]
       ),
     ],
     this.replies["EQUIPMENT_NOT_WORKING"] = [
-      Responses.genTextReply("We have sent an email to the IT perosn regarding your issue : Faulty equipment"),
-      Responses.genTextReply("He will be in contact with you very shortly"),
+      Responses.genTextReply("I've sent a token to the IT department regarding your issue : Faulty equipment"),
+      Responses.genTextReply("They will be in contact with you very shortly"),
       Responses.genQuickReply("Support Ticket Issued : " + this.supportTicketGenerator() , 
         this.button["IT_BTN"]
       ),
     ],
     this.replies["NO_NETWORK"] = [
-      Responses.genTextReply("We have sent an email to the IT perosn regarding your issue : No Network!"),
-      Responses.genTextReply("He will be in contact with you very shortly"),
+      Responses.genTextReply("I'v sent a token to the IT department regarding your issue : No Network!"),
+      Responses.genTextReply("They will be in contact with you very shortly"),
       Responses.genQuickReply("Support Ticket Issued : " + this.supportTicketGenerator() , 
         this.button["IT_BTN"]
       ),
@@ -574,13 +574,13 @@ class Replies {
 
 
     this.replies["COMPLAINT_INSTRUCTION"] = [
-      Responses.genTextReply("Ok! Tell me what the complaint is. Just say Done, when you're done with the complaint!"),
+      Responses.genTextReply("Ok! Tell me what the complaint is. Just say \"Done\", when you're done with the complaint!"),
     ];
 
     this.replies["LIVE"] = [
-      Responses.genTextReply("If you Ask for a Live Agent, your conversation will be handed over."),
-      Responses.genTextReply("It will take them a while to get back to your queries."),
-      Responses.genQuickReply("Note : You wont be able to communicate with the bot via text unless the admin allows you to do so.",
+      Responses.genTextReply("If you Ask for a Live Agent, your conversation will be handed over to a real human."),
+      Responses.genTextReply("It may take a while for a human to get to your queries."),
+      Responses.genQuickReply("Note : You wont be able to communicate with the bot (aka me) via text unless the admin allows you to do so.",
         [
           {
             title: "Ask for Live Agent 👨",
@@ -596,7 +596,7 @@ class Replies {
 
     this.replies['LIVE_YES'] = [
       Responses.genTextReply("Your conversation has now been handed over to a live agent"),
-      Responses.genTextReply("Make sure to ask your question for them to get notified also, please be patient and wait for them to get back to you."),
+      Responses.genTextReply("Make sure to ask your question for them to get notified, and please be patient and wait for them to get back to you. They won't respond as fast as I do!"),
     ];
     
     this.replies['LIVE_NO'] = [
