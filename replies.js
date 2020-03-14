@@ -577,14 +577,14 @@ class Replies {
       Responses.genTextReply("Ok! Tell me what the complaint is. Just say Done, when you're done with the complaint!"),
     ];
 
-    this.replies["LIVE"] = [
+    this.replies["LIVE_CHAT"] = [
       Responses.genTextReply("If you Ask for a Live Agent, your conversation will be handed over."),
       Responses.genTextReply("It will take them a while to get back to your queries."),
       Responses.genQuickReply("Note : You wont be able to communicate with the bot via text unless the admin allows you to do so.",
         [
           {
             title: "Ask for Live Agent 👨",
-            payload: "LIVE_CHAT"
+            payload: "LIVE_YES"
           },
           {
             title: "No Thank You! ❌",
@@ -594,7 +594,7 @@ class Replies {
       )
     ];
 
-    this.replies['LIVE_CHAT'] = [
+    this.replies['LIVE_YES'] = [
       Responses.genTextReply("Your conversation has now been handed over to a live agent"),
       Responses.genTextReply("Make sure to ask your question for them to get notified also, please be patient and wait for them to get back to you."),
     ];
@@ -641,7 +641,7 @@ class Replies {
         "If you are still confused and want to know more, we can connect you to our server Admin",
         [{
           title: "Live Chat 👨",
-          payload: "LIVE"
+          payload: "LIVE_CHAT"
         },
         {
           title: "No Thank You! ❌",
@@ -684,7 +684,7 @@ class Replies {
           },
           {
             title: "Live Chat 👨",
-            payload: "LIVE"
+            payload: "LIVE_CHAT"
           }
         ]
     ),

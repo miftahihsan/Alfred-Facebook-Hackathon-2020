@@ -414,7 +414,7 @@ function handleQuickReplies(sender_psid, quick_reply) {
     ));
     userData['state']="ADMINISTRATIVE_TASKS";
   }
-  else if( userData['state'] === 'LIVE_CHAT' ){
+  else if( userData['state'] === 'LIVE_YES' ){
     userData['state'] = "INITIATE";
     sendMessage(sender_psid, response );
     enablePersistentMenu(sender_psid);
