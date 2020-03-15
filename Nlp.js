@@ -155,7 +155,10 @@ class Nlp{
         if (payload in Replies.replies) return Replies.replies[userData['state']];
         else {
             console.log(Replies.policy[userData['state']]);
-            console.log(Response.genQuickReply("Visit Info Desk For more Information! 😀 ", Replies.button["KNOWLEDGE"] ));
+            console.log( Responses.genQuickReply("You have been enrolled to the following course",
+            this.button["KNOWLEDGE_BTN"]
+            )
+            );
             // var res = [];
             // res.concat( Replies.policy[userData['state']] );
             // res.concat( Response.genQuickReply("Visit Info Desk For more Information! 😀 ", Replies.button["KNOWLEDGE"] ) );
