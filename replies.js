@@ -35,24 +35,6 @@ class Replies {
 
   static button = {
     // "btn" : Responses.genTextReply("BLA")
-    "KNOWLEDGE_BTN" : [
-      {
-        title: "Company policies 🤔",
-        payload: "HR_POLICIES"
-      },
-      {
-        title: "Training 🏋️‍♂️",
-        payload: "TRAINING"
-      },
-      {
-        title: "IT and Tech 🖥️",
-        payload: "IT_TECH"
-      },
-      {
-        title: "Corporate Law 👨‍⚖️",
-        payload: "CORPORATE_LAW"
-      },
-    ],
     "MENU_BTN" : [
       {
         "type": "postback",
@@ -98,7 +80,7 @@ class Replies {
         payload: "ANNOUNCEMENT_WHO"
       },
       {
-        title: "View Meeting 📆",
+        title: "View Meetings 📆",
         payload: "VIEW_SCHEDULE"
       }, 
       {
@@ -167,7 +149,7 @@ class Replies {
           payload: "EMPLOYEE_RIGHTS"
         },
         {
-          title: "Laws ⚖️",
+          title: "Privacy Laws ⚖️",
           payload: "LAWS_CO_WORKERS"
         },
         {
@@ -204,18 +186,50 @@ class Replies {
        this.replies["VIEW_REMINDERS"] = [Responses.genReminders(userData.Item['uid'], userData.Item['reminders']),
          Responses.genQuickReply(
            "You can create and manage multiple reminder lists",
-              this.button["SCHEDULES_BTN"]
-           )];
+           [
+            {
+              title: "View Reminders 📝",
+              payload: "VIEW_REMINDERS"
+            },
+            {
+              title: "Set-up Meeting 📣",
+              payload: "ANNOUNCEMENT_WHO"
+            },
+            {
+              title: "Create Reminder 🗒",
+              payload: "NEW_REMINDER"
+            },
+            {
+              title: "View Meetings 📆",
+              payload: "VIEW_SCHEDULE"
+            }
+          ])];
     }
     else {
       this.replies["VIEW_REMINDERS"] = [
-        // Responses.genTextReply("I didn't find any reminders! Tap create reminder to create one:) "),
+        Responses.genTextReply("I didn't find any reminders! Tap create reminder to create one:) "),
         Responses.genQuickReply(
-          "I didn't find any reminders! Tap create reminder to create one:)",
-            this.button["SCHEDULES_BTN"]
-          )
+          "",
+          [
+            {
+              title: "View Reminders 📝",
+              payload: "VIEW_REMINDERS"
+            },
+            {
+              title: "Set-up Meeting 📣",
+              payload: "ANNOUNCEMENT_WHO"
+            },
+            {
+              title: "Create Reminder 🗒",
+              payload: "NEW_REMINDER"
+            },
+            {
+              title: "View Meetings 📆",
+              payload: "VIEW_SCHEDULE"
+            }
+          ])
 
-      ]
+    ]
     }
 
 
@@ -414,8 +428,24 @@ class Replies {
 
     this.replies["KNOWLEDGE"] = [
       Responses.genQuickReply("What do you want to know about?",
-        this.button["KNOWLEDGE_BTN"]
-      )
+      [
+        {
+          title: "Company policies 🤔",
+          payload: "HR_POLICIES"
+        },
+        {
+          title: "Training 🏋️‍♂️",
+          payload: "TRAINING"
+        },
+        {
+          title: "IT and Tech 🖥️",
+          payload: "IT_TECH"
+        },
+        {
+          title: "Corporate Law 👨‍⚖️",
+          payload: "CORPORATE_LAW"
+        },
+      ])
     ];
 
     this.replies["HOLIDAYS_ASK_FOR_TIME"] = [
@@ -438,7 +468,7 @@ class Replies {
       )
     ];
 
-    this.replies['BONUS_QUERIES'] = [
+    this.replies['BONUS_QUERY'] = [
       Responses.genTextReply("I’ll list your remaining bonuses for this year below. Have a look! "),
       Responses.genQuickReply("\u2022 Christmas: "+this.userData.Item["holiday_bonus"]+"\n" +
         "\u2022 Sales Bonus: "+this.userData.Item['bonus']+"",
@@ -460,6 +490,7 @@ class Replies {
 
     this.replies['SALARIES'] = [
       Responses.genTextReply("You have "+this.userData.Item['due_salary']+" monthly salary payments left this year."),
+    Responses.genTextReply("Your current annual salary is $120,000!"),
       Responses.genQuickReply("You can directly ask about payments and bonuses simply by asking" +
                               "\“How much bonuses am i entitled to this year?\” or \"How much do I get this year in salaries?\"",
       
@@ -583,8 +614,10 @@ class Replies {
     ],
 
     "COMPLAINT_SUCCESS" : [
-      Responses.genPictureReply("https://media.giphy.com/media/ngrHy21B4yfZK/giphy-downsized-large.gif"),
+      
       Responses.genTextReply("I'm sorry you had to go through that unpleasant experience."),
+      Responses.genTextReply("Don't worry, I won't make you run around submitting forms like in other organizations! 😉"),
+      Responses.genPictureReply("https://media.giphy.com/media/ngrHy21B4yfZK/giphy-downsized-large.gif"),
       Responses.genQuickReply("I've logged your complaint successfully. It'll be processed as soon as possible! 😃",
         this.button["ADMINISTRATIVE_BTN"]
       )
@@ -690,8 +723,8 @@ class Replies {
         }
       ])],
     "SCHEDULES": Responses.genQuickReply(
-      "Would you like to work with your lists," +
-      " make a new list, view/manage your calendar",
+      "Would you like to setup a meeting, view all scheduled meetings," +
+      " make a new reminder list or view your reminders",
         this.button["SCHEDULES_BTN"]
       ),
     "FAQ": Responses.genQuickReply("Great! What do you want to know about?",
@@ -942,7 +975,7 @@ class Replies {
       Responses.genTextReply("Here are some common Corporate Law questions you can ask:"),
       Responses.genTextReply("\u2022 What are the new law changes introduced in the company?\n\n" +
         "\u2022 What are my rights as an employee in the company?"),
-      Responses.genQuickReply("\u2022 What are the laws regarding issues with co workers?\n\n" +
+      Responses.genQuickReply("\u2022 What are the privacy laws concerning employees?\n\n" +
         "\u2022 Can I buy shares for Wayne Enterprises as an employee?\n\n",
           this.button["CORPORATE_LAW_BTN"]
         )
@@ -1006,9 +1039,25 @@ class Replies {
         this.button["SCHEDULES_BTN"]
       )
     ],
-    "ENROLL" : Responses.genQuickReply("You have been enrolled to the following course",
-      this.button["KNOWLEDGE_BTN"]
-    ),
+    "ENROLL" : Responses.genQuickReply("You have been successfully enrolled for the selected course!",
+    [
+      {
+        title: "Finances 💰",
+        payload: "FINANCE"
+      },
+      {
+        title: "IT and Tech 🖥️",
+        payload: "IT_TECH"
+      },
+      {
+        title: "Corporate Law 👨‍⚖️",
+        payload: "CORPORATE_LAW"
+      },
+      {
+        title: "Training 🏋️‍♂️",
+        payload: "TRAINING"
+      },
+    ]),
     "APOLOGIZE" : Responses.genTextReply("I'm sorry, I didn't quite understand that")
   };
 
