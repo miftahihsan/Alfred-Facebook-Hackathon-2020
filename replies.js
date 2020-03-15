@@ -206,9 +206,8 @@ class Replies {
     }
     else {
       this.replies["VIEW_REMINDERS"] = [
-        Responses.genTextReply("I didn't find any reminders! Tap create reminder to create one:) "),
         Responses.genQuickReply(
-          "",
+          "I didn't find any reminders! Tap create reminder to create one :) ",
           this.button["SCHEDULES_BTN"])
 
     ]
