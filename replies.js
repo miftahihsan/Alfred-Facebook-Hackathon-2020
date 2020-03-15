@@ -233,10 +233,14 @@ class Replies {
 
 
     this.replies['HR_POLICIES'] = [
-      Responses.genTextReply("You can say something like"),
-      Responses.genTextReply("\“I’d like to read the sexual harassment guidelines\”"),
-      Responses.genTextReply("Or \“What are the current health insurance policies?\”"),
-      Responses.genTextReply("and I’ll search the HR handbook and get the relevant information to you!")
+      Responses.genTextReply("Here are the policies you can ask me about: "),
+      Responses.genTextReply("\“company health insurance, customer relations or ethics policies\”"),
+      Responses.genTextReply("\“policies against workplace violence, discrimination or sexual harassment\”"),
+      Responses.genTextReply("\“Employee Termination or Suspension policies\”"),
+      Responses.genTextReply("\“Employee Privacy policies\”"),
+      Responses.genTextReply("\“Policies for admitting employees into rehab\”"),
+      Responses.genTextReply("Or You can ask me these questions any time simply by saying for instance \"What are the sexual harassment guidelines?\""),
+      Responses.genTextReply("I’ll search the HR handbook and get the relevant information to you!")
     ];
 
     this.replies['TIME_11:00_AM'] = [
@@ -1068,11 +1072,10 @@ class Replies {
       " must leave before the program is over."),
     ],
     "ETHICS" : [
-      Responses.genTextReply("The Utility Board of the City of BD West d/b/a our Energy Services has" + 
-      " adopted "),
+      Responses.genTextReply("Our company has adopted"),
       Responses.genTextReply("a Code of Ethics for its employees. This Code of Ethics is substantially similar to" +
       " the Code of Ethics adopted by "),
-      Responses.genTextReply("the State of Florida for state, county, and city elected" +
+      Responses.genTextReply("the State for state, county, and city elected" +
       "officials, officers and employees."),
     ],
     "CUSTOMER_RELATIONS" : [
@@ -1098,7 +1101,7 @@ class Replies {
       " before an incident occurs that results in a drug "),
       Responses.genTextReply("and/or alcohol test, brings it to" + 
       " the attention of his/her Supervisor, Department Director or the Director of HR & Communications, may be allowed to enter and"),
-      Responses.genTextReply(" complete an appropriate  rehabilitation program approved by us at the employee's own expense."),
+      Responses.genTextReply(" complete an appropriate rehabilitation program approved by us at the employee's own expense."),
     ],
     "PARKING" : [
       Responses.genTextReply("We provides parking for its employees and assigns parking spaces to all employees" +
@@ -1152,7 +1155,7 @@ class Replies {
       Responses.genTextReply("Payday is every other Friday (bi-weekly) unless otherwise specified by Management."),
     ],
     "PRIVACY" : [
-      Responses.genTextReply("We respect the privacy of its employees; however, as a public entity, we must comply with Florida's Public Records Law."),
+      Responses.genTextReply("We respect the privacy of its employees; however, as a public entity, we must comply with the State's Public Records Law."),
       Responses.genTextReply("If a request is made for information from an employee’s personnel file, we must comply; however,"),
       Responses.genTextReply("if time permits, Human Resources will attempt to contact the employee to advise them of said request."),
     ],
