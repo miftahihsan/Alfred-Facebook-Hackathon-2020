@@ -241,8 +241,27 @@ class Replies {
       Responses.genTextReply("\“Employee Privacy policies\”"),
       Responses.genTextReply("\“Policies for admitting employees into rehab\”"),
       Responses.genTextReply("Or You can ask me these questions any time simply by saying for instance \"What are the sexual harassment guidelines?\""),
-      Responses.genTextReply("I’ll search the HR handbook and get the relevant information to you!")
-    ];
+      Responses.genTextReply("I’ll search the HR handbook and get the relevant information to you!"),
+      Responses.genQuickReply("Ok, what else do you want to know about?",
+        [
+          {
+            title: "Company policies 🤔",
+            payload: "HR_POLICIES"
+          },
+          {
+            title: "Training 🏋️‍♂️",
+            payload: "TRAINING"
+          },
+          {
+            title: "IT and Tech 🖥️",
+            payload: "IT_TECH"
+          },
+          {
+            title: "Corporate Law 👨‍⚖️",
+            payload: "CORPORATE_LAW"
+          },
+        ])
+      ];
 
     this.replies['TIME_11:00_AM'] = [
       Responses.genQuickReply("We have delivered a message to every one that you called for a meeting",
