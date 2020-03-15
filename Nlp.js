@@ -155,7 +155,7 @@ class Nlp{
         if (payload in Replies.replies) return Replies.replies[userData['state']];
         else {
             console.log(Replies.policy[userData['state']]);
-            console.log( Responses.genQuickReply("You have been enrolled to the following course",
+            console.log( Response.genQuickReply("You have been enrolled to the following course",
             this.button["KNOWLEDGE_BTN"]
             )
             );
