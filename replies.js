@@ -35,6 +35,24 @@ class Replies {
 
   static button = {
     // "btn" : Responses.genTextReply("BLA")
+    "KNOWLEDGE_BTN" : [
+      {
+        title: "Company policies 🤔",
+        payload: "HR_POLICIES"
+      },
+      {
+        title: "Training 🏋️‍♂️",
+        payload: "TRAINING"
+      },
+      {
+        title: "IT and Tech 🖥️",
+        payload: "IT_TECH"
+      },
+      {
+        title: "Corporate Law 👨‍⚖️",
+        payload: "CORPORATE_LAW"
+      },
+    ],
     "MENU_BTN" : [
       {
         "type": "postback",
@@ -428,24 +446,8 @@ class Replies {
 
     this.replies["KNOWLEDGE"] = [
       Responses.genQuickReply("What do you want to know about?",
-      [
-        {
-          title: "Company policies 🤔",
-          payload: "HR_POLICIES"
-        },
-        {
-          title: "Training 🏋️‍♂️",
-          payload: "TRAINING"
-        },
-        {
-          title: "IT and Tech 🖥️",
-          payload: "IT_TECH"
-        },
-        {
-          title: "Corporate Law 👨‍⚖️",
-          payload: "CORPORATE_LAW"
-        },
-      ])
+        this.button["KNOWLEDGE_BTN"]
+      )
     ];
 
     this.replies["HOLIDAYS_ASK_FOR_TIME"] = [
@@ -1037,24 +1039,8 @@ class Replies {
       )
     ],
     "ENROLL" : Responses.genQuickReply("You have been enrolled to the following course",
-    [
-      {
-        title: "Finances 💰",
-        payload: "FINANCE"
-      },
-      {
-        title: "IT and Tech 🖥️",
-        payload: "IT_TECH"
-      },
-      {
-        title: "Corporate Law 👨‍⚖️",
-        payload: "CORPORATE_LAW"
-      },
-      {
-        title: "Training 🏋️‍♂️",
-        payload: "TRAINING"
-      },
-    ]),
+      this.button["KNOWLEDGE_BTN"]
+    ),
     "APOLOGIZE" : Responses.genTextReply("I'm sorry, I didn't quite understand that")
   };
 
