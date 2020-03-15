@@ -13,7 +13,7 @@ class Nlp{
 
     // Used to keep a check of confidence
     checkConfidence(nlp){
-        if(nlp['intent'][0]['confidence'] < 0.8 ) return true;
+        if(nlp['intent'][0]['confidence'] < 0.7 ) return true;
     }
 
     // The bot uses this fucntion to decide its reply to the users text message
@@ -153,14 +153,30 @@ class Nlp{
          *  Else we search it from the policy and look if that contains the Intent
          */
         if (payload in Replies.replies) return Replies.replies[userData['state']];
-        else if (payload in Replies.policy) {
-            let btn = Response.genQuickReply("What else would you like to know about?", Replies.button["KNOWLEDGE"] );
-             let res =  Replies.policy[userData['state']].concat([btn]);
-            return res;
-            //return Replies.policy[userData['state']];
-        }
-        else{
-            return "default"
+        else {
+            // var res = [];
+            // res.concat( Replies.policy[userData['state']] );
+            // res.concat( Response.genQuickReply("Visit Info Desk For more Information! 😀 ", Replies.button["KNOWLEDGE"] ) );
+
+            // var rep = Replies.policy[userData['state']];
+            // var btn = [Response.genQuickReply("Visit Info Desk For more Information! 😀 ", Replies.button["KNOWLEDGE"] )];
+
+            // var res = [];
+
+            // for( var i = 0; i < rep.length; i++ ){
+            //     res.push( rep[i] );
+            // }
+            // for( var i = 0; i < btn.length; i++ ){
+            //     res.push( btn[i] );
+            // }
+
+            // console.log("----------------------------------------------------------------");
+            
+            // for( var i = 0; i < res.length; i++ ) {
+            //     console.log( res[i] );
+            // }
+
+            return Replies.policy[userData['state']];
         }
 
     }
