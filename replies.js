@@ -163,8 +163,6 @@ class Replies {
   static setInitiate(userData){
     this.replies["INITIATE"] = [Responses.genTextReply("Hi "+userData['name']+" ! "),
       Responses.genTextReply("I am an advanced bot designed to be your personal assistant here in the offices of ABC company."),
-      Responses.genTextReply("I'm also designed to be your very own HR manager. That means you can ask me things you'd normally have to ask your HR department. If the question is too difficult for me I can redirect you to an HR representative for further help."),
-      Responses.genTextReply("In order to best serve your needs, I’ve already gathered some basic info about you from the Company's employee records"),
       Responses.genTextReply("Lets get started! \uD83D\uDE04\n"),
       Responses.genPictureReply( "https://images.app.goo.gl/wRohsHKLqBKDxG1o9" ),
      Responses.genTextReply("\u2022 You can swipe up from the bottom of the chat to go to the menu.\n\n\u2022 From there Click on Administrative tasks button to Submit a Complaint, know about Company Policies and Training Courses, Submit Stats to your manager and more.\n\n\u2022 Click on the Personal tasks button to Setup/View Meetings and Reminders, Ask about Holidays,Pay and Bonuses, see your Performance Stats and more.",
@@ -315,8 +313,6 @@ class Replies {
 
     this.replies["INITIATE"] = [Responses.genTextReply("Hi "+userData['name']+" ! "),
       Responses.genTextReply("I am an advanced bot designed to be your personal assistant here in the offices of ABC company."),
-      Responses.genTextReply("I'm also designed to be your very own HR manager. That means you can ask me things you'd normally have to ask your HR department. If the question is too difficult for me I can redirect you to an HR representative for further help."),
-      Responses.genTextReply("In order to best serve your needs, I’ve already gathered some basic info about you from the company's employee records"),
       Responses.genTextReply("Lets get started! \uD83D\uDE04\n"),
       Responses.genPictureReply( "https://i.imgur.com/wPqon3D.gif" ),
       Responses.genTextReply("You can swipe up from the bottom of the chat to go to the menu."), Responses.genTextReply("\u2022 From there Click on Administrative tasks button to Submit a Complaint, know about Company Policies and Training Courses, Submit Stats to your manager and more. \n\n\u2022 Click on the Personal tasks button to Setup/View Meetings and Reminders, Ask about Holidays,Pay and Bonuses, see your Performance Stats and more.",
@@ -635,13 +631,10 @@ class Replies {
     ],
     "INITIATE": [Responses.genTextReply("Hi There!"),
       Responses.genTextReply("I am an advanced bot designed to be your personal assistant here in the offices of ABC company."),
-      Responses.genTextReply("I'm also designed to be your very own HR manager. That means you can ask me things you'd normally have to ask your HR department. If the question is too difficult for me I can redirect you to an HR representative for further help."),
-      Responses.genTextReply("In order to best serve your needs, I’ve already gathered some basic info about you from the company employee records"),
       Responses.genTextReply("Lets get started! \uD83D\uDE04\n")
     ],
     "WHAT_CAN_YOU_DO": [Responses.genTextReply("Hi!"),
       Responses.genTextReply("I am an advanced bot designed to be your personal assistant here in the offices of ABC company."),
-      Responses.genTextReply("I'm also designed to be your very own HR manager. That means you can ask me things you'd normally have to ask your HR department. If the question is too difficult for me I can redirect you to an HR representative for further help."),
       Responses.genTextReply("\u2022 You can swipe up from the bottom of the chat to go to the menu.\n\n\u2022 From there Click on Administrative tasks button to Submit a Complaint, know about Company Policies and Training Courses, Submit Stats to your manager and more.\n\n\u2022 Click on the Personal tasks button to Setup/View Meetings and Reminders, Ask about Holidays,Pay and Bonuses, see your Performance Stats and more."),
       Responses.genQuickReply(
         "If you are still confused and want to know more, I can connect you to a human agent",
@@ -1109,8 +1102,6 @@ class Replies {
     "CUSTOMER_RELATIONS" : [
       Responses.genTextReply("Each employee is our representative. Whether dealing in person, on the telephone," +
       " or by mail (electronic or via USPS) "),
-      Responses.genTextReply("the customer's and the public’s impression of us is" +
-      " the impression given by each employee interaction."),
       Responses.genTextReply("As our representative, an"+
       " employee should be courteous and maintain a business-like manner "),
       Responses.genTextReply("whenever dealing" + 
@@ -1140,8 +1131,6 @@ class Replies {
     "DISCRIMINATION" : [
       Responses.genTextReply("The laws enforced by EEOC makes it unlawful for Federal agencies to discriminate against employees and job applicants " +
       " on the bases of race, color, religion, sex, national origin, disability, or age."),
-      Responses.genTextReply("A person who files a complaint or participates in an investigation of an EEO complaint, or who opposes an employment practice" +
-      " made illegal under any of the laws that EEOC enforces is protected from retaliation."),
       Responses.genTextReply("The Equal Pay Act of 1963 protects men and women from sex-based wage discrimination in the payment of wages or benefits, who" + 
       " perform substantially equal work in the same establishment. See EEOC guidance on equal pay and compensation discrimination"),
     ],
