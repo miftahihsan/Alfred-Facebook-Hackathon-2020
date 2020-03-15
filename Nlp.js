@@ -157,6 +157,25 @@ class Nlp{
             // var res = [];
             // res.concat( Replies.policy[userData['state']] );
             // res.concat( Response.genQuickReply("Visit Info Desk For more Information! 😀 ", Replies.button["KNOWLEDGE"] ) );
+
+            // var rep = Replies.policy[userData['state']];
+            // var btn = [Response.genQuickReply("Visit Info Desk For more Information! 😀 ", Replies.button["KNOWLEDGE"] )];
+
+            // var res = [];
+
+            // for( var i = 0; i < rep.length; i++ ){
+            //     res.push( rep[i] );
+            // }
+            // for( var i = 0; i < btn.length; i++ ){
+            //     res.push( btn[i] );
+            // }
+
+            // console.log("----------------------------------------------------------------");
+            
+            // for( var i = 0; i < res.length; i++ ) {
+            //     console.log( res[i] );
+            // }
+
             return Replies.policy[userData['state']];
         }
 
