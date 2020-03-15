@@ -1027,11 +1027,13 @@ class Replies {
       )
       ],
     "VIEW_SCHEDULE": [
-      Responses.genTextReply("Looks like you have nothing to do!"),
+      Responses.genTextReply("Looks like you have no meetings to attend to!"),
+      Responses.genTextReply("I'll ask your manager to assign you more tasks :3"),
       Responses.genPictureReply("https://s3-us-west-2.amazonaws" + 
       ".com/www.whitewall.site/bizbotteuxdeux/assets/thinking.png?fbc" + 
       "lid=IwAR3lHMv3pEPSAglCNhN6S2h2XvGNRl_G9SG_8FN3hCbCa48PUp-33PJzo70"),
-      Responses.genTextReply("I'll ask your manager to assign you more tasks :3"),
+      Responses.genTextReply("Just kidding! I'd never do that to you! 😉"),
+      
       Responses.genPictureReply("https://s3-us-west-2.amazonaws.com/www.whitewall.site/bizbotteuxdeux/assets/monkey" + 
         "_smirk.png?fbclid=IwAR01UxGdDfPXhuTgLE6oh0LJirwmpEh0anBEWoh03lCZSBloIenFsGN8uP4"),
       Responses.genQuickReply(
