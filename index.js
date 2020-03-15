@@ -490,7 +490,7 @@ function handleMeetingCall(sender_psid, arr){
       let c = res.Count;
       for (let i=0;i< c;i++){
         if (res.Items[i].uid.S===sender_psid)continue;
-        //UNCOMMENT THIS  LATER PLEASE
+
         sendMessage(res.Items[i].uid.S, [Response.genTextReply("A meeting has been scheduled by " + userData['name']),
           {
             "attachment": {
@@ -597,20 +597,24 @@ function handlePostback(sender_psid, received_postback) {
             }
             if (!responded) {
               if( arr[2] === "YES" ) {
-                response = {'text': userData['name'] + " wanted to let you know that he will be able to attend the meeting."};
+                response = [{'text': userData['name'] + " wanted to let you know that he will be able to attend the meeting."},
+                Replies.replies[userData['state']]];
                 //update attendee in database
                 DynamoDB.updateAttendingMeeting(arr[1], userData['uid']);
               }
 
               else{
-                response = {'text' : userData['name'] + " wanted to let you know that he will not be able to attend the meeting." };
+                response = [{'text' : userData['name'] + " wanted to let you know that he will not be able to attend the meeting." },
+                Replies.replies[userData['state']]];
                 DynamoDB.updateDecliningMeeting(arr[1], userData['uid']);
               }
-              callSendAPI(arr[1], response);
+              sendMessage(arr[1], response);
+              sendMessage(userData['uid'], Replies.replies[userData['state']])
 
             }
             else{
-              sendMessage(sender_psid, Response.genTextReply("Your response has already been recorded."));
+              sendMessage(sender_psid, [Response.genTextReply("Your response has already been recorded."),
+              Replies.replies[userData['state']]]);
             }
 
           });

@@ -14,6 +14,10 @@ class Nlp{
     // Used to keep a check of confidence
     checkConfidence(nlp){
         if(nlp['intent'][0]['confidence'] < 0.8 ) return true;
+        let branch = nlp['intent'][0]['value'];
+        if (branch in nlp){
+            if (nlp[branch][0]['confidence'] < 0.8) return true;
+        }
     }
 
     // The bot uses this fucntion to decide its reply to the users text message
