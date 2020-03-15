@@ -183,7 +183,7 @@ class Replies {
       Responses.genTextReply("I am an advanced bot designed to be your personal assistant here in the offices of ABC company."),
       Responses.genTextReply("Lets get started! \uD83D\uDE04\n"),
       Responses.genPictureReply( "https://images.app.goo.gl/wRohsHKLqBKDxG1o9" ),
-     Responses.genTextReply("\u2022 You can swipe up from the bottom of the chat to go to the menu.\n\n\u2022 From there Click on Administrative tasks button to Submit a Complaint, know about Company Policies and Training Courses, Submit Stats to your manager and more.\n\n\u2022 Click on the Personal tasks button to Setup/View Meetings and Reminders, Ask about Holidays,Pay and Bonuses, see your Performance Stats and more.",
+     Responses.genQuickReply("\u2022 You can swipe up from the bottom of the chat to go to the menu.\n\n\u2022 From there Click on Administrative tasks button to Submit a Complaint, know about Company Policies and Training Courses, Submit Stats to your manager and more.\n\n\u2022 Click on the Personal tasks button to Setup/View Meetings and Reminders, Ask about Holidays,Pay and Bonuses, see your Performance Stats and more.",
         this.button["MENU_BTN"]
       ),
     ];
@@ -1001,24 +1001,7 @@ class Replies {
       )
     ],
     "ENROLL" : Responses.genQuickReply("You have been successfully enrolled for the selected course!",
-    [
-      {
-        title: "Finances 💰",
-        payload: "FINANCE"
-      },
-      {
-        title: "IT and Tech 🖥️",
-        payload: "IT_TECH"
-      },
-      {
-        title: "Corporate Law 👨‍⚖️",
-        payload: "CORPORATE_LAW"
-      },
-      {
-        title: "Training 🏋️‍♂️",
-        payload: "TRAINING"
-      },
-    ]),
+    this.button['KNOWLEDGE_BTN']),
     "APOLOGIZE" : Responses.genTextReply("I'm sorry, I didn't quite understand that")
   };
 
