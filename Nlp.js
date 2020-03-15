@@ -154,20 +154,10 @@ class Nlp{
          */
         if (payload in Replies.replies) return Replies.replies[userData['state']];
         else {
-
-            var rep = Replies.policy[userData['state']];
-
-            var res = [];
-
-            for( var i = 0; i < rep; i++ ){
-                res.push( rep[i] );
-            }
-
             // var res = [];
             // res.concat( Replies.policy[userData['state']] );
             // res.concat( Response.genQuickReply("Visit Info Desk For more Information! 😀 ", Replies.button["KNOWLEDGE"] ) );
-            // return Replies.policy[userData['state']];
-            return res;
+            return Replies.policy[userData['state']];
         }
 
     }
