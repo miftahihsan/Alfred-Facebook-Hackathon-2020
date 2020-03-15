@@ -54,7 +54,7 @@ class Replies {
     ],
     "PERSONAL_TASKS_BTN" : [
         {
-          title: "Meeting/List 📅",
+          title: "Meetings/Reminders 📅",
           payload: "SCHEDULES"
         },
         {
@@ -162,13 +162,11 @@ class Replies {
 
   static setInitiate(userData){
     this.replies["INITIATE"] = [Responses.genTextReply("Hi "+userData['name']+" ! "),
-      Responses.genTextReply("I am an advanced bot designed to be your personal assistant here in the offices of Wayne Enterprises."),
+      Responses.genTextReply("I am an advanced bot designed to be your personal assistant here in the offices of ABC company."),
       Responses.genTextReply("I'm also designed to be your very own HR manager. That means you can ask me things you'd normally have to ask your HR department. If the question is too difficult for me I can redirect you to an HR representative for further help."),
-      Responses.genTextReply("In order to best serve your needs, I’ve already gathered some basic info about you from the Wayne Enterprises employee records"),
+      Responses.genTextReply("In order to best serve your needs, I’ve already gathered some basic info about you from the Company's employee records"),
       Responses.genTextReply("Lets get started! \uD83D\uDE04\n"),
-      Responses.genTextReply("\u2022 Ask an HR question\n\n\u2022 Modify your calendar, make a list etc.."),
-      Responses.genQuickReply(
-        "\u2022 Know something from a specific company department, like finance, tech support, law etc..\n\n\u2022 Report stats/info to manager\n",
+     Responses.genTextReply("\u2022 You can swipe up from the bottom of the chat to go to the menu.\n\n\u2022 From there Click on Administrative tasks button to Submit a Complaint, know about Company Policies and Training Courses, Submit Stats to your manager and more.\n\n\u2022 Click on the Personal tasks button to Setup/View Meetings and Reminders, Ask about Holidays,Pay and Bonuses, see your Performance Stats and more."),
         this.button["MENU_BTN"]
       )
     ];
@@ -186,7 +184,7 @@ class Replies {
     if ('reminders' in userData.Item){
        this.replies["VIEW_REMINDERS"] = [Responses.genReminders(userData.Item['uid'], userData.Item['reminders']),
          Responses.genQuickReply(
-           "Or manage other reminders",
+           "You can create and manage multiple reminder lists",
            [
             {
               title: "View Reminders 📝",
@@ -206,11 +204,11 @@ class Replies {
             }
           ])];
     }
-    else{
+    else {
       this.replies["VIEW_REMINDERS"] = [
-        Responses.genTextReply("Sorry, no reminders found! Create a new reminder :) "),
+        Responses.genTextReply("I didn't find any reminders! Tap create reminder to create one:) "),
         Responses.genQuickReply(
-          "Or manage other reminders",
+          "",
           [
             {
               title: "View Reminders 📝",
@@ -225,7 +223,7 @@ class Replies {
               payload: "NEW_REMINDER"
             },
             {
-              title: "View Meeting 📆",
+              title: "View Meetings 📆",
               payload: "VIEW_SCHEDULE"
             }
           ])
@@ -258,7 +256,7 @@ class Replies {
     ];
 
     this.replies['ANNOUNCEMENT_TIME'] = [Responses.genTextReply("Select a time from below"),
-      Responses.genQuickReply("Or you can also type your preferred time",
+      Responses.genQuickReply("Or type in your preferred time",
       [
         {
           title: "11:00-AM",
@@ -276,7 +274,7 @@ class Replies {
     ];
 
     this.replies['ANNOUNCEMENT_WHO'] = [
-      Responses.genQuickReply("Who would you like to set-up a meeting with?",
+      Responses.genQuickReply("With whom should I setup the meeting with?",
        [
         {
           title: "Team",
@@ -296,9 +294,7 @@ class Replies {
       Responses.genTextReply("I'm also designed to be your very own HR manager. That means you can ask me things you'd normally have to ask your HR department. If the question is too difficult for me I can redirect you to an HR representative for further help."),
       Responses.genTextReply("In order to best serve your needs, I’ve already gathered some basic info about you from the company's employee records"),
       Responses.genTextReply("Lets get started! \uD83D\uDE04\n"),
-      Responses.genTextReply("\u2022 Ask an HR question\n\n\u2022 Modify your calendar, make a list etc.."),
-      Responses.genQuickReply(
-        "\u2022 Know something from a specific company department, like finance, tech support, law etc..\n\n\u2022 Report stats/info to manager\n",
+      Responses.genTextReply("\u2022 You can swipe up from the bottom of the chat to go to the menu.\n\n\u2022 From there Click on Administrative tasks button to Submit a Complaint, know about Company Policies and Training Courses, Submit Stats to your manager and more.\n\n\u2022 Click on the Personal tasks button to Setup/View Meetings and Reminders, Ask about Holidays,Pay and Bonuses, see your Performance Stats and more."),
         this.button["MENU_BTN"]
       )
     ];
@@ -382,13 +378,13 @@ class Replies {
     ];
 
     this.replies["PERSONAL_TASKS"] = [
-      Responses.genQuickReply("What would you like to do ?",
+      Responses.genQuickReply("What would you like to do?",
         this.button["PERSONAL_TASKS_BTN"]
       )
     ];   
 
     this.replies["ADMINISTRATIVE_TASKS"] = [
-      Responses.genQuickReply("What would you like to do ?",
+      Responses.genQuickReply("What would you like to do?",
       [
         {
           title: "Report stats/info 👩‍💻",
@@ -406,7 +402,7 @@ class Replies {
     ];
 
     this.replies["KNOWLEDGE"] = [
-      Responses.genQuickReply("What would you like to do ?",
+      Responses.genQuickReply("What do you want to know about?",
       [
         {
           title: "Company policies 🤔",
@@ -435,7 +431,7 @@ class Replies {
       Responses.genQuickReply("I've submitted your application to the HR department! 😀",
       [
         {
-          title: "HR policies 🤔",
+          title: "Company policies 🤔",
           payload: "HR_POLICIES"
         },
         {
