@@ -457,7 +457,8 @@ function handleQuickReplies(sender_psid, quick_reply) {
         }
         if( temp.length == 0 ) response = Replies.replies['VIEW_SCHEDULE'];
         else{
-          response = Response.genGenericTemplate( temp );
+          response = [Response.genGenericTemplate( temp ),
+            Response.genQuickReply("What would you like to do next?", Replies.button["SCHEDULES_BTN"])];
         }
         sendMessage(sender_psid, response);
 
