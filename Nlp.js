@@ -156,7 +156,7 @@ class Nlp{
         else {
             // var res = [];
             // res.concat( Replies.policy[userData['state']] );
-            // res.concat( Response.genQuickReply("Visit Info Desk For more Information! 😀 ", Replies.button["KNOWLEDGE"]) );
+            // res.concat( Response.genQuickReply("Visit Info Desk For more Information! 😀 ", Replies.button["KNOWLEDGE"] ) );
             return Replies.policy[userData['state']];
         }
 
