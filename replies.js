@@ -38,7 +38,7 @@ class Replies {
     "MENU_BTN" : [
       {
         "type": "postback",
-        "title": "Administrative tasks🏢",
+        "title": "Administrative tasks 👩‍💼",
         "payload": "ADMINISTRATIVE_TASKS"
       },
       {
@@ -108,15 +108,15 @@ class Replies {
     ],
     "TRAINING_BTN" : [
       {
-        title: "Courses available",
+        title: "Courses available 📚",
         payload: "COURSES_AVAILABLE"
       },
       {
-        title: "Courses required",
+        title: "Courses required 🙇‍♂️",
         payload: "PREREQUISITE_TRAINING"
       },
       {
-        title: "Improvement Courses",
+        title: "Improvement Courses 🏋️‍♂️",
         payload: "SELF_IMPROVEMENT_COURSES"
       }
     ],
@@ -141,19 +141,19 @@ class Replies {
 
     "CORPORATE_LAW_BTN" : [
         {
-          title: "New Laws",
+          title: "New Laws ⚖️",
           payload: "NEW_LAWS"
         },
         {
-          title: "Employee Rights",
+          title: "Employee Rights 🤜",
           payload: "EMPLOYEE_RIGHTS"
         },
         {
-          title: "Laws",
+          title: "Laws ⚖️",
           payload: "LAWS_CO_WORKERS"
         },
         {
-          title: "Buy Shares",
+          title: "Buy Shares 📈",
           payload: "BUY_SHARES"
         },
     ]
@@ -292,9 +292,9 @@ class Replies {
         }])];
 
     this.replies["INITIATE"] = [Responses.genTextReply("Hi "+userData['name']+" ! "),
-      Responses.genTextReply("I am an advanced bot designed to be your personal assistant here in the offices of Wayne Enterprises."),
+      Responses.genTextReply("I am an advanced bot designed to be your personal assistant here in the offices of ABC company."),
       Responses.genTextReply("I'm also designed to be your very own HR manager. That means you can ask me things you'd normally have to ask your HR department. If the question is too difficult for me I can redirect you to an HR representative for further help."),
-      Responses.genTextReply("In order to best serve your needs, I’ve already gathered some basic info about you from the Wayne Enterprises employee records"),
+      Responses.genTextReply("In order to best serve your needs, I’ve already gathered some basic info about you from the company's employee records"),
       Responses.genTextReply("Lets get started! \uD83D\uDE04\n"),
       Responses.genTextReply("\u2022 Ask an HR question\n\n\u2022 Modify your calendar, make a list etc.."),
       Responses.genQuickReply(
@@ -627,18 +627,18 @@ class Replies {
         this.button["MENU_BTN"]
       )
     ],
-    "INITIATE": [Responses.genTextReply("Hi!"),
-      Responses.genTextReply("I am an advanced bot designed to be your personal assistant here in the offices of Wayne Enterprises."),
+    "INITIATE": [Responses.genTextReply("Hi There!"),
+      Responses.genTextReply("I am an advanced bot designed to be your personal assistant here in the offices of ABC company."),
       Responses.genTextReply("I'm also designed to be your very own HR manager. That means you can ask me things you'd normally have to ask your HR department. If the question is too difficult for me I can redirect you to an HR representative for further help."),
-      Responses.genTextReply("In order to best serve your needs, I’ve already gathered some basic info about you from the Wayne Enterprises employee records"),
+      Responses.genTextReply("In order to best serve your needs, I’ve already gathered some basic info about you from the company employee records"),
       Responses.genTextReply("Lets get started! \uD83D\uDE04\n")
     ],
     "WHAT_CAN_YOU_DO": [Responses.genTextReply("Hi!"),
-      Responses.genTextReply("I am an advanced bot designed to be your personal assistant here in the offices of Wayne Enterprises."),
+      Responses.genTextReply("I am an advanced bot designed to be your personal assistant here in the offices of ABC company."),
       Responses.genTextReply("I'm also designed to be your very own HR manager. That means you can ask me things you'd normally have to ask your HR department. If the question is too difficult for me I can redirect you to an HR representative for further help."),
-      Responses.genTextReply("\u2022 Ask an HR question\n\n\u2022 Modify your calendar, make a list etc.."),
+      Responses.genTextReply("\u2022 You can swipe up from the bottom of the chat to go to the menu.\n\n\u2022 From there Click on Administrative tasks button to Submit a Complaint, know about Company Policies and Training Courses, Submit Stats to your manager and more.\n\n\u2022 Click on the Personal tasks button to Setup/View Meetings and Reminders, Ask about Holidays,Pay and Bonuses, see your Performance Stats and more."),
       Responses.genQuickReply(
-        "If you are still confused and want to know more, we can connect you to our server Admin",
+        "If you are still confused and want to know more, I can connect you to a human agent",
         [{
           title: "Live Chat 👨",
           payload: "LIVE_CHAT"
