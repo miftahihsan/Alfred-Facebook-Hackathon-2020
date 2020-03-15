@@ -158,9 +158,11 @@ class Nlp{
             var res = [];
             res.concat(Replies.policy[userData['state']]);
 
-            res.push(Response.genQuickReply("You have been enrolled to the following course",
-                        Replies.button["KNOWLEDGE_BTN"]
-                    ));
+            var btn = [Response.genQuickReply("You have been enrolled to the following course",
+                            Replies.button["KNOWLEDGE_BTN"]
+                        )];
+
+            res.concat( btn );
 
             console.log(Replies.policy[userData['state']]);
             console.log( 
