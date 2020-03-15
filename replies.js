@@ -526,7 +526,7 @@ class Replies {
       ),
     ],
     this.replies["NO_NETWORK"] = [
-      Responses.genTextReply("I'v sent a token to the IT department regarding your issue : No Network!"),
+      Responses.genTextReply("I've sent a token to the IT department regarding your issue : No Network!"),
       Responses.genTextReply("They will be in contact with you very shortly"),
       Responses.genQuickReply("Support Ticket Issued : " + this.supportTicketGenerator() , 
         this.button["IT_BTN"]
@@ -981,7 +981,7 @@ class Replies {
       ],
     "REPORT_STATS": [
       Responses.genTextReply("Please Upload the sales records that you would like to send"),
-      Responses.genTextReply("The document will be transferred to the manager, David Wallace")
+      Responses.genTextReply("The document will be transferred to your manager")
     ],
     "DISCARD_REPORT" : [
       Responses.genQuickReply("Your Attachments have been discarded successfully!", 
@@ -993,7 +993,7 @@ class Replies {
       " by pressing the buttons below",
       [
         {
-          title: "Submit Report 📈",
+          title: "Submit Report 📊",
           payload: "SUBMIT_REPORT"
         },
         {
