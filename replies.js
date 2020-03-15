@@ -166,9 +166,9 @@ class Replies {
       Responses.genTextReply("I'm also designed to be your very own HR manager. That means you can ask me things you'd normally have to ask your HR department. If the question is too difficult for me I can redirect you to an HR representative for further help."),
       Responses.genTextReply("In order to best serve your needs, I’ve already gathered some basic info about you from the Company's employee records"),
       Responses.genTextReply("Lets get started! \uD83D\uDE04\n"),
-     Responses.genTextReply("\u2022 You can swipe up from the bottom of the chat to go to the menu.\n\n\u2022 From there Click on Administrative tasks button to Submit a Complaint, know about Company Policies and Training Courses, Submit Stats to your manager and more.\n\n\u2022 Click on the Personal tasks button to Setup/View Meetings and Reminders, Ask about Holidays,Pay and Bonuses, see your Performance Stats and more."),
+     Responses.genTextReply("\u2022 You can swipe up from the bottom of the chat to go to the menu.\n\n\u2022 From there Click on Administrative tasks button to Submit a Complaint, know about Company Policies and Training Courses, Submit Stats to your manager and more.\n\n\u2022 Click on the Personal tasks button to Setup/View Meetings and Reminders, Ask about Holidays,Pay and Bonuses, see your Performance Stats and more.",
         this.button["MENU_BTN"]
-      )
+      ),
     ];
   }
 
@@ -294,7 +294,7 @@ class Replies {
       Responses.genTextReply("I'm also designed to be your very own HR manager. That means you can ask me things you'd normally have to ask your HR department. If the question is too difficult for me I can redirect you to an HR representative for further help."),
       Responses.genTextReply("In order to best serve your needs, I’ve already gathered some basic info about you from the company's employee records"),
       Responses.genTextReply("Lets get started! \uD83D\uDE04\n"),
-      Responses.genTextReply("\u2022 You can swipe up from the bottom of the chat to go to the menu.\n\n\u2022 From there Click on Administrative tasks button to Submit a Complaint, know about Company Policies and Training Courses, Submit Stats to your manager and more.\n\n\u2022 Click on the Personal tasks button to Setup/View Meetings and Reminders, Ask about Holidays,Pay and Bonuses, see your Performance Stats and more."),
+      Responses.genTextReply("\u2022 You can swipe up from the bottom of the chat to go to the menu.\n\n\u2022 From there Click on Administrative tasks button to Submit a Complaint, know about Company Policies and Training Courses, Submit Stats to your manager and more.\n\n\u2022 Click on the Personal tasks button to Setup/View Meetings and Reminders, Ask about Holidays,Pay and Bonuses, see your Performance Stats and more.",
         this.button["MENU_BTN"]
       )
     ];
@@ -429,28 +429,8 @@ class Replies {
 
     this.replies["HOLIDAYS_APPLY"] = [
       Responses.genQuickReply("I've submitted your application to the HR department! 😀",
-      [
-        {
-          title: "Company policies 🤔",
-          payload: "HR_POLICIES"
-        },
-        {
-          title: "Performance Stats 🔖",
-          payload: "PERFORMANCE_STATS"
-        },
-        {
-          title: "Upcoming Holidays 🎄",
-          payload: "HOLIDAYS"
-        },
-        {
-          title : "Bonus & Payments 💵" ,
-          payload: "BONUS_PAYMENTS"
-        },
-        {
-          title : "Submit a complaint 😕" ,
-          payload: "COMPLAINT"
-        }
-      ])
+      this.button["PERSONAL_TASKS_BTN"]
+      )
     ];
 
     this.replies["HOLIDAYS"] = [
