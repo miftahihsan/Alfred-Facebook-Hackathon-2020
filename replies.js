@@ -156,6 +156,24 @@ class Replies {
           title: "Buy Shares 📈",
           payload: "BUY_SHARES"
         },
+    ],
+    "KNOWLEDGE_BTN" : [
+      {
+        title: "Company policies 🤔",
+        payload: "HR_POLICIES"
+      },
+      {
+        title: "Training 🏋️‍♂️",
+        payload: "TRAINING"
+      },
+      {
+        title: "IT and Tech 🖥️",
+        payload: "IT_TECH"
+      },
+      {
+        title: "Corporate Law 👨‍⚖️",
+        payload: "CORPORATE_LAW"
+      }
     ]
 
   };
@@ -319,7 +337,8 @@ class Replies {
       Responses.genTextReply("In order to best serve your needs, I’ve already gathered some basic info about you from the company's employee records"),
       Responses.genTextReply("Lets get started! \uD83D\uDE04\n"),
       Responses.genPictureReply( "https://i.imgur.com/wPqon3D.gif" ),
-      Responses.genTextReply("You can swipe up from the bottom of the chat to go to the menu."), Responses.genTextReply("\u2022 From there Click on Administrative tasks button to Submit a Complaint, know about Company Policies and Training Courses, Submit Stats to your manager and more. \n\n\u2022 Click on the Personal tasks button to Setup/View Meetings and Reminders, Ask about Holidays,Pay and Bonuses, see your Performance Stats and more.",
+      Responses.genTextReply("You can swipe up from the bottom of the chat to go to the menu."),
+      Responses.genQuickReply("\u2022 From there Click on Administrative tasks button to Submit a Complaint, know about Company Policies and Training Courses, Submit Stats to your manager and more. \n\n\u2022 Click on the Personal tasks button to Setup/View Meetings and Reminders, Ask about Holidays,Pay and Bonuses, see your Performance Stats and more.",
         this.button["MENU_BTN"]
       )
     ];
@@ -428,24 +447,7 @@ class Replies {
 
     this.replies["KNOWLEDGE"] = [
       Responses.genQuickReply("What do you want to know about?",
-      [
-        {
-          title: "Company policies 🤔",
-          payload: "HR_POLICIES"
-        },
-        {
-          title: "Training 🏋️‍♂️",
-          payload: "TRAINING"
-        },
-        {
-          title: "IT and Tech 🖥️",
-          payload: "IT_TECH"
-        },
-        {
-          title: "Corporate Law 👨‍⚖️",
-          payload: "CORPORATE_LAW"
-        },
-      ])
+      this.button["KNOWLEDGE_BTN"])
     ];
 
     this.replies["HOLIDAYS_ASK_FOR_TIME"] = [
