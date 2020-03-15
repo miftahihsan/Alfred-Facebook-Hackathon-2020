@@ -80,7 +80,7 @@ class Replies {
         payload: "ANNOUNCEMENT_WHO"
       },
       {
-        title: "View Meeting 📆",
+        title: "View Meetings 📆",
         payload: "VIEW_SCHEDULE"
       }, 
       {
@@ -149,7 +149,7 @@ class Replies {
           payload: "EMPLOYEE_RIGHTS"
         },
         {
-          title: "Laws ⚖️",
+          title: "Privacy Laws ⚖️",
           payload: "LAWS_CO_WORKERS"
         },
         {
@@ -200,7 +200,7 @@ class Replies {
               payload: "NEW_REMINDER"
             },
             {
-              title: "View Meeting 📆",
+              title: "View Meetings 📆",
               payload: "VIEW_SCHEDULE"
             }
           ])];
@@ -468,7 +468,7 @@ class Replies {
       )
     ];
 
-    this.replies['BONUS_QUERIES'] = [
+    this.replies['BONUS_QUERY'] = [
       Responses.genTextReply("I’ll list your remaining bonuses for this year below. Have a look! "),
       Responses.genQuickReply("\u2022 Christmas: "+this.userData.Item["holiday_bonus"]+"\n" +
         "\u2022 Sales Bonus: "+this.userData.Item['bonus']+"",
@@ -490,6 +490,7 @@ class Replies {
 
     this.replies['SALARIES'] = [
       Responses.genTextReply("You have "+this.userData.Item['due_salary']+" monthly salary payments left this year."),
+    Responses.genTextReply("Your current annual salary is $120,000!"),
       Responses.genQuickReply("You can directly ask about payments and bonuses simply by asking" +
                               "\“How much bonuses am i entitled to this year?\” or \"How much do I get this year in salaries?\"",
       
@@ -720,8 +721,8 @@ class Replies {
         }
       ])],
     "SCHEDULES": Responses.genQuickReply(
-      "Would you like to work with your lists," +
-      " make a new list, view/manage your calendar",
+      "Would you like to setup a meeting, view all scheduled meetings," +
+      " make a new reminder list or view your reminders",
         this.button["SCHEDULES_BTN"]
       ),
     "FAQ": Responses.genQuickReply("Great! What do you want to know about?",
@@ -972,7 +973,7 @@ class Replies {
       Responses.genTextReply("Here are some common Corporate Law questions you can ask:"),
       Responses.genTextReply("\u2022 What are the new law changes introduced in the company?\n\n" +
         "\u2022 What are my rights as an employee in the company?"),
-      Responses.genQuickReply("\u2022 What are the laws regarding issues with co workers?\n\n" +
+      Responses.genQuickReply("\u2022 What are the privacy laws concerning employees?\n\n" +
         "\u2022 Can I buy shares for Wayne Enterprises as an employee?\n\n",
           this.button["CORPORATE_LAW_BTN"]
         )
@@ -1036,7 +1037,7 @@ class Replies {
         this.button["SCHEDULES_BTN"]
       )
     ],
-    "ENROLL" : Responses.genQuickReply("You have been enrolled to the following course",
+    "ENROLL" : Responses.genQuickReply("You have been successfully enrolled for the selected course!",
     [
       {
         title: "Finances 💰",
