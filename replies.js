@@ -414,7 +414,7 @@ class Replies {
       Responses.genTextReply("\u2022 Christmas: "+this.userData.Item["holiday_bonus"]+"\n" +
                              "\u2022 Sales Bonus: "+this.userData.Item['bonus']+""),
       Responses.genTextReply("You have "+this.userData.Item['due_salary']+" monthly salary payments left this year."),
-      Responses.genQuickReply("You can directly ask about payments and bonuses simply by asking" + 
+      Responses.genQuickReply("You can directly ask about payments and bonuses simply by asking " +
                               "\“How much bonuses am i entitled to this year?\” or \"How much do I get this year in salaries?\"",
       
         this.button["PERSONAL_TASKS_BTN"]                            
