@@ -224,24 +224,7 @@ class Replies {
       Responses.genTextReply("Or You can ask me these questions any time simply by saying for instance \"What are the sexual harassment guidelines?\""),
       Responses.genTextReply("I’ll search the HR handbook and get the relevant information to you!"),
       Responses.genQuickReply("Ok, what else do you want to know about?",
-        [
-          {
-            title: "Company policies 🤔",
-            payload: "HR_POLICIES"
-          },
-          {
-            title: "Training 🏋️‍♂️",
-            payload: "TRAINING"
-          },
-          {
-            title: "IT and Tech 🖥️",
-            payload: "IT_TECH"
-          },
-          {
-            title: "Corporate Law 👨‍⚖️",
-            payload: "CORPORATE_LAW"
-          },
-        ])
+        this.button['KNOWLEDGE_BTN'])
       ];
 
     this.replies['TIME_11:00_AM'] = [
@@ -390,20 +373,7 @@ class Replies {
 
     this.replies["ADMINISTRATIVE_TASKS"] = [
       Responses.genQuickReply("What would you like to do?",
-      [
-        {
-          title: "Report stats/info 👩‍💻",
-          payload: "REPORT_STATS"
-        },
-        {
-          title : "Submit a complaint 😕" ,
-          payload: "COMPLAINT"
-        },
-        {
-          title : "Knowledge 🧠" ,
-          payload: "KNOWLEDGE"
-        },
-      ])
+      this.button['ADMINISTRATIVE_BTN'])
     ];
 
     this.replies["KNOWLEDGE"] = [
@@ -502,22 +472,8 @@ class Replies {
       ),
     ],
 
-    /*this.replies["COMPLAINT"] = [
-      Responses.genTextReply("Remember, your complaints/reports are completely anonymous." +
-      "Only I’ll know that you’ve submitted this complaint and no one else, not even your superiors! 🤫"),
-      Responses.genQuickReply("Who's the complaint against",
-      [
-        {
-          title: "Employee 👨",
-          payload: "COMPLAINT_EMPLOYEE"
-        },
-        {
-          title: "Department 🏢",
-          payload: "COMPLAINT_DPT"
-        },
-      ])
-    ];*/
 
+//This is ignored unless error
     this.replies["COMPLAINT"] = [
       Responses.genTextReply("Remember, your complaints/reports are completely anonymous." +
       "Only I’ll know that you’ve submitted this complaint and no one else, not even your superiors! 🤫"),
