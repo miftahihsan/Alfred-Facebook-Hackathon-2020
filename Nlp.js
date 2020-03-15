@@ -154,6 +154,14 @@ class Nlp{
          */
         if (payload in Replies.replies) return Replies.replies[userData['state']];
         else {
+
+            var res = [];
+            res.concat(Replies.policy[userData['state']]);
+
+            res.push(Response.genQuickReply("You have been enrolled to the following course",
+                        Replies.button["KNOWLEDGE_BTN"]
+                    ));
+
             console.log(Replies.policy[userData['state']]);
             console.log( 
                 [Response.genQuickReply("You have been enrolled to the following course",
@@ -163,7 +171,8 @@ class Nlp{
             // var res = [];
             // res.concat( Replies.policy[userData['state']] );
             // res.concat( Response.genQuickReply("Visit Info Desk For more Information! 😀 ", Replies.button["KNOWLEDGE"] ) );
-            return Replies.policy[userData['state']];
+            // return Replies.policy[userData['state']];
+            return res;
         }
 
     }
