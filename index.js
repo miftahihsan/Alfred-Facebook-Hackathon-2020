@@ -868,10 +868,10 @@ curl -X POST -H "Content-Type: application/json" -d '{
     "greeting": [
     {
       "locale":"default",
-      "text":"Hello {{user_first_name}}! I am an advanced bot designed to be your personal assistant here in the offices of Wayne Enterprises."
+      "text":"Hi {{user_first_name}}! My name’s Alfred. I’d like to be your personal butler here in the offices of this company. If you’ll allow me, we can get started!."
     }, {
       "locale":"en_US",
-      "text":"Hi {{user_first_name}}! I am an advanced bot designed to be your personal assistant here in the offices of Wayne Enterprises."
+      "text":"Hi {{user_first_name}}! My name’s Alfred. I’d like to be your personal butler here in the offices of this company. If you’ll allow me, we can get started!"
     }
   ]
 
