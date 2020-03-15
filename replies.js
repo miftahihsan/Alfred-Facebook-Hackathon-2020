@@ -614,8 +614,10 @@ class Replies {
     ],
 
     "COMPLAINT_SUCCESS" : [
-      Responses.genPictureReply("https://media.giphy.com/media/ngrHy21B4yfZK/giphy-downsized-large.gif"),
+      
       Responses.genTextReply("I'm sorry you had to go through that unpleasant experience."),
+      Responses.genTextReply("Don't worry, I won't make you run around submitting forms like in other organizations! 😉"),
+      Responses.genPictureReply("https://media.giphy.com/media/ngrHy21B4yfZK/giphy-downsized-large.gif"),
       Responses.genQuickReply("I've logged your complaint successfully. It'll be processed as soon as possible! 😃",
         this.button["ADMINISTRATIVE_BTN"]
       )
