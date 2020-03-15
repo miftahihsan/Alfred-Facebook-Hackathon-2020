@@ -629,7 +629,7 @@ function handlePostback(sender_psid, received_postback) {
         new_rem.push(rem[i]);
       }
       DynamoDB.deleteReminder(sender_psid, "Employee", new_rem);
-      sendMessage(sender_psid, Response.genTextReply("Successfully deleted the reminder!"))
+      sendMessage(sender_psid, Response.genQuickReply("Successfully deleted the reminder!", Replies.button["SCHEDULES_BTN"]))
     }
 
   }
