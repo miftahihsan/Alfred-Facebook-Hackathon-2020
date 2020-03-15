@@ -154,9 +154,11 @@ class Nlp{
          */
         if (payload in Replies.replies) return Replies.replies[userData['state']];
         else {
-            var res = [];
-            res.concat( Replies.policy[userData['state']] );
-            res.concat( Response.genQuickReply("Visit Info Desk For more Information! 😀 ", Replies.button["KNOWLEDGE"] ) );
+            console.log(Replies.policy[userData['state']]);
+            
+            // var res = [];
+            // res.concat( Replies.policy[userData['state']] );
+            // res.concat( Response.genQuickReply("Visit Info Desk For more Information! 😀 ", Replies.button["KNOWLEDGE"] ) );
             return Replies.policy[userData['state']];
         }
 
