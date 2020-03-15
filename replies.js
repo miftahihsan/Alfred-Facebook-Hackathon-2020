@@ -204,50 +204,18 @@ class Replies {
        this.replies["VIEW_REMINDERS"] = [Responses.genReminders(userData.Item['uid'], userData.Item['reminders']),
          Responses.genQuickReply(
            "You can create and manage multiple reminder lists",
-           [
-            {
-              title: "View Reminders 📝",
-              payload: "VIEW_REMINDERS"
-            },
-            {
-              title: "Set-up Meeting 📣",
-              payload: "ANNOUNCEMENT_WHO"
-            },
-            {
-              title: "Create Reminder 🗒",
-              payload: "NEW_REMINDER"
-            },
-            {
-              title: "View Meeting 📆",
-              payload: "VIEW_SCHEDULE"
-            }
-          ])];
+              this.button["SCHEDULES_BTN"]
+           )];
     }
     else {
       this.replies["VIEW_REMINDERS"] = [
-        Responses.genTextReply("I didn't find any reminders! Tap create reminder to create one:) "),
+        // Responses.genTextReply("I didn't find any reminders! Tap create reminder to create one:) "),
         Responses.genQuickReply(
-          "",
-          [
-            {
-              title: "View Reminders 📝",
-              payload: "VIEW_REMINDERS"
-            },
-            {
-              title: "Set-up Meeting 📣",
-              payload: "ANNOUNCEMENT_WHO"
-            },
-            {
-              title: "Create Reminder 🗒",
-              payload: "NEW_REMINDER"
-            },
-            {
-              title: "View Meetings 📆",
-              payload: "VIEW_SCHEDULE"
-            }
-          ])
+          "I didn't find any reminders! Tap create reminder to create one:)",
+            this.button["SCHEDULES_BTN"]
+          )
 
-    ]
+      ]
     }
 
 
