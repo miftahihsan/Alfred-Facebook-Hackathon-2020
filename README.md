@@ -63,7 +63,7 @@ There’s a lot of features we wanted to implement but couldn’t due to lack of
 [(Node.JS)](https://nodejs.org/en/)
 
 
-## Get Started
+# Get Started
 
 ### Env Setup
 * Make Sure You have Node and Npm Installed.
