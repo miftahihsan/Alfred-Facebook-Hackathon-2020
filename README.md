@@ -121,11 +121,13 @@ Go to your App and subscribe to these following features.
 
 * Your Facebook Page has now been setup!!
 
-## Credits
+## Authors
 
 * [Miftah Uddin Mohammad Ihsan](https://github.com/miftahihsan)
 * [Nafiz Imtiaz Chowdhury](https://github.com/nafiz6)
 * [Abrar Fahim](https://github.com/abrar-fahim)
 * Samin Sharaf Somik
+
+## Credit
 
 **Company Rules and Policies** taken from [EMPLOYEE RULES & REGULATIONS HANDBOOK](http://keysenergy.com/pdf/KEYS-Employee-Rules-Regulations-Handbook.pdf)
