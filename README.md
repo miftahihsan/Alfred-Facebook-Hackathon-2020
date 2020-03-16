@@ -1,5 +1,13 @@
 # Alfred the HR Butler
 
+
+<!-- # Table of Contents
+1. [Example](#example)
+2. [Example2](#example2)
+3. [Third Example](#third-example)
+4. [Fourth Example](#fourth-examplehttpwwwfourthexamplecom) -->
+
+
 ## Inspiration
 
 A large office comprising of thirty or more employees can become a chaotic environment if not well managed. Lack of systematic workplace collaboration systems can lead to low company morale and increased stress levels. Extensive bureaucratic management styles can help mediate the chaos and bring order to an office even with a large number of employees by systematically conducting meetings and such. However, micromanagement and excessive restrictions can hinder creativity and therefore innovation. We tried to develop a product that can help bring some order to the chaos of the office while also providing a platform where everyone has a voice. We wanted to do all of this while also not creating barriers to individual creativity. **Enter Alfred - A personal chatbot that helps everyone stay on schedule and on top of their work game by answering any workplace questions they might have.**
@@ -120,6 +128,21 @@ Go to your App and subscribe to these following features.
     * Set Secondary receiver for handover protocol to Page inbox.
 
 * Your Facebook Page has now been setup!!
+
+### DataBase Setup
+
+For our purpose we used Amazon Dynamo DB. The secret key of the database is kept in the heroku Config Vars section as shown in the previous step.
+Any database can be used as per user choice.
+
+
+### Wit.AI Setup
+
+If the documentation was followed correctly your app should be up and running. But now lets integrate NLP. Go to [WitAI](https://wit.ai/) and
+[Facebook NLP](https://developers.facebook.com/docs/messenger-platform/built-in-nlp/) follow their Documentation to connect your application with their NLP.
+
+After connecting Train the NLP to these states and you are all done!!
+
+![](DocImage/nlp.png)
 
 ## Authors
 
