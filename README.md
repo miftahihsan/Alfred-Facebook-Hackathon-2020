@@ -151,7 +151,7 @@ Any database can be used as per user choice.
 
 ### Wit AI Setup
 
-If the documentation was followed correctly your app should be up and running. But now lets integrate NLP. Go to [WitAI](https://wit.ai/) and
+If the documentation was followed correctly your app should be up and running. Now lets integrate NLP. Go to [WitAI](https://wit.ai/) and
 [Facebook NLP](https://developers.facebook.com/docs/messenger-platform/built-in-nlp/) follow their Documentation to connect your application with their NLP.
 
 After connecting Train the NLP to these states and you are all done!!
