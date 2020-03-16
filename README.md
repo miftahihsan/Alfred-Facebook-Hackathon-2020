@@ -127,3 +127,5 @@ Go to your App and subscribe to these following features.
 * [Nafiz Imtiaz Chowdhury](https://github.com/nafiz6)
 * [Abrar Fahim](https://github.com/abrar-fahim)
 * Samin Sharaf Somik
+
+Company Rules and policy taken from [EMPLOYEE RULES & REGULATIONS HANDBOOK](http://keysenergy.com/pdf/KEYS-Employee-Rules-Regulations-Handbook.pdf)
