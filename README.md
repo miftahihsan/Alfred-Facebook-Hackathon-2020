@@ -23,6 +23,8 @@ Fork the Repo to Your Git and clone to your device to Get Started!
 
 * Create a new Facebook Page and Add that Page to your new App.
 
+![](DocImage/create-New-App.png)
+
 * You app will provide you with an access Key.
 
 * Now Open up Heroku and Create new app.
