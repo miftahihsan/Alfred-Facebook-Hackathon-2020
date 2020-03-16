@@ -6,7 +6,7 @@
 2. [What it does](#what-it-does)
 3. [How we built it](#how-we-built-it)
 4. [Challenges we ran into](#challenges-we-ran-into)
-5. [Accomplishments that we're proud of](#accomplishments-that-we\'re-proud-of) 
+5. [Accomplishments that we're proud of](#accomplishments-that-we-are-proud-of) 
 6. [What we learned](#what-we-learned)
 7. [What's next for Alfred](#what\'s-next-for-alfred)
 8. [Built With](#built-with)
@@ -38,7 +38,7 @@ We used messenger platform to host the chatbot. We hosted our message response s
 
 Learning about the messenger platform and how it all tied together with our response web server Careful thought had to be put in the designing of the flow of conversations of the bot. Since the bot has a modest amount of features, tying it all together in an intuitive flow was a significant challenge We also had to spend quite some time for features such as the reminders, where we had trouble setting up the WebViews properly.
 
-## Accomplishments that we're proud of
+## Accomplishments that we are proud of
 
 One feature that we’re proud of is the complaint submission feature. We believe it’ll empower employees to stand up for their rights since it removes the awkward barrier of physically obtaining a form and submitting it to HR or sending an email that isn’t anonymous.
 
