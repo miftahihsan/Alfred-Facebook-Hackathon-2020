@@ -52,7 +52,7 @@ Fork the Repo to Your Git and clone to your device to Get Started!
 
 ![](DocImage/call-back-url.png)
 
-![](paste-call-back-url.png)
+![](DocImage/paste-call-back-url.png)
 
 * Your webhook setup is now complete!!
 
