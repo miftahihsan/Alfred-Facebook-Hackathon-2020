@@ -60,6 +60,8 @@ Fork the Repo to Your Git and clone to your device to Get Started!
 
 * Go to your App and subscribe to these following features.
 
+![](DocImage/features.png)
+
 * Go to your facebook Page and go to settings
     * Go to Advanced Messaging .
     * Select configure from App Settings .
