@@ -32,7 +32,7 @@ Alfred is a messenger chatbot, a personal assistant catered to the needs every e
 
 ## How we built it
 
-We used messenger platform to host the chatbot. We hosted our message response server on Heroku. We used AWS for maintaining the company database. For natural language processing, we used Wit.ai/.
+We used the messenger platform to host the chatbot. Various features such as WebViews, Templates and Messenger Profile API helped our bot to be more dynamic and personalized. We also used the Handover Protocol API to allow users to get help from a human for more complex tasks. We hosted our message response server on Heroku. We used AWS DynamoDB for maintaining the company database. For natural language processing, we used wit.ai.
 
 ## Challenges we ran into
 
