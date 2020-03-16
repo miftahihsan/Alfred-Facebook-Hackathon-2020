@@ -105,7 +105,7 @@ Fork the Repo to Your Git and clone to your device to Get Started!
 
 * Now Open up Heroku and Create new app.
 
-* Go to Settings and Select Reveal Config Vars and put your **PAGE_ACCES_TOKEN** here, along with **VERIFY_TOKEN** which can be any random String of your choice.
+* Go to settings and select Reveal Config Vars. Put your **PAGE_ACCES_TOKEN** here, along with **VERIFY_TOKEN** which can be any random String of your choice.
 
 ![](DocImage/reveal-config.png)
 
