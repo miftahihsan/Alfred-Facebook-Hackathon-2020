@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="css/main.css"  media="screen,projection"/>
+    <title>BizBot Teux Deux </title>
+
+    <meta name="viewport"  charset="utf-8" content="width=device-width, initial-scale=1.0"/>
+</head>
+
+<body >
+<script>        //Messenger SDK
+  (function(d, s, id){
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {return;}
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/messenger.Extensions.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'Messenger'));
+</script>
+    <div class="row">
+
+
+        <form class="col s12">
+            <div class="row" id="inputList">
+                <div class="input-field col s12">
+                    <input placeholder="Title" id="title" type="text" >
+                    <label for="title"></label>
+                </div>
+                
+
+                <div class="dynamic-field" id="dynamic" >
+                    <!-- <div class="input-field col s12" id = "dynamicBox" >
+                        <button class = "remove" type="button" onclick="removeThings(this)" > <i class="fa fa-window-close" aria-hidden="true"></i> </button>
+                        <input id="item1" type="text" placeholder="Add an Item">
+                        <label for="item1"></label>
+                    </div> -->
+                </div>
+
+            </div>
+
+        </form>
+
+        <!-- <button id="add" type="button" id="Hello" class="col s12 btn waves-effect waves-light " onclick="addThings()" >Add
+            <i class="material-icons right">send</i>
+        </button>
+
+        <button id="post-btn" class="col s12 btn waves-effect waves-light " >Submit
+            <i class="material-icons right">send</i>
+        </button> -->
+
+        <!-- <button id="add" type="button" class = "form-buttons" id="Hello" onclick="addThings()" >Add
+        </button> -->
+
+        <div class="col s12" id="Hello" onclick="addThings()">
+            <i class="col s2small material-icons">add</i>
+            <div class="col s10 add-things">Add an Item
+            </div>
+        </div>
+
+        <button id="post-btn" class = "form-buttons submit" >Submit
+        </button>
+    </div>
+
+    <script src="js/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script type="text/javascript" src="js/submit.js"></script>
+    <script type="text/javascript" src = "js/addFields.js" ></script>
+</body>
+</html>
+        
