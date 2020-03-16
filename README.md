@@ -2,21 +2,21 @@
 
 
 # Table of Contents
-1. [Inspiration](#Inspiration)
+1. [Inspiration](#inspiration)
 2. [What it does](#what-it-does)
-3. [How we built it](#How-we-built-it)
-4. [Challenges we ran into](#Challenges-we-ran-into)
-5. [Accomplishments that we're proud of](#Accomplishments-that-we're-proud-of)
-6. [What we learned](#What-we-learned)
-7. [What's next for Alfred](#What's-next-for-Alfred)
-8. [Built With](#Built-with)
-9. [Get Started](#Get-started)
-10. [Env Setup](#Env-Setup)
-11. [WebHook Setup](#WebHook-Setup)
-12. [Page and App Setup](#Page-and-App-Setup)
-13. [Wit.AI Setup](#Wit.AI-Setup)
-14. [Authors](#Authors)
-15. [Credit](#Credit)
+3. [How we built it](#how-we-built-it)
+4. [Challenges we ran into](#challenges-we-ran-into)
+5. [Accomplishments that we're proud of](#accomplishments-that-we're-proud-of)
+6. [What we learned](#what-we-learned)
+7. [What's next for Alfred](#what's-next-for-alfred)
+8. [Built With](#built-with)
+9. [Get Started](#get-started)
+10. [Env Setup](#env-setup)
+11. [WebHook Setup](#webhook-setup)
+12. [Page and App Setup](#page-and-app-setup)
+13. [Wit.AI Setup](#wit.ai-setup)
+14. [Authors](#authors)
+15. [Credit](#credit)
 
 
 
@@ -161,7 +161,7 @@ After connecting Train the NLP to these states and you are all done!!
 * [Miftah Uddin Mohammad Ihsan](https://github.com/miftahihsan)
 * [Nafiz Imtiaz Chowdhury](https://github.com/nafiz6)
 * [Abrar Fahim](https://github.com/abrar-fahim)
-* Samin Sharaf Somik
+* [Samin Sharaf Somik](https://github.com/SSSomik)
 
 ## Credit
 
