@@ -120,3 +120,10 @@ Go to your App and subscribe to these following features.
     * Set Secondary receiver for handover protocol to Page inbox.
 
 * Your Facebook Page has now been setup!!
+
+#Credits
+
+* [Miftah Uddin Mohammad Ihsan](https://github.com/miftahihsan)
+* [Nafiz Imtiaz Chowdhury](https://github.com/nafiz6)
+* [Abrar Fahim](https://github.com/abrar-fahim)
+* Samin Sharaf Somik
