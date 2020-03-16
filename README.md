@@ -121,7 +121,7 @@ Go to your App and subscribe to these following features.
 
 * Your Facebook Page has now been setup!!
 
-#Credits
+## Credits
 
 * [Miftah Uddin Mohammad Ihsan](https://github.com/miftahihsan)
 * [Nafiz Imtiaz Chowdhury](https://github.com/nafiz6)
