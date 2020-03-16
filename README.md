@@ -1,5 +1,18 @@
 # Alfred the HR Butler
 
+# Table of Contents
+1. [Inspiration](#inspiration)
+2. [What it does](#what-it-does)
+3. [How we built it](#how-we-built-it)
+4. [Challenges we ran into](#challenges-we-ran-into)
+5. [Challenges we ran into](#accomplishments-that-we're-proud-of)
+6. [What we learned](#what-we-learned)
+7. [What's next for Alfred](#what's-next-for-Alfred)
+8. [Built With](#built-With)
+9. [Get Started](#get-started)
+10. [WebHook Setup](#webHook-Setup)
+11. [Page and App Setup](#page-and-app-setup)
+
 ## Inspiration
 
 A large office comprising of thirty or more employees can become a chaotic environment if not well managed. Lack of systematic workplace collaboration systems can lead to low company morale and increased stress levels. Extensive bureaucratic management styles can help mediate the chaos and bring order to an office even with a large number of employees by systematically conducting meetings and such. However, micromanagement and excessive restrictions can hinder creativity and therefore innovation. We tried to develop a product that can help bring some order to the chaos of the office while also providing a platform where everyone has a voice. We wanted to do all of this while also not creating barriers to individual creativity. **Enter Alfred - A personal chatbot that helps everyone stay on schedule and on top of their work game by answering any workplace questions they might have.**
