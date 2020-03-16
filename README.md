@@ -8,13 +8,13 @@
 4. [Challenges we ran into](#challenges-we-ran-into)
 5. [Accomplishments that we're proud of](#accomplishments-that-we-are-proud-of) 
 6. [What we learned](#what-we-learned)
-7. [What's next for Alfred](#what\'s-next-for-alfred)
+7. [What's next for Alfred](#what-is-next-for-alfred)
 8. [Built With](#built-with)
 9. [Get Started](#get-started)
 10. [Env Setup](#env-setup)
 11. [WebHook Setup](#webhook-setup)
 12. [Page and App Setup](#page-and-app-setup)
-13. [Wit.AI Setup](#wit.ai-setup)
+13. [Wit.AI Setup](#wit-ai-setup)
 14. [Authors](#authors)
 15. [Credit](#credit)
 
@@ -50,7 +50,7 @@ We learnt a great deal about the messenger platform. We also learned about NLP o
 
 We learnt about good chatbot design principles through feedback from various peers after using our chatbot and also articles on messenger’s documentation online.
 
-## What's next for Alfred
+## What is next for Alfred
 
 There’s a lot of features we wanted to implement but couldn’t due to lack of time. Some of these are:
 
@@ -147,7 +147,7 @@ For our purpose we used Amazon Dynamo DB. The secret key of the database is kept
 Any database can be used as per user choice.
 
 
-### Wit.AI Setup
+### Wit AI Setup
 
 If the documentation was followed correctly your app should be up and running. But now lets integrate NLP. Go to [WitAI](https://wit.ai/) and
 [Facebook NLP](https://developers.facebook.com/docs/messenger-platform/built-in-nlp/) follow their Documentation to connect your application with their NLP.
