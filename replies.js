@@ -183,7 +183,7 @@ class Replies {
       Responses.genTextReply("I am an advanced bot designed to be your personal assistant here in the offices of ABC company."),
       Responses.genTextReply("Lets get started! \uD83D\uDE04\n"),
       Responses.genPictureReply( "https://images.app.goo.gl/wRohsHKLqBKDxG1o9" ),
-     Responses.genTextReply("\u2022 You can swipe up from the bottom of the chat to go to the menu.\n\n\u2022 From there Click on Administrative tasks button to Submit a Complaint, know about Company Policies and Training Courses, Submit Stats to your manager and more.\n\n\u2022 Click on the Personal tasks button to Setup/View Meetings and Reminders, Ask about Holidays,Pay and Bonuses, see your Performance Stats and more.",
+     Responses.genQuickReply("\u2022 You can go to the menu from the bottom of the chat\n\n\u2022 From there Click on Administrative tasks button to Submit a Complaint, know about Company Policies and Training Courses, Submit Stats to your manager and more.\n\n\u2022 Click on the Personal tasks button to Setup/View Meetings and Reminders, Ask about Holidays,Pay and Bonuses, see your Performance Stats and more.",
         this.button["MENU_BTN"]
       ),
     ];
@@ -224,24 +224,7 @@ class Replies {
       Responses.genTextReply("Or You can ask me these questions any time simply by saying for instance \"What are the sexual harassment guidelines?\""),
       Responses.genTextReply("I’ll search the HR handbook and get the relevant information to you!"),
       Responses.genQuickReply("Ok, what else do you want to know about?",
-        [
-          {
-            title: "Company policies 🤔",
-            payload: "HR_POLICIES"
-          },
-          {
-            title: "Training 🏋️‍♂️",
-            payload: "TRAINING"
-          },
-          {
-            title: "IT and Tech 🖥️",
-            payload: "IT_TECH"
-          },
-          {
-            title: "Corporate Law 👨‍⚖️",
-            payload: "CORPORATE_LAW"
-          },
-        ])
+        this.button['KNOWLEDGE_BTN'])
       ];
 
     this.replies['TIME_11:00_AM'] = [
@@ -298,7 +281,7 @@ class Replies {
       Responses.genTextReply("I am an advanced bot designed to be your personal assistant here in the offices of ABC company."),
       Responses.genTextReply("Lets get started! \uD83D\uDE04\n"),
       Responses.genPictureReply( "https://i.imgur.com/wPqon3D.gif" ),
-      Responses.genTextReply("You can swipe up from the bottom of the chat to go to the menu."),
+      Responses.genTextReply("You can go to the menu from the bottom of the chat window"),
       Responses.genQuickReply("\u2022 From there Click on Administrative tasks button to Submit a Complaint, know about Company Policies and Training Courses, Submit Stats to your manager and more. \n\n\u2022 Click on the Personal tasks button to Setup/View Meetings and Reminders, Ask about Holidays,Pay and Bonuses, see your Performance Stats and more.",
         this.button["MENU_BTN"]
       )
@@ -390,20 +373,7 @@ class Replies {
 
     this.replies["ADMINISTRATIVE_TASKS"] = [
       Responses.genQuickReply("What would you like to do?",
-      [
-        {
-          title: "Report stats/info 👩‍💻",
-          payload: "REPORT_STATS"
-        },
-        {
-          title : "Submit a complaint 😕" ,
-          payload: "COMPLAINT"
-        },
-        {
-          title : "Knowledge 🧠" ,
-          payload: "KNOWLEDGE"
-        },
-      ])
+      this.button['ADMINISTRATIVE_BTN'])
     ];
 
     this.replies["KNOWLEDGE"] = [
@@ -444,7 +414,7 @@ class Replies {
       Responses.genTextReply("\u2022 Christmas: "+this.userData.Item["holiday_bonus"]+"\n" +
                              "\u2022 Sales Bonus: "+this.userData.Item['bonus']+""),
       Responses.genTextReply("You have "+this.userData.Item['due_salary']+" monthly salary payments left this year."),
-      Responses.genQuickReply("You can directly ask about payments and bonuses simply by asking" + 
+      Responses.genQuickReply("You can directly ask about payments and bonuses simply by asking " +
                               "\“How much bonuses am i entitled to this year?\” or \"How much do I get this year in salaries?\"",
       
         this.button["PERSONAL_TASKS_BTN"]                            
@@ -502,22 +472,8 @@ class Replies {
       ),
     ],
 
-    /*this.replies["COMPLAINT"] = [
-      Responses.genTextReply("Remember, your complaints/reports are completely anonymous." +
-      "Only I’ll know that you’ve submitted this complaint and no one else, not even your superiors! 🤫"),
-      Responses.genQuickReply("Who's the complaint against",
-      [
-        {
-          title: "Employee 👨",
-          payload: "COMPLAINT_EMPLOYEE"
-        },
-        {
-          title: "Department 🏢",
-          payload: "COMPLAINT_DPT"
-        },
-      ])
-    ];*/
 
+//This is ignored unless error
     this.replies["COMPLAINT"] = [
       Responses.genTextReply("Remember, your complaints/reports are completely anonymous." +
       "Only I’ll know that you’ve submitted this complaint and no one else, not even your superiors! 🤫"),
@@ -601,7 +557,7 @@ class Replies {
       Responses.genTextReply("Lets get started! \uD83D\uDE04\n")
     ],
     "WHAT_CAN_YOU_DO": [Responses.genTextReply("I am an advanced bot designed to be your personal assistant here in the offices of ABC company."),
-      Responses.genTextReply("\u2022 You can swipe up from the bottom of the chat to go to the menu.\n\n\u2022 From there Click on Administrative tasks button to Submit a Complaint, know about Company Policies and Training Courses, Submit Stats to your manager and more.\n\n\u2022 Click on the Personal tasks button to Setup/View Meetings and Reminders, Ask about Holidays,Pay and Bonuses, see your Performance Stats and more."),
+      Responses.genTextReply("\u2022 You can go to the menu from the bottom of the chat window.\n\n\u2022 From there Click on Administrative tasks button to Submit a Complaint, know about Company Policies and Training Courses, Submit Stats to your manager and more.\n\n\u2022 Click on the Personal tasks button to Setup/View Meetings and Reminders, Ask about Holidays,Pay and Bonuses, see your Performance Stats and more."),
       Responses.genQuickReply(
         "If you are still confused and want to know more, I can connect you to a human agent",
         [{
@@ -1001,24 +957,7 @@ class Replies {
       )
     ],
     "ENROLL" : Responses.genQuickReply("You have been successfully enrolled for the selected course!",
-    [
-      {
-        title: "Finances 💰",
-        payload: "FINANCE"
-      },
-      {
-        title: "IT and Tech 🖥️",
-        payload: "IT_TECH"
-      },
-      {
-        title: "Corporate Law 👨‍⚖️",
-        payload: "CORPORATE_LAW"
-      },
-      {
-        title: "Training 🏋️‍♂️",
-        payload: "TRAINING"
-      },
-    ]),
+    this.button['KNOWLEDGE_BTN']),
     "APOLOGIZE" : Responses.genTextReply("I'm sorry, I didn't quite understand that")
   };
 
