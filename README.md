@@ -44,10 +44,10 @@ There’s a lot of features we wanted to implement but couldn’t due to lack of
 
 ## Built With
 
-[Facebook Messenger](https://developers.facebook.com/docs/messenger-platform/)
-[AWS-DynamoDB](https://aws.amazon.com/dynamodb/)
-[Wit.ai](https://wit.ai/)
-[Node.JS](https://nodejs.org/en/)
+[(Facebook Messenger)](https://developers.facebook.com/docs/messenger-platform/) ,
+[(AWS-DynamoDB)](https://aws.amazon.com/dynamodb/),
+[(Wit.ai)](https://wit.ai/),
+[(Node.JS)](https://nodejs.org/en/)
 
 
 ## Get Started
