@@ -21,9 +21,13 @@ Fork the Repo to Your Git and clone to your device to Get Started!
 
 * Fill in The App name and Select Messenger.
 
-* Create a new Facebook Page and Add that Page to your new App.
 
 ![](DocImage/create-New-App.png)
+
+
+![](DocImage/selectMessenger.png)
+
+* Create a new Facebook Page and Add that Page to your new App.
 
 * You app will provide you with an access Key.
 
