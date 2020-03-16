@@ -1,4 +1,4 @@
-# Alfred the HR Butler
+# Alfred the HR Botler
 
 
 # Table of Contents
