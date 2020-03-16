@@ -133,11 +133,13 @@ Go to your App and subscribe to these following features.
 
 ![](DocImage/features.png)
 
-* Go to your Facebook Page and go to settings
+* Open your Facebook Page and go to settings
     * Go to Advanced Messaging.
     * Select configure from App Settings.
     * Set Primary receiver for handover protocol to your Page.
     * Set Secondary receiver for handover protocol to Page inbox.
+
+This process is used to enable Live chat feature mode.
 
 * Your Facebook Page has now been setup!!
 
