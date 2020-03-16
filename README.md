@@ -5,7 +5,7 @@
 2. [What it does](#what-it-does)
 3. [How we built it](#how-we-built-it)
 4. [Challenges we ran into](#challenges-we-ran-into)
-5. [Challenges we ran into](#accomplishments-that-we're-proud-of)
+5. [Accomplishments that we're proud of](#accomplishments-that-we're-proud-of)
 6. [What we learned](#what-we-learned)
 7. [What's next for Alfred](#what's-next-for-Alfred)
 8. [Built With](#built-With)
