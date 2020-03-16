@@ -182,8 +182,8 @@ class Replies {
     this.replies["INITIATE"] = [Responses.genTextReply("Hi "+userData['name']+" ! "),
       Responses.genTextReply("I am an advanced bot designed to be your personal assistant here in the offices of ABC company."),
       Responses.genTextReply("Lets get started! \uD83D\uDE04\n"),
-      Responses.genPictureReply( "https://images.app.goo.gl/wRohsHKLqBKDxG1o9" ),
-     Responses.genQuickReply("\u2022 You can go to the menu from the bottom of the chat\n\n\u2022 From there Click on Administrative tasks button to Submit a Complaint, know about Company Policies and Training Courses, Submit Stats to your manager and more.\n\n\u2022 Click on the Personal tasks button to Setup/View Meetings and Reminders, Ask about Holidays,Pay and Bonuses, see your Performance Stats and more.",
+      Responses.genPictureReply( "https://i.imgur.com/wPqon3D.gif" ),
+      Responses.genQuickReply("\u2022 You can go to the menu from the bottom of the chat\n\n\u2022 From there Click on Administrative tasks button to Submit a Complaint, know about Company Policies and Training Courses, Submit Stats to your manager and more.\n\n\u2022 Click on the Personal tasks button to Setup/View Meetings and Reminders, Ask about Holidays,Pay and Bonuses, see your Performance Stats and more.",
         this.button["MENU_BTN"]
       ),
     ];
@@ -554,7 +554,11 @@ class Replies {
     ],
     "INITIATE": [Responses.genTextReply("Hi There!"),
       Responses.genTextReply("I am an advanced bot designed to be your personal assistant here in the offices of ABC company."),
-      Responses.genTextReply("Lets get started! \uD83D\uDE04\n")
+      Responses.genTextReply("Lets get started! \uD83D\uDE04\n"),
+      Responses.genPictureReply( "https://i.imgur.com/wPqon3D.gif" ),
+      Responses.genQuickReply("\u2022 You can go to the menu from the bottom of the chat\n\n\u2022 From there Click on Administrative tasks button to Submit a Complaint, know about Company Policies and Training Courses, Submit Stats to your manager and more.\n\n\u2022 Click on the Personal tasks button to Setup/View Meetings and Reminders, Ask about Holidays,Pay and Bonuses, see your Performance Stats and more.",
+        this.button["MENU_BTN"]
+      )
     ],
     "WHAT_CAN_YOU_DO": [Responses.genTextReply("I am an advanced bot designed to be your personal assistant here in the offices of ABC company."),
       Responses.genTextReply("\u2022 You can go to the menu from the bottom of the chat window.\n\n\u2022 From there Click on Administrative tasks button to Submit a Complaint, know about Company Policies and Training Courses, Submit Stats to your manager and more.\n\n\u2022 Click on the Personal tasks button to Setup/View Meetings and Reminders, Ask about Holidays,Pay and Bonuses, see your Performance Stats and more."),
