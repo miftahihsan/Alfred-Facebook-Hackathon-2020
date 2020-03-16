@@ -1,11 +1,23 @@
 # Alfred the HR Butler
 
 
-<!-- # Table of Contents
-1. [Example](#example)
-2. [Example2](#example2)
-3. [Third Example](#third-example)
-4. [Fourth Example](#fourth-examplehttpwwwfourthexamplecom) -->
+# Table of Contents
+1. [Inspiration](#Inspiration)
+2. [What it does](#what-it-does)
+3. [How we built it](#How-we-built-it)
+4. [Challenges we ran into](#Challenges-we-ran-into)
+5. [Accomplishments that we're proud of](#Accomplishments-that-we're-proud-of)
+6. [What we learned](#What-we-learned)
+7. [What's next for Alfred](#What's-next-for-Alfred)
+8. [Built With](#Built-with)
+9. [Get Started](#Get-started)
+10. [Env Setup](#Env-Setup)
+11. [WebHook Setup](#WebHook-Setup)
+12. [Page and App Setup](#Page-and-App-Setup)
+13. [Wit.AI Setup](#Wit.AI-Setup)
+14. [Authors](#Authors)
+15. [Credit](#Credit)
+
 
 
 ## Inspiration
