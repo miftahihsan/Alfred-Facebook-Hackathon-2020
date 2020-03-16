@@ -11,13 +11,13 @@
 
 * Check if installation was successful 
     * ``` nodejs -v ```
-    * This should log your installed Node js Version
+    * This should log your installed Node js Version.
 
 ### WebHook Setup
 
 Fork the Repo to Your Git and clone to your device to Get Started!
 
-* Go to [Facebook  Developers](https://developers.facebook.com/ "Facebook for Developers") and Under MY Apps select Create App.
+* Go to [Facebook  Developers](https://developers.facebook.com/ "Facebook for Developers") and under MY Apps select Create App.
 
 * Fill in The App name and Select Messenger.
 
