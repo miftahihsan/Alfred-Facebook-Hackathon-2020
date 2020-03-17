@@ -22,7 +22,7 @@
 
 ## Demo
 <p align="center">
-  <img src="http://img.youtube.com/vi/28sdB3nGchw/0.jpg">
+  <img width = "100%" src="http://img.youtube.com/vi/28sdB3nGchw/0.jpg">
 </p>
 
 ## Inspiration
