@@ -137,11 +137,13 @@ Fork the Repo to Your Git and clone to your device to Get Started!
 
 * Copy the URL example - **https://myNewApp.herokuapp.com/** 
 
-* Go to Your App that you opened on Facebook Developers and go to settings. Click on Add Callback Url and enter the details as shown below.
+* Go to Your App that you opened on Facebook Developers and go to settings. Click on Add Callback Url.
 
 <p align="center">
     <img src = "DocImage/call-back-url.png" </img>
 </p>
+
+* Add **webhook** to your URL path and paste it in CallBack Url.
 
 <p align="center">
     <img src = "DocImage/paste-call-back-url.png" </img>
