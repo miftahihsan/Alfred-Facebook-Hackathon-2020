@@ -120,12 +120,16 @@ Fork the Repo to Your Git and clone to your device to Get Started!
 
 * Go to settings and select Reveal Config Vars. Put your **PAGE_ACCES_TOKEN** here, along with **VERIFY_TOKEN** which can be any random String of your choice.
 
-![](DocImage/reveal-config.png)
+<p align="center">
+    <img src = "DocImage/reveal-config.png" </img>
+</p>
 
 * Now go to Deploy and GitHub. If your account is not already connected, connect your account and deploy your forked repo. 
   **NOTE : Make sure to specify the branch which you would like to deploy.** 
 
-![](DocImage/build-complete.png)
+<p align="center">
+    <img src = "DocImage/build-complete.png" </img>
+</p>
 
 * After You are Done deploying click on View app and you will be taken to the URL of your app.
 
@@ -133,9 +137,13 @@ Fork the Repo to Your Git and clone to your device to Get Started!
 
 * Go to Your App that you opened on Facebook Developers and go to settings. Click on Add Callback Url and enter the details as shown below.
 
-![](DocImage/call-back-url.png)
+<p align="center">
+    <img src = "DocImage/call-back-url.png" </img>
+</p>
 
-![](DocImage/paste-call-back-url.png)
+<p align="center">
+    <img src = "DocImage/paste-call-back-url.png" </img>
+</p>
 
 * Congratulations! You are Half way there 🎉🎉🎉. Your webhook setup is now complete!!
 
