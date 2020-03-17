@@ -21,7 +21,7 @@
 
 
 ## Demo
-[![](http://img.youtube.com/vi/28sdB3nGchw/0.jpg)](http://www.youtube.com/watch?v=28sdB3nGchw "Alfred - The Botler"){: .center}
+[![](http://img.youtube.com/vi/28sdB3nGchw/0.jpg)](http://www.youtube.com/watch?v=28sdB3nGchw "Alfred - The Botler")
 
 ## Inspiration
 
