@@ -98,11 +98,13 @@ Fork the Repo to Your Git and clone to your device to Get Started!
 
 * Go to [Facebook  Developers](https://developers.facebook.com/ "Facebook for Developers") and under My Apps select Create App.
 
-* Fill in The App name and Select Messenger.
+* Fill in The App name.
 
 <p align="center">
     <img src = "DocImage/create-New-App.png" </img>
 </p>
+
+* Select Messenger.
 
 <p align="center">
     <img src = "DocImage/selectMessenger.png" </img>
