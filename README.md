@@ -126,7 +126,7 @@ Fork the Repo to Your Git and clone to your device to Get Started!
     <img src = "DocImage/reveal-config.png" </img>
 </p>
 
-* Now go to Deploy and GitHub. If your account is not already connected, connect your account and deploy your forked repo. 
+* Now go to Deploy and select GitHub. If your account is not already connected, connect your account and deploy your forked repo. 
   **NOTE : Make sure to specify the branch which you would like to deploy.** 
 
 <p align="center">
