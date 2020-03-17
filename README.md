@@ -143,7 +143,7 @@ Fork the Repo to Your Git and clone to your device to Get Started!
     <img src = "DocImage/call-back-url.png" </img>
 </p>
 
-* Add **webhook** to your URL path and paste it in CallBack Url.
+* Add **webhook** to your URL path and paste it in CallBack Url. Also add the **VERIFY_TOKEN** that you used as your Heroku Config Variable.
 
 <p align="center">
     <img src = "DocImage/paste-call-back-url.png" </img>
