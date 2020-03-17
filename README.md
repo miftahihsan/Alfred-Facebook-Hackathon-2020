@@ -23,7 +23,7 @@
 ## Demo
 
 <p align="center">
- <a href = "https://www.youtube.com/watch?v=28sdB3nGchw&feature=youtu.be&fbclid=IwAR2_gU3X0lWuFLF6PJYyQL4pJSoYkzb-teOv_wlKfYN1cFWcmgZ5B54dOTE">
+ <a href = "https://www.youtube.com/watch?v=28sdB3nGchw&feature=youtu.be&fbclid=IwAR2_gU3X0lWuFLF6PJYyQL4pJSoYkzb-teOv_wlKfYN1cFWcmgZ5B54dOTE" target="_blank">
  <img src = "http://img.youtube.com/vi/28sdB3nGchw/0.jpg" </img>
  </a>
 </p>
@@ -108,7 +108,9 @@ Fork the Repo to Your Git and clone to your device to Get Started!
 
 * Create a new Facebook Page and Add that Page to your new App.
 
-![](DocImage/add-page.png)
+<p align="center">
+    <img src = "DocImage/add-page.png" </img>
+</p>
 
 * Your app will provide you with an access Key.
 
