@@ -22,7 +22,7 @@
 
 ## Demo
 <p align="center">
-  <img width = "100%" src="http://img.youtube.com/vi/28sdB3nGchw/0.jpg">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/28sdB3nGchw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </p>
 
 ## Inspiration
