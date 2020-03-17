@@ -2,28 +2,26 @@
 
 
 # Table of Contents
-1. [Inspiration](#inspiration)
-2. [What it does](#what-it-does)
-3. [How we built it](#how-we-built-it)
-4. [Challenges we ran into](#challenges-we-ran-into)
-5. [Accomplishments that we're proud of](#accomplishments-that-we-are-proud-of) 
-6. [What we learned](#what-we-learned)
-7. [What's next for Alfred](#what-is-next-for-alfred)
-8. [Built With](#built-with)
-9. [Get Started](#get-started)
-10. [Env Setup](#env-setup)
-11. [WebHook Setup](#webhook-setup)
-12. [Page and App Setup](#page-and-app-setup)
-13. [Wit.AI Setup](#wit-ai-setup)
-14. [Authors](#authors)
-15. [Credit](#credit)
+1. [Demo](#demo)
+2. [Inspiration](#inspiration)
+3. [What it does](#what-it-does)
+4. [How we built it](#how-we-built-it)
+5. [Challenges we ran into](#challenges-we-ran-into)
+6. [Accomplishments that we're proud of](#accomplishments-that-we-are-proud-of) 
+7. [What we learned](#what-we-learned)
+8. [What's next for Alfred](#what-is-next-for-alfred)
+9. [Built With](#built-with)
+10. [Get Started](#get-started)
+11. [Env Setup](#env-setup)
+12. [WebHook Setup](#webhook-setup)
+13. [Page and App Setup](#page-and-app-setup)
+14. [Wit.AI Setup](#wit-ai-setup)
+15. [Authors](#authors)
+16. [Credit](#credit)
 
 
 ## Demo
-<p align="center">
-  [![](http://img.youtube.com/vi/28sdB3nGchw/0.jpg)](http://www.youtube.com/watch?v=28sdB3nGchw "Alfred - The Botler")
-</p>
-
+[![](http://img.youtube.com/vi/28sdB3nGchw/0.jpg)](http://www.youtube.com/watch?v=28sdB3nGchw "Alfred - The Botler")
 
 ## Inspiration
 
