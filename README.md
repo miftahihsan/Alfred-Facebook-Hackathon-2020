@@ -23,6 +23,8 @@
 ## Demo
 [![](http://img.youtube.com/vi/28sdB3nGchw/0.jpg)](http://www.youtube.com/watch?v=28sdB3nGchw "Alfred - The Botler")
 
+<iframe align="right" width="560" height="315" src="https://www.youtube.com/embed/28sdB3nGchw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ## Inspiration
 
 A large office comprising of thirty or more employees can become a chaotic environment if not well managed. Lack of systematic workplace collaboration systems can lead to low company morale and increased stress levels. Extensive bureaucratic management styles can help mediate the chaos and bring order to an office even with a large number of employees by systematically conducting meetings and such. However, micromanagement and excessive restrictions can hinder creativity and therefore innovation. We tried to develop a product that can help bring some order to the chaos of the office while also providing a platform where everyone has a voice. We wanted to do all of this while also not creating barriers to individual creativity. **Enter Alfred - A personal chatbot that helps everyone stay on schedule and on top of their work game by answering any workplace questions they might have.**
