@@ -136,13 +136,13 @@ app.post('/webhook', (req, res) => {
 
       // var startTime = new Date().getTime();
 
-      if( redisClient.get( sender_psid+"_Employee" ) != null ){
+      // if( redisClient.get( sender_psid+"_Employee" ) != null ){
 
-        user_info = redisClient.get( sender_psid+"_user_info" );
-        employee_checker = redisClient.get( sender_psid+"_Employee" );
-        publicUser_checker = null;
-      }
-      else{
+      //   user_info = redisClient.get( sender_psid+"_user_info" );
+      //   employee_checker = redisClient.get( sender_psid+"_Employee" );
+      //   publicUser_checker = null;
+      // }
+      // else{
 
         // fetch user personal data
         user_info = getUserName(sender_psid);
@@ -153,7 +153,36 @@ app.post('/webhook', (req, res) => {
         employee_checker =  DynamoDB.getUserInfo( sender_psid, "Employee" );
         publicUser_checker =  DynamoDB.getUserInfo( sender_psid, "PublicUser" );
 
-      }
+      // }
+
+      redisClient.get(  sender_psid+"_Employee", ( err, data ) => {
+        if( err ){
+          // fetch user personal data
+          user_info = getUserName(sender_psid);
+          
+          /*
+          * Fetch data from user and employee Table AWS DynamboDB.
+          */
+          employee_checker =  DynamoDB.getUserInfo( sender_psid, "Employee" );
+          publicUser_checker =  DynamoDB.getUserInfo( sender_psid, "PublicUser" );
+        }
+
+        if( data != null ){
+          user_info = redisClient.get( sender_psid+"_user_info" );
+          employee_checker = redisClient.get( sender_psid+"_Employee" );
+          publicUser_checker = null;
+        }
+        else{
+          user_info = getUserName(sender_psid);
+          
+          /*
+          * Fetch data from user and employee Table AWS DynamboDB.
+          */
+          employee_checker =  DynamoDB.getUserInfo( sender_psid, "Employee" );
+          publicUser_checker =  DynamoDB.getUserInfo( sender_psid, "PublicUser" );
+        }
+
+      })
       
 
 
