@@ -30,11 +30,11 @@ const REDIS_PORT = process.env.PORT || 6379;
 const redisClient = redis.createClient( REDIS_PORT );
 
 redisClient.on('connect', () =>{
-  // console.log('Redis client connected');
+  console.log('Redis client connected');
 });
 
 redisClient.on('error', () =>{
-  // console.log('Redis client CAUSING PROBLEMS!!!');
+  console.log('Redis client CAUSING PROBLEMS!!!');
 })
 
 // Sets server port and logs message on success
@@ -164,6 +164,32 @@ app.post('/webhook', (req, res) => {
 
       // }
 
+      console.log( redisClient.get(  sender_psid+"_Employee", ( err, data ) => {
+        if( err ) {
+          console.log("HEREEEEEEEEEEEEEEEEEEEEEEE ERRORRRRRRRRRRRRRRRRRRRRRRr");
+          throw err;
+        }
+
+        console.log("--------------------------------------------" + data);
+        
+
+        // if( data !== null ){
+        //   user_info = redisClient.get( sender_psid+"_user_info" );
+        //   employee_checker = redisClient.get( sender_psid+"_Employee" );
+        //   publicUser_checker = null;
+        // }
+        // else{
+        //   user_info = getUserName(sender_psid);
+          
+        //   /*
+        //   * Fetch data from user and employee Table AWS DynamboDB.
+        //   */
+        //   employee_checker =  DynamoDB.getUserInfo( sender_psid, "Employee" );
+        //   publicUser_checker =  DynamoDB.getUserInfo( sender_psid, "PublicUser" );
+        // }
+
+      }) );
+      
       redisClient.get(  sender_psid+"_Employee", ( err, data ) => {
         if( err ) {
           console.log("HEREEEEEEEEEEEEEEEEEEEEEEE ERRORRRRRRRRRRRRRRRRRRRRRRr");
