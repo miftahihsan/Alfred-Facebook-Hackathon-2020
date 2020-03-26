@@ -297,9 +297,9 @@ app.post('/webhook', (req, res) => {
              *  that we kept updating through out the script.
              */
 
-            // redisClient.setex( sender_psid+"_user_info", 120, user_info );
-            // redisClient.setex( sender_psid+"_Employee", 120, employee_checker );
-            // redisClient.set( sender_psid+"_PublicUser", 120, null );
+            redisClient.setex( sender_psid+"_user_info", 120, user_info );
+            redisClient.setex( sender_psid+"_Employee", 120, employee_checker );
+            redisClient.set( sender_psid+"_PublicUser", 120, null );
 
             DynamoDB.updateUserState(userData['uid'], userData['type'], userData['state']);
 
