@@ -30,11 +30,11 @@ const REDIS_PORT = process.env.PORT || 6379;
 const redisClient = redis.createClient( REDIS_PORT );
 
 redisClient.on('connect', () =>{
-  console.log('Redis client connected');
+  // console.log('Redis client connected');
 });
 
 redisClient.on('error', () =>{
-  console.log('Redis client CAUSING PROBLEMS!!!');
+  // console.log('Redis client CAUSING PROBLEMS!!!');
 })
 
 // Sets server port and logs message on success
