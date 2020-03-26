@@ -1,4 +1,4 @@
-const Information = require('./Information');
+
 class Response{
     static genQuickReply(text, quickReplies) {
         let response = {
@@ -102,9 +102,6 @@ class Response{
         return response;
     }
 
-    static getFlightDetails( userData ){
-        return Information.flightDetails( userData );
-    }
 
     static genReminders(uid, reminders ){
        // console.log(uid);

@@ -2,6 +2,7 @@
 
 // These are all Server related imports
 const
+  redis = require('redis'),
   fetch = require('node-fetch'),
   express = require('express'),
   bodyParser = require('body-parser'),
@@ -14,7 +15,6 @@ const
 
 const
   Nlp = require('./Nlp.js'),
-  DataBase = require('./DataBase.js'),
   Response = require("./response.js"),
   DynamoDB = require('./Dynamo.js');
 
@@ -24,6 +24,10 @@ var async = require('async');
 var userData = {};
 
 const nlp = new Nlp();
+
+const REDIS_PORT = process.env.PORT || 6379;
+
+const redisClient = redis.createClient( REDIS_PORT )
 
 // Sets server port and logs message on success
 app.listen(process.env.PORT || 8000, () => console.log('webhook is listening'));
@@ -126,15 +130,33 @@ app.post('/webhook', (req, res) => {
 
       console.log('Sender PSID: ' + sender_psid);
       
+      var user_info;
+      var employee_checker;
+      var publicUser_checker;
 
-      // fetch user personal data
-      var user_info = getUserName(sender_psid);
+      var startTime = new Date().getTime();
+
+      if( redisClient.get( sender_psid+"_Employee" ) != null ){
+
+        user_info = redisClient.get( sender_psid+"_user_info" );
+        employee_checker = redisClient.get( sender_psid+"_Employee" );
+        publicUser_checker = null;
+      }
+      else{
+
+        // fetch user personal data
+        user_info = getUserName(sender_psid);
+        
+        /*
+        * Fetch data from user and employee Table AWS DynamboDB.
+        */
+        employee_checker =  DynamoDB.getUserInfo( sender_psid, "Employee" );
+        publicUser_checker =  DynamoDB.getUserInfo( sender_psid, "PublicUser" );
+
+      }
       
-      /*
-       * Fetch data from user and employee Table AWS DynamboDB.
-       */
-      var employee_checker =  DynamoDB.getUserInfo( sender_psid, "Employee" );
-      var publicUser_checker =  DynamoDB.getUserInfo( sender_psid, "PublicUser" );
+
+
    
 
       /*
@@ -145,6 +167,8 @@ app.post('/webhook', (req, res) => {
             let employee = results[0];
             let publicUser = results[1];
             let user_name = results[2];
+
+            console.log( "total Time taken = " +  new Date().getTime() - startTime );
 
             /* 
              *  Storing all the data fetched from the database to a local variable for 
@@ -207,6 +231,11 @@ app.post('/webhook', (req, res) => {
              *  After the Script Executes the we update the database with the JSON variable
              *  that we kept updating through out the script.
              */
+
+            redisClient.setex( sender_psid+"_user_info", 120, user_info );
+            redisClient.setex( sender_psid+"_Employee", 120, employee_checker );
+            redisClient.set( sender_psid+"_PublicUser", 120, null );
+
             DynamoDB.updateUserState(userData['uid'], userData['type'], userData['state']);
 
           },
