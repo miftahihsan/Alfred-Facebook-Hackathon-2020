@@ -25,9 +25,17 @@ var userData = {};
 
 const nlp = new Nlp();
 
-// const REDIS_PORT = process.env.PORT || 6379;
+const REDIS_PORT = process.env.PORT || 6379;
 
-// const redisClient = redis.createClient( REDIS_PORT )
+const redisClient = redis.createClient( REDIS_PORT );
+
+redisClient.on('connect', () =>{
+  console.log('Redis client connected');
+});
+
+redisClient.on('error', () =>{
+  console.log('Redis client CAUSING PROBLEMS!!!');
+})
 
 // Sets server port and logs message on success
 app.listen(process.env.PORT || 8000, () => console.log('webhook is listening'));
