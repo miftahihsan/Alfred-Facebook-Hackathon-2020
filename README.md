@@ -1,23 +1,32 @@
-# Alfred the HR Botler
+# Alfred The Bot-ler
 
 
 # Table of Contents
-1. [Inspiration](#inspiration)
-2. [What it does](#what-it-does)
-3. [How we built it](#how-we-built-it)
-4. [Challenges we ran into](#challenges-we-ran-into)
-5. [Accomplishments that we're proud of](#accomplishments-that-we-are-proud-of) 
-6. [What we learned](#what-we-learned)
-7. [What's next for Alfred](#what-is-next-for-alfred)
-8. [Built With](#built-with)
-9. [Get Started](#get-started)
-10. [Env Setup](#env-setup)
-11. [WebHook Setup](#webhook-setup)
-12. [Page and App Setup](#page-and-app-setup)
-13. [Wit.AI Setup](#wit-ai-setup)
-14. [Authors](#authors)
-15. [Credit](#credit)
+1. [Demo](#demo)
+2. [Inspiration](#inspiration)
+3. [What it does](#what-it-does)
+4. [How we built it](#how-we-built-it)
+5. [Challenges we ran into](#challenges-we-ran-into)
+6. [Accomplishments that we're proud of](#accomplishments-that-we-are-proud-of) 
+7. [What we learned](#what-we-learned)
+8. [What's next for Alfred](#what-is-next-for-alfred)
+9. [Built With](#built-with)
+10. [Get Started](#get-started)
+11. [Env Setup](#env-setup)
+12. [WebHook Setup](#webhook-setup)
+13. [Page and App Setup](#page-and-app-setup)
+14. [Wit.AI Setup](#wit-ai-setup)
+15. [Authors](#authors)
+16. [Credit](#credit)
 
+
+## Demo
+### Click to view Demo Video!
+<p align="center">
+ <a target="_blank" href = "https://www.youtube.com/watch?v=28sdB3nGchw&feature=youtu.be&fbclid=IwAR2_gU3X0lWuFLF6PJYyQL4pJSoYkzb-teOv_wlKfYN1cFWcmgZ5B54dOTE">
+ <img target="_blank" src = "DocImage/screenshot2.png" </img>
+ </a>
+</p>
 
 
 ## Inspiration
@@ -32,7 +41,7 @@ Alfred is a messenger chatbot, a personal assistant catered to the needs every e
 
 ## How we built it
 
-We used messenger platform to host the chatbot. We hosted our message response server on Heroku. We used AWS for maintaining the company database. For natural language processing, we used Wit.ai/.
+We used the messenger platform to host the chatbot. Various features such as **WebViews**, **Templates** and **Messenger Profile API** helped our bot to be more dynamic and personalized. We also used the **Handover Protocol API** to allow users to get help from a human for more complex tasks. We hosted our message response server on **Heroku**. We used **AWS DynamoDB** for maintaining the company database. For natural language processing, we used **Wit.ai**.
 
 ## Challenges we ran into
 
@@ -89,17 +98,23 @@ Fork the Repo to Your Git and clone to your device to Get Started!
 
 * Go to [Facebook  Developers](https://developers.facebook.com/ "Facebook for Developers") and under My Apps select Create App.
 
-* Fill in The App name and Select Messenger.
+* Fill in The App name.
 
+<p align="center">
+    <img src = "DocImage/create-New-App.png" </img>
+</p>
 
-![](DocImage/create-New-App.png)
+* Select Messenger.
 
-
-![](DocImage/selectMessenger.png)
+<p align="center">
+    <img src = "DocImage/selectMessenger.png" </img>
+</p>
 
 * Create a new Facebook Page and Add that Page to your new App.
 
-![](DocImage/add-page.png)
+<p align="center">
+    <img src = "DocImage/add-page.png" </img>
+</p>
 
 * Your app will provide you with an access Key.
 
@@ -107,31 +122,43 @@ Fork the Repo to Your Git and clone to your device to Get Started!
 
 * Go to settings and select Reveal Config Vars. Put your **PAGE_ACCES_TOKEN** here, along with **VERIFY_TOKEN** which can be any random String of your choice.
 
-![](DocImage/reveal-config.png)
+<p align="center">
+    <img src = "DocImage/reveal-config.png" </img>
+</p>
 
-* Now go to Deploy and GitHub. If your account is not already connected, connect your account and deploy your forked repo. 
+* Now go to Deploy and select GitHub. If your account is not already connected, connect your account and deploy your forked repo. 
   **NOTE : Make sure to specify the branch which you would like to deploy.** 
 
-![](DocImage/build-complete.png)
+<p align="center">
+    <img src = "DocImage/build-complete.png" </img>
+</p>
 
 * After You are Done deploying click on View app and you will be taken to the URL of your app.
 
 * Copy the URL example - **https://myNewApp.herokuapp.com/** 
 
-* Go to Your App that you opened on Facebook Developers and go to settings. Click on Add Callback Url and enter the details as shown below.
+* Go to Your App that you opened on Facebook Developers and go to settings. Click on Add Callback Url.
 
-![](DocImage/call-back-url.png)
+<p align="center">
+    <img src = "DocImage/call-back-url.png" </img>
+</p>
 
-![](DocImage/paste-call-back-url.png)
+* Add **webhook** to your URL path and paste it in CallBack Url. Also add the **VERIFY_TOKEN** that you used as your Heroku Config Variable.
 
-* Your webhook setup is now complete!!
+<p align="center">
+    <img src = "DocImage/paste-call-back-url.png" </img>
+</p>
+
+* Congratulations! You are Half way there 🎉🎉🎉. Your webhook setup is now complete!!
 
 
 ### Page and App Setup
 
 Go to your App and subscribe to these following features.
 
-![](DocImage/features.png)
+<p align="center">
+    <img src = "DocImage/features.png" </img>
+</p>
 
 * Open your Facebook Page and go to settings
     * Go to Advanced Messaging.
@@ -151,8 +178,8 @@ Any database can be used as per user choice.
 
 ### Wit AI Setup
 
-If the documentation was followed correctly your app should be up and running. But now lets integrate NLP. Go to [WitAI](https://wit.ai/) and
-[Facebook NLP](https://developers.facebook.com/docs/messenger-platform/built-in-nlp/) follow their Documentation to connect your application with their NLP.
+If the documentation was followed correctly your app should be up and running. Now lets integrate NLP. Go to [WitAI](https://wit.ai/) and
+[Facebook NLP](https://developers.facebook.com/docs/messenger-platform/built-in-nlp/) follow their Documentation to connect your application with their API.
 
 After connecting Train the NLP to these states and you are all done!!
 

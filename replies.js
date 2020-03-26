@@ -895,7 +895,7 @@ class Replies {
       Responses.genTextReply("\u2022 What are the new law changes introduced in the company?\n\n" +
         "\u2022 What are my rights as an employee in the company?"),
       Responses.genQuickReply("\u2022 What are the privacy laws concerning employees?\n\n" +
-        "\u2022 Can I buy shares for Wayne Enterprises as an employee?\n\n",
+        "\u2022 Can I buy shares for ABC company as an employee?\n\n",
           this.button["CORPORATE_LAW_BTN"]
         )
       ],
