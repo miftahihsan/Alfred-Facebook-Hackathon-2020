@@ -134,7 +134,7 @@ app.post('/webhook', (req, res) => {
       var employee_checker;
       var publicUser_checker;
 
-      var startTime = new Date().getTime();
+      // var startTime = new Date().getTime();
 
       if( redisClient.get( sender_psid+"_Employee" ) != null ){
 
@@ -168,7 +168,7 @@ app.post('/webhook', (req, res) => {
             let publicUser = results[1];
             let user_name = results[2];
 
-            console.log( "total Time taken = " +  new Date().getTime() - startTime );
+            // console.log( "total Time taken = " +  new Date().getTime() - startTime );
 
             /* 
              *  Storing all the data fetched from the database to a local variable for 
