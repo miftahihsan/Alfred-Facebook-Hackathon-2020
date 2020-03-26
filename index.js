@@ -164,14 +164,15 @@ app.post('/webhook', (req, res) => {
 
       // }
 
+      console.log("LOGGIN EAWEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE");
+      
       console.log( redisClient.get(  sender_psid+"_Employee", ( err, data ) => {
         if( err ) {
           console.log("HEREEEEEEEEEEEEEEEEEEEEEEE ERRORRRRRRRRRRRRRRRRRRRRRRr");
           throw err;
         }
 
-        console.log("--------------------------------------------" + data);
-        
+        return data;        
 
         // if( data !== null ){
         //   user_info = redisClient.get( sender_psid+"_user_info" );
